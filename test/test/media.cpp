@@ -1,4 +1,15 @@
 #include "media.h"
+#include <iostream>
+#include <QCoreApplication>
+#include <QApplication>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QMessageBox>
+#include <cctype>
+
+using namespace std;
 
 /*class mediaData : public QSharedData
 {
@@ -18,19 +29,20 @@ Media::Media(QString titre,QString description,QString type,QString producteur,i
     this->date=date;
     this->image=image;
 }
-bool Media::ajouterMedia()
+bool Media::ajouterMedia(QString titre,QString description,QByteArray image,QString producteur,QString type )
 {
     QSqlQuery query;
-    query.prepare("insert into media(titre,description,image,producteur,type,nbrVue,date)" "values(:titre, :description, :image, :producteur, :type, :nbrVue, :date)");
-    query.bindValue(":titre",titre);
-    query.bindValue(":description",description);
-    query.bindValue(":image",image);
-    query.bindValue(":producteur",producteur);
-    query.bindValue(":type",type);
-    query.bindValue(":nbrVue",nbrVue);
-    query.bindValue(":date",date);
+    query.prepare("insert into MEDIA(TITRE , DESCRIPTION , IMAGE , PRODUCTEUR , TYPE) VALUES ( :titre , :description , :image , :producteur , :type)");
+    query.bindValue(":titre", titre);
+    query.bindValue(":description", description);
+    query.bindValue(":image", image);
+    query.bindValue(":producteur", producteur);
+    query.bindValue(":type", type);
     return query.exec();
 }
+
+
+
 QSqlQueryModel * Media::afficherMedia()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
@@ -44,10 +56,13 @@ QSqlQueryModel * Media::afficherMedia()
           model->setHeaderData(0,Qt::Horizontal,QObject::tr("date"));
           return model;
 }
+
+
+
 bool Media::supprimerMedia(QString titre)
 {
     QSqlQuery query;
-    QString res=QString::char(titre);
+    QString res=titre;
     query.prepare("Delete from media where titre= :titre");
     query.bindValue(":titre",res);
     return query.exec();

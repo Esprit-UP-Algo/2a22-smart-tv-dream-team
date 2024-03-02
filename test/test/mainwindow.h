@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,7 +33,7 @@ private slots:
 
     void on_addButtonM_clicked();
 
-    void on_seriesM_clicked();
+    void on_button1_clicked();
 
     void on_returnButtonM_clicked();
 
@@ -58,14 +59,16 @@ private slots:
     void on_brandsButton_2M_clicked();
 
     void on_brandsButtonM_clicked();
-    void importImage();
-
+    QByteArray importImage();
     void on_vewatch_2M_clicked();
+    void afficherDonnees();
+     void afficherDescription();
 
 private:
     Ui::MainWindow *ui;
     bool isTrieButtonClicked = false;
-
+    QString type ;
+    QList<QPushButton*> buttonsList;
 
 };
 #endif // MAINWINDOW_H

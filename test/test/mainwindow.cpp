@@ -27,10 +27,64 @@ MainWindow::MainWindow(QWidget *parent)
      ui->barreTrie_2M->setVisible(false);
 
      connect(ui->imageButtonM, &QPushButton::clicked, this, &MainWindow::importImage);
+     connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
+         type = "Radio";
+     });
+
+     connect(ui->radioButton_2M, &QRadioButton::clicked, this, [=]() {
+         type = "Channel";
+     });
+
+         afficherDonnees();
 
 
+}
 
+void MainWindow::afficherDonnees() {
+    QSqlQuery query;
+    query.prepare("SELECT IMAGE, DESCRIPTION FROM MEDIA WHERE TYPE = 'Channel'");
+    if (query.exec()) {
+        int i = 1; // Index de bouton commence à 1
+        while (query.next()) {
+            QByteArray imageData = query.value(0).toByteArray();
+            QString description = query.value(1).toString();
 
+            // Créer le nom du bouton
+            QString buttonName = "button" + QString::number(i);
+
+            // Convertir les données d'image en QIcon
+            QIcon icon;
+            QPixmap pixmap;
+            pixmap.loadFromData(imageData);
+            icon.addPixmap(pixmap);
+
+            // Assigner l'image au bouton correspondant
+            QPushButton *button = findChild<QPushButton *>(buttonName);
+            if (button) {
+                button->setIcon(icon);
+                button->setIconSize(pixmap.size());
+                button->setProperty("description", description);
+
+                // Connecter le signal clicked de chaque bouton à la fonction afficherDescription
+                connect(button, &QPushButton::clicked, this, &MainWindow::afficherDescription);
+            }
+
+            i++; // Incrémenter l'index de bouton
+        }
+    }
+}
+
+void MainWindow::afficherDescription() {
+    // Récupérer le bouton qui a été cliqué
+    QPushButton *button = qobject_cast<QPushButton*>(sender());
+    if (!button)
+        return;
+
+    // Récupérer la description associée au bouton
+    QString description = button->property("description").toString();
+
+    // Afficher la description dans le label
+    ui->label_3M->setText(description);
 }
 
 MainWindow::~MainWindow()
@@ -76,26 +130,31 @@ void MainWindow::on_modifyButtonM_clicked()
 void MainWindow::on_addButtonM_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
-
-    QString titre=ui->TitleM->text();
-    QString producteur=ui->ProducerM->text();
-    QString description=ui->textEditM->toPlainText();
-    //QByteArray image=ui->imageButtonM->text();
-    Media m;//(titre,description,"",producteur,0,"","");
-    bool test=m.ajouterMedia();
-    if(test)
-    { QMessageBox::information(nullptr, QObject::tr("ok"),
-                              QObject::tr("Ajout effectué.\n"
-                                          "Click Cancel to exit."), QMessageBox::Cancel);}
-    else
-    {QMessageBox::critical(nullptr, QObject::tr(" Not ok"),
-                                      QObject::tr("Ajout non effectué.\n"
-                                                  "Click Cancel to exit."), QMessageBox::Cancel);}
+    Media m;
+    QString titre = ui->TitleM->text();
+    QString producteur = ui->ProducerM->text();
+    QString description = ui->textEditM->toPlainText();
 
 
+
+    QByteArray image = importImage();
+    bool test = m.ajouterMedia(titre, description, image, producteur, type);
+    if (test) {
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                                 QObject::tr("Ajout effectué.\n"
+                                             "Cliquez sur OK pour quitter."),
+                                 QMessageBox::Ok);
+    } else {
+        QMessageBox::critical(nullptr, QObject::tr("Not OK"),
+                              QObject::tr("Ajout non effectué.\n"
+                                          "Cliquez sur OK pour quitter."),
+                              QMessageBox::Ok);
+    }
 }
 
-void MainWindow::on_seriesM_clicked()
+
+
+void MainWindow::on_button1_clicked()
 {
     if (ui->label_3M->isVisible()) {
             ui->label_3M->setVisible(false);
@@ -225,12 +284,28 @@ void MainWindow::on_brandsButtonM_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
-void MainWindow::importImage()
+QByteArray MainWindow::importImage()
 {
     // Ouvrir une boîte de dialogue pour sélectionner un fichier
     QString imagePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "", tr("Image Files (*.png *.jpg *.bmp)"));
- }
 
+    // Vérifier si un fichier a été sélectionné
+    if (!imagePath.isEmpty()) {
+        QFile file(imagePath);
+        if (file.open(QIODevice::ReadOnly)) {
+            // Lire les données de l'image
+            QByteArray imageData = file.readAll();
+            file.close();
+            return imageData;
+        } else {
+            qDebug() << "Erreur: Impossible d'ouvrir le fichier image.";
+        }
+    } else {
+        qDebug() << "Erreur: Aucun fichier image sélectionné.";
+    }
+
+    return QByteArray(); // Retourner un QByteArray vide en cas d'erreur
+}
 void MainWindow::on_vewatch_2M_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);

@@ -1,7 +1,20 @@
 #ifndef MEDIA_H
 #define MEDIA_H
 
+#include <iostream>
+
+using namespace std;
+#include <string>
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QSqlQuery>
+#include<QtSql>
+#include <QBuffer>
+#include <QString>
+#include <QStandardItemModel>
+#include <QStyledItemDelegate>
+
+
 #include <QSqlQueryModel>
 #include <QString>
 #include <QDate>
@@ -13,9 +26,10 @@ class Media
 {
 
 public:
+    //Constructeurs
     Media(){};
     Media(QString,QString,QString,QString,int,QDate,QByteArray);
-    ~Media();
+    //~Media();
 
     //Getters
     QString getTitre(){return  titre;};
@@ -36,14 +50,15 @@ public:
     void setDate( QDate d){date=d;};
 
     //fct
-    bool ajouterMedia();
+    bool ajouterMedia(QString titre,QString description,QByteArray image,QString producteur,QString type);
     QSqlQueryModel * afficherMedia();
     bool supprimerMedia(QString);
     bool modifierMedia(QString);
+    void afficherChannel();
 
 private:
     //QSharedDataPointer<mediaData> data;
-    QString titre,description,producteur,type;
+    QString titre, description, producteur, type;
     int nbrVue;
     QDate date;
     QByteArray image;

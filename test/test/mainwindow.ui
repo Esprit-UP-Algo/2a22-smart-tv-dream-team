@@ -103,7 +103,7 @@ background-color:transparent}
        <enum>QFrame::Sunken</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_0">
        <widget class="QPushButton" name="loM">
@@ -138,7 +138,7 @@ border:transparent;}
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
-       <widget class="QPushButton" name="seriesM">
+       <widget class="QPushButton" name="button1">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -485,7 +485,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;Welcome to VWATCH GROUP - the largest and leadind media company in the north of Africa.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="series_2M">
+       <widget class="QPushButton" name="button2">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -540,7 +540,7 @@ border:transparent;}
        <zorder>label_3M</zorder>
        <zorder>returnButtonM</zorder>
        <zorder>loM</zorder>
-       <zorder>seriesM</zorder>
+       <zorder>button1</zorder>
        <zorder>modifyButtonM</zorder>
        <zorder>deleteButtonM</zorder>
        <zorder>trieButtonM</zorder>
@@ -551,7 +551,7 @@ border:transparent;}
        <zorder>labelM</zorder>
        <zorder>label_16M</zorder>
        <zorder>textEdit_2M</zorder>
-       <zorder>series_2M</zorder>
+       <zorder>button2</zorder>
        <zorder>statisticsM</zorder>
       </widget>
       <widget class="QWidget" name="page_1">
@@ -613,7 +613,7 @@ background-color:white;</string>
          <enum>Qt::NoContextMenu</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true">background:url(../images/form.png);
+         <string notr="true">background:url(&quot;../images/form.png&quot;);
 
 border-radius:50px;
 border-color:white;
