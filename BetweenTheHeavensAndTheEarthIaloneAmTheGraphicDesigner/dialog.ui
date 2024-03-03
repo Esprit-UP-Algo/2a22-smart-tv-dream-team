@@ -10535,7 +10535,11 @@ color:rgba(255,255,255,255);
         max-width : 400;
         max-height : 400;
 
-}</string>
+}
+QHeaderView::section {background-color: rgba(255,255,255,120);
+color:black;}
+              QHeaderView {background-color: rgba(49,28,71,100);
+color:black;}</string>
     </property>
     <widget class="QLabel" name="label_476">
      <property name="geometry">
@@ -10842,16 +10846,12 @@ color:rgb(255,255,255);
       <rect>
        <x>280</x>
        <y>90</y>
-       <width>1249</width>
+       <width>1241</width>
        <height>699</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
-border: 1px solid white;
-
-color: black;
-</string>
+      <string notr="true">background-color:rgb(255, 255, 255);</string>
      </property>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>true</bool>
@@ -10875,9 +10875,9 @@ color: black;
     <widget class="QTextEdit" name="textEdittr_2">
      <property name="geometry">
       <rect>
-       <x>670</x>
+       <x>510</x>
        <y>20</y>
-       <width>461</width>
+       <width>811</width>
        <height>41</height>
       </rect>
      </property>
@@ -10897,61 +10897,10 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
       <string>Search</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_48tr_2">
-     <property name="geometry">
-      <rect>
-       <x>1030</x>
-       <y>20</y>
-       <width>20</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(0, 0, 0,0);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
-border: 2px solid rgba(0,0,0,0);
-border-left-color:rgba(255,255,255,100);
-color:rgb(255,255,255);
-padding-bottom:7px;
-border-radius:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="gg_5tr_2">
-     <property name="geometry">
-      <rect>
-       <x>1040</x>
-       <y>20</y>
-       <width>31</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#gg_5tr_2
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#gg_5tr_2:hover
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="gg_2tr_2">
      <property name="geometry">
       <rect>
-       <x>1090</x>
+       <x>1280</x>
        <y>20</y>
        <width>31</width>
        <height>41</height>
@@ -10980,7 +10929,7 @@ color:rgba(255,255,255,255);
     <widget class="QLabel" name="label_47tr_2">
      <property name="geometry">
       <rect>
-       <x>1080</x>
+       <x>1270</x>
        <y>20</y>
        <width>16</width>
        <height>41</height>
@@ -10999,22 +10948,104 @@ border-radius:0px;</string>
       <string/>
      </property>
     </widget>
-    <zorder>label_476</zorder>
-    <zorder>label_475</zorder>
-    <zorder>label_605</zorder>
-    <zorder>hihi_179</zorder>
-    <zorder>hihi_180</zorder>
-    <zorder>label_606</zorder>
-    <zorder>label_607</zorder>
-    <zorder>hihi_181</zorder>
-    <zorder>label_608</zorder>
-    <zorder>pushButton_63</zorder>
-    <zorder>tableViewtr</zorder>
-    <zorder>textEdittr_2</zorder>
-    <zorder>gg_2tr_2</zorder>
-    <zorder>gg_5tr_2</zorder>
-    <zorder>label_47tr_2</zorder>
-    <zorder>label_48tr_2</zorder>
+    <widget class="QComboBox" name="comboBox_4">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>20</y>
+       <width>351</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#comboBox_4
+{
+border:1 px solid #ced4da;
+
+padding-left:10px;
+background:transparent;
+color : rgba(255,255,255,200);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+}
+#comboBox_4::drop-down{
+border:0px;
+}
+#comboBox_4::down-arrow{
+image:url(D:\Untitled_design__5_-removebg-preview.png);
+width:30px;
+height:30px;
+margin-right:18px;
+}
+#comboBox_4 QListView{
+border:1 px solid #ced4da;
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+padding:5px;
+outline:0px;
+border-radius:20px;
+selection-background-color: rgba(190,190,190,100);
+background-color:rgba(190,190,190,100);
+}
+#comboBox_4 QListView::item{
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+selection-background-color:rgba(190,190,190,100);
+background-color:rgba(190,190,190,100);
+border-radius:12px;
+}
+#comboBox_4 QListView::item:hover{
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+selection-background-color:rgba(190,190,190,100);
+background-color:rgba(190,190,190,100);
+border-radius:12px;
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>default</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>date transaction from oldest to newest </string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>date transaction from newest to oldest</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>montant from highest to lowest</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>montant from lowest to highest</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_47tr_3">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>20</y>
+       <width>16</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0, 0, 0,0);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid rgba(0,0,0,0);
+border-left-color:rgba(255,255,255,100);
+color:rgb(255,255,255);
+padding-bottom:7px;
+border-radius:0px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
