@@ -479,10 +479,10 @@ public:
     QPushButton *pushButton_63;
     QTableView *tableViewtr;
     QTextEdit *textEdittr_2;
-    QLabel *label_48tr_2;
-    QPushButton *gg_5tr_2;
     QPushButton *gg_2tr_2;
     QLabel *label_47tr_2;
+    QComboBox *comboBox_4;
+    QLabel *label_47tr_3;
 
     void setupUi(QDialog *Dialog)
     {
@@ -5583,7 +5583,11 @@ public:
 "        max-width : 400;\n"
 "        max-height : 400;\n"
 "\n"
-"}"));
+"}\n"
+"QHeaderView::section {background-color: rgba(255,255,255,120);\n"
+"color:black;}\n"
+"              QHeaderView {background-color: rgba(49,28,71,100);\n"
+"color:black;}"));
         label_476 = new QLabel(viewtransaction);
         label_476->setObjectName(QStringLiteral("label_476"));
         label_476->setGeometry(QRect(0, 0, 1821, 71));
@@ -5733,12 +5737,8 @@ public:
 ""));
         tableViewtr = new QTableView(viewtransaction);
         tableViewtr->setObjectName(QStringLiteral("tableViewtr"));
-        tableViewtr->setGeometry(QRect(280, 90, 1249, 699));
-        tableViewtr->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
-"border: 1px solid white;\n"
-"\n"
-"color: black;\n"
-""));
+        tableViewtr->setGeometry(QRect(280, 90, 1241, 699));
+        tableViewtr->setStyleSheet(QStringLiteral("background-color:rgb(255, 255, 255);"));
         tableViewtr->horizontalHeader()->setCascadingSectionResizes(true);
         tableViewtr->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableViewtr->horizontalHeader()->setStretchLastSection(true);
@@ -5747,7 +5747,7 @@ public:
         tableViewtr->verticalHeader()->setStretchLastSection(true);
         textEdittr_2 = new QTextEdit(viewtransaction);
         textEdittr_2->setObjectName(QStringLiteral("textEdittr_2"));
-        textEdittr_2->setGeometry(QRect(670, 20, 461, 41));
+        textEdittr_2->setGeometry(QRect(510, 20, 811, 41));
         textEdittr_2->setLayoutDirection(Qt::LeftToRight);
         textEdittr_2->setStyleSheet(QLatin1String("border:1 px solid #ced4da;\n"
 "border-radius:12px;\n"
@@ -5756,36 +5756,9 @@ public:
 "background:rgba(190,190,190,100);\n"
 "color : rgba(255,255,255,200);\n"
 "font: 14pt \"MS Shell Dlg 2\";"));
-        label_48tr_2 = new QLabel(viewtransaction);
-        label_48tr_2->setObjectName(QStringLiteral("label_48tr_2"));
-        label_48tr_2->setGeometry(QRect(1030, 20, 20, 41));
-        label_48tr_2->setStyleSheet(QLatin1String("background-color: rgba(0, 0, 0,0);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"border: 2px solid rgba(0,0,0,0);\n"
-"border-left-color:rgba(255,255,255,100);\n"
-"color:rgb(255,255,255);\n"
-"padding-bottom:7px;\n"
-"border-radius:0px;"));
-        gg_5tr_2 = new QPushButton(viewtransaction);
-        gg_5tr_2->setObjectName(QStringLiteral("gg_5tr_2"));
-        gg_5tr_2->setGeometry(QRect(1040, 20, 31, 41));
-        gg_5tr_2->setStyleSheet(QLatin1String("QPushButton#gg_5tr_2\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,150);\n"
-"}\n"
-"QPushButton#gg_5tr_2:hover\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,255);\n"
-"}"));
         gg_2tr_2 = new QPushButton(viewtransaction);
         gg_2tr_2->setObjectName(QStringLiteral("gg_2tr_2"));
-        gg_2tr_2->setGeometry(QRect(1090, 20, 31, 41));
+        gg_2tr_2->setGeometry(QRect(1280, 20, 31, 41));
         gg_2tr_2->setStyleSheet(QLatin1String("QPushButton#gg_2tr_2\n"
 "{\n"
 "font: 20pt \"dripicons-v2\";\n"
@@ -5802,7 +5775,7 @@ public:
 "}"));
         label_47tr_2 = new QLabel(viewtransaction);
         label_47tr_2->setObjectName(QStringLiteral("label_47tr_2"));
-        label_47tr_2->setGeometry(QRect(1080, 20, 16, 41));
+        label_47tr_2->setGeometry(QRect(1270, 20, 16, 41));
         label_47tr_2->setStyleSheet(QLatin1String("background-color: rgba(0, 0, 0,0);\n"
 "font: 12pt \"MS Shell Dlg 2\";\n"
 "border: 2px solid rgba(0,0,0,0);\n"
@@ -5810,23 +5783,60 @@ public:
 "color:rgb(255,255,255);\n"
 "padding-bottom:7px;\n"
 "border-radius:0px;"));
+        comboBox_4 = new QComboBox(viewtransaction);
+        comboBox_4->setObjectName(QStringLiteral("comboBox_4"));
+        comboBox_4->setGeometry(QRect(920, 20, 351, 41));
+        comboBox_4->setStyleSheet(QLatin1String("#comboBox_4\n"
+"{\n"
+"border:1 px solid #ced4da;\n"
+"\n"
+"padding-left:10px;\n"
+"background:transparent;\n"
+"color : rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"#comboBox_4::drop-down{\n"
+"border:0px;\n"
+"}\n"
+"#comboBox_4::down-arrow{\n"
+"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
+"width:30px;\n"
+"height:30px;\n"
+"margin-right:18px;\n"
+"}\n"
+"#comboBox_4 QListView{\n"
+"border:1 px solid #ced4da;\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"padding:5px;\n"
+"outline:0px;\n"
+"border-radius:20px;\n"
+"selection-background-color: rgba(190,190,190,100);\n"
+"background-color:rgba(190,190,190,100);\n"
+"}\n"
+"#comboBox_4 QListView::item{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color:rgba(190,190,190,100);\n"
+"background-color:rgba(190,190,190,100);\n"
+"border-radius:12px;\n"
+"}\n"
+"#comboBox_4 QListView::item:hover{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color:rgba(190,190,190,100);\n"
+"background-color:rgba(190,190,190,100);\n"
+"bo"
+                        "rder-radius:12px;\n"
+"}"));
+        label_47tr_3 = new QLabel(viewtransaction);
+        label_47tr_3->setObjectName(QStringLiteral("label_47tr_3"));
+        label_47tr_3->setGeometry(QRect(920, 20, 16, 41));
+        label_47tr_3->setStyleSheet(QLatin1String("background-color: rgba(0, 0, 0,0);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"border: 2px solid rgba(0,0,0,0);\n"
+"border-left-color:rgba(255,255,255,100);\n"
+"color:rgb(255,255,255);\n"
+"padding-bottom:7px;\n"
+"border-radius:0px;"));
         stackedWidget->addWidget(viewtransaction);
-        label_476->raise();
-        label_475->raise();
-        label_605->raise();
-        hihi_179->raise();
-        hihi_180->raise();
-        label_606->raise();
-        label_607->raise();
-        hihi_181->raise();
-        label_608->raise();
-        pushButton_63->raise();
-        tableViewtr->raise();
-        textEdittr_2->raise();
-        gg_2tr_2->raise();
-        gg_5tr_2->raise();
-        label_47tr_2->raise();
-        label_48tr_2->raise();
 
         retranslateUi(Dialog);
 
@@ -6292,10 +6302,17 @@ public:
         label_608->setText(QApplication::translate("Dialog", "~", Q_NULLPTR));
         pushButton_63->setText(QApplication::translate("Dialog", "return", Q_NULLPTR));
         textEdittr_2->setPlaceholderText(QApplication::translate("Dialog", "Search", Q_NULLPTR));
-        label_48tr_2->setText(QString());
-        gg_5tr_2->setText(QApplication::translate("Dialog", "\356\201\200", Q_NULLPTR));
         gg_2tr_2->setText(QApplication::translate("Dialog", "\356\201\201", Q_NULLPTR));
         label_47tr_2->setText(QString());
+        comboBox_4->clear();
+        comboBox_4->insertItems(0, QStringList()
+         << QApplication::translate("Dialog", "default", Q_NULLPTR)
+         << QApplication::translate("Dialog", "date transaction from oldest to newest ", Q_NULLPTR)
+         << QApplication::translate("Dialog", "date transaction from newest to oldest", Q_NULLPTR)
+         << QApplication::translate("Dialog", "montant from highest to lowest", Q_NULLPTR)
+         << QApplication::translate("Dialog", "montant from lowest to highest", Q_NULLPTR)
+        );
+        label_47tr_3->setText(QString());
     } // retranslateUi
 
 };

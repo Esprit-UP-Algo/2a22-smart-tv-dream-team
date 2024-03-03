@@ -797,7 +797,35 @@ void Dialog::on_hihi_10tr_3_clicked()
         //QMessageBox :: warning(this,"",QString::number( ligne));
 
         QStandardItemModel * model=new QStandardItemModel(ligne , 6);
-        query.exec("select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION");
+        QString qs;
+        if(ui->textEdittr_2->toPlainText()!="")
+        {
+
+           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION where IDTRANSACTION="+ui->textEdittr_2->toPlainText() ;
+        }
+
+        else if(ui->comboBox_4->currentText()=="date transaction from oldest to newest ")
+        {
+           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET DESC";
+        }
+        else if(ui->comboBox_4->currentText()=="default")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION";
+        }
+        else if(ui->comboBox_4->currentText()=="date transaction from newest to oldest")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET";
+        }
+        else if(ui->comboBox_4->currentText()=="montant from highest to lowest")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT DESC ";
+        }
+        else if(ui->comboBox_4->currentText()=="montant from lowest to highest")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT";
+        }
+        qDebug()<<qs;
+        query.exec(qs);
         while(query.next())
         {
             for (int j=0;j<4;j++)
@@ -1000,5 +1028,12 @@ void Dialog::on_pushButton_27_clicked()
             {
                  QMessageBox :: critical(this,"Error","Couldn't update data");
             }
+
+}
+
+void Dialog::on_gg_2tr_2_clicked()
+{
+    emit ui->hihi_10tr_3->click();
+    ui->textEdittr_2->setPlainText("");
 
 }
