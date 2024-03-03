@@ -36,10 +36,6 @@ Dialog::Dialog(QWidget *parent) :
     ui->deleteButtonM_2->setVisible(false);
     ui->modifyButtonM_2->setVisible(false);
 
-    /*ui->descriptionRM_2->setVisible(false);
-    ui->returnButton_2M_2->setVisible(false);
-    ui->deleteButton_2M_2->setVisible(false);
-    ui->modifyButton_2M_2->setVisible(false);*/
 
      ui->barreTrieM_2->setVisible(false);
      //ui->barreTrie_2M_2->setVisible(false);
@@ -60,17 +56,59 @@ void Dialog::on_hihi_5_clicked()
 {
     //tableViewem
     int ligne(0);
+            QString rech;
         int row(0);
         QSqlQuery query;
-        query.exec("select count(*) from employe");
+
+        if (ui->textEdit_2->toPlainText()!="")
+            {
+                rech=" where username LIKE '%"+ui->textEdit_2->toPlainText()+"%'";
+                bool intyes;
+                ui->textEdit_2->toPlainText().toInt(&intyes);
+                qDebug()<<intyes;
+                if (intyes)
+                {
+                    rech+=" or id="+ui->textEdit_2->toPlainText();
+                }
+
+
+
+            }
+
+
+        query.exec("select count(*) from employe"+rech);
         while(query.next() )
         {
             ligne=query.value(0).toInt();
         }
         //QMessageBox :: warning(this,"",QString::number( ligne));
+        QString Qs;
+
+
+            if (ui->comboBox_3->currentText()== "Usernames from A to Z" )
+            {
+                Qs=" order by username ASC";
+                qDebug()<<"test";
+            }
+            else if (ui->comboBox_3->currentText()== "Usernames from Z to A" )
+            {
+                Qs=" order by username DESC";
+                qDebug()<<"test";
+            }
+            else if (ui->comboBox_3->currentText()== "Id Descendant" )
+            {
+                Qs=" order by id DESC";
+                qDebug()<<"test";
+            }
+            else if (ui->comboBox_3->currentText()== "Id Ascendant" )
+            {
+                Qs=" order by id ASC";
+                qDebug()<<"test";
+            }
+
 
         QStandardItemModel * model=new QStandardItemModel(ligne , 7);
-        query.exec("select id , username , password , type , photo from employe");
+        query.exec("select id , username , password , type , photo from employe"+rech+Qs);
         while(query.next())
         {
             for (int j=0;j<5;j++)
@@ -109,14 +147,13 @@ void Dialog::on_hihi_5_clicked()
 
 
 
-
-        model->setHeaderData(0, Qt::Horizontal , "id");
-        model->setHeaderData(1, Qt::Horizontal , "username");
-        model->setHeaderData(2, Qt::Horizontal , "password");
-        model->setHeaderData(3, Qt::Horizontal , "type");
-        model->setHeaderData(4, Qt::Horizontal , "photo");
-        model->setHeaderData(5, Qt::Horizontal , "delete");
-        model->setHeaderData(6, Qt::Horizontal , "update");
+        model->setHeaderData(0, Qt::Horizontal , "ID");
+        model->setHeaderData(1, Qt::Horizontal , "USERNAME");
+        model->setHeaderData(2, Qt::Horizontal , "PASSWORD");
+        model->setHeaderData(3, Qt::Horizontal , "TYPE");
+        model->setHeaderData(4, Qt::Horizontal , "PHOTO");
+        model->setHeaderData(5, Qt::Horizontal , "DELETE");
+        model->setHeaderData(6, Qt::Horizontal , "UPDATE");
         ui->tableViewem->setModel(model);
 
         for (int j=0;j<row ; j++)
@@ -150,9 +187,9 @@ void Dialog::on_hihi_5_clicked()
             butt->setText(display) ;
 
             connect(butt, &QPushButton::clicked, this, [this, j]() {
-                ui->lineEdit_8->setText(QString::number(ui->tableViewem->model()->data(ui->tableViewem->model()->index(j,0)).toInt()));
                 //QMessageBox :: critical(this,"Error",byte);
                 ui->stackedWidget->setCurrentIndex(3);
+                ui->lineEdit_10->setText(ui->tableViewem->model()->data(ui->tableViewem->model()->index(j,0)).toString());
             });
             butt->setStyleSheet("color:green;"
                                 "background:transparent;"
@@ -173,7 +210,6 @@ void Dialog::on_hihi_5_clicked()
         path.addRoundedRect(rect,25,25);
         QRegion mask = QRegion(path.toFillPolygon().toPolygon());
         ui->tableViewem->viewport()->setMask(mask);
-        //ui->tableViewem->resize(ui->tableViewem->rowHeight(0)*row,ui->tableViewem->columnWidth(3)*7);
         ui->tableViewem->resizeRowsToContents();
         ui->tableViewem->resizeColumnsToContents();
 
@@ -184,24 +220,15 @@ void Dialog::on_gg_4_clicked()
 {
     close();
 }
-
 void Dialog::on_hihi_6_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
-
-
-
-
 void Dialog::on_pushButton_clicked()
 {
     ui->pushButton->lower();
     ui->mainbox->lower();
 }
-
-
-
-
 void Dialog::on_gg_5_clicked()
 {
     if (ui->label_49->isVisible()) {
@@ -211,7 +238,6 @@ void Dialog::on_gg_5_clicked()
            ui->label_49->raise();
        }
 }
-
 void Dialog::on_gg_6_clicked()
 {
     if (ui->label_54->isVisible()) {
@@ -221,32 +247,26 @@ void Dialog::on_gg_6_clicked()
            ui->label_54->raise();
        }
 }
-
 void Dialog::on_hihi_13_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
-
 void Dialog::on_hihi_14_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
-
 void Dialog::on_gg_7_clicked()
 {
     close();
 }
-
 void Dialog::on_hihi_15_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(13);
 }
-
 void Dialog::on_hihi_16_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
-
 void Dialog::on_hihi_20_clicked()
 {
     if (ui->label_11->isVisible() && ui->label_13->isVisible() && ui->label_65->isVisible() && ui->pushButton_8->isVisible() && ui->label_71->isVisible() && ui->label_72->isVisible() && ui->label_73->isVisible()) {
@@ -257,7 +277,7 @@ void Dialog::on_hihi_20_clicked()
         ui->pushButton_9M->setVisible(false);
         ui->label_71->setVisible(false);
         ui->label_72->setVisible(false);
-        //ui->label_73->setVisible(false);
+        ui->label_73->setVisible(false);
        } else {
         ui->label_11->setVisible(true);
         ui->label_13->setVisible(true);
@@ -266,7 +286,7 @@ void Dialog::on_hihi_20_clicked()
         ui->pushButton_9M->setVisible(true);
         ui->label_71->setVisible(true);
         ui->label_72->setVisible(true);
-        //ui->label_73->setVisible(true);
+        ui->label_73->setVisible(true);
 
         ui->label_11->raise();
         ui->label_13->raise();
@@ -275,7 +295,7 @@ void Dialog::on_hihi_20_clicked()
         ui->pushButton_9M->raise();
         ui->label_71->raise();
         ui->label_72->raise();
-        //ui->label_73->raise();
+        ui->label_73->raise();
        }
 }
 
@@ -387,202 +407,6 @@ void Dialog::on_pushButton_2ms_2_clicked()
 void Dialog::on_pushButton_4ms_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(7);
-    ui->lineEdit_2ms_2->setText("");
-    ui->textEditms_2->setText("");
-    //ui->imagetest->setStyleSheet("border-image : none;");
-    ui->imagetestms_3->setVisible(false);
-    ui->imagetestms_4->setVisible(false);
-}
-
-
-void Dialog::on_pushButton_11ms_2_clicked()
-{
-
-    QByteArray byte;
-    QFile file(photo);
-    /*QPixmap img(photo);
-    QBuffer imgdata;
-    if (imgdata.open(QIODevice::ReadWrite))
-    {
-        img.save(&imgdata,"PNG");
-    }
-    byte=imgdata.buffer().toBase64();*/
-    if(file.open(QIODevice::ReadOnly))
-    {
-        byte = file.readAll();
-        QMessageBox :: critical(this,"Error",byte);
-        file.close();
-    }
-    QMessageBox :: critical(this,"Error",photo);
-    QSqlQuery query;
-    query.prepare("insert into MOVIE values (:id , :description , :photo , :titre)");
-    query.bindValue(":photo", byte);
-    query.bindValue(":titre",ui->lineEdit_2ms_2->text());
-    query.bindValue(":description",ui->textEditms_2->toPlainText());
-    query.bindValue(":id", 8);
-    if(query.exec())
-    {
-         QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
-         ui->lineEdit_2ms_2->setText("");
-         ui->textEditms_2->setText("");
-         //ui->imagetest->setStyleSheet("border-image : none;");
-         ui->imagetestms_3->setVisible(false);
-         ui->imagetestms_4->setVisible(false);
-    }
-    else
-    {
-         QMessageBox :: critical(this,"Error","Couldn't insert data");
-    }
-}
-
-void Dialog::on_pushButton_3ms_2_clicked()
-{
-    QString imageFile = QFileDialog ::getOpenFileName(0,"Select Image","/home/","Image Files (*.png && *.jpg)");
-
-      QFileInfo info(imageFile);
-      ui->imagetestms_3->setVisible(true);
-      ui->imagetestms_4->setVisible(true);
-      ui->imagetestms_4->setStyleSheet("border-image : url("+imageFile+");");
-      photo = imageFile;
-}
-
-void Dialog::deleteftable(int j)
-{
-    QMessageBox::warning( this,"","test del");
-    int id =ui->tableViewms_2->model()->data(ui->tableViewms_2->model()->index(j,0)).toInt();
-    QSqlQuery query;
-    query.prepare("DELETE FROM MOVIE WHERE id = :id ;");
-    query.bindValue(":id", id);
-    if(query.exec())
-    {
-         QMessageBox :: information(this,"delete","Data Deleted successfully", QMessageBox ::Ok);
-         emit ui->pushButton_12ms_2->click();
-
-    }
-    else
-    {
-         QMessageBox :: critical(this,"Error","Couldn't insert data");
-    }
-
-}
-
-void Dialog::on_pushButton_12ms_2_clicked()
-{
-    /*QSqlQueryModel *query = new QSqlQueryModel();
-    query->setQuery("select id , titre ,description , photo from MOVIE");
-    ui->tableView->setModel(query);*/
-
-    int ligne(0);
-    int row(0);
-    QSqlQuery query;
-    query.exec("select count(*) from MOVIE");
-    while(query.next() )
-    {
-        ligne=query.value(0).toInt();
-    }
-    QMessageBox :: warning(this,"",QString::number( ligne));
-
-    QStandardItemModel * model=new QStandardItemModel(ligne , 6);
-    query.exec("select id , titre ,description , photo from MOVIE");
-    while(query.next())
-    {
-        for (int j=0;j<4;j++)
-        {
-            QStandardItem *item;
-
-            if ( j==3)
-            {
-                QByteArray array;
-                //qDebug()<<"Initial Array Size"<<array.size();
-                array = query.value(j).toByteArray();
-                //qDebug()<<"ARray Size"<<array.size();
-                QPixmap pixmap;
-                pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
-                QPixmap scaled=  pixmap.scaled(QSize( 200,200));
-                item = new QStandardItem();
-                item->setData(scaled,Qt::DecorationRole);
-
-            }
-            else if (j<3)
-            {
-                item = new QStandardItem(query.value(j).toString());
-            }
-
-            if ( j<4)
-            {
-                model->setItem(row,j,item);
-            }
-        }
-        row++;
-    }
-
-
-
-
-    model->setHeaderData(0, Qt::Horizontal , "id");
-    model->setHeaderData(1, Qt::Horizontal , "titre");
-    model->setHeaderData(2, Qt::Horizontal , "description");
-    model->setHeaderData(3, Qt::Horizontal , "photo");
-    model->setHeaderData(4, Qt::Horizontal , "delete");
-    model->setHeaderData(5, Qt::Horizontal , "update");
-    ui->tableViewms_2->setModel(model);
-
-    for (int j=0;j<row ; j++)
-    {
-        QPushButton *butt;
-        butt = new QPushButton("delete");
-        QString name = QString("buttondel%1").arg(j) ;
-        QString display = QString("delete") ;
-        butt->setObjectName(name) ;
-        butt->setText(display) ;
-
-        //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
-        connect(butt, &QPushButton::clicked, this, [this, j]() {
-            deleteftable(j);
-        });
-        butt->setStyleSheet("color:red;"
-                            "background:transparent;"
-                            "border:none;"
-                            "font : 15pt;");
-        ui->tableViewms_2->setIndexWidget(model->index(j, 4), butt);
-
-        butt = new QPushButton("delete");
-        name = QString("buttonup%1").arg(j) ;
-        display = QString("update") ;
-        butt->setObjectName(name) ;
-        butt->setText(display) ;
-
-        connect(butt, &QPushButton::clicked, this, [this, j]() {
-            deleteftable(j);
-        });
-        butt->setStyleSheet("color:green;"
-                            "background:transparent;"
-                            "border:none;"
-                            "font : 15pt;");
-        ui->tableViewms_2->setIndexWidget(model->index(j, 5), butt);
-
-
-
-    }
-
-
-
-    ui->tableViewms_2->verticalHeader()->setVisible(false);
-    ui->tableViewms_2->viewport()->setStyleSheet("background: rgb(255, 255, 255);"
-                                             "border: 1px solid white;"
-                                             "border-radius: 10px;"
-                                             "color: black;");
-    QRect rect = ui->tableViewms_2->viewport()->rect();
-    QPainterPath path;
-    rect.adjust(+1,+1,-1,-1);
-    path.addRoundedRect(rect,25,25);
-    QRegion mask = QRegion(path.toFillPolygon().toPolygon());
-    ui->tableViewms_2->viewport()->setMask(mask);
-    ui->tableViewms_2->resize(ui->tableViewms_2->rowHeight(0)*row,ui->tableViewms_2->columnWidth(3)*4);
-    ui->tableViewms_2->resizeRowsToContents();
-    ui->tableViewms_2->resizeColumnsToContents();
-
-
 }
 
 void Dialog::on_pushButton_9M_clicked()
@@ -676,73 +500,12 @@ void Dialog::on_modifyButton_2M_2_clicked()
 {
      ui->stackedWidget->setCurrentIndex(9);
 }
-
-
-/*void Dialog::on_vwatchRadioM_2_clicked()
-{
-    if (ui->descriptionRM_2->isVisible()) {
-            ui->descriptionRM_2->setVisible(false);
-            ui->returnButtonM_2->setVisible(false);
-            ui->deleteButtonM_2->setVisible(false);
-            ui->modifyButtonM_2->setVisible(false);
-        } else {
-            ui->descriptionRM_2->setVisible(true);
-            ui->descriptionRM_2->raise();
-            ui->returnButton_2M_2->setVisible(true);
-            ui->returnButton_2M_2->raise();
-            ui->deleteButton_2M_2->setVisible(true);
-            ui->deleteButton_2M_2->raise();
-            ui->modifyButton_2M_2->setVisible(true);
-            ui->modifyButton_2M_2->raise();
-        }
-
-}*/
-/*
-void Dialog::on_returnButton_2M_2_clicked()
-{
-    if (ui->descriptionRM_2->isVisible()) {
-            ui->descriptionRM->setVisible(false);
-            ui->returnButton_2M->setVisible(false);
-            ui->deleteButton_2M->setVisible(false);
-            ui->modifyButton_2M->setVisible(false);
-        } if (ui->descriptionRM->isVisible()) {
-            ui->descriptionRM->setVisible(true);
-            ui->descriptionRM->raise();
-            ui->returnButton_2M->setVisible(true);
-            ui->returnButton_2M->raise();
-        }
-
-}*/
-
-/*void Dialog::on_trieButtonM_2_clicked()
-
-{
-    if (!isTrieButtonClicked) {
-            ui->barreTrieM_2->setVisible(true);
-            isTrieButtonClicked = true;
-        } else {
-             ui->barreTrieM_2->setVisible(false);
-            isTrieButtonClicked = false;
-        }
-}
-*/
 void Dialog::on_vewatchButtonM_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(10);
 }
 
-/*
-void Dialog::on_trieButton_2M_2_clicked()
-{
-    if (!isTrieButtonClicked) {
-            ui->barreTrie_2M_2->setVisible(true);
-            isTrieButtonClicked = true;
-        } else {
-             ui->barreTrie_2M_2->setVisible(false);
-            isTrieButtonClicked = false;
-        }
 
-}*/
 
 void Dialog::on_statisticsM_2_clicked()
 {
@@ -774,140 +537,10 @@ void Dialog::on_vewatch_2M_2_clicked()
     ui->stackedWidget->setCurrentIndex(10);
 }
 
-void Dialog::on_hihi_10tr_clicked()
-{
-     ui->stackedWidget->setCurrentIndex(11);
-}
-
 void Dialog::on_hihi_10tr_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(12);
 }
-
-void Dialog::on_hihi_10tr_3_clicked()
-{
-        int ligne(0);
-        int row(0);
-        QSqlQuery query;
-        query.exec("select count(*) from TRANSACTION");
-        while(query.next() )
-        {
-            ligne=query.value(0).toInt();
-        }
-        //QMessageBox :: warning(this,"",QString::number( ligne));
-
-        QStandardItemModel * model=new QStandardItemModel(ligne , 6);
-        QString qs;
-        if(ui->textEdittr_2->toPlainText()!="")
-        {
-
-           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION where IDTRANSACTION="+ui->textEdittr_2->toPlainText() ;
-        }
-
-        else if(ui->comboBox_4->currentText()=="date transaction from oldest to newest ")
-        {
-           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET DESC";
-        }
-        else if(ui->comboBox_4->currentText()=="default")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION";
-        }
-        else if(ui->comboBox_4->currentText()=="date transaction from newest to oldest")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET";
-        }
-        else if(ui->comboBox_4->currentText()=="montant from highest to lowest")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT DESC ";
-        }
-        else if(ui->comboBox_4->currentText()=="montant from lowest to highest")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT";
-        }
-        qDebug()<<qs;
-        query.exec(qs);
-        while(query.next())
-        {
-            for (int j=0;j<4;j++)
-            {
-                QStandardItem *item;
-                item = new QStandardItem(query.value(j).toString());
-                item->setTextAlignment(Qt::AlignCenter);
-                model->setItem(row,j,item);
-
-            }
-            row++;
-        }
-
-
-
-
-        model->setHeaderData(0, Qt::Horizontal , "IDTRANSACTION");
-        model->setHeaderData(1, Qt::Horizontal , "DATE");
-        model->setHeaderData(2, Qt::Horizontal , "TYPE");
-        model->setHeaderData(3, Qt::Horizontal , "MONTANT");
-        model->setHeaderData(4, Qt::Horizontal , "delete");
-        model->setHeaderData(5, Qt::Horizontal , "update");
-        ui->tableViewtr->setModel(model);
-
-        for (int j=0;j<row ; j++)
-        {
-            QPushButton *butt;
-            butt = new QPushButton("delete");
-            QString name = QString("buttondel%1").arg(j) ;
-            QString display = QString("delete") ;
-            butt->setObjectName(name) ;
-            butt->setText(display) ;
-
-            //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
-            connect(butt, &QPushButton::clicked, this, [this, j]()
-            {
-                QSqlQuery query;
-                query.prepare("delete from TRANSACTION where IDTRANSACTION=:id");
-                query.bindValue(":id",ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,0)).toInt());
-                query.exec();
-                emit ui->hihi_10tr_3->click();
-            });
-            butt->setStyleSheet("color:red;"
-                                "background:transparent;"
-                                "border:none;"
-                                "font : 15pt;");
-            ui->tableViewtr->setIndexWidget(model->index(j, 4), butt);
-
-            butt = new QPushButton("update");
-            name = QString("buttonup%1").arg(j) ;
-            display = QString("update") ;
-            butt->setObjectName(name) ;
-            butt->setText(display) ;
-
-            connect(butt, &QPushButton::clicked, this, [this, j]() {
-                ui->lineEdit_2->setText(QString::number(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,0)).toInt()   ));
-                ui->dateTimeEdit_2->setDateTime(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,1)).toDateTime());
-                ui->lineEdit_14->setText(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,2)).toString());
-                ui->lineEdit_15->setText(QString::number(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,3)).toInt()   ));
-                ui->stackedWidget->setCurrentIndex(12);
-            });
-            butt->setStyleSheet("color:green;"
-                                "background:transparent;"
-                                "border:none;"
-                                "font : 15pt;");
-            ui->tableViewtr->setIndexWidget(model->index(j, 5), butt);
-        }
-        ui->tableViewtr->verticalHeader()->setVisible(false);
-            //QRect rect = ui->tableViewtr->viewport()->rect();
-           // QPainterPath path;
-            //rect.adjust(+1,+1,-1,-1);
-            //path.addRoundedRect(rect,25,25);
-           // QRegion mask = QRegion(path.toFillPolygon().toPolygon());
-            //ui->tableViewtr->viewport()->setMask(mask);
-            //ui->tableViewtr->resize(ui->tableViewtr->columnWidth(3)*4,ui->tableViewtr->rowHeight(0)*row);
-            ui->tableViewtr->resizeRowsToContents();
-            ui->tableViewtr->resizeColumnsToContents();
-            ui->tableViewtr->show();
-            ui->stackedWidget->setCurrentIndex(13);
-    }
-
-
 void Dialog::on_pushButton_63_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -920,49 +553,8 @@ void Dialog::on_pushButton_24_clicked()
 
 void Dialog::on_pushButton_10_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(13);
 }
-
-void Dialog::on_pushButton_9_clicked()
-{
-    QSqlQuery query;
-            query.prepare("insert into TRANSACTION values (:id , :date , :type , :montant)");
-            query.bindValue(":date",ui->dateTimeEdit->dateTime());
-            query.bindValue(":type",ui->lineEdit_3->text());
-            query.bindValue(":montant",ui->lineEdit_4->text().toInt());
-            query.bindValue(":id",ui->lineEdit->text().toInt());
-            if(query.exec())
-            {
-                 QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
-                 ui->stackedWidget->setCurrentIndex(1);
-            }
-            else
-            {
-                 QMessageBox :: critical(this,"Error","Couldn't insert data");
-            }
-}
-
-void Dialog::on_pushButton_23_clicked()
-{
-    QSqlQuery query;
-            query.prepare("UPDATE TRANSACTION set DATET=:date , TYPE=:type , MONTANT=:montant where IDTRANSACTION=:id ");
-            query.bindValue(":date",ui->dateTimeEdit_2->dateTime());
-            query.bindValue(":type",ui->lineEdit_14->text());
-            query.bindValue(":montant",ui->lineEdit_15->text().toInt());
-            query.bindValue(":id",ui->lineEdit_2->text().toInt());
-            if(query.exec())
-            {
-                 QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
-                 ui->stackedWidget->setCurrentIndex(1);
-            }
-            else
-            {
-                 QMessageBox :: critical(this,"Error","Couldn't update data");
-            }
-}
-
-
-
 void Dialog::on_hihi_33_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
@@ -973,14 +565,15 @@ void Dialog::on_pushButton_26_clicked()
     ui->stackedWidget->setCurrentIndex(2);
 }
 
+
+
 void Dialog::on_pushButton_25_clicked()
 {
     QSqlQuery query;
-            query.prepare("insert into employe values (:id , :username , :password , :type,:photo)");
+            query.prepare("insert into employe (username,password,type,photo) values (:username,:password,:type,:photo)");
             query.bindValue(":username",ui->lineEdit_5->text());
             query.bindValue(":password",ui->lineEdit_6->text());
-            query.bindValue(":type",ui->lineEdit_7->text().toInt());
-            query.bindValue(":id",ui->lineEdit_8->text().toInt());
+            query.bindValue(":type",ui->lineEdit_7->text());
             query.bindValue(":photo",byte);
             if(query.exec())
             {
@@ -993,6 +586,9 @@ void Dialog::on_pushButton_25_clicked()
             }
     emit ui->hihi_5->click();
 }
+
+
+
 
 void Dialog::on_addphotemp_clicked()
 {
@@ -1015,9 +611,13 @@ void Dialog::on_pushButton_27_clicked()
             query.prepare("UPDATE employe set username=:username , password=:password , type=:type , photo=:photo where id=:id ");
             query.bindValue(":username",ui->lineEdit_5->text());
             query.bindValue(":password",ui->lineEdit_6->text());
-            query.bindValue(":type",ui->lineEdit_7->text().toInt());
+            query.bindValue(":type",ui->lineEdit_7->text());
             query.bindValue(":photo",byte);
-            query.bindValue(":id",ui->lineEdit_8->text().toInt());
+            query.bindValue(":id",ui->lineEdit_10->text().toInt());
+            qDebug()<<ui->lineEdit_7->text();
+            qDebug()<<ui->lineEdit_10->text().toInt();
+            qDebug()<<ui->lineEdit_6->text();
+            qDebug()<<ui->lineEdit_5->text();
             if(query.exec())
             {
                  QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
@@ -1031,9 +631,22 @@ void Dialog::on_pushButton_27_clicked()
 
 }
 
-void Dialog::on_gg_2tr_2_clicked()
+void Dialog::on_hihi_35_clicked()
 {
-    emit ui->hihi_10tr_3->click();
-    ui->textEdittr_2->setPlainText("");
+    ui->stackedWidget->setCurrentIndex(11);
+}
 
+void Dialog::on_hihi_37_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(12);
+}
+
+void Dialog::on_hihi_10tr_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(12);
+}
+
+void Dialog::on_gg_3_clicked()
+{
+    emit ui->hihi_5->click();
 }

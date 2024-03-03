@@ -107,11 +107,6 @@ private slots:
 
     void on_pushButton_4ms_2_clicked();
 
-    void on_pushButton_11ms_2_clicked();
-
-    void on_pushButton_3ms_2_clicked();
-
-    void on_pushButton_12ms_2_clicked();
 
     void on_pushButton_9M_clicked();
 
@@ -140,11 +135,6 @@ private slots:
 
     void on_modifyButton_2M_2_clicked();
 
-    //void on_vwatchRadioM_2_clicked();
-
-    //void on_returnButton_2M_2_clicked();
-
-    //void on_trieButtonM_2_clicked();
 
     void on_vewatchButtonM_2_clicked();
 
@@ -161,7 +151,7 @@ private slots:
 
     void on_vewatch_2M_2_clicked();
 
-    void on_hihi_10tr_clicked();
+
 
     void on_hihi_10tr_2_clicked();
 
@@ -173,9 +163,7 @@ private slots:
 
     void on_pushButton_10_clicked();
 
-    void on_pushButton_9_clicked();
 
-    void on_pushButton_23_clicked();
 
     void on_hihi_33_clicked();
 
@@ -187,7 +175,11 @@ private slots:
 
     void on_pushButton_27_clicked();
 
-    void on_gg_2tr_2_clicked();
+    void on_hihi_35_clicked();
+
+    void on_hihi_37_clicked();
+
+    void on_gg_3_clicked();
 
 private:
     Ui::Dialog *ui;

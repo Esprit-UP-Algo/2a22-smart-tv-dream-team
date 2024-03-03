@@ -10,9 +10,9 @@ int main(int argc, char *argv[])
     MainWindow w;
     QSqlDatabase db ;
     db = QSqlDatabase::addDatabase("QODBC");
-        db.setDatabaseName("projet"); //projet2a
-        db.setUserName("yahya"); //sora
-        db.setPassword("apolios");//oogabooga
+        db.setDatabaseName("projet2a"); //projet2a
+        db.setUserName("sora"); //sora
+        db.setPassword("oogabooga");//oogabooga
         db.open();
 
         if (db.isOpen())
@@ -23,8 +23,6 @@ int main(int argc, char *argv[])
         {
             qDebug("errrrrror");
         }
-        Dialog d;
-        d.exec();
-    //w.show();
+    w.show();
     return a.exec();
 }

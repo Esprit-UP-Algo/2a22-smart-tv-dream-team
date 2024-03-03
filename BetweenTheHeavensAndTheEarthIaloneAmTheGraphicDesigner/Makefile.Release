@@ -2050,25 +2050,7 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QBuffer \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QStandardItemModel \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QStyledItemDelegate \
-		ui_dialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCheckBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QStackedWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTextEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout
+		ui_dialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dialog.o dialog.cpp
 
 release/employer.o: employer.cpp employer.h \
@@ -3463,13 +3445,6 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimediaWidgets/qvideowidgetcontrol.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimediaWidgets/qtmultimediawidgetsversion.h \
 		ui_mainwindow.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
 		employer.h \
 		dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \

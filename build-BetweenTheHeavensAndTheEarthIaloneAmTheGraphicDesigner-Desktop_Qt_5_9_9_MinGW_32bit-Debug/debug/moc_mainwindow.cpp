@@ -99,9 +99,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-
+        case 0: _t->on_ok_clicked(); break;
         case 1: _t->on_ok_2_clicked(); break;
         case 2: _t->on_ok_3_clicked(); break;
+        case 3: _t->on_ku_3_clicked(); break;
         case 4: _t->on_ok_12_clicked(); break;
         case 5: _t->on_ku_2_clicked(); break;
         case 6: _t->on_ok_13_clicked(); break;
