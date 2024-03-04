@@ -67,7 +67,27 @@ void MainWindow::on_pushButton_11ms_clicked() //bouton confirm ajout
 {
 
     //QMessageBox :: critical(this,"Error",byte);
-    if (byte!="")
+    QString erreur="";
+    bool intyes;
+    ui->lineEdit_8ms->text().toInt(&intyes);
+    qDebug()<<intyes;
+    if (intyes==false)
+    {
+        erreur+="\n-nombre de vues doit etre un NOMBRE";
+    }
+    if (byte=="")
+    {
+        erreur+="\n-une image doit etre inserer";
+    }
+    if (ui->lineEdit_2ms->text()=="")
+    {
+        erreur+="\n-un titre ne doit pas etre vide";
+    }
+    if (ui->textEditms->toPlainText().count()<10)
+    {
+        erreur+="\n-une description de au moins 10 caractére est necessaire";
+    }
+    if (erreur=="")
     {
         /*
         QPixmap img(photo);
@@ -85,8 +105,10 @@ void MainWindow::on_pushButton_11ms_clicked() //bouton confirm ajout
         }*/
         //QMessageBox :: critical(this,"Error",photo);
 
+
+
         MOVIE T;
-        if(T.ajout(byte,ui->lineEdit_2ms->text(),ui->textEditms->toPlainText(),9))
+        if(T.ajout(byte,ui->lineEdit_2ms->text(),ui->textEditms->toPlainText(),ui->lineEdit_8ms->text().toInt(),ui->timeEditms->time().toString()/*"2:00:00"*/,ui->comboBoxms_2->currentText()))
         {
              QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
              ui->lineEdit_2ms->setText("");
@@ -104,7 +126,30 @@ void MainWindow::on_pushButton_11ms_clicked() //bouton confirm ajout
         }
     }
     else
-        QMessageBox :: information(this,"Save","insert a image", QMessageBox ::Ok);
+    {
+        QMessageBox msgbox;
+        msgbox.setText("!!!! ERREUR DE SASIE !!!!");
+        msgbox.setInformativeText("erreurs : \n"+erreur);
+        msgbox.setIcon(QMessageBox::Critical);
+        msgbox.setStandardButtons(QMessageBox::Ok);
+        msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                             "QMessageBox QLabel"
+                             "{"
+                             " color : #DDD ;"
+                             "font-size:15px;}"
+                             "QMessageBox QPushButton"
+                             "{"
+                             "background-color:rgba(255,255,255,150);"
+                             "min-width : 100;"
+                             "min-height : 30;"
+                             "border-radius: 15px;"
+                             "}"
+        );
+        msgbox.exec();
+
+
+        //QMessageBox :: critical(this,"Save","erreurs : "+erreur, QMessageBox ::Ok);
+    }
 }
 
 void MainWindow::on_pushButton_3ms_clicked() //bouton saisie d'image s'ajout
@@ -134,28 +179,66 @@ void MainWindow::on_pushButton_3ms_clicked() //bouton saisie d'image s'ajout
 void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
 {
     /*QSqlQueryModel *query = new QSqlQueryModel();
-    query->setQuery("select id , titre ,description , photo from MOVIE");
+    query->setQuery("select id , titre ,description , photo from SERIE_FILM");
     ui->tableView->setModel(query);*/
 
     int ligne(0);
     int row(0);
+    QString rech;
+    if (ui->lineEditms->text()!="")
+    {
+        rech=" where TITRE LIKE '%"+ui->lineEditms->text()+"%'";
+        bool intyes;
+        ui->lineEditms->text().toInt(&intyes);
+        qDebug()<<intyes;
+        if (intyes)
+        {
+            rech+=" or id="+ui->lineEditms->text();
+        }
+
+
+
+    }
     QSqlQuery query;
-    query.exec("select count(*) from MOVIE");
+    query.exec("select count(*) from SERIE_FILM"+rech);
     while(query.next() )
     {
         ligne=query.value(0).toInt();
     }
+    qDebug()<<ligne;
     //QMessageBox :: warning(this,"",QString::number( ligne));
 
-    QStandardItemModel * model=new QStandardItemModel(ligne , 6);
-    query.exec("select id , titre ,description , photo from MOVIE");
+    QStandardItemModel * model=new QStandardItemModel(ligne , 9);
+    QString Qs;
+    if (ui->comboBoxms->currentText()== "recently added" )
+    {
+        Qs=" order by id DESC";
+        qDebug()<<"test";
+    }
+    else if (ui->comboBoxms->currentText()== "most views" )
+    {
+        Qs=" order by nbrvue DESC";
+        qDebug()<<"test";
+    }
+    else if (ui->comboBoxms->currentText()== "least views" )
+    {
+        Qs=" order by nbrvue ASC";
+        qDebug()<<"test";
+    }
+    else if (ui->comboBoxms->currentText()== "oldest" )
+    {
+        Qs=" order by id ASC";
+        qDebug()<<"test";
+    }
+    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue from SERIE_FILM"+rech +Qs;
+    query.exec("select id ,type, titre ,description ,duree, image,nbrvue from SERIE_FILM"+rech +Qs);
     while(query.next())
     {
-        for (int j=0;j<4;j++)
+        for (int j=0;j<7;j++)
         {
             QStandardItem *item;
 
-            if ( j==3)
+            if ( j==5)
             {
                 QByteArray array;
                 //qDebug()<<"Initial Array Size"<<array.size();
@@ -163,38 +246,40 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
                 //qDebug()<<"ARray Size"<<array.size();
                 QPixmap pixmap;
                 pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
-                QPixmap scaled=  pixmap.scaled(QSize( 250,250));
+                QPixmap scaled=  pixmap.scaled(QSize( 170,170));
                 item = new QStandardItem();
                 item->setData(scaled,Qt::DecorationRole);
 
 
             }
-            else if (j<3)
+            else
             {
                 item = new QStandardItem(query.value(j).toString());
             }
 
-            if ( j<4)
-            {
+
                 item->setTextAlignment(Qt::AlignCenter);
 
                 model->setItem(row,j,item);
 
-            }
+
         }
         row++;
     }
 
 
 
-
     model->setHeaderData(0, Qt::Horizontal , "id");
-    model->setHeaderData(1, Qt::Horizontal , "titre");
-    model->setHeaderData(2, Qt::Horizontal , "description");
-    model->setHeaderData(3, Qt::Horizontal , "photo");
-    model->setHeaderData(4, Qt::Horizontal , "delete");
-    model->setHeaderData(5, Qt::Horizontal , "update");
+    model->setHeaderData(1, Qt::Horizontal , "type");
+    model->setHeaderData(2, Qt::Horizontal , "titre");
+    model->setHeaderData(3, Qt::Horizontal , "description");
+    model->setHeaderData(4, Qt::Horizontal , "duree");
+    model->setHeaderData(5, Qt::Horizontal , "photo");
+    model->setHeaderData(6, Qt::Horizontal , "nombre de vue");
+    model->setHeaderData(7, Qt::Horizontal , "delete");
+    model->setHeaderData(8, Qt::Horizontal , "update");
     ui->tableViewms->setModel(model);
+    ui->tableViewms->horizontalHeader()->setVisible(true);
 
     for (int j=0;j<row ; j++)
     {
@@ -223,7 +308,7 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
                             "background:transparent;"
                             "border:none;"
                             "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 4), butt);
+        ui->tableViewms->setIndexWidget(model->index(j, 7), butt);
 
         butt = new QPushButton("update");
         name = QString("buttonup%1").arg(j) ;
@@ -232,10 +317,13 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
         butt->setText(display) ;
 
         connect(butt, &QPushButton::clicked, this, [this, j]() {
-            ui->upidms->setText(QString::number(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,0)).toInt()   ));
-            ui->uptitlems->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,1)).toString());
-            ui->updescriptionms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,2)).toString());
-            QPixmap pixmap=ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,3) , Qt::DecorationRole).value<QPixmap>();
+            ui->upidms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,0)).toString()   );
+            ui->typeupms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,1)).toString());
+            ui->uptitlems->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,2)).toString());
+            ui->updescriptionms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,3)).toString());
+            ui->dureupms->setTime(QTime::fromString(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,4)).toString(),"hh:mm:ss") );
+            ui->nbrvupms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,6)).toString());
+            QPixmap pixmap=ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,5) , Qt::DecorationRole).value<QPixmap>();
             //QMessageBox :: critical(this,"Error",byte);
 
 
@@ -247,7 +335,7 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
                             "background:transparent;"
                             "border:none;"
                             "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 5), butt);
+        ui->tableViewms->setIndexWidget(model->index(j, 8), butt);
 
 
 
@@ -266,7 +354,7 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
     path.addRoundedRect(rect,25,25);
     QRegion mask = QRegion(path.toFillPolygon().toPolygon());
     ui->tableViewms->viewport()->setMask(mask);
-    ui->tableViewms->resize(ui->tableViewms->rowHeight(0)*row,ui->tableViewms->columnWidth(3)*4);
+    //ui->tableViewms->resize(ui->tableViewms->rowHeight(0)*row,ui->tableViewms->columnWidth(3)*4);
     ui->tableViewms->resizeRowsToContents();
     ui->tableViewms->resizeColumnsToContents();
 
@@ -281,72 +369,87 @@ void MainWindow::on_returnupms_clicked() //bouton de retour d'update
 void MainWindow::on_confirmupms_clicked() //bouton de confirmation d'update
 {
 
-    if (byte!="")
+    QString erreur="";
+    bool intyes;
+    ui->nbrvupms->text().toInt(&intyes);
+    qDebug()<<intyes;
+    if (intyes==false)
     {
-        /*QByteArray byte;
-        QFile file(photo);
-        QPixmap img(photo);
-        QBuffer imgdata;
-        if (imgdata.open(QIODevice::ReadWrite))
+        erreur+="\n-nombre de vues doit etre un NOMBRE";
+    }
+    if (ui->uptitlems->text()=="")
+    {
+        erreur+="\n-un titre ne doit pas etre vide";
+    }
+    if (ui->updescriptionms->toPlainText().count()<10)
+    {
+        erreur+="\n-une description de au moins 10 caractére est necessaire";
+    }
+    if (erreur=="")
+    {
+        if (byte!="")
         {
-            img.save(&imgdata,"PNG");
-        }
-        byte=imgdata.buffer().toBase64();
-        if(file.open(QIODevice::ReadOnly))
-        {
-            byte = file.readAll();
-            QMessageBox :: critical(this,"Error",byte);
-            file.close();
-        }*/
-        //QMessageBox :: critical(this,"Error",photo);
-        /*QSqlQuery query;
-        query.prepare("UPDATE  MOVIE SET  DESCRIPTION=:description , PHOTO=:photo , TITRE=:titre WHERE ID=:id");
-        query.bindValue(":photo", byte);
-        query.bindValue(":titre",ui->uptitlems->text());
-        query.bindValue(":description",ui->updescriptionms->toPlainText());
-        query.bindValue(":id", ui->upidms->text());*/
-        MOVIE T;
-        if(T.updateimg(ui->upidms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),byte))
-        {
-             QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
-             ui->lineEdit_2ms->setText("");
-             ui->textEditms->setText("");
-             byte="";
-             //ui->imagetest->setStyleSheet("border-image : none;");
 
-             ui->stackedWidget->setCurrentIndex(0);
-             emit ui->pushButton_12ms->click();
+            MOVIE T;
+            if(T.updateimg(ui->upidms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),byte,ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
+            {
+                 QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
+                 ui->lineEdit_2ms->setText("");
+                 ui->textEditms->setText("");
+                 byte="";
+                 //ui->imagetest->setStyleSheet("border-image : none;");
 
-        }
+                 ui->stackedWidget->setCurrentIndex(0);
+                 emit ui->pushButton_12ms->click();
+
+            }
+            else
+            {
+                 QMessageBox :: critical(this,"Error","Couldn't update data");
+            }
+          }
         else
         {
-             QMessageBox :: critical(this,"Error","Couldn't update data");
+
+            MOVIE T;
+            if(T.updatenoimg(ui->upidms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
+            {
+                 QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
+                 ui->uptitlems->setText("");
+                 ui->upidms->setText("");
+                 ui->updescriptionms->setText("");
+                 //ui->imagetest->setStyleSheet("border-image : none;");
+
+                 ui->stackedWidget->setCurrentIndex(0);
+                 emit ui->pushButton_12ms->click();
+            }
+            else
+            {
+                 QMessageBox :: critical(this,"Error","Couldn't updated data");
+            }
         }
-      }
+    }
     else
     {
-        //QMessageBox :: critical(this,"Error",photo);
-        /*QSqlQuery query;
-        query.prepare("UPDATE  MOVIE SET  DESCRIPTION=:description , TITRE=:titre WHERE ID=:id");
-        query.bindValue(":titre",ui->uptitlems->text());
-        query.bindValue(":description",ui->updescriptionms->toPlainText());
-        query.bindValue(":id", ui->upidms->text());*/
-        MOVIE T;
-        if(T.updatenoimg(ui->upidms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText()))
-        {
-             QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
-             ui->uptitlems->setText("");
-             ui->upidms->setText("");
-             ui->updescriptionms->setText("");
-             //ui->imagetest->setStyleSheet("border-image : none;");
-
-             ui->stackedWidget->setCurrentIndex(0);
-             emit ui->pushButton_12ms->click();
-        }
-        else
-        {
-             QMessageBox :: critical(this,"Error","Couldn't updated data");
-        }
+        QMessageBox msgbox;
+        msgbox.setText("!!!! ERREUR DE SASIE !!!!");
+        msgbox.setInformativeText("erreurs : \n"+erreur);
+        msgbox.setIcon(QMessageBox::Critical);
+        msgbox.setStandardButtons(QMessageBox::Ok);
+        msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                             "QMessageBox QLabel"
+                             "{"
+                             " color : #DDD ;"
+                             "font-size:15px;}"
+                             "QMessageBox QPushButton"
+                             "{"
+                             "background-color:rgba(255,255,255,150);"
+                             "min-width : 100;"
+                             "min-height : 30;"
+                             "border-radius: 15px;"
+                             "}"
+        );
+        msgbox.exec();
     }
 
 }
@@ -366,4 +469,9 @@ void MainWindow::on_upimagems_clicked() //bouton de saisie d'image d'update
           //QMessageBox :: critical(this,"Error",byte);
           file.close();
       }
+}
+
+void MainWindow::on_pushButtonms_clicked()
+{
+    emit ui->pushButton_12ms->click();
 }

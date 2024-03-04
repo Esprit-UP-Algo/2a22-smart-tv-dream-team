@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QSqlDatabase db ;
     db = QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("test");
-    db.setUserName("omar");
+    db.setUserName("yahya");
     db.setPassword("orro");
     db.open();
 

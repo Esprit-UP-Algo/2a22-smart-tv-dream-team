@@ -38,6 +38,8 @@ private slots:
 
     void on_upimagems_clicked();
 
+    void on_pushButtonms_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
