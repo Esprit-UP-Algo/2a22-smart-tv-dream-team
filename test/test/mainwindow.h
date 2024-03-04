@@ -63,12 +63,17 @@ private slots:
     void on_vewatch_2M_clicked();
     void afficherDonnees();
      void afficherDescription();
+     void afficherMedia();
+     bool supprimerMedia(QString titre);
+
+     void on_listM_clicked();
 
 private:
     Ui::MainWindow *ui;
     bool isTrieButtonClicked = false;
     QString type ;
     QList<QPushButton*> buttonsList;
+    QByteArray valImage;
 
 };
 #endif // MAINWINDOW_H

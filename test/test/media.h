@@ -52,9 +52,13 @@ public:
     //fct
     bool ajouterMedia(QString titre,QString description,QByteArray image,QString producteur,QString type);
     QSqlQueryModel * afficherMedia();
-    bool supprimerMedia(QString);
     bool modifierMedia(QString);
     void afficherChannel();
+    bool supprimerMedia(QString titre);
+    bool isTitleRepeated(QString titre);
+    bool isImageInserted(const QByteArray& Image);
+    bool isProducerInserted(QString producteur);
+    bool isDescriptionValid(QString description);
 
 private:
     //QSharedDataPointer<mediaData> data;

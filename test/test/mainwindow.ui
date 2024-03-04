@@ -103,7 +103,7 @@ background-color:transparent}
        <enum>QFrame::Sunken</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_0">
        <widget class="QPushButton" name="loM">
@@ -536,6 +536,38 @@ border:transparent;}
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
+       <widget class="QPushButton" name="listM">
+        <property name="geometry">
+         <rect>
+          <x>1350</x>
+          <y>0</y>
+          <width>151</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    #listM{color: white;
+    font-family: Ms Shell Dlg;
+    font-size: 20px; 
+ 
+    /*text-transform: uppercase; /* Transformation du texte en majuscules */
+	padding-left: 20px;
+background:transparent;
+border:transparent;}
+#listM:hover {
+   text-decoration: underline;
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>list</string>
+        </property>
+        <property name="icon">
+         <iconset theme="a">
+          <normaloff>.</normaloff>.</iconset>
+        </property>
+       </widget>
        <zorder>label_5M</zorder>
        <zorder>label_3M</zorder>
        <zorder>returnButtonM</zorder>
@@ -553,6 +585,7 @@ border:transparent;}
        <zorder>textEdit_2M</zorder>
        <zorder>button2</zorder>
        <zorder>statisticsM</zorder>
+       <zorder>listM</zorder>
       </widget>
       <widget class="QWidget" name="page_1">
        <property name="styleSheet">
@@ -860,6 +893,28 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt;CREAT YOUR &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt;       OWN CHANNEL&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="labelM_2">
+        <property name="geometry">
+         <rect>
+          <x>1580</x>
+          <y>420</y>
+          <width>281</width>
+          <height>271</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+    font-size: 35px; 
+    font-weight: bold; 
+    background-color: white;
+    color: white;
+    
+   </string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </widget>
@@ -1632,7 +1687,58 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="page_5"/>
+      <widget class="QWidget" name="page_5">
+       <widget class="QTableView" name="tableViewM">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>1811</width>
+          <height>671</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox">
+        <property name="geometry">
+         <rect>
+          <x>1732</x>
+          <y>21</y>
+          <width>161</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>type</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nouvel élément</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nouvel élément</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nouvel élément</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nouvel élément</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nouvel élément</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
       <widget class="QWidget" name="page"/>
      </widget>
     </item>

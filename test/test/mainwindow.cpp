@@ -7,11 +7,15 @@
 #include <QByteArray>
 #include "media.h"
 #include <QMessageBox>
+#include <QSqlTableModel>
+#include <QSqlQuery>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
     ui->label_3M->setVisible(false);
     ui->returnButtonM->setVisible(false);
@@ -35,8 +39,11 @@ MainWindow::MainWindow(QWidget *parent)
          type = "Channel";
      });
 
-         afficherDonnees();
+     Media media;
+     //ui->tableViewM->setModel(media.afficherMedia());
 
+
+// connect(ui->afficherButton, &QPushButton::clicked, this, &MainWindow::afficherMedia);
 
 }
 
@@ -135,22 +142,58 @@ void MainWindow::on_addButtonM_clicked()
     QString producteur = ui->ProducerM->text();
     QString description = ui->textEditM->toPlainText();
 
-
+    // Vérifier si le titre existe déjà dans la base de données
+    if (m.isTitleRepeated(titre)) {
+        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("This title already exists.\n"
+                                          "Please enter another title."),
+                              QMessageBox::Ok);
+        return; // Arrêter l'exécution de la fonction si le titre est répété
+    }
 
     QByteArray image = importImage();
-    bool test = m.ajouterMedia(titre, description, image, producteur, type);
-    if (test) {
-        QMessageBox::information(nullptr, QObject::tr("OK"),
-                                 QObject::tr("Ajout effectué.\n"
-                                             "Cliquez sur OK pour quitter."),
-                                 QMessageBox::Ok);
-    } else {
-        QMessageBox::critical(nullptr, QObject::tr("Not OK"),
-                              QObject::tr("Ajout non effectué.\n"
-                                          "Cliquez sur OK pour quitter."),
+
+    // Vérifier si une image a été insérée
+    if (!m.isImageInserted(image)) {
+        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("Please insert an image."),
                               QMessageBox::Ok);
+        return; // Arrêter l'exécution de la fonction si aucune image n'a été insérée
     }
+
+    // Vérifier si un producteur a été inséré
+    if (!m.isProducerInserted(producteur)) {
+        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("Please insert a producer."),
+                              QMessageBox::Ok);
+        return; // Arrêter l'exécution de la fonction si aucun producteur n'a été inséré
+    }
+    // Vérifier si la description est valide
+        if (!m.isDescriptionValid(description)) {
+            QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                                  QObject::tr("Description should be less than 200 characters."),
+                                  QMessageBox::Ok);
+            return; // Arrêter l'exécution de la fonction si la description est trop longue
+        }
+
+    // Ajouter le média si toutes les vérifications sont passées avec succès
+    bool test = m.ajouterMedia(titre, description, image, producteur, type);
+    if (!test) {
+        QMessageBox::critical(nullptr, QObject::tr("Not OK"),
+                              QObject::tr("The addition was not made.\n"
+                                          "Please try again."),
+                              QMessageBox::Ok);
+        return; // Arrêter l'exécution de la fonction si l'ajout n'est pas réussi
+    }
+
+    QMessageBox::information(nullptr, QObject::tr("OK"),
+                             QObject::tr("Addition is validated.\n"
+                                         "Click OK to exit."),
+                             QMessageBox::Ok);
 }
+
+
+
 
 
 
@@ -310,3 +353,150 @@ void MainWindow::on_vewatch_2M_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
 }
+
+
+bool MainWindow::supprimerMedia(QString titre)
+{
+    QSqlQuery query;
+    QString res = titre;
+    query.prepare("delete from MEDIA where TITRE= :titre");
+    query.bindValue(":titre", res);
+    return query.exec();
+}
+
+void MainWindow::on_listM_clicked()
+{
+
+       /*int ligne(0);
+       int row(0);
+       QSqlQuery query;
+       query.exec("select count(*) from MOVIE");
+       while(query.next() )
+       {
+           ligne=query.value(0).toInt();
+       }
+       //QMessageBox :: warning(this,"",QString::number( ligne));
+
+       QStandardItemModel * model=new QStandardItemModel(ligne , 6);
+       query.exec("select TITRE , DESCRIPTION , IMAGE , PRODUCTEUR , TYPE from MEDIA");
+       while(query.next())
+       {
+           for (int j=0;j<4;j++)
+           {
+               QStandardItem *item;
+
+               if ( j==3)
+               {
+                   QByteArray array;
+                   //qDebug()<<"Initial Array Size"<<array.size();
+                   array = query.value(j).toByteArray();
+                   //qDebug()<<"ARray Size"<<array.size();
+                   QPixmap pixmap;
+                   pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
+                   QPixmap scaled=  pixmap.scaled(QSize( 250,250));
+                   item = new QStandardItem();
+                   item->setData(scaled,Qt::DecorationRole);
+
+
+               }
+               else if (j<3)
+               {
+                   item = new QStandardItem(query.value(j).toString());
+               }
+
+               if ( j<4)
+               {
+                   item->setTextAlignment(Qt::AlignCenter);
+
+                   model->setItem(row,j,item);
+
+               }
+           }
+           row++;
+       }
+
+
+
+
+       model->setHeaderData(0, Qt::Horizontal , "id");
+       model->setHeaderData(1, Qt::Horizontal , "titre");
+       model->setHeaderData(2, Qt::Horizontal , "description");
+       model->setHeaderData(3, Qt::Horizontal , "photo");
+       model->setHeaderData(4, Qt::Horizontal , "delete");
+       model->setHeaderData(5, Qt::Horizontal , "update");
+       ui->tableViewM->setModel(model);
+
+       for (int j=0;j<row ; j++)
+       {
+           QPushButton *butt;
+           butt = new QPushButton("delete");
+           QString name = QString("buttondel%1").arg(j) ;
+           QString display = QString("delete") ;
+           butt->setObjectName(name) ;
+           butt->setText(display) ;
+
+           //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
+           connect(butt, &QPushButton::clicked, this, [this, j]() {
+               Media m;
+               if(m.supprimerMedia(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j,0)).toString()))
+               {
+                    QMessageBox :: information(this,"delete","Data Deleted successfully", QMessageBox ::Ok);
+                    //emit ui->pushButton_12ms->click();
+
+               }
+               else
+               {
+                    QMessageBox :: critical(this,"Error","Couldn't delete data");
+               }
+           });
+           butt->setStyleSheet("color:red;"
+                               "background:transparent;"
+                               "border:none;"
+                               "font : 15pt;");
+           ui->tableViewM->setIndexWidget(model->index(j, 4), butt);
+
+           butt = new QPushButton("update");
+           name = QString("buttonup%1").arg(j) ;
+           display = QString("update") ;
+           butt->setObjectName(name) ;
+           butt->setText(display) ;
+
+           connect(butt, &QPushButton::clicked, this, [this, j]() {
+               ui->TitleM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j,0)).toString());
+               ui->textEditM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j,1)).toString());
+               ui->ProducerM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j,2)).toString());
+               QPixmap pixmap=ui->tableViewM->model()->data(ui->tableViewM->model()->index(j,3) , Qt::DecorationRole).value<QPixmap>();
+               //QMessageBox :: critical(this,"Error",byte);
+
+
+              /* QPixmap scaled=  pixmap.scaled(QSize( 200,200));
+               ui->imagetest_2ms->setPixmap(scaled);
+               ui->stackedWidget->setCurrentIndex(5);
+           });
+          butt->setStyleSheet("color:green;"
+                               "background:transparent;"
+                               "border:none;"
+                               "font : 15pt;");
+           ui->tableViewM->setIndexWidget(model->index(j, 5), butt);*/
+
+
+
+       }
+
+
+
+      /* ui->tableViewM->verticalHeader()->setVisible(false);
+       ui->tableViewM->viewport()->setStyleSheet("background: rgb(255, 255, 255);"
+                                                "border: 1px solid white;"
+                                                "border-radius: 10px;"
+                                                "color: black;");
+       QRect rect = ui->tableViewM->viewport()->rect();
+       QPainterPath path;
+       rect.adjust(+1,+1,-1,-1);
+       path.addRoundedRect(rect,25,25);
+       QRegion mask = QRegion(path.toFillPolygon().toPolygon());
+       ui->tableViewM->viewport()->setMask(mask);
+       ui->tableViewM->resize(ui->tableViewM->rowHeight(0)*row,ui->tableViewM->columnWidth(3)*4);
+       ui->tableViewM->resizeRowsToContents();
+       ui->tableViewM->resizeColumnsToContents();*/
+//}
