@@ -28,7 +28,7 @@
 </string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="mainbox">
@@ -2040,6 +2040,32 @@ QPushButton:pressed {
        <string>Manage</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>500</y>
+        <width>451</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background: black;
+    color: white;
+    padding: 0.5em 1em;
+    padding-left: 0.9em;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+
+}</string>
+      </property>
+      <property name="text">
+       <string>VIEW - MANAGE STUDIOS</string>
+      </property>
+     </widget>
      <zorder>label_40A</zorder>
      <zorder>label_42A</zorder>
      <zorder>label_46A</zorder>
@@ -2055,6 +2081,319 @@ QPushButton:pressed {
      <zorder>pushButton_16A</zorder>
      <zorder>pushButton_17A</zorder>
      <zorder>pushButton_18A</zorder>
+     <zorder>pushButton</zorder>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QLabel" name="label_40A_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>80</y>
+        <width>1881</width>
+        <height>931</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread: pad, x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 rgba(24, 27, 32, 255), stop: 1 rgba(24, 27, 32, 255));
+border-radius:30px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_42A_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>110</y>
+        <width>1791</width>
+        <height>871</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:40px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../Downloads/Fluid_Pink_Blue_Wallpaper_8k_10 (2).png</pixmap>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>160</y>
+        <width>381</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:white;
+border-radius:30px;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QPushButton" name="pushButton_UPDATE">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>640</y>
+         <width>331</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background: black;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Confirm Deletion</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_41A_2">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>300</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Input Studio Number :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>350</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: #333333; /* Text color */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Font weight */
+    border: 1px solid black;</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>160</y>
+        <width>20</width>
+        <height>731</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:none;</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>1400</x>
+        <y>160</y>
+        <width>391</width>
+        <height>751</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:white;
+border-radius:30px;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QPushButton" name="pushButton_UPDATE_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>630</y>
+         <width>331</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background: black;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Confirm Update</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>140</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #333333; /* Text color */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Font weight */
+    border: 1px solid black;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>250</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #333333; /* Text color */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Font weight */
+    border: 1px solid black;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_4">
+       <property name="geometry">
+        <rect>
+         <x>112</x>
+         <y>360</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #333333; /* Text color */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Font weight */
+    border: 1px solid black;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_41A_3">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>90</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Input  Studio  Number :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_41A_4">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>200</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Input New Studio Capacity</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_41A_5">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>310</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Input New Studio State :</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>1320</x>
+        <y>170</y>
+        <width>20</width>
+        <height>731</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:none;</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableView">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>160</y>
+        <width>591</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:white;
+border-radius:30px;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_UPDATE_3">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>800</y>
+        <width>331</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background: black;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+
+}</string>
+      </property>
+      <property name="text">
+       <string>Refresh</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
