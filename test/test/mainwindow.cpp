@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
+
+    ui->stackedWidget->setCurrentIndex(0);
     ui->label_3M->setVisible(false);
     ui->returnButtonM->setVisible(false);
     ui->deleteButtonM->setVisible(false);
@@ -142,6 +144,7 @@ void MainWindow::on_addButtonM_clicked()
     QString producteur = ui->ProducerM->text();
     QString description = ui->textEditM->toPlainText();
 
+
     // Vérifier si le titre existe déjà dans la base de données
     if (m.isTitleRepeated(titre)) {
         QMessageBox::critical(nullptr, QObject::tr("Erreur"),
@@ -152,6 +155,9 @@ void MainWindow::on_addButtonM_clicked()
     }
 
     QByteArray image = importImage();
+    QPixmap pixmap ;
+    pixmap.loadFromData(image,"JPG && PNG",Qt::AutoColor);
+    ui->labelM_2->setPixmap(pixmap);
 
     // Vérifier si une image a été insérée
     if (!m.isImageInserted(image)) {
@@ -162,6 +168,7 @@ void MainWindow::on_addButtonM_clicked()
     }
 
     // Vérifier si un producteur a été inséré
+
     if (!m.isProducerInserted(producteur)) {
         QMessageBox::critical(nullptr, QObject::tr("Erreur"),
                               QObject::tr("Please insert a producer."),
@@ -339,6 +346,9 @@ QByteArray MainWindow::importImage()
             // Lire les données de l'image
             QByteArray imageData = file.readAll();
             file.close();
+            QPixmap pixmap ;
+            pixmap.loadFromData(imageData,"JPG && PNG",Qt::AutoColor);
+            ui->labelM_2->setPixmap(pixmap);
             return imageData;
         } else {
             qDebug() << "Erreur: Impossible d'ouvrir le fichier image.";
@@ -370,21 +380,21 @@ void MainWindow::on_listM_clicked()
     int ligne(0);
     int row(0);
     QSqlQuery query;
-    query.exec("SELECT COUNT(*) FROM MOVIE");
+    query.exec("SELECT COUNT(*) FROM MEDIA");
     while(query.next())
     {
         ligne = query.value(0).toInt();
     }
 
-    QStandardItemModel *model = new QStandardItemModel(ligne, 6);
+    QStandardItemModel *model = new QStandardItemModel(ligne, 7);
     query.exec("SELECT TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA");
     while(query.next())
     {
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 5; j++)
         {
             QStandardItem *item;
 
-            if (j == 3)
+            if (j == 2)
             {
                 QByteArray array;
                 array = query.value(j).toByteArray();
@@ -394,26 +404,25 @@ void MainWindow::on_listM_clicked()
                 item = new QStandardItem();
                 item->setData(scaled, Qt::DecorationRole);
             }
-            else if (j < 3)
+            else
             {
                 item = new QStandardItem(query.value(j).toString());
             }
 
-            if (j < 4)
-            {
                 item->setTextAlignment(Qt::AlignCenter);
                 model->setItem(row, j, item);
-            }
+
         }
         row++;
     }
 
-    model->setHeaderData(0, Qt::Horizontal, "id");
-    model->setHeaderData(1, Qt::Horizontal, "titre");
-    model->setHeaderData(2, Qt::Horizontal, "description");
-    model->setHeaderData(3, Qt::Horizontal, "photo");
-    model->setHeaderData(4, Qt::Horizontal, "delete");
-    model->setHeaderData(5, Qt::Horizontal, "update");
+    model->setHeaderData(0, Qt::Horizontal, "Title");
+    model->setHeaderData(1, Qt::Horizontal, "Description");
+    model->setHeaderData(2, Qt::Horizontal, "Image");
+    model->setHeaderData(3, Qt::Horizontal, "Producer");
+    model->setHeaderData(4, Qt::Horizontal, "Type");
+    model->setHeaderData(5, Qt::Horizontal, "delete");
+    model->setHeaderData(6, Qt::Horizontal, "update");
     ui->tableViewM->setModel(model);
 
     for (int j = 0; j < row; j++)
@@ -430,6 +439,8 @@ void MainWindow::on_listM_clicked()
             if (m.supprimerMedia(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString()))
             {
                 QMessageBox::information(this, ")", "Data Deleted successfully", QMessageBox::Ok);
+
+                emit ui->listM->click();
             }
             else
             {
@@ -448,7 +459,7 @@ void MainWindow::on_listM_clicked()
 
 
 
-        ui->tableViewM->setIndexWidget(model->index(j, 4), butt);
+        ui->tableViewM->setIndexWidget(model->index(j, 5), butt);
 
         butt = new QPushButton("*");
         name = QString("buttonup%1").arg(j);
@@ -459,8 +470,15 @@ void MainWindow::on_listM_clicked()
         connect(butt, &QPushButton::clicked, this, [this, j]() {
             ui->TitleM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString());
             ui->textEditM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString());
-            ui->ProducerM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2)).toString());
-            QPixmap pixmap = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 3), Qt::DecorationRole).value<QPixmap>();
+            ui->ProducerM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 3)).toString());
+            QPixmap pixmap = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2), Qt::DecorationRole).value<QPixmap>();
+            ui->labelM_2->setPixmap(pixmap);
+            if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString()=="Radio")
+                ui->radioButtonM->setChecked(true);
+            if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString()=="Channel")
+                ui->radioButton_2M->setChecked(true);
+            ui->stackedWidget->setCurrentIndex(1);
+
         });
 
         butt->setStyleSheet("color:green;"
@@ -471,7 +489,7 @@ void MainWindow::on_listM_clicked()
                             "border-radius: 10;"
                             "font-family:DRIPICONS-V2;"
                             "font: 15pt;");
-        ui->tableViewM->setIndexWidget(model->index(j, 5), butt);
+        ui->tableViewM->setIndexWidget(model->index(j, 6), butt);
     }
 
     ui->tableViewM->verticalHeader()->setVisible(false);
@@ -485,7 +503,76 @@ void MainWindow::on_listM_clicked()
     path.addRoundedRect(rect, 25, 25);
     QRegion mask = QRegion(path.toFillPolygon().toPolygon());
     ui->tableViewM->viewport()->setMask(mask);
-    ui->tableViewM->resize(ui->tableViewM->rowHeight(0) * row, ui->tableViewM->columnWidth(3) * 4);
+    //ui->tableViewM->resize(ui->tableViewM->rowHeight(0) * row, ui->tableViewM->columnWidth(3) * 4);
     ui->tableViewM->resizeRowsToContents();
     ui->tableViewM->resizeColumnsToContents();
+}
+
+void MainWindow::on_returnM_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    //emit ui->listM->click();
+}
+
+void MainWindow::on_updatedButtonM_clicked()
+{
+    //modifierMedia(QString titre);
+    Media m;
+    QString titre = ui->TitleM->text();
+    QString producteur = ui->ProducerM->text();
+    QString description = ui->textEditM->toPlainText();
+
+
+    QByteArray image = importImage();
+
+    // Vérifier si une image a été insérée
+    if (!m.isImageInserted(image)) {
+        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("Please insert an image."),
+                              QMessageBox::Ok);
+        return; // Arrêter l'exécution de la fonction si aucune image n'a été insérée
+    }
+
+    // Vérifier si un producteur a été inséré
+    if (!m.isProducerInserted(producteur)) {
+        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("Please insert a producer."),
+                              QMessageBox::Ok);
+        return; // Arrêter l'exécution de la fonction si aucun producteur n'a été inséré
+    }
+    // Vérifier si la description est valide
+        if (!m.isDescriptionValid(description)) {
+            QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                                  QObject::tr("Description should be less than 200 characters."),
+                                  QMessageBox::Ok);
+            return; // Arrêter l'exécution de la fonction si la description est trop longue
+        }
+    m.setTitre(ui->TitleM->text());
+    m.setProducteur(ui->ProducerM->text());
+    m.setDescription(ui->textEditM->toPlainText());
+    if (ui->radioButtonM->isChecked())
+    {
+        m.setType("Radio");
+    }
+    if (ui->radioButton_2M->isChecked())
+    {
+        m.setType("Channel");
+    }
+    m.setImage(importImage());
+
+    // Ajouter le média si toutes les vérifications sont passées avec succès
+    bool test = m.modifierMedia(titre);
+    if (!test) {
+        QMessageBox::critical(nullptr, QObject::tr("Not OK"),
+                              QObject::tr("The addition was not made.\n"
+                                          "Please try again."),
+                              QMessageBox::Ok);
+    }
+
+    QMessageBox::information(nullptr, QObject::tr("OK"),
+                             QObject::tr("Addition is validated.\n"
+                                         "Click OK to exit."),
+                             QMessageBox::Ok);
+
+    emit ui->listM->click();
 }

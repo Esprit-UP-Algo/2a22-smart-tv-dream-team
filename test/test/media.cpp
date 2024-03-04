@@ -97,7 +97,7 @@ bool Media::supprimerMedia(QString titre)
 bool Media::modifierMedia(QString titre)
 {
     QSqlQuery query;
-     query.prepare("UPDATE media SET titre = :titre, description = :description, image = :image, producteur = :producteur,type = :type WHERE titre = :titre");
+     query.prepare("UPDATE media SET  description = :description, image = :image, producteur = :producteur,type = :type WHERE titre = :titre");
      query.bindValue(":titre", titre);
      query.bindValue(":description", description);
      query.bindValue(":image", image);

@@ -68,6 +68,10 @@ private slots:
 
      void on_listM_clicked();
 
+     void on_returnM_clicked();
+
+     void on_updatedButtonM_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool isTrieButtonClicked = false;
