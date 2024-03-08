@@ -189,6 +189,8 @@ private slots:
 
     void on_gg_2tr_2_clicked();
 
+    void on_gg_2tr_3_clicked();
+
 private:
     Ui::Dialog *ui;
     bool isTrieButtonClicked = false;

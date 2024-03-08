@@ -11,6 +11,9 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint| Qt::WindowSystemMenuHint);
+    ui->lineEdit_2->setValidator(new QIntValidator(0,1000000000,this));
+    ui->lineEdit_4->setValidator(new QIntValidator(0,1000000000,this));
+    ui->lineEdit_15->setValidator(new QIntValidator(0,1000000000,this));
     (ui->comboBox)->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
     (ui->comboBox)->view()->window()->setAttribute(Qt::WA_TranslucentBackground);
     (ui->comboBox_2)->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
@@ -237,10 +240,6 @@ void Dialog::on_gg_7_clicked()
     close();
 }
 
-void Dialog::on_hihi_15_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(1);
-}
 
 void Dialog::on_hihi_16_clicked()
 {
@@ -784,8 +783,9 @@ void Dialog::on_hihi_10tr_2_clicked()
     ui->stackedWidget->setCurrentIndex(12);
 }
 
-void Dialog::on_hihi_10tr_3_clicked()
+void Dialog::on_hihi_15_clicked()
 {
+        ui->stackedWidget->setCurrentIndex(1);
         int ligne(0);
         int row(0);
         QSqlQuery query;
@@ -798,29 +798,29 @@ void Dialog::on_hihi_10tr_3_clicked()
 
         QStandardItemModel * model=new QStandardItemModel(ligne , 6);
         QString qs;
-        if(ui->textEdittr_2->toPlainText()!="")
+        if(ui->textEdittr_3->toPlainText()!="")
         {
 
-           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION where IDTRANSACTION="+ui->textEdittr_2->toPlainText() ;
+           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION where IDTRANSACTION="+ui->textEdittr_3->toPlainText() ;
         }
 
-        else if(ui->comboBox_4->currentText()=="date transaction from oldest to newest ")
+        else if(ui->comboBox_5->currentText()=="date transaction from oldest to newest ")
         {
            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET DESC";
         }
-        else if(ui->comboBox_4->currentText()=="default")
+        else if(ui->comboBox_5->currentText()=="default")
         {
             qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION";
         }
-        else if(ui->comboBox_4->currentText()=="date transaction from newest to oldest")
+        else if(ui->comboBox_5->currentText()=="date transaction from newest to oldest")
         {
             qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET";
         }
-        else if(ui->comboBox_4->currentText()=="montant from highest to lowest")
+        else if(ui->comboBox_5->currentText()=="montant from highest to lowest")
         {
             qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT DESC ";
         }
-        else if(ui->comboBox_4->currentText()=="montant from lowest to highest")
+        else if(ui->comboBox_5->currentText()=="montant from lowest to highest")
         {
             qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT";
         }
@@ -866,7 +866,7 @@ void Dialog::on_hihi_10tr_3_clicked()
                 query.prepare("delete from TRANSACTION where IDTRANSACTION=:id");
                 query.bindValue(":id",ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,0)).toInt());
                 query.exec();
-                emit ui->hihi_10tr_3->click();
+                emit ui->hihi_15->click();
             });
             butt->setStyleSheet("color:red;"
                                 "background:transparent;"
@@ -881,10 +881,22 @@ void Dialog::on_hihi_10tr_3_clicked()
             butt->setText(display) ;
 
             connect(butt, &QPushButton::clicked, this, [this, j]() {
-                ui->lineEdit_2->setText(QString::number(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,0)).toInt()   ));
+                ui->lineEdit_2->setText(QString::number(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,3)).toInt()   ));
                 ui->dateTimeEdit_2->setDateTime(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,1)).toDateTime());
-                ui->lineEdit_14->setText(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,2)).toString());
-                ui->lineEdit_15->setText(QString::number(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,3)).toInt()   ));
+                if (ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,2)).toString()=="cheque")
+                {
+                    ui->radioButton_2->setChecked(true);
+                }
+                if (ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,2)).toString()=="carte bancaire")
+                {
+                    ui->radioButton_3->setChecked(true);
+                }
+                if (ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,2)).toString()=="especes")
+                {
+                    ui->radioButton->setChecked(true);
+                }
+
+                ui->lineEdit_15->setText(QString::number(ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,0)).toInt()   ));
                 ui->stackedWidget->setCurrentIndex(12);
             });
             butt->setStyleSheet("color:green;"
@@ -904,7 +916,6 @@ void Dialog::on_hihi_10tr_3_clicked()
             ui->tableViewtr->resizeRowsToContents();
             ui->tableViewtr->resizeColumnsToContents();
             ui->tableViewtr->show();
-            ui->stackedWidget->setCurrentIndex(13);
     }
 
 
@@ -925,39 +936,150 @@ void Dialog::on_pushButton_10_clicked()
 
 void Dialog::on_pushButton_9_clicked()
 {
-    QSqlQuery query;
-            query.prepare("insert into TRANSACTION values (:id , :date , :type , :montant)");
-            query.bindValue(":date",ui->dateTimeEdit->dateTime());
-            query.bindValue(":type",ui->lineEdit_3->text());
-            query.bindValue(":montant",ui->lineEdit_4->text().toInt());
-            query.bindValue(":id",ui->lineEdit->text().toInt());
-            if(query.exec())
+    QString erreur="";
+        QString check1;
+        bool intyes2;
+        ui->lineEdit_4->text().toInt(&intyes2);
+        if((ui->radioButton_7->isChecked()==false)&&(ui->radioButton_8->isChecked()==false)&&(ui->radioButton_9->isChecked()==false))
+        {
+            erreur+="\n- pls select one ";
+        }
+
+        if (ui->radioButton_7->isChecked())
             {
-                 QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
-                 ui->stackedWidget->setCurrentIndex(1);
+                check1=("especes");
             }
-            else
-            {
-                 QMessageBox :: critical(this,"Error","Couldn't insert data");
-            }
+        if (ui->radioButton_8->isChecked())
+        {
+            check1=("carte bancaire");
+        }
+        if (ui->radioButton_9->isChecked())
+        {
+            check1=("cheque");
+        }
+        if (intyes2==false)
+        {
+            erreur+="\n- montant doit etre nombre";
+        }
+        if (erreur=="")
+        {
+            QSqlQuery query;
+                    query.prepare("insert into TRANSACTION (datet , type , montant , cin) values (:date , :type , :montant , :cin)");
+                    query.bindValue(":date",ui->dateTimeEdit->dateTime());
+                    query.bindValue(":type",check1);
+                    query.bindValue(":montant",ui->lineEdit_4->text().toInt());
+                    query.bindValue(":cin",7);
+
+                    if(query.exec())
+                    {
+                         QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
+                         emit ui->hihi_15->click();
+                    }
+                    else
+                    {
+                         QMessageBox :: critical(this,"Error","Couldn't insert data");
+                    }
+        }
+
+
+
+    else
+    {
+        QMessageBox msgbox;
+        msgbox.setText(" ERREUR DE SASIE ");
+        msgbox.setInformativeText("erreurs : \n"+erreur);
+        msgbox.setIcon(QMessageBox::Critical);
+        msgbox.setStandardButtons(QMessageBox::Ok);
+        msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                             "QMessageBox QLabel"
+                             "{"
+                             " color : #DDD ;"
+                             "font-size:15px;}"
+                             "QMessageBox QPushButton"
+                             "{"
+                             "background-color:rgba(255,255,255,150);"
+                             "min-width : 100;"
+                             "min-height : 30;"
+                             "border-radius: 15px;"
+                             "}"
+        );
+        msgbox.exec();
+    }
 }
 
 void Dialog::on_pushButton_23_clicked()
 {
-    QSqlQuery query;
+        QString erreur="";
+        bool intyes;
+        QString check1;
+        bool intyes2;
+        ui->lineEdit_2->text().toInt(&intyes);
+        ui->lineEdit_15->text().toInt(&intyes2);
+        qDebug()<<intyes;
+        if (intyes==false)
+        {
+            erreur+="\n-id doit etre nombre";
+        }
+        if (ui->radioButton->isChecked())
+            {
+                check1=("especes");
+            }
+        if((ui->radioButton->isChecked()==false)&&(ui->radioButton_2->isChecked()==false)&&(ui->radioButton_3->isChecked()==false))
+        {
+            erreur+="\n- pls select one ";
+        }
+
+        if (ui->radioButton_3->isChecked())
+        {
+            check1=("carte bancaire");
+        }
+        if (ui->radioButton_2->isChecked())
+        {
+            check1=("cheque");
+        }
+        if (intyes2==false)
+        {
+            erreur+="\n- montant doit etre nombre";
+        }
+        if (erreur=="")
+        {
+            QSqlQuery query;
             query.prepare("UPDATE TRANSACTION set DATET=:date , TYPE=:type , MONTANT=:montant where IDTRANSACTION=:id ");
             query.bindValue(":date",ui->dateTimeEdit_2->dateTime());
-            query.bindValue(":type",ui->lineEdit_14->text());
-            query.bindValue(":montant",ui->lineEdit_15->text().toInt());
-            query.bindValue(":id",ui->lineEdit_2->text().toInt());
+            query.bindValue(":type",check1);
+            query.bindValue(":montant",ui->lineEdit_2->text().toInt());
+            query.bindValue(":id",ui->lineEdit_15->text().toInt());
             if(query.exec())
             {
                  QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
-                 ui->stackedWidget->setCurrentIndex(1);
+                 emit ui->hihi_15->click();
             }
             else
             {
                  QMessageBox :: critical(this,"Error","Couldn't update data");
+            }
+        }
+        else
+            {
+                QMessageBox msgbox;
+                msgbox.setText(" ERREUR DE SASIE ");
+                msgbox.setInformativeText("erreurs : \n"+erreur);
+                msgbox.setIcon(QMessageBox::Critical);
+                msgbox.setStandardButtons(QMessageBox::Ok);
+                msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                                     "QMessageBox QLabel"
+                                     "{"
+                                     " color : #DDD ;"
+                                     "font-size:15px;}"
+                                     "QMessageBox QPushButton"
+                                     "{"
+                                     "background-color:rgba(255,255,255,150);"
+                                     "min-width : 100;"
+                                     "min-height : 30;"
+                                     "border-radius: 15px;"
+                                     "}"
+                );
+                msgbox.exec();
             }
 }
 
@@ -1031,9 +1153,9 @@ void Dialog::on_pushButton_27_clicked()
 
 }
 
-void Dialog::on_gg_2tr_2_clicked()
+void Dialog::on_gg_2tr_3_clicked()
 {
-    emit ui->hihi_10tr_3->click();
-    ui->textEdittr_2->setPlainText("");
+    emit ui->hihi_15->click();
+    ui->textEdittr_3->setPlainText("");
 
 }

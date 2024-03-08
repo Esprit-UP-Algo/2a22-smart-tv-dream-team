@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowFlags(Qt::FramelessWindowHint| Qt::WindowSystemMenuHint);
 
 
+
     ui->label_gif_animation->setVisible(false);
 }
 MainWindow::~MainWindow()

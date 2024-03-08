@@ -1657,386 +1657,24 @@ border-bottom-left-radius:20px;
     <zorder>pushButton_9M</zorder>
    </widget>
    <widget class="QWidget" name="transaction">
-    <widget class="QLabel" name="label_22tr">
-     <property name="geometry">
-      <rect>
-       <x>650</x>
-       <y>790</y>
-       <width>481</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));
-border-radius:40px;</string>
-     </property>
-     <property name="text">
-      <string>info of employer that had the transactions</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_27tr">
-     <property name="geometry">
-      <rect>
-       <x>720</x>
-       <y>550</y>
-       <width>20</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_17tr">
-     <property name="geometry">
-      <rect>
-       <x>840</x>
-       <y>530</y>
-       <width>20</width>
-       <height>191</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_28tr">
-     <property name="geometry">
-      <rect>
-       <x>649</x>
-       <y>330</y>
-       <width>61</width>
-       <height>391</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_19tr">
-     <property name="geometry">
-      <rect>
-       <x>890</x>
-       <y>650</y>
-       <width>20</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_30tr">
-     <property name="geometry">
-      <rect>
-       <x>990</x>
-       <y>680</y>
-       <width>20</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_33tr">
-     <property name="geometry">
-      <rect>
-       <x>1270</x>
-       <y>390</y>
-       <width>281</width>
-       <height>281</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgba(255,255,255,150);
-color: rgb(0, 0, 0);
-border-radius:140px;</string>
-     </property>
-     <property name="text">
-      <string>OCTOBER</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_48tr">
-     <property name="geometry">
-      <rect>
-       <x>1240</x>
-       <y>10</y>
-       <width>16</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(0, 0, 0,0);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
-border: 2px solid rgba(0,0,0,0);
-border-left-color:rgba(255,255,255,100);
-color:rgb(255,255,255);
-padding-bottom:7px;
-border-radius:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_18tr">
-     <property name="geometry">
-      <rect>
-       <x>930</x>
-       <y>410</y>
-       <width>20</width>
-       <height>311</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_12tr">
-     <property name="geometry">
-      <rect>
-       <x>945</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>oct</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9tr">
-     <property name="geometry">
-      <rect>
-       <x>850</x>
-       <y>720</y>
-       <width>16</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>jun</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_10tr">
-     <property name="geometry">
-      <rect>
-       <x>875</x>
-       <y>720</y>
-       <width>16</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>jul</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="gg_2tr">
-     <property name="geometry">
-      <rect>
-       <x>1300</x>
-       <y>10</y>
-       <width>31</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#gg_2tr
+    <property name="styleSheet">
+     <string notr="true">QTableView#tableViewtr::item
 {
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
+		color:rgb(255, 255, 255);
+        background-color:rgba(49,28,71,100);
+        border : 2px solid white ;
+        font-size : 15px;
+        min-width : 200;
+        min-height : 200;
+        max-width : 400;
+        max-height : 400;
+
 }
-QPushButton#gg_2tr:hover
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="textEdittr">
-     <property name="geometry">
-      <rect>
-       <x>890</x>
-       <y>10</y>
-       <width>451</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:1 px solid #ced4da;
-border-radius:12px;
-padding-left:25px;
-padding-top:5px;
-background:rgba(190,190,190,100);
-color : rgba(255,255,255,200);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="placeholderText">
-      <string>Search</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="gg_6tr">
-     <property name="geometry">
-      <rect>
-       <x>1820</x>
-       <y>220</y>
-       <width>31</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#gg_6tr
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#gg_6tr:hover
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_21tr">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>100</y>
-       <width>401</width>
-       <height>941</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));
-border-radius:40px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_29tr">
-     <property name="geometry">
-      <rect>
-       <x>960</x>
-       <y>690</y>
-       <width>20</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_25tr">
-     <property name="geometry">
-      <rect>
-       <x>860</x>
-       <y>600</y>
-       <width>20</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_47tr">
-     <property name="geometry">
-      <rect>
-       <x>1290</x>
-       <y>10</y>
-       <width>16</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(0, 0, 0,0);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
-border: 2px solid rgba(0,0,0,0);
-border-left-color:rgba(255,255,255,100);
-color:rgb(255,255,255);
-padding-bottom:7px;
-border-radius:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
+QHeaderView::section {background-color: rgba(255,255,255,120);
+color:black;}
+              QHeaderView {background-color: rgba(49,28,71,100);
+color:black;}</string>
+    </property>
     <widget class="QPushButton" name="hihi_11tr">
      <property name="geometry">
       <rect>
@@ -2070,55 +1708,6 @@ border-radius:30px;
      </property>
      <property name="flat">
       <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_5tr">
-     <property name="geometry">
-      <rect>
-       <x>730</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>feb</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_14tr">
-     <property name="geometry">
-      <rect>
-       <x>995</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>dec</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="labeltr">
-     <property name="geometry">
-      <rect>
-       <x>680</x>
-       <y>250</y>
-       <width>231</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Average money transacted </string>
      </property>
     </widget>
     <widget class="QPushButton" name="hihi_10tr">
@@ -2164,42 +1753,10 @@ color:rgb(255,255,255);
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_15tr">
-     <property name="geometry">
-      <rect>
-       <x>895</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>aug</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4tr">
-     <property name="geometry">
-      <rect>
-       <x>700</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>jan</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="hihi_9tr">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>400</x>
        <y>110</y>
        <width>61</width>
        <height>61</height>
@@ -2231,194 +1788,10 @@ border-radius:30px;
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_13tr">
-     <property name="geometry">
-      <rect>
-       <x>970</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>nov</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_31tr">
-     <property name="geometry">
-      <rect>
-       <x>1440</x>
-       <y>300</y>
-       <width>161</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font: 36pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="text">
-      <string>MARCH</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6tr">
-     <property name="geometry">
-      <rect>
-       <x>760</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>mar</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8tr">
-     <property name="geometry">
-      <rect>
-       <x>820</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>may</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_32tr">
-     <property name="geometry">
-      <rect>
-       <x>1390</x>
-       <y>250</y>
-       <width>231</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Most transactions made in </string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_16tr">
-     <property name="geometry">
-      <rect>
-       <x>810</x>
-       <y>470</y>
-       <width>20</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7tr">
-     <property name="geometry">
-      <rect>
-       <x>790</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>apr</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="gg_5tr">
-     <property name="geometry">
-      <rect>
-       <x>1250</x>
-       <y>10</y>
-       <width>31</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#gg_5tr
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#gg_5tr:hover
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_34tr">
-     <property name="geometry">
-      <rect>
-       <x>1490</x>
-       <y>390</y>
-       <width>281</width>
-       <height>281</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgba(255,255,255,150);
-color: rgb(0, 0, 0);
-border-radius:140px;</string>
-     </property>
-     <property name="text">
-      <string>MARCH</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_23tr">
-     <property name="geometry">
-      <rect>
-       <x>750</x>
-       <y>350</y>
-       <width>20</width>
-       <height>371</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rgb(255,0,0);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QPushButton" name="hihi_8tr">
      <property name="geometry">
       <rect>
-       <x>630</x>
+       <x>390</x>
        <y>100</y>
        <width>251</width>
        <height>81</height>
@@ -2456,110 +1829,6 @@ color:rgb(255,255,255);
      </property>
      <property name="flat">
       <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11tr">
-     <property name="geometry">
-      <rect>
-       <x>920</x>
-       <y>720</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>sep</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_20tr">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>200</y>
-       <width>1271</width>
-       <height>571</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));
-border-radius:40px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3tr">
-     <property name="geometry">
-      <rect>
-       <x>1820</x>
-       <y>250</y>
-       <width>31</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>filter</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2tr">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>200</y>
-       <width>201</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
-     </property>
-     <property name="text">
-      <string>Most money transacted per month</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_26tr">
-     <property name="geometry">
-      <rect>
-       <x>780</x>
-       <y>650</y>
-       <width>20</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_24tr">
-     <property name="geometry">
-      <rect>
-       <x>910</x>
-       <y>630</y>
-       <width>20</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-border-right:2px solid rbga(255,255,255,150);
-</string>
-     </property>
-     <property name="text">
-      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_69">
@@ -2858,30 +2127,10 @@ color:rgba(255,115,0,255);
       <string></string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_22tr_2">
-     <property name="geometry">
-      <rect>
-       <x>1160</x>
-       <y>790</y>
-       <width>721</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));
-border-radius:40px;</string>
-     </property>
-     <property name="text">
-      <string>date of transaction and id</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="QPushButton" name="hihi_11tr_2">
      <property name="geometry">
       <rect>
-       <x>1580</x>
+       <x>1560</x>
        <y>110</y>
        <width>61</width>
        <height>61</height>
@@ -2916,7 +2165,7 @@ border-radius:30px;
     <widget class="QPushButton" name="hihi_10tr_2">
      <property name="geometry">
       <rect>
-       <x>1570</x>
+       <x>1550</x>
        <y>100</y>
        <width>251</width>
        <height>81</height>
@@ -3000,82 +2249,209 @@ color:rgba(255,255,255,255);
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="hihi_10tr_3">
+    <widget class="QTableView" name="tableViewtr">
      <property name="geometry">
       <rect>
-       <x>970</x>
-       <y>100</y>
-       <width>251</width>
-       <height>81</height>
+       <x>390</x>
+       <y>210</y>
+       <width>1411</width>
+       <height>699</height>
       </rect>
      </property>
-     <property name="toolTipDuration">
-      <number>1</number>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(255, 255, 255);</string>
      </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+    </widget>
+    <widget class="QTextEdit" name="textEdittr_3">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>10</y>
+       <width>811</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton#hihi_10tr_3{
-	font: 14pt &quot;MS Shell Dlg 2&quot;;
-border-radius:20px;
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
-}
-QPushButton#hihi_10tr_3:hover{
-border-radius:20px;
-color:rgb(255,255,255);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
-	font: 14pt &quot;MS Shell Dlg 2&quot;;
-}
-
-</string>
+      <string notr="true">border:1 px solid #ced4da;
+border-radius:12px;
+padding-left:25px;
+padding-top:5px;
+background:rgba(190,190,190,100);
+color : rgba(255,255,255,200);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
-     <property name="text">
-      <string>          view Transaction</string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>40</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
+     <property name="placeholderText">
+      <string>Search</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="hihi_11tr_3">
+    <widget class="QLabel" name="label_47tr_4">
      <property name="geometry">
       <rect>
-       <x>980</x>
-       <y>110</y>
-       <width>61</width>
-       <height>61</height>
+       <x>1150</x>
+       <y>10</y>
+       <width>16</width>
+       <height>41</height>
       </rect>
      </property>
-     <property name="toolTipDuration">
-      <number>1</number>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0, 0, 0,0);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid rgba(0,0,0,0);
+border-left-color:rgba(255,255,255,100);
+color:rgb(255,255,255);
+padding-bottom:7px;
+border-radius:0px;</string>
      </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_5">
+     <property name="geometry">
+      <rect>
+       <x>1150</x>
+       <y>10</y>
+       <width>351</width>
+       <height>41</height>
+      </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton#hihi_11tr_3{
-border-radius:30px;
-	font: 24pt &quot;dripicons-v2&quot;;
-	background-color: rgb(32, 91, 200);
+      <string notr="true">#comboBox_5
+{
+border:1 px solid #ced4da;
+
+padding-left:10px;
+background:transparent;
+color : rgba(255,255,255,200);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+}
+#comboBox_5::drop-down{
+border:0px;
+}
+#comboBox_5::down-arrow{
+image:url(D:\Untitled_design__5_-removebg-preview.png);
+width:30px;
+height:30px;
+margin-right:18px;
+}
+#comboBox_5 QListView{
+border:1 px solid #ced4da;
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+padding:5px;
+outline:0px;
+border-radius:20px;
+selection-background-color: rgba(190,190,190,100);
+background-color:rgba(190,190,190,100);
+}
+#comboBox_5 QListView::item{
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+selection-background-color:rgba(190,190,190,100);
+background-color:rgba(190,190,190,100);
+border-radius:12px;
+}
+#comboBox_5 QListView::item:hover{
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+selection-background-color:rgba(190,190,190,100);
+background-color:rgba(190,190,190,100);
+border-radius:12px;
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>default</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>date transaction from oldest to newest </string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>date transaction from newest to oldest</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>montant from highest to lowest</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>montant from lowest to highest</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="gg_2tr_3">
+     <property name="geometry">
+      <rect>
+       <x>1510</x>
+       <y>10</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#gg_2tr_3
+{
+font: 20pt &quot;dripicons-v2&quot;;
+border:none;
+background-color:transparent;
+color:rgba(255,255,255,150);
+}
+QPushButton#gg_2tr_3:hover
+{
+font: 20pt &quot;dripicons-v2&quot;;
+border:none;
+background-color:transparent;
+color:rgba(255,255,255,255);
 }</string>
      </property>
      <property name="text">
-      <string>y</string>
+      <string></string>
      </property>
-     <property name="iconSize">
-      <size>
-       <width>40</width>
-       <height>40</height>
-      </size>
+    </widget>
+    <widget class="QLabel" name="label_47tr_5">
+     <property name="geometry">
+      <rect>
+       <x>1500</x>
+       <y>10</y>
+       <width>16</width>
+       <height>41</height>
+      </rect>
      </property>
-     <property name="flat">
-      <bool>false</bool>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0, 0, 0,0);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid rgba(0,0,0,0);
+border-left-color:rgba(255,255,255,100);
+color:rgb(255,255,255);
+padding-bottom:7px;
+border-radius:0px;</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
     <zorder>hihi_10tr_2</zorder>
@@ -3083,48 +2459,8 @@ border-radius:30px;
     <zorder>label_59</zorder>
     <zorder>hihi_10tr</zorder>
     <zorder>hihi_8tr</zorder>
-    <zorder>label_20tr</zorder>
-    <zorder>label_22tr</zorder>
-    <zorder>label_27tr</zorder>
-    <zorder>label_17tr</zorder>
-    <zorder>label_28tr</zorder>
-    <zorder>label_19tr</zorder>
-    <zorder>label_30tr</zorder>
-    <zorder>label_33tr</zorder>
-    <zorder>label_18tr</zorder>
-    <zorder>label_12tr</zorder>
-    <zorder>label_9tr</zorder>
-    <zorder>label_10tr</zorder>
-    <zorder>gg_6tr</zorder>
-    <zorder>label_21tr</zorder>
-    <zorder>label_29tr</zorder>
-    <zorder>label_25tr</zorder>
     <zorder>hihi_11tr</zorder>
-    <zorder>label_5tr</zorder>
-    <zorder>label_14tr</zorder>
-    <zorder>labeltr</zorder>
-    <zorder>label_15tr</zorder>
-    <zorder>label_4tr</zorder>
     <zorder>hihi_9tr</zorder>
-    <zorder>label_13tr</zorder>
-    <zorder>label_31tr</zorder>
-    <zorder>label_6tr</zorder>
-    <zorder>label_8tr</zorder>
-    <zorder>label_32tr</zorder>
-    <zorder>label_16tr</zorder>
-    <zorder>label_7tr</zorder>
-    <zorder>label_34tr</zorder>
-    <zorder>label_23tr</zorder>
-    <zorder>label_11tr</zorder>
-    <zorder>label_3tr</zorder>
-    <zorder>label_2tr</zorder>
-    <zorder>label_26tr</zorder>
-    <zorder>label_24tr</zorder>
-    <zorder>gg_5tr</zorder>
-    <zorder>gg_2tr</zorder>
-    <zorder>label_48tr</zorder>
-    <zorder>label_47tr</zorder>
-    <zorder>textEdittr</zorder>
     <zorder>hihi_13</zorder>
     <zorder>label_66</zorder>
     <zorder>label_60</zorder>
@@ -3134,11 +2470,14 @@ border-radius:30px;
     <zorder>label_70</zorder>
     <zorder>hihi_14</zorder>
     <zorder>gg_7</zorder>
-    <zorder>label_22tr_2</zorder>
     <zorder>hihi_11tr_2</zorder>
     <zorder>hihi_18</zorder>
-    <zorder>hihi_10tr_3</zorder>
-    <zorder>hihi_11tr_3</zorder>
+    <zorder>tableViewtr</zorder>
+    <zorder>textEdittr_3</zorder>
+    <zorder>label_47tr_4</zorder>
+    <zorder>comboBox_5</zorder>
+    <zorder>gg_2tr_3</zorder>
+    <zorder>label_47tr_5</zorder>
    </widget>
    <widget class="QWidget" name="crud">
     <property name="styleSheet">
@@ -9603,11 +8942,14 @@ border:transparent;}
     <widget class="QFrame" name="frame">
      <property name="geometry">
       <rect>
-       <x>680</x>
-       <y>270</y>
-       <width>611</width>
-       <height>441</height>
+       <x>420</x>
+       <y>240</y>
+       <width>971</width>
+       <height>641</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(85, 85,85)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -9615,60 +8957,42 @@ border:transparent;}
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLineEdit" name="lineEdit_3">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>240</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="lineEdit_4">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>280</y>
-        <width>113</width>
-        <height>20</height>
+        <x>620</x>
+        <y>320</y>
+        <width>191</width>
+        <height>51</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>140</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
       </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_68">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>140</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>id Transaction :</string>
+      <property name="styleSheet">
+       <string notr="true">background-color:white;
+color:black;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_109">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>190</y>
-        <width>91</width>
-        <height>16</height>
+        <x>210</x>
+        <y>185</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
       </property>
       <property name="text">
        <string>date :</string>
@@ -9677,11 +9001,20 @@ border:transparent;}
      <widget class="QLabel" name="label_108">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>240</y>
-        <width>91</width>
-        <height>16</height>
+        <x>210</x>
+        <y>250</y>
+        <width>141</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black</string>
       </property>
       <property name="text">
        <string>type :</string>
@@ -9690,11 +9023,20 @@ border:transparent;}
      <widget class="QLabel" name="label_106">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>280</y>
-        <width>91</width>
-        <height>16</height>
+        <x>210</x>
+        <y>320</y>
+        <width>141</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black</string>
       </property>
       <property name="text">
        <string>montant:</string>
@@ -9703,22 +9045,22 @@ border:transparent;}
      <widget class="QPushButton" name="pushButton_9">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>370</y>
-        <width>101</width>
-        <height>51</height>
+        <x>730</x>
+        <y>490</y>
+        <width>161</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton#pushButton_9{
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
 border-radius:20px;
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
+	background-color:black
 }
 QPushButton#pushButton_9:hover{
 border-radius:20px;
 color:rgb(255,255,255);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgb(0, 0, 0), stop:1 rgba(0, 0, 200, 60));
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
 }</string>
       </property>
@@ -9729,25 +9071,24 @@ color:rgb(255,255,255);
      <widget class="QPushButton" name="pushButton_10">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>370</y>
-        <width>101</width>
-        <height>51</height>
+        <x>90</x>
+        <y>490</y>
+        <width>161</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton#pushButton_10{
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
 border-radius:20px;
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
+	background-color:black
 }
 QPushButton#pushButton_10:hover{
 border-radius:20px;
 color:rgb(255,255,255);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgb(0, 0, 0), stop:1 rgba(0, 0, 200, 60));
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
-}
-</string>
+}</string>
       </property>
       <property name="text">
        <string>return</string>
@@ -9756,7 +9097,7 @@ color:rgb(255,255,255);
      <widget class="QLabel" name="label_223">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>340</x>
         <y>20</y>
         <width>331</width>
         <height>61</height>
@@ -9765,7 +9106,8 @@ color:rgb(255,255,255);
       <property name="styleSheet">
        <string notr="true">background:transparent;
 font: 87 28pt &quot;Poppins&quot;;
-color: rgb(0, 0, 255);
+color: rgb(255, 255,255);
+
 
 
 </string>
@@ -9777,11 +9119,90 @@ color: rgb(0, 0, 255);
      <widget class="QDateTimeEdit" name="dateTimeEdit">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>190</y>
-        <width>121</width>
-        <height>22</height>
+        <x>620</x>
+        <y>185</y>
+        <width>191</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;
+background-color:white;</string>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_7">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>250</y>
+        <width>121</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black</string>
+      </property>
+      <property name="text">
+       <string>especes</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_8">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>250</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <property name="text">
+       <string>carte bancaire</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_9">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>250</y>
+        <width>121</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color:black;</string>
+      </property>
+      <property name="text">
+       <string>chèque</string>
       </property>
      </widget>
     </widget>
@@ -10063,14 +9484,14 @@ color:rgba(255,255,255,255);
     <widget class="QFrame" name="frame_4">
      <property name="geometry">
       <rect>
-       <x>680</x>
-       <y>270</y>
-       <width>611</width>
-       <height>441</height>
+       <x>420</x>
+       <y>240</y>
+       <width>971</width>
+       <height>641</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">background-color: rgb(85, 85,85)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -10078,34 +9499,42 @@ color:rgba(255,255,255,255);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLineEdit" name="lineEdit_14">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>240</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="lineEdit_15">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>280</y>
-        <width>113</width>
-        <height>20</height>
+        <x>540</x>
+        <y>110</y>
+        <width>201</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;
+background-color:white</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_229">
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>140</y>
-        <width>91</width>
-        <height>16</height>
+        <y>105</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
       </property>
       <property name="text">
        <string>id Transaction :</string>
@@ -10115,10 +9544,19 @@ color:rgba(255,255,255,255);
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>190</y>
-        <width>91</width>
-        <height>16</height>
+        <y>170</y>
+        <width>141</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
       </property>
       <property name="text">
        <string>date :</string>
@@ -10130,8 +9568,17 @@ color:rgba(255,255,255,255);
         <x>130</x>
         <y>240</y>
         <width>91</width>
-        <height>16</height>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
       </property>
       <property name="text">
        <string>type :</string>
@@ -10141,10 +9588,19 @@ color:rgba(255,255,255,255);
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>280</y>
-        <width>91</width>
-        <height>16</height>
+        <y>330</y>
+        <width>131</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
       </property>
       <property name="text">
        <string>montant:</string>
@@ -10153,22 +9609,22 @@ color:rgba(255,255,255,255);
      <widget class="QPushButton" name="pushButton_23">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>370</y>
-        <width>101</width>
-        <height>51</height>
+        <x>730</x>
+        <y>490</y>
+        <width>161</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton#pushButton_23{
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
 border-radius:20px;
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
+	background-color:black
 }
 QPushButton#pushButton_23:hover{
 border-radius:20px;
 color:rgb(255,255,255);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgb(0, 0, 0), stop:1 rgba(0, 0, 200, 60));
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
 }</string>
       </property>
@@ -10179,22 +9635,22 @@ color:rgb(255,255,255);
      <widget class="QPushButton" name="pushButton_24">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>370</y>
-        <width>101</width>
-        <height>51</height>
+        <x>90</x>
+        <y>490</y>
+        <width>161</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton#pushButton_24{
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
 border-radius:20px;
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
+	background-color: black
 }
 QPushButton#pushButton_24:hover{
 border-radius:20px;
 color:rgb(255,255,255);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgb(0, 0, 0), stop:1 rgba(0, 0, 200, 60));
 	font: 14pt &quot;MS Shell Dlg 2&quot;;
 }
 </string>
@@ -10206,7 +9662,7 @@ color:rgb(255,255,255);
      <widget class="QLabel" name="label_233">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>330</x>
         <y>20</y>
         <width>331</width>
         <height>61</height>
@@ -10215,7 +9671,7 @@ color:rgb(255,255,255);
       <property name="styleSheet">
        <string notr="true">background:transparent;
 font: 87 28pt &quot;Poppins&quot;;
-color: rgb(0, 0, 255);
+color: rgb(255, 255,255);
 
 
 </string>
@@ -10227,11 +9683,20 @@ color: rgb(0, 0, 255);
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>140</y>
-        <width>113</width>
-        <height>20</height>
+        <x>540</x>
+        <y>330</y>
+        <width>201</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;
+background-color:white</string>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -10240,11 +9705,89 @@ color: rgb(0, 0, 255);
      <widget class="QDateTimeEdit" name="dateTimeEdit_2">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>190</y>
-        <width>121</width>
-        <height>22</height>
+        <x>540</x>
+        <y>170</y>
+        <width>201</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;
+background-color:white</string>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>240</y>
+        <width>121</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <property name="text">
+       <string>especes</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_2">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>240</y>
+        <width>121</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <property name="text">
+       <string>chèque</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_3">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>240</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <property name="text">
+       <string>carte bancaire</string>
       </property>
      </widget>
     </widget>
@@ -10521,529 +10064,25 @@ color:rgba(255,255,255,255);
       <string/>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="viewtransaction">
-    <property name="styleSheet">
-     <string notr="true">QTableView#tableViewtr::item
-{
-		color:rgb(255, 255, 255);
-        background-color:rgba(49,28,71,100);
-        border : 2px solid white ;
-        font-size : 15px;
-        min-width : 200;
-        min-height : 200;
-        max-width : 400;
-        max-height : 400;
-
-}
-QHeaderView::section {background-color: rgba(255,255,255,120);
-color:black;}
-              QHeaderView {background-color: rgba(49,28,71,100);
-color:black;}</string>
-    </property>
-    <widget class="QLabel" name="label_476">
+    <widget class="QLabel" name="label_55">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>1821</width>
-       <height>71</height>
+       <x>840</x>
+       <y>10</y>
+       <width>411</width>
+       <height>61</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>28</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: qlineargradient(spread:pad, x1:0.363591, y1:0.285, x2:0.67, y2:1, stop:0 rgba(	0,	0,0, 255), stop:1 rgba(0,0,0, 100));
-
-</string>
+      <string notr="true">color:rgb(0, 0, 255);</string>
      </property>
      <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_475">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>101</width>
-       <height>1081</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: qlineargradient(spread:pad, x1:0.363591, y1:0.285, x2:0.67, y2:1, stop:0 rgba(	0,	0,0, 255), stop:1 rgba(0,0,0, 100));
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_605">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>140</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel#label_605
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QLabel#label_605:hover
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="hihi_179">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>380</y>
-       <width>51</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="toolTipDuration">
-      <number>1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#hihi_179
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#hihi_179:hover
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string>#</string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>40</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="hihi_180">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>80</y>
-       <width>51</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="toolTipDuration">
-      <number>1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#hihi_180
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#hihi_180:hover
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>40</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_606">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>260</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(0,125,236,255);</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_607">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>320</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel#label_607
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QLabel#label_607:hover
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="hihi_181">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>200</y>
-       <width>51</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="toolTipDuration">
-      <number>1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#hihi_181
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#hihi_181:hover
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>40</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_608">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>440</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel#label_608
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QLabel#label_608:hover
-{
-font: 24pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string>~</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_63">
-     <property name="geometry">
-      <rect>
-       <x>1430</x>
-       <y>800</y>
-       <width>101</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#pushButton_63{
-	font: 14pt &quot;MS Shell Dlg 2&quot;;
-border-radius:20px;
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
-}
-QPushButton#pushButton_63:hover{
-border-radius:20px;
-color:rgb(255,255,255);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
-	font: 14pt &quot;MS Shell Dlg 2&quot;;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>return</string>
-     </property>
-    </widget>
-    <widget class="QTableView" name="tableViewtr">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>90</y>
-       <width>1241</width>
-       <height>699</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(255, 255, 255);</string>
-     </property>
-     <attribute name="horizontalHeaderCascadingSectionResizes">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="horizontalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderCascadingSectionResizes">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-    </widget>
-    <widget class="QTextEdit" name="textEdittr_2">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>20</y>
-       <width>811</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:1 px solid #ced4da;
-border-radius:12px;
-padding-left:25px;
-padding-top:5px;
-background:rgba(190,190,190,100);
-color : rgba(255,255,255,200);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="placeholderText">
-      <string>Search</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="gg_2tr_2">
-     <property name="geometry">
-      <rect>
-       <x>1280</x>
-       <y>20</y>
-       <width>31</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton#gg_2tr_2
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#gg_2tr_2:hover
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-     </property>
-     <property name="text">
-      <string></string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_47tr_2">
-     <property name="geometry">
-      <rect>
-       <x>1270</x>
-       <y>20</y>
-       <width>16</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(0, 0, 0,0);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
-border: 2px solid rgba(0,0,0,0);
-border-left-color:rgba(255,255,255,100);
-color:rgb(255,255,255);
-padding-bottom:7px;
-border-radius:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox_4">
-     <property name="geometry">
-      <rect>
-       <x>920</x>
-       <y>20</y>
-       <width>351</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#comboBox_4
-{
-border:1 px solid #ced4da;
-
-padding-left:10px;
-background:transparent;
-color : rgba(255,255,255,200);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
-}
-#comboBox_4::drop-down{
-border:0px;
-}
-#comboBox_4::down-arrow{
-image:url(D:\Untitled_design__5_-removebg-preview.png);
-width:30px;
-height:30px;
-margin-right:18px;
-}
-#comboBox_4 QListView{
-border:1 px solid #ced4da;
-font-size:12px &quot;MS Shell Dlg 2&quot;;
-padding:5px;
-outline:0px;
-border-radius:20px;
-selection-background-color: rgba(190,190,190,100);
-background-color:rgba(190,190,190,100);
-}
-#comboBox_4 QListView::item{
-font-size:12px &quot;MS Shell Dlg 2&quot;;
-selection-background-color:rgba(190,190,190,100);
-background-color:rgba(190,190,190,100);
-border-radius:12px;
-}
-#comboBox_4 QListView::item:hover{
-font-size:12px &quot;MS Shell Dlg 2&quot;;
-selection-background-color:rgba(190,190,190,100);
-background-color:rgba(190,190,190,100);
-border-radius:12px;
-}</string>
-     </property>
-     <item>
-      <property name="text">
-       <string>default</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>date transaction from oldest to newest </string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>date transaction from newest to oldest</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>montant from highest to lowest</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>montant from lowest to highest</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLabel" name="label_47tr_3">
-     <property name="geometry">
-      <rect>
-       <x>920</x>
-       <y>20</y>
-       <width>16</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(0, 0, 0,0);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
-border: 2px solid rgba(0,0,0,0);
-border-left-color:rgba(255,255,255,100);
-color:rgb(255,255,255);
-padding-bottom:7px;
-border-radius:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
+      <string>transaction</string>
      </property>
     </widget>
    </widget>
