@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPushButton>
+#include <QTableView>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -71,6 +72,8 @@ private slots:
      void on_returnM_clicked();
 
      void on_updatedButtonM_clicked();
+
+    void on_exportButtonM_clicked(QTableView *tableView);
 
 private:
     Ui::MainWindow *ui;

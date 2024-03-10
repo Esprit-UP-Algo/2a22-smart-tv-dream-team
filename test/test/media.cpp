@@ -14,12 +14,6 @@
 
 using namespace std;
 
-/*class mediaData : public QSharedData
-{
-public:
-
-};*/
-
 
 
 Media::Media(QString titre,QString description,QString type,QString producteur,int nbrVue,QDate date,QByteArray image)
@@ -44,40 +38,7 @@ bool Media::ajouterMedia(QString titre,QString description,QByteArray image,QStr
     return query.exec();
 }
 
-/*QSqlQueryModel* Media::afficherMedia()
-{
-    QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM MEDIA");
 
-    // Ajout des boutons "Supprimer" et "Modifier" à chaque ligne
-    for (int j = 0; j < model->rowCount(); j++) {
-        QPushButton *deleteButton = new QPushButton("Supprimer");
-        QPushButton *updateButton = new QPushButton("Modifier");
-
-        connect(deleteButton, &QPushButton::clicked, this, [this, j, model]() {
-            QString titre = model->index(j, 0).data().toString(); // Supposons que le titre est dans la colonne 0
-            if (supprimerMedia(titre)) {
-                // Rafraîchir l'affichage après la suppression
-                model->setQuery("SELECT * FROM MEDIA");
-            }
-        });
-
-        connect(updateButton, &QPushButton::clicked, this, [this, j, model]() {
-            // Mettez votre logique pour la modification ici
-        });
-
-        QWidget *widget = new QWidget();
-        QHBoxLayout *layout = new QHBoxLayout(widget);
-        layout->addWidget(deleteButton);
-        layout->addWidget(updateButton);
-        layout->setAlignment(Qt::AlignCenter);
-        layout->setContentsMargins(0, 0, 0, 0);
-        widget->setLayout(layout);
-
-            }
-
-    return model;
-}*/
 bool Media::supprimerMedia(QString titre)
 {
     QSqlQuery query;
@@ -157,4 +118,12 @@ bool Media::isProducerInserted(QString producteur)
 }
 bool Media::isDescriptionValid(QString description) {
     return description.length() < 200;
+}
+QSqlQueryModel *  Media::trier(const QString &critere, const QString &mode )
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+model->setQuery("select * from EMPLOYEE order by "+critere+" "+mode+"");
+
+    return model;
 }

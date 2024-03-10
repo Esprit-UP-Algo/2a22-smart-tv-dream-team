@@ -9,6 +9,10 @@
 #include <QMessageBox>
 #include <QSqlTableModel>
 #include <QSqlQuery>
+#include <QStandardItemModel>
+#include <QPrinter>
+#include <QPainter>
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -29,8 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->deleteButton_2M->setVisible(false);
     ui->modifyButton_2M->setVisible(false);
 
-     ui->barreTrieM->setVisible(false);
-     ui->barreTrie_2M->setVisible(false);
+
 
      connect(ui->imageButtonM, &QPushButton::clicked, this, &MainWindow::importImage);
      connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
@@ -43,6 +46,9 @@ MainWindow::MainWindow(QWidget *parent)
 
      Media media;
      //ui->tableViewM->setModel(media.afficherMedia());
+     connect(ui->exportButtonM, &QPushButton::clicked, [this]() {
+       on_exportButtonM_clicked(ui->tableViewM);
+     });
 
 
 // connect(ui->afficherButton, &QPushButton::clicked, this, &MainWindow::afficherMedia);
@@ -285,17 +291,7 @@ void MainWindow::on_returnButton_2M_clicked()
 
 }
 
-void MainWindow::on_trieButtonM_clicked()
 
-{
-    if (!isTrieButtonClicked) {
-            ui->barreTrieM->setVisible(true);
-            isTrieButtonClicked = true;
-        } else {
-             ui->barreTrieM->setVisible(false);
-            isTrieButtonClicked = false;
-        }
-}
 
 void MainWindow::on_vewatchButtonM_clicked()
 {
@@ -303,17 +299,6 @@ void MainWindow::on_vewatchButtonM_clicked()
 }
 
 
-void MainWindow::on_trieButton_2M_clicked()
-{
-    if (!isTrieButtonClicked) {
-            ui->barreTrie_2M->setVisible(true);
-            isTrieButtonClicked = true;
-        } else {
-             ui->barreTrie_2M->setVisible(false);
-            isTrieButtonClicked = false;
-        }
-
-}
 
 void MainWindow::on_statisticsM_clicked()
 {
@@ -387,6 +372,28 @@ void MainWindow::on_listM_clicked()
     }
 
     QStandardItemModel *model = new QStandardItemModel(ligne, 7);
+    QString Qs;
+    if (ui->comboBoxM->currentText()== "Channel" )
+        {
+            Qs=" order by type DESC";
+            qDebug()<<"test";
+        }
+       /* else if (ui->comboBoxM->currentText()== "most views" )
+        {
+            Qs=" order by nbrvue DESC";
+            qDebug()<<"test";
+        }
+        else if (ui->comboBoxM->currentText()== "least views" )
+        {
+            Qs=" order by nbrvue ASC";
+            qDebug()<<"test";
+        }
+        else if (ui->comboBoxM->currentText()== "oldest" )
+        {
+            Qs=" order by id ASC";
+            qDebug()<<"test";
+        }*/
+
     query.exec("SELECT TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA");
     while(query.next())
     {
@@ -506,6 +513,9 @@ void MainWindow::on_listM_clicked()
     //ui->tableViewM->resize(ui->tableViewM->rowHeight(0) * row, ui->tableViewM->columnWidth(3) * 4);
     ui->tableViewM->resizeRowsToContents();
     ui->tableViewM->resizeColumnsToContents();
+
+
+
 }
 
 void MainWindow::on_returnM_clicked()
@@ -523,15 +533,10 @@ void MainWindow::on_updatedButtonM_clicked()
     QString description = ui->textEditM->toPlainText();
 
 
-    QByteArray image = importImage();
+    //QByteArray image = importImage();
 
     // Vérifier si une image a été insérée
-    if (!m.isImageInserted(image)) {
-        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                              QObject::tr("Please insert an image."),
-                              QMessageBox::Ok);
-        return; // Arrêter l'exécution de la fonction si aucune image n'a été insérée
-    }
+
 
     // Vérifier si un producteur a été inséré
     if (!m.isProducerInserted(producteur)) {
@@ -573,6 +578,60 @@ void MainWindow::on_updatedButtonM_clicked()
                              QObject::tr("Addition is validated.\n"
                                          "Click OK to exit."),
                              QMessageBox::Ok);
+    QByteArray image = importImage();
 
     emit ui->listM->click();
+    if (!m.isImageInserted(image)) {
+        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("Please insert an image."),
+                              QMessageBox::Ok);
+        return; // Arrêter l'exécution de la fonction si aucune image n'a été insérée
+    }
+}
+
+void MainWindow::on_exportButtonM_clicked(QTableView *tableView)
+{
+    // Récupérer le modèle de données de la table view
+       QStandardItemModel *model = qobject_cast<QStandardItemModel*>(tableView->model());
+       if (!model) {
+           QMessageBox::warning(nullptr, "Erreur", "Impossible d'exporter les données : modèle non trouvé.");
+           return;
+       }
+
+       // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
+       QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (*.pdf)");
+       if (filePath.isEmpty())
+           return; // Annuler l'exportation si aucun fichier n'a été sélectionné
+
+       // Créer un objet QPrinter pour générer le fichier PDF
+       QPrinter printer(QPrinter::PrinterResolution);
+       printer.setOutputFormat(QPrinter::PdfFormat);
+       printer.setPaperSize(QPrinter::A4);
+       printer.setOutputFileName(filePath);
+
+       // Créer un objet QPainter pour dessiner sur le périphérique d'impression
+       QPainter painter;
+       if (!painter.begin(&printer)) {
+           QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
+           return;
+       }
+
+       // Dessiner les en-têtes de colonne
+       for (int col = 0; col < model->columnCount(); ++col) {
+           QString text = model->headerData(col, Qt::Horizontal).toString();
+           painter.drawText(col * 100, 50, text);
+       }
+
+       // Dessiner les données de la table
+       for (int row = 0; row < model->rowCount(); ++row) {
+           for (int col = 0; col < model->columnCount(); ++col) {
+               QString text = model->data(model->index(row, col), Qt::DisplayRole).toString();
+               painter.drawText(col * 100, (row + 2) * 50, text);
+           }
+       }
+
+       // Terminer le dessin
+       painter.end();
+
+       QMessageBox::information(nullptr, "Succès", "Les données ont été exportées avec succès vers " + filePath);
 }

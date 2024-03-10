@@ -59,6 +59,7 @@ public:
     bool isImageInserted(const QByteArray& Image);
     bool isProducerInserted(QString producteur);
     bool isDescriptionValid(QString description);
+    QSqlQueryModel *  trier(const QString &critere, const QString &mode );
 
 private:
     //QSharedDataPointer<mediaData> data;
