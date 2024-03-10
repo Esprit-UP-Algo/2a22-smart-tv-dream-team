@@ -112,8 +112,8 @@ QTableView::item
 		background-color:rgba(49,28,71,100);
 		border : 2px solid white ;
 		font-size : 15px;
-		min-width : 175;
-		min-height : 175;
+		min-width : 150;
+		min-height : 150;
 		max-width : 180;
 		max-height : 180;
 
@@ -764,6 +764,9 @@ color:white;
                        <pointsize>12</pointsize>
                       </font>
                      </property>
+                     <property name="currentIndex">
+                      <number>1</number>
+                     </property>
                      <item>
                       <property name="text">
                        <string>movie</string>
@@ -774,6 +777,50 @@ color:white;
                        <string>serie</string>
                       </property>
                      </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <item>
+                    <widget class="QLabel" name="label_7ms">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>12</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Title :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEdit_2ms">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>30</height>
+                      </size>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -816,6 +863,50 @@ color:white;
                       <size>
                        <width>300</width>
                        <height>180</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_28">
+                   <item>
+                    <widget class="QLabel" name="label_7ms_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>number of episodes :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEdit_epms">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>30</height>
                       </size>
                      </property>
                     </widget>
@@ -894,7 +985,7 @@ color:white;
                      </property>
                      <property name="font">
                       <font>
-                       <pointsize>12</pointsize>
+                       <pointsize>11</pointsize>
                       </font>
                      </property>
                      <property name="text">
@@ -904,50 +995,6 @@ color:white;
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_8ms">
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>300</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_8">
-                   <item>
-                    <widget class="QLabel" name="label_7ms">
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <pointsize>12</pointsize>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Title :</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="lineEdit_2ms">
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
@@ -1155,47 +1202,6 @@ color:white;
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_11">
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_19">
-                   <item>
-                    <widget class="QLabel" name="ipidlabelms">
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <pointsize>12</pointsize>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>ID :</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="upidms">
-                     <property name="maximumSize">
-                      <size>
-                       <width>300</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="readOnly">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_27">
                    <item>
                     <widget class="QLabel" name="ipidlabelms_2">
@@ -1223,6 +1229,53 @@ color:white;
                    </item>
                    <item>
                     <widget class="QLineEdit" name="typeupms">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_21">
+                   <item>
+                    <widget class="QLabel" name="uptitlms">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>12</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Title :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="uptitlems">
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
@@ -1277,6 +1330,50 @@ color:white;
                       <size>
                        <width>300</width>
                        <height>180</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_29">
+                   <item>
+                    <widget class="QLabel" name="uptitlms_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>12</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>number of episodes :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="upepms">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>30</height>
                       </size>
                      </property>
                     </widget>
@@ -1375,50 +1472,6 @@ color:white;
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_21">
-                   <item>
-                    <widget class="QLabel" name="uptitlms">
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <pointsize>12</pointsize>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Title :</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="uptitlems">
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>300</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_22">
                    <item>
                     <widget class="QLabel" name="upimgms">
@@ -1469,6 +1522,19 @@ color:white;
                </widget>
               </item>
               <item>
+               <widget class="QLineEdit" name="upidms">
+                <property name="maximumSize">
+                 <size>
+                  <width>0</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
                  <widget class="QLabel" name="imagetest_1ms">
@@ -1516,6 +1582,8 @@ color:white;
                </layout>
               </item>
              </layout>
+             <zorder>upidms</zorder>
+             <zorder>groupBox_22ms</zorder>
             </widget>
            </item>
           </layout>

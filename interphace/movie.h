@@ -17,10 +17,10 @@ class MOVIE
 public:
     MOVIE();
 
-    bool ajout(QByteArray bytep,QString titre , QString desc, int nbv,QString duree,QString t);
+    bool ajout(QByteArray bytep,QString titre , QString desc, int nbv,QString duree,QString t,int nbep);
     bool supp(int id);
-    bool updatenoimg(int id , QString titre , QString desc,int nbv,QString dur);
-    bool updateimg(int id , QString titre , QString desc,QByteArray byte,int nbv,QString dur);
+    bool updatenoimg(int id ,int nbrep , QString titre , QString desc,int nbv,QString dur);
+    bool updateimg(int id, int nbrep, QString titre , QString desc,QByteArray byte,int nbv,QString dur);
 private:
 
 

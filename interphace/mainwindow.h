@@ -40,6 +40,10 @@ private slots:
 
     void on_pushButtonms_clicked();
 
+    void on_comboBoxms_2_currentTextChanged(const QString &arg1);
+
+    void on_comboBoxms_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };

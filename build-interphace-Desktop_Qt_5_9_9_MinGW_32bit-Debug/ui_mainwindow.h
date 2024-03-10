@@ -83,18 +83,21 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_5ms;
     QComboBox *comboBoxms_2;
+    QHBoxLayout *horizontalLayout_8;
+    QLabel *label_7ms;
+    QLineEdit *lineEdit_2ms;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_6ms;
     QTextEdit *textEditms;
+    QHBoxLayout *horizontalLayout_28;
+    QLabel *label_7ms_4;
+    QLineEdit *lineEdit_epms;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_7ms_2;
     QTimeEdit *timeEditms;
     QHBoxLayout *horizontalLayout_12;
     QLabel *label_7ms_3;
     QLineEdit *lineEdit_8ms;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *label_7ms;
-    QLineEdit *lineEdit_2ms;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_8ms;
     QPushButton *pushButton_3ms;
@@ -113,27 +116,28 @@ public:
     QHBoxLayout *horizontalLayout_18;
     QGroupBox *groupBox_22ms;
     QVBoxLayout *verticalLayout_11;
-    QHBoxLayout *horizontalLayout_19;
-    QLabel *ipidlabelms;
-    QLineEdit *upidms;
     QHBoxLayout *horizontalLayout_27;
     QLabel *ipidlabelms_2;
     QLineEdit *typeupms;
+    QHBoxLayout *horizontalLayout_21;
+    QLabel *uptitlms;
+    QLineEdit *uptitlems;
     QHBoxLayout *horizontalLayout_20;
     QLabel *updescms;
     QTextEdit *updescriptionms;
+    QHBoxLayout *horizontalLayout_29;
+    QLabel *uptitlms_4;
+    QLineEdit *upepms;
     QHBoxLayout *horizontalLayout_26;
     QLabel *uptitlms_3;
     QTimeEdit *dureupms;
     QHBoxLayout *horizontalLayout_25;
     QLabel *uptitlms_2;
     QLineEdit *nbrvupms;
-    QHBoxLayout *horizontalLayout_21;
-    QLabel *uptitlms;
-    QLineEdit *uptitlems;
     QHBoxLayout *horizontalLayout_22;
     QLabel *upimgms;
     QPushButton *upimagems;
+    QLineEdit *upidms;
     QVBoxLayout *verticalLayout_10;
     QLabel *imagetest_1ms;
     QLabel *imagetest_2ms;
@@ -251,8 +255,8 @@ public:
 "		background-color:rgba(49,28,71,100);\n"
 "		border : 2px solid white ;\n"
 "		font-size : 15px;\n"
-"		min-width : 175;\n"
-"		min-height : 175;\n"
+"		min-width : 150;\n"
+"		min-height : 150;\n"
 "		max-width : 180;\n"
 "		max-height : 180;\n"
 "\n"
@@ -569,6 +573,26 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        label_7ms = new QLabel(groupBoxms);
+        label_7ms->setObjectName(QStringLiteral("label_7ms"));
+        label_7ms->setMinimumSize(QSize(150, 30));
+        label_7ms->setMaximumSize(QSize(150, 30));
+        label_7ms->setFont(font2);
+
+        horizontalLayout_8->addWidget(label_7ms);
+
+        lineEdit_2ms = new QLineEdit(groupBoxms);
+        lineEdit_2ms->setObjectName(QStringLiteral("lineEdit_2ms"));
+        lineEdit_2ms->setMinimumSize(QSize(150, 30));
+        lineEdit_2ms->setMaximumSize(QSize(300, 30));
+
+        horizontalLayout_8->addWidget(lineEdit_2ms);
+
+
+        verticalLayout->addLayout(horizontalLayout_8);
+
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         label_6ms = new QLabel(groupBoxms);
@@ -588,6 +612,28 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout_7);
+
+        horizontalLayout_28 = new QHBoxLayout();
+        horizontalLayout_28->setObjectName(QStringLiteral("horizontalLayout_28"));
+        label_7ms_4 = new QLabel(groupBoxms);
+        label_7ms_4->setObjectName(QStringLiteral("label_7ms_4"));
+        label_7ms_4->setMinimumSize(QSize(150, 30));
+        label_7ms_4->setMaximumSize(QSize(150, 30));
+        QFont font3;
+        font3.setPointSize(11);
+        label_7ms_4->setFont(font3);
+
+        horizontalLayout_28->addWidget(label_7ms_4);
+
+        lineEdit_epms = new QLineEdit(groupBoxms);
+        lineEdit_epms->setObjectName(QStringLiteral("lineEdit_epms"));
+        lineEdit_epms->setMinimumSize(QSize(150, 30));
+        lineEdit_epms->setMaximumSize(QSize(300, 30));
+
+        horizontalLayout_28->addWidget(lineEdit_epms);
+
+
+        verticalLayout->addLayout(horizontalLayout_28);
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
@@ -616,7 +662,7 @@ public:
         label_7ms_3->setObjectName(QStringLiteral("label_7ms_3"));
         label_7ms_3->setMinimumSize(QSize(150, 30));
         label_7ms_3->setMaximumSize(QSize(150, 30));
-        label_7ms_3->setFont(font2);
+        label_7ms_3->setFont(font3);
 
         horizontalLayout_12->addWidget(label_7ms_3);
 
@@ -629,26 +675,6 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout_12);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        label_7ms = new QLabel(groupBoxms);
-        label_7ms->setObjectName(QStringLiteral("label_7ms"));
-        label_7ms->setMinimumSize(QSize(150, 30));
-        label_7ms->setMaximumSize(QSize(150, 30));
-        label_7ms->setFont(font2);
-
-        horizontalLayout_8->addWidget(label_7ms);
-
-        lineEdit_2ms = new QLineEdit(groupBoxms);
-        lineEdit_2ms->setObjectName(QStringLiteral("lineEdit_2ms"));
-        lineEdit_2ms->setMinimumSize(QSize(150, 30));
-        lineEdit_2ms->setMaximumSize(QSize(300, 30));
-
-        horizontalLayout_8->addWidget(lineEdit_2ms);
-
-
-        verticalLayout->addLayout(horizontalLayout_8);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
@@ -679,9 +705,9 @@ public:
         imagetestms_2->setObjectName(QStringLiteral("imagetestms_2"));
         imagetestms_2->setMinimumSize(QSize(300, 100));
         imagetestms_2->setMaximumSize(QSize(300, 200));
-        QFont font3;
-        font3.setPointSize(20);
-        imagetestms_2->setFont(font3);
+        QFont font4;
+        font4.setPointSize(20);
+        imagetestms_2->setFont(font4);
 
         verticalLayout_2->addWidget(imagetestms_2);
 
@@ -743,26 +769,6 @@ public:
         groupBox_22ms->setMaximumSize(QSize(1000, 1000));
         verticalLayout_11 = new QVBoxLayout(groupBox_22ms);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        horizontalLayout_19 = new QHBoxLayout();
-        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
-        ipidlabelms = new QLabel(groupBox_22ms);
-        ipidlabelms->setObjectName(QStringLiteral("ipidlabelms"));
-        ipidlabelms->setMinimumSize(QSize(150, 30));
-        ipidlabelms->setMaximumSize(QSize(150, 30));
-        ipidlabelms->setFont(font2);
-
-        horizontalLayout_19->addWidget(ipidlabelms);
-
-        upidms = new QLineEdit(groupBox_22ms);
-        upidms->setObjectName(QStringLiteral("upidms"));
-        upidms->setMaximumSize(QSize(300, 30));
-        upidms->setReadOnly(true);
-
-        horizontalLayout_19->addWidget(upidms);
-
-
-        verticalLayout_11->addLayout(horizontalLayout_19);
-
         horizontalLayout_27 = new QHBoxLayout();
         horizontalLayout_27->setObjectName(QStringLiteral("horizontalLayout_27"));
         ipidlabelms_2 = new QLabel(groupBox_22ms);
@@ -777,11 +783,32 @@ public:
         typeupms->setObjectName(QStringLiteral("typeupms"));
         typeupms->setMinimumSize(QSize(150, 30));
         typeupms->setMaximumSize(QSize(300, 30));
+        typeupms->setReadOnly(true);
 
         horizontalLayout_27->addWidget(typeupms);
 
 
         verticalLayout_11->addLayout(horizontalLayout_27);
+
+        horizontalLayout_21 = new QHBoxLayout();
+        horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
+        uptitlms = new QLabel(groupBox_22ms);
+        uptitlms->setObjectName(QStringLiteral("uptitlms"));
+        uptitlms->setMinimumSize(QSize(150, 30));
+        uptitlms->setMaximumSize(QSize(150, 30));
+        uptitlms->setFont(font2);
+
+        horizontalLayout_21->addWidget(uptitlms);
+
+        uptitlems = new QLineEdit(groupBox_22ms);
+        uptitlems->setObjectName(QStringLiteral("uptitlems"));
+        uptitlems->setMinimumSize(QSize(150, 30));
+        uptitlems->setMaximumSize(QSize(300, 30));
+
+        horizontalLayout_21->addWidget(uptitlems);
+
+
+        verticalLayout_11->addLayout(horizontalLayout_21);
 
         horizontalLayout_20 = new QHBoxLayout();
         horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
@@ -802,6 +829,26 @@ public:
 
 
         verticalLayout_11->addLayout(horizontalLayout_20);
+
+        horizontalLayout_29 = new QHBoxLayout();
+        horizontalLayout_29->setObjectName(QStringLiteral("horizontalLayout_29"));
+        uptitlms_4 = new QLabel(groupBox_22ms);
+        uptitlms_4->setObjectName(QStringLiteral("uptitlms_4"));
+        uptitlms_4->setMinimumSize(QSize(150, 30));
+        uptitlms_4->setMaximumSize(QSize(150, 30));
+        uptitlms_4->setFont(font2);
+
+        horizontalLayout_29->addWidget(uptitlms_4);
+
+        upepms = new QLineEdit(groupBox_22ms);
+        upepms->setObjectName(QStringLiteral("upepms"));
+        upepms->setMinimumSize(QSize(150, 30));
+        upepms->setMaximumSize(QSize(300, 30));
+
+        horizontalLayout_29->addWidget(upepms);
+
+
+        verticalLayout_11->addLayout(horizontalLayout_29);
 
         horizontalLayout_26 = new QHBoxLayout();
         horizontalLayout_26->setObjectName(QStringLiteral("horizontalLayout_26"));
@@ -829,9 +876,7 @@ public:
         uptitlms_2->setObjectName(QStringLiteral("uptitlms_2"));
         uptitlms_2->setMinimumSize(QSize(150, 30));
         uptitlms_2->setMaximumSize(QSize(150, 30));
-        QFont font4;
-        font4.setPointSize(11);
-        uptitlms_2->setFont(font4);
+        uptitlms_2->setFont(font3);
 
         horizontalLayout_25->addWidget(uptitlms_2);
 
@@ -844,26 +889,6 @@ public:
 
 
         verticalLayout_11->addLayout(horizontalLayout_25);
-
-        horizontalLayout_21 = new QHBoxLayout();
-        horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
-        uptitlms = new QLabel(groupBox_22ms);
-        uptitlms->setObjectName(QStringLiteral("uptitlms"));
-        uptitlms->setMinimumSize(QSize(150, 30));
-        uptitlms->setMaximumSize(QSize(150, 30));
-        uptitlms->setFont(font2);
-
-        horizontalLayout_21->addWidget(uptitlms);
-
-        uptitlems = new QLineEdit(groupBox_22ms);
-        uptitlems->setObjectName(QStringLiteral("uptitlems"));
-        uptitlems->setMinimumSize(QSize(150, 30));
-        uptitlems->setMaximumSize(QSize(300, 30));
-
-        horizontalLayout_21->addWidget(uptitlems);
-
-
-        verticalLayout_11->addLayout(horizontalLayout_21);
 
         horizontalLayout_22 = new QHBoxLayout();
         horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
@@ -888,13 +913,20 @@ public:
 
         horizontalLayout_18->addWidget(groupBox_22ms);
 
+        upidms = new QLineEdit(groupBox_21ms);
+        upidms->setObjectName(QStringLiteral("upidms"));
+        upidms->setMaximumSize(QSize(0, 31));
+        upidms->setReadOnly(true);
+
+        horizontalLayout_18->addWidget(upidms);
+
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
         imagetest_1ms = new QLabel(groupBox_21ms);
         imagetest_1ms->setObjectName(QStringLiteral("imagetest_1ms"));
         imagetest_1ms->setMinimumSize(QSize(300, 100));
         imagetest_1ms->setMaximumSize(QSize(300, 200));
-        imagetest_1ms->setFont(font3);
+        imagetest_1ms->setFont(font4);
 
         verticalLayout_10->addWidget(imagetest_1ms);
 
@@ -908,6 +940,8 @@ public:
 
         horizontalLayout_18->addLayout(verticalLayout_10);
 
+        upidms->raise();
+        groupBox_22ms->raise();
 
         horizontalLayout_17->addWidget(groupBox_21ms);
 
@@ -993,7 +1027,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
+        comboBoxms_2->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1038,11 +1073,12 @@ public:
          << QApplication::translate("MainWindow", "movie", Q_NULLPTR)
          << QApplication::translate("MainWindow", "serie", Q_NULLPTR)
         );
+        label_7ms->setText(QApplication::translate("MainWindow", "Title :", Q_NULLPTR));
         label_6ms->setText(QApplication::translate("MainWindow", "Descripton :", Q_NULLPTR));
+        label_7ms_4->setText(QApplication::translate("MainWindow", "number of episodes :", Q_NULLPTR));
         label_7ms_2->setText(QApplication::translate("MainWindow", "duration :", Q_NULLPTR));
         timeEditms->setDisplayFormat(QApplication::translate("MainWindow", "HH:mm:ss", Q_NULLPTR));
         label_7ms_3->setText(QApplication::translate("MainWindow", "number of views :", Q_NULLPTR));
-        label_7ms->setText(QApplication::translate("MainWindow", "Title :", Q_NULLPTR));
         label_8ms->setText(QApplication::translate("MainWindow", "add a image", Q_NULLPTR));
         pushButton_3ms->setText(QString());
         imagetestms_2->setText(QApplication::translate("MainWindow", "image selected :", Q_NULLPTR));
@@ -1053,13 +1089,13 @@ public:
         confirmupms->setText(QApplication::translate("MainWindow", "update", Q_NULLPTR));
         groupBox_21ms->setTitle(QString());
         groupBox_22ms->setTitle(QString());
-        ipidlabelms->setText(QApplication::translate("MainWindow", "ID :", Q_NULLPTR));
         ipidlabelms_2->setText(QApplication::translate("MainWindow", "type :", Q_NULLPTR));
+        uptitlms->setText(QApplication::translate("MainWindow", "Title :", Q_NULLPTR));
         updescms->setText(QApplication::translate("MainWindow", "Descripton :", Q_NULLPTR));
+        uptitlms_4->setText(QApplication::translate("MainWindow", "number of episodes :", Q_NULLPTR));
         uptitlms_3->setText(QApplication::translate("MainWindow", "duration :", Q_NULLPTR));
         dureupms->setDisplayFormat(QApplication::translate("MainWindow", "HH:mm:ss", Q_NULLPTR));
         uptitlms_2->setText(QApplication::translate("MainWindow", "number of views :", Q_NULLPTR));
-        uptitlms->setText(QApplication::translate("MainWindow", "Title :", Q_NULLPTR));
         upimgms->setText(QApplication::translate("MainWindow", "update image", Q_NULLPTR));
         upimagems->setText(QString());
         imagetest_1ms->setText(QApplication::translate("MainWindow", "image selected :", Q_NULLPTR));

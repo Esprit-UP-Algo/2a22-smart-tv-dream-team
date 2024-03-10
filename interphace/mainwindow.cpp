@@ -10,7 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
     QVector<QPushButton*> anonymousStorage ;    // Access buttons through their index.
     ui->imagetestms->setVisible(false);
     ui->imagetestms_2->setVisible(false);
-
+    ui->upidms->lower();
+    ui->lineEdit_epms->setValidator(new QIntValidator(0,9999999,this));
+    ui->lineEdit_8ms->setValidator(new QIntValidator(0,99999999,this));
+    ui->upepms->setValidator(new QIntValidator(0,9999999,this));
+    ui->nbrvupms->setValidator(new QIntValidator(0,99999999,this));
     byte="";
 
 
@@ -83,10 +87,29 @@ void MainWindow::on_pushButton_11ms_clicked() //bouton confirm ajout
     {
         erreur+="\n-un titre ne doit pas etre vide";
     }
+
+    QSqlQuery queury;
+    queury.prepare("select count(*) from SERIE_FILM where TITRE=:titre");
+    queury.bindValue(":titre",ui->lineEdit_2ms->text());
+    queury.exec();
+    int  checkuni;
+    while (queury.next())
+    {
+        checkuni=queury.value(0).toInt();
+    }
+    if (checkuni!=0)
+    {
+        erreur+="\n-un titre doit etre unique ( ce titre existe deja )";
+    }
+
+
+
+
     if (ui->textEditms->toPlainText().count()<10)
     {
         erreur+="\n-une description de au moins 10 caractére est necessaire";
     }
+
     if (erreur=="")
     {
         /*
@@ -108,7 +131,16 @@ void MainWindow::on_pushButton_11ms_clicked() //bouton confirm ajout
 
 
         MOVIE T;
-        if(T.ajout(byte,ui->lineEdit_2ms->text(),ui->textEditms->toPlainText(),ui->lineEdit_8ms->text().toInt(),ui->timeEditms->time().toString()/*"2:00:00"*/,ui->comboBoxms_2->currentText()))
+        int nb;
+        if (ui->comboBoxms_2->currentText()=="movie")
+        {
+            nb=1;
+        }
+        else
+        {
+            nb=ui->lineEdit_epms->text().toInt();
+        }
+        if(T.ajout(byte,ui->lineEdit_2ms->text(),ui->textEditms->toPlainText(),ui->lineEdit_8ms->text().toInt(),ui->timeEditms->time().toString()/*"2:00:00"*/,ui->comboBoxms_2->currentText(),nb))
         {
              QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
              ui->lineEdit_2ms->setText("");
@@ -193,7 +225,7 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
         qDebug()<<intyes;
         if (intyes)
         {
-            rech+=" or id="+ui->lineEditms->text();
+            rech+=" or id='"+ui->lineEditms->text()+"'";
         }
 
 
@@ -208,7 +240,7 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
     qDebug()<<ligne;
     //QMessageBox :: warning(this,"",QString::number( ligne));
 
-    QStandardItemModel * model=new QStandardItemModel(ligne , 9);
+    QStandardItemModel * model=new QStandardItemModel(ligne , 10);
     QString Qs;
     if (ui->comboBoxms->currentText()== "recently added" )
     {
@@ -230,11 +262,11 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
         Qs=" order by id ASC";
         qDebug()<<"test";
     }
-    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue from SERIE_FILM"+rech +Qs;
-    query.exec("select id ,type, titre ,description ,duree, image,nbrvue from SERIE_FILM"+rech +Qs);
+    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue,nbrep from SERIE_FILM"+rech +Qs;
+    query.exec("select id ,type, titre ,description ,duree, image,nbrvue,nbrep from SERIE_FILM"+rech +Qs);
     while(query.next())
     {
-        for (int j=0;j<7;j++)
+        for (int j=0;j<8;j++)
         {
             QStandardItem *item;
 
@@ -276,8 +308,9 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
     model->setHeaderData(4, Qt::Horizontal , "duree");
     model->setHeaderData(5, Qt::Horizontal , "photo");
     model->setHeaderData(6, Qt::Horizontal , "nombre de vue");
-    model->setHeaderData(7, Qt::Horizontal , "delete");
-    model->setHeaderData(8, Qt::Horizontal , "update");
+    model->setHeaderData(7, Qt::Horizontal , "nombre d'episode");
+    model->setHeaderData(8, Qt::Horizontal , "delete");
+    model->setHeaderData(9, Qt::Horizontal , "update");
     ui->tableViewms->setModel(model);
     ui->tableViewms->horizontalHeader()->setVisible(true);
 
@@ -308,7 +341,7 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
                             "background:transparent;"
                             "border:none;"
                             "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 7), butt);
+        ui->tableViewms->setIndexWidget(model->index(j, 8), butt);
 
         butt = new QPushButton("update");
         name = QString("buttonup%1").arg(j) ;
@@ -335,7 +368,7 @@ void MainWindow::on_pushButton_12ms_clicked() //bouton d'affichage
                             "background:transparent;"
                             "border:none;"
                             "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 8), butt);
+        ui->tableViewms->setIndexWidget(model->index(j, 9), butt);
 
 
 
@@ -381,6 +414,20 @@ void MainWindow::on_confirmupms_clicked() //bouton de confirmation d'update
     {
         erreur+="\n-un titre ne doit pas etre vide";
     }
+    QSqlQuery queury;
+    queury.prepare("select count(*) from SERIE_FILM where TITRE=:titre AND ID!=:id");
+    queury.bindValue(":titre",ui->uptitlems->text());
+    queury.bindValue(":id",ui->upidms->text().toInt());
+    queury.exec();
+    int  checkuni;
+    while (queury.next())
+    {
+        checkuni=queury.value(0).toInt();
+    }
+    if (checkuni!=0)
+    {
+        erreur+="\n-un titre doit etre unique ( ce titre existe deja )";
+    }
     if (ui->updescriptionms->toPlainText().count()<10)
     {
         erreur+="\n-une description de au moins 10 caractére est necessaire";
@@ -391,7 +438,7 @@ void MainWindow::on_confirmupms_clicked() //bouton de confirmation d'update
         {
 
             MOVIE T;
-            if(T.updateimg(ui->upidms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),byte,ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
+            if(T.updateimg(ui->upidms->text().toInt(),ui->upepms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),byte,ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
             {
                  QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
                  ui->lineEdit_2ms->setText("");
@@ -412,7 +459,7 @@ void MainWindow::on_confirmupms_clicked() //bouton de confirmation d'update
         {
 
             MOVIE T;
-            if(T.updatenoimg(ui->upidms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
+            if(T.updatenoimg(ui->upidms->text().toInt(),ui->upepms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
             {
                  QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
                  ui->uptitlems->setText("");
@@ -472,6 +519,25 @@ void MainWindow::on_upimagems_clicked() //bouton de saisie d'image d'update
 }
 
 void MainWindow::on_pushButtonms_clicked()
+{
+    emit ui->pushButton_12ms->click();
+}
+
+void MainWindow::on_comboBoxms_2_currentTextChanged(const QString &arg1)
+{
+    if (arg1=="serie")
+    {
+        ui->lineEdit_epms->setVisible(true);
+        ui->label_7ms_4->setVisible(true);
+    }
+    else if ( arg1=="movie")
+    {
+        ui->lineEdit_epms->setVisible(false);
+        ui->label_7ms_4->setVisible(false);
+    }
+}
+
+void MainWindow::on_comboBoxms_currentIndexChanged(const QString &arg1)
 {
     emit ui->pushButton_12ms->click();
 }
