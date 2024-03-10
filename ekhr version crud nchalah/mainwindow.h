@@ -18,7 +18,6 @@ public:
 
 
 private slots:
-    void on_pushButton_4_clicked();
 
     void on_pushButton_3_clicked();
 
@@ -32,11 +31,13 @@ private slots:
 
     void on_pushButton_clicked();
 
-
-
+//void deleteRow();
     void on_pushButton_UPDATE_3_clicked();
 
-    void on_pushButton_UPDATE_clicked();
+  //  void on_pushButton_UPDATE_clicked();
+
+
+    void on_pushButton_2_clicked();
 
     void on_pushButton_UPDATE_2_clicked();
 

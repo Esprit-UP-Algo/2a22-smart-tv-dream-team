@@ -33,7 +33,10 @@ public:
            bool ajoutSalle(int numSalle, int capacite, QString etat, QDate dateRes);
            QSqlQueryModel * afficherDiffusions();
            bool supprimerSalleDiffusion(int numSalle);
-           bool UpdateSalleDiffusion(int numSalle, int capacite, QString etat);
+           bool UpdateSalleDiffusion(int numSalle, int capacite, QString etat,const QDate &date);
+           QStringList GetSalleInformation(int numSalle);
+           bool SalleExists(int numSalle);
+
 
 
     private:
