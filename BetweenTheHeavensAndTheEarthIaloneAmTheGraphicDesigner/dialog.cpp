@@ -804,7 +804,7 @@ void Dialog::on_hihi_15_clicked()
            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION where IDTRANSACTION="+ui->textEdittr_3->toPlainText() ;
         }
 
-        else if(ui->comboBox_5->currentText()=="date transaction from oldest to newest ")
+        else if(ui->comboBox_5->currentText()=="date transaction from newest to oldest")
         {
            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET DESC";
         }
@@ -812,7 +812,7 @@ void Dialog::on_hihi_15_clicked()
         {
             qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION";
         }
-        else if(ui->comboBox_5->currentText()=="date transaction from newest to oldest")
+        else if(ui->comboBox_5->currentText()=="date transaction from oldest to newest ")
         {
             qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET";
         }
@@ -866,6 +866,13 @@ void Dialog::on_hihi_15_clicked()
                 query.prepare("delete from TRANSACTION where IDTRANSACTION=:id");
                 query.bindValue(":id",ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,0)).toInt());
                 query.exec();
+                int idt=ui->tableViewtr->model()->data(ui->tableViewtr->model()->index(j,0)).toInt();
+                QSqlQuery query1;
+                query1.prepare("insert into HISTORIQUE (ide , description , datet) values (:ide , :description , :date)");
+                query1.bindValue(":date",QTime::currentTime());
+                query1.bindValue(":description","deleted transaction numero: " +  QString::number(idt));
+                query1.bindValue(":ide",6);
+                query1.exec();
                 emit ui->hihi_15->click();
             });
             butt->setStyleSheet("color:red;"
@@ -962,17 +969,30 @@ void Dialog::on_pushButton_9_clicked()
             erreur+="\n- montant doit etre nombre";
         }
         if (erreur=="")
-        {
-            QSqlQuery query;
-                    query.prepare("insert into TRANSACTION (datet , type , montant , cin) values (:date , :type , :montant , :cin)");
-                    query.bindValue(":date",ui->dateTimeEdit->dateTime());
-                    query.bindValue(":type",check1);
-                    query.bindValue(":montant",ui->lineEdit_4->text().toInt());
-                    query.bindValue(":cin",7);
+        {           
+                    QSqlQuery query;
+                            query.prepare("insert into TRANSACTION (datet , type , montant , ide) values (:date , :type , :montant , :ide)");
+                            query.bindValue(":date",ui->dateTimeEdit->dateTime());
+                            query.bindValue(":type",check1);
+                            query.bindValue(":montant",ui->lineEdit_4->text().toInt());
+                            query.bindValue(":ide",6);
 
                     if(query.exec())
                     {
                          QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
+                         QSqlQuery query;
+                         query.exec("select max(IDTRANSACTION) from TRANSACTION");
+                         query.next();
+                         int idt=query.value(0).toInt();
+                         int s=ui->lineEdit_4->text().toInt();
+
+                         QSqlQuery query1;
+                         query1.prepare("insert into HISTORIQUE (ide , description , datet) values (:ide , :description , :date)");
+                         query1.bindValue(":date",QTime::currentTime());
+                         query1.bindValue(":description","ajout transaction numero: " +  QString::number(idt)  + " de type: " + check1+ " " +" montant: " + QString::number(s) );
+                         query1.bindValue(":ide",6);
+
+                         query1.exec();
                          emit ui->hihi_15->click();
                     }
                     else
@@ -1051,7 +1071,16 @@ void Dialog::on_pushButton_23_clicked()
             query.bindValue(":id",ui->lineEdit_15->text().toInt());
             if(query.exec())
             {
-                 QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
+                 int idt=ui->lineEdit_15->text().toInt();
+                 int s=ui->lineEdit_2->text().toInt();
+
+                 QSqlQuery query1;
+                 query1.prepare("insert into HISTORIQUE (ide , description , datet) values (:ide , :description , :date)");
+                 query1.bindValue(":date",QTime::currentTime());
+                 query1.bindValue(":description","updated transaction numero: " +  QString::number(idt)  + " de type: " + check1+ " " +" montant: " + QString::number(s) );
+                 query1.bindValue(":ide",6);
+
+                 query1.exec();
                  emit ui->hihi_15->click();
             }
             else
@@ -1158,4 +1187,150 @@ void Dialog::on_gg_2tr_3_clicked()
     emit ui->hihi_15->click();
     ui->textEdittr_3->setPlainText("");
 
+}
+
+void Dialog::on_hihi_143_clicked()
+{
+    emit ui->hihi_15->click();
+}
+
+void Dialog::on_hihi_10tr_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(13);
+    int ligne(0);
+    int row(0);
+    QSqlQuery query;
+    query.exec("select count(*) from HISTORIQUE");
+    while(query.next() )
+    {
+        ligne=query.value(0).toInt();
+    }
+    //QMessageBox :: warning(this,"",QString::number( ligne));
+    QString qs;
+    qs="select IDH , IDE ,DESCRIPTION , DATET from HISTORIQUE";
+    qDebug()<<qs;
+    query.exec(qs);
+
+    QStandardItemModel * model=new QStandardItemModel(ligne , 4);
+    while(query.next())
+    {
+        for (int j=0;j<4;j++)
+        {
+            QStandardItem *item;
+            item = new QStandardItem(query.value(j).toString());
+            item->setTextAlignment(Qt::AlignCenter);
+            model->setItem(row,j,item);
+
+        }
+        row++;
+    }
+    model->setHeaderData(0, Qt::Horizontal , "IDTLOGS");
+    model->setHeaderData(1, Qt::Horizontal , "IDE");
+    model->setHeaderData(2, Qt::Horizontal , "DESCRIPTION");
+    model->setHeaderData(3, Qt::Horizontal , "DATET");
+    ui->tableViewtr_2->setModel(model);
+    ui->tableViewtr_2->verticalHeader()->setVisible(false);
+        //QRect rect = ui->tableViewtr->viewport()->rect();
+       // QPainterPath path;
+        //rect.adjust(+1,+1,-1,-1);
+        //path.addRoundedRect(rect,25,25);
+       // QRegion mask = QRegion(path.toFillPolygon().toPolygon());
+        //ui->tableViewtr->viewport()->setMask(mask);
+        //ui->tableViewtr->resize(ui->tableViewtr->columnWidth(3)*4,ui->tableViewtr->rowHeight(0)*row);
+        ui->tableViewtr_2->resizeRowsToContents();
+        ui->tableViewtr_2->resizeColumnsToContents();
+        ui->tableViewtr_2->show();
+}
+
+void Dialog::on_hihi_8tr_clicked()
+{
+
+    QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableViewtr->model());
+           if (!model) {
+               QMessageBox::warning(nullptr, "Erreur", "Impossible d'exporter les données : modèle non trouvé.");
+               return;
+           }
+
+           // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
+           QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (&.pdf)");
+           if (filePath.isEmpty())
+               return; // Annuler l'exportation si aucun fichier n'a été sélectionné
+
+           // Créer un objet QPrinter pour générer le fichier PDF
+           QPrinter printer(QPrinter::PrinterResolution);
+           printer.setOutputFormat(QPrinter::PdfFormat);
+           printer.setPaperSize(QPrinter::A4);
+           printer.setOutputFileName(filePath);
+
+           // Créer un objet QPainter pour dessiner sur le périphérique d'impression
+           QPainter painter;
+           if (!painter.begin((&printer))) {
+               QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
+               return;
+           }
+
+           // Dessiner les en-têtes de colonne
+           for (int col = 0; col < model->columnCount(); ++col) {
+               QString text = model->headerData(col, Qt::Horizontal).toString();
+               painter.drawText(col * 100, 50, text);
+           }
+
+           // Dessiner les données de la table
+           for (int row = 0; row < model->rowCount(); ++row) {
+               for (int col = 0; col < model->columnCount(); ++col) {
+                   QString text = model->data(model->index(row, col), Qt::DisplayRole).toString();
+                   painter.drawText(col * 100, (row + 2) * 50, text);
+               }
+           }
+
+           // Terminer le dessin
+           painter.end();
+}
+void Dialog::on_pushButton_28_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void Dialog::on_hihi_8tr_2_clicked()
+{
+    QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableViewtr_2->model());
+           if (!model) {
+               QMessageBox::warning(nullptr, "Erreur", "Impossible d'exporter les données : modèle non trouvé.");
+               return;
+           }
+
+           // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
+           QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (&.pdf)");
+           if (filePath.isEmpty())
+               return; // Annuler l'exportation si aucun fichier n'a été sélectionné
+
+           // Créer un objet QPrinter pour générer le fichier PDF
+           QPrinter printer(QPrinter::PrinterResolution);
+           printer.setOutputFormat(QPrinter::PdfFormat);
+           printer.setPaperSize(QPrinter::A4);
+           printer.setOutputFileName(filePath);
+
+           // Créer un objet QPainter pour dessiner sur le périphérique d'impression
+           QPainter painter;
+           if (!painter.begin((&printer))) {
+               QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
+               return;
+           }
+
+           // Dessiner les en-têtes de colonne
+           for (int col = 0; col < model->columnCount(); ++col) {
+               QString text = model->headerData(col, Qt::Horizontal).toString();
+               painter.drawText(col * 140, 20, text);
+           }
+
+           // Dessiner les données de la table
+           for (int row = 0; row < model->rowCount(); ++row) {
+               for (int col = 0; col < model->columnCount(); ++col) {
+                   QString text = model->data(model->index(row, col), Qt::DisplayRole).toString();
+                   painter.drawText(col * 140, (row + 2) * 20, text);
+               }
+           }
+
+           // Terminer le dessin
+           painter.end();
 }

@@ -21,6 +21,8 @@
 #include <QString>
 #include <QStandardItemModel>
 #include <QStyledItemDelegate>
+#include <QPrinter>
+#include <QPainter>
 
 namespace Ui {
 class Dialog;
@@ -190,6 +192,16 @@ private slots:
     void on_gg_2tr_2_clicked();
 
     void on_gg_2tr_3_clicked();
+
+    void on_hihi_143_clicked(bool checked);
+
+    void on_hihi_143_clicked();
+
+    void on_hihi_8tr_clicked();
+
+    void on_pushButton_28_clicked();
+
+    void on_hihi_8tr_2_clicked();
 
 private:
     Ui::Dialog *ui;
