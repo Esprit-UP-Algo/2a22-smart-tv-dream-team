@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include <QVideoWidget>
 #include <qstackedwidget.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,8 +18,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QByteArray byte;
+    int timerId;
+    QString lastup;
 
 private slots:
+    void timerEvent(QTimerEvent *event);
+
     void on_pushButton_2ms_clicked();
 
     void on_pushButton_4ms_clicked();
@@ -43,6 +49,18 @@ private slots:
     void on_comboBoxms_2_currentTextChanged(const QString &arg1);
 
     void on_comboBoxms_currentIndexChanged(const QString &arg1);
+
+    void on_pushButton_clicked();
+
+    void on_chatterBUTT_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::MainWindow *ui;
