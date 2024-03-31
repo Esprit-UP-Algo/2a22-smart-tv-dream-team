@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Dialog_t {
-    QByteArrayData data[32];
-    char stringdata0[702];
+    QByteArrayData data[56];
+    char stringdata0[1240];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -62,7 +62,31 @@ QT_MOC_LITERAL(27, 586, 21), // "on_label_omek_clicked"
 QT_MOC_LITERAL(28, 608, 26), // "on_pushButton_4A_2_clicked"
 QT_MOC_LITERAL(29, 635, 22), // "on_pushButtonA_clicked"
 QT_MOC_LITERAL(30, 658, 24), // "on_pushButton_2A_clicked"
-QT_MOC_LITERAL(31, 683, 18) // "on_hihi_43_clicked"
+QT_MOC_LITERAL(31, 683, 18), // "on_hihi_43_clicked"
+QT_MOC_LITERAL(32, 702, 16), // "on_listM_clicked"
+QT_MOC_LITERAL(33, 719, 14), // "on_loM_clicked"
+QT_MOC_LITERAL(34, 734, 21), // "on_addButtonM_clicked"
+QT_MOC_LITERAL(35, 756, 25), // "on_updatedButtonM_clicked"
+QT_MOC_LITERAL(36, 782, 24), // "on_exportButtonM_clicked"
+QT_MOC_LITERAL(37, 807, 23), // "on_pushButton_4_clicked"
+QT_MOC_LITERAL(38, 831, 23), // "on_imageButtonM_clicked"
+QT_MOC_LITERAL(39, 855, 25), // "on_pushButton_2ms_clicked"
+QT_MOC_LITERAL(40, 881, 26), // "on_pushButton_12ms_clicked"
+QT_MOC_LITERAL(41, 908, 32), // "on_comboBoxms_currentTextChanged"
+QT_MOC_LITERAL(42, 941, 4), // "arg1"
+QT_MOC_LITERAL(43, 946, 25), // "on_pushButton_3ms_clicked"
+QT_MOC_LITERAL(44, 972, 26), // "on_pushButton_11ms_clicked"
+QT_MOC_LITERAL(45, 999, 25), // "on_pushButton_4ms_clicked"
+QT_MOC_LITERAL(46, 1025, 20), // "on_upimagems_clicked"
+QT_MOC_LITERAL(47, 1046, 22), // "on_confirmupms_clicked"
+QT_MOC_LITERAL(48, 1069, 21), // "on_returnupms_clicked"
+QT_MOC_LITERAL(49, 1091, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(50, 1115, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(51, 1137, 34), // "on_comboBoxms_2_currentTextCh..."
+QT_MOC_LITERAL(52, 1172, 17), // "on_hihi_8_clicked"
+QT_MOC_LITERAL(53, 1190, 15), // "on_gg_2_clicked"
+QT_MOC_LITERAL(54, 1206, 15), // "on_gg_5_clicked"
+QT_MOC_LITERAL(55, 1222, 17) // "on_hihi_7_clicked"
 
     },
     "Dialog\0on_hihi_6_clicked\0\0on_hihi_5_clicked\0"
@@ -85,7 +109,23 @@ QT_MOC_LITERAL(31, 683, 18) // "on_hihi_43_clicked"
     "on_pushButton_14A_2_clicked\0"
     "on_label_omek_clicked\0on_pushButton_4A_2_clicked\0"
     "on_pushButtonA_clicked\0on_pushButton_2A_clicked\0"
-    "on_hihi_43_clicked"
+    "on_hihi_43_clicked\0on_listM_clicked\0"
+    "on_loM_clicked\0on_addButtonM_clicked\0"
+    "on_updatedButtonM_clicked\0"
+    "on_exportButtonM_clicked\0"
+    "on_pushButton_4_clicked\0on_imageButtonM_clicked\0"
+    "on_pushButton_2ms_clicked\0"
+    "on_pushButton_12ms_clicked\0"
+    "on_comboBoxms_currentTextChanged\0arg1\0"
+    "on_pushButton_3ms_clicked\0"
+    "on_pushButton_11ms_clicked\0"
+    "on_pushButton_4ms_clicked\0"
+    "on_upimagems_clicked\0on_confirmupms_clicked\0"
+    "on_returnupms_clicked\0on_pushButton_2_clicked\0"
+    "on_pushButton_clicked\0"
+    "on_comboBoxms_2_currentTextChanged\0"
+    "on_hihi_8_clicked\0on_gg_2_clicked\0"
+    "on_gg_5_clicked\0on_hihi_7_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -95,7 +135,7 @@ static const uint qt_meta_data_Dialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      30,   14, // methods
+      53,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -103,36 +143,59 @@ static const uint qt_meta_data_Dialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  164,    2, 0x08 /* Private */,
-       3,    0,  165,    2, 0x08 /* Private */,
-       4,    0,  166,    2, 0x08 /* Private */,
-       5,    0,  167,    2, 0x08 /* Private */,
-       6,    0,  168,    2, 0x08 /* Private */,
-       7,    0,  169,    2, 0x08 /* Private */,
-       8,    0,  170,    2, 0x08 /* Private */,
-       9,    0,  171,    2, 0x08 /* Private */,
-      10,    0,  172,    2, 0x08 /* Private */,
-      11,    0,  173,    2, 0x08 /* Private */,
-      12,    0,  174,    2, 0x08 /* Private */,
-      13,    0,  175,    2, 0x08 /* Private */,
-      14,    0,  176,    2, 0x08 /* Private */,
-      15,    0,  177,    2, 0x08 /* Private */,
-      16,    0,  178,    2, 0x08 /* Private */,
-      17,    0,  179,    2, 0x08 /* Private */,
-      18,    0,  180,    2, 0x08 /* Private */,
-      19,    0,  181,    2, 0x08 /* Private */,
-      20,    0,  182,    2, 0x08 /* Private */,
-      21,    0,  183,    2, 0x08 /* Private */,
-      22,    0,  184,    2, 0x08 /* Private */,
-      23,    0,  185,    2, 0x08 /* Private */,
-      24,    0,  186,    2, 0x08 /* Private */,
-      25,    0,  187,    2, 0x08 /* Private */,
-      26,    0,  188,    2, 0x08 /* Private */,
-      27,    0,  189,    2, 0x08 /* Private */,
-      28,    0,  190,    2, 0x08 /* Private */,
-      29,    0,  191,    2, 0x08 /* Private */,
-      30,    0,  192,    2, 0x08 /* Private */,
-      31,    0,  193,    2, 0x08 /* Private */,
+       1,    0,  279,    2, 0x08 /* Private */,
+       3,    0,  280,    2, 0x08 /* Private */,
+       4,    0,  281,    2, 0x08 /* Private */,
+       5,    0,  282,    2, 0x08 /* Private */,
+       6,    0,  283,    2, 0x08 /* Private */,
+       7,    0,  284,    2, 0x08 /* Private */,
+       8,    0,  285,    2, 0x08 /* Private */,
+       9,    0,  286,    2, 0x08 /* Private */,
+      10,    0,  287,    2, 0x08 /* Private */,
+      11,    0,  288,    2, 0x08 /* Private */,
+      12,    0,  289,    2, 0x08 /* Private */,
+      13,    0,  290,    2, 0x08 /* Private */,
+      14,    0,  291,    2, 0x08 /* Private */,
+      15,    0,  292,    2, 0x08 /* Private */,
+      16,    0,  293,    2, 0x08 /* Private */,
+      17,    0,  294,    2, 0x08 /* Private */,
+      18,    0,  295,    2, 0x08 /* Private */,
+      19,    0,  296,    2, 0x08 /* Private */,
+      20,    0,  297,    2, 0x08 /* Private */,
+      21,    0,  298,    2, 0x08 /* Private */,
+      22,    0,  299,    2, 0x08 /* Private */,
+      23,    0,  300,    2, 0x08 /* Private */,
+      24,    0,  301,    2, 0x08 /* Private */,
+      25,    0,  302,    2, 0x08 /* Private */,
+      26,    0,  303,    2, 0x08 /* Private */,
+      27,    0,  304,    2, 0x08 /* Private */,
+      28,    0,  305,    2, 0x08 /* Private */,
+      29,    0,  306,    2, 0x08 /* Private */,
+      30,    0,  307,    2, 0x08 /* Private */,
+      31,    0,  308,    2, 0x08 /* Private */,
+      32,    0,  309,    2, 0x08 /* Private */,
+      33,    0,  310,    2, 0x08 /* Private */,
+      34,    0,  311,    2, 0x08 /* Private */,
+      35,    0,  312,    2, 0x08 /* Private */,
+      36,    0,  313,    2, 0x08 /* Private */,
+      37,    0,  314,    2, 0x08 /* Private */,
+      38,    0,  315,    2, 0x08 /* Private */,
+      39,    0,  316,    2, 0x08 /* Private */,
+      40,    0,  317,    2, 0x08 /* Private */,
+      41,    1,  318,    2, 0x08 /* Private */,
+      43,    0,  321,    2, 0x08 /* Private */,
+      44,    0,  322,    2, 0x08 /* Private */,
+      45,    0,  323,    2, 0x08 /* Private */,
+      46,    0,  324,    2, 0x08 /* Private */,
+      47,    0,  325,    2, 0x08 /* Private */,
+      48,    0,  326,    2, 0x08 /* Private */,
+      49,    0,  327,    2, 0x08 /* Private */,
+      50,    0,  328,    2, 0x08 /* Private */,
+      51,    1,  329,    2, 0x08 /* Private */,
+      52,    0,  332,    2, 0x08 /* Private */,
+      53,    0,  333,    2, 0x08 /* Private */,
+      54,    0,  334,    2, 0x08 /* Private */,
+      55,    0,  335,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -161,6 +224,29 @@ static const uint qt_meta_data_Dialog[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   42,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   42,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -205,10 +291,32 @@ void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 27: _t->on_pushButtonA_clicked(); break;
         case 28: _t->on_pushButton_2A_clicked(); break;
         case 29: _t->on_hihi_43_clicked(); break;
+        case 30: _t->on_listM_clicked(); break;
+        case 31: _t->on_loM_clicked(); break;
+        case 32: _t->on_addButtonM_clicked(); break;
+        case 33: _t->on_updatedButtonM_clicked(); break;
+        case 34: _t->on_exportButtonM_clicked(); break;
+        case 35: _t->on_pushButton_4_clicked(); break;
+        case 36: _t->on_imageButtonM_clicked(); break;
+        case 37: _t->on_pushButton_2ms_clicked(); break;
+        case 38: _t->on_pushButton_12ms_clicked(); break;
+        case 39: _t->on_comboBoxms_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 40: _t->on_pushButton_3ms_clicked(); break;
+        case 41: _t->on_pushButton_11ms_clicked(); break;
+        case 42: _t->on_pushButton_4ms_clicked(); break;
+        case 43: _t->on_upimagems_clicked(); break;
+        case 44: _t->on_confirmupms_clicked(); break;
+        case 45: _t->on_returnupms_clicked(); break;
+        case 46: _t->on_pushButton_2_clicked(); break;
+        case 47: _t->on_pushButton_clicked(); break;
+        case 48: _t->on_comboBoxms_2_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 49: _t->on_hihi_8_clicked(); break;
+        case 50: _t->on_gg_2_clicked(); break;
+        case 51: _t->on_gg_5_clicked(); break;
+        case 52: _t->on_hihi_7_clicked(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject Dialog::staticMetaObject = {
@@ -236,13 +344,13 @@ int Dialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 30)
+        if (_id < 53)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 30;
+        _id -= 53;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 30)
+        if (_id < 53)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 30;
+        _id -= 53;
     }
     return _id;
 }

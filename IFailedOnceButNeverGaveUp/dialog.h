@@ -21,7 +21,10 @@
 #include <QString>
 #include <QStandardItemModel>
 #include <QStyledItemDelegate>
-
+#include "media.h"
+#include "movie.h"
+#include <QPrinter>
+#include <QPainter>
 namespace Ui {
 class Dialog;
 }
@@ -31,9 +34,13 @@ class Dialog : public QDialog
     Q_OBJECT
 
 public:
+    QString Role;
     explicit Dialog(QWidget *parent = nullptr);
     QByteArray byte;
     ~Dialog();
+    QByteArray importImage();
+    void trait(QString Role);
+    void updateChartEmploye();
 
 private slots:
     void on_hihi_6_clicked();
@@ -96,8 +103,58 @@ private slots:
 
     void on_hihi_43_clicked();
 
+    void on_listM_clicked();
+
+    void on_loM_clicked();
+
+    void on_addButtonM_clicked();
+
+    void on_updatedButtonM_clicked();
+
+    void on_exportButtonM_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_imageButtonM_clicked();
+
+    void on_pushButton_2ms_clicked();
+
+    void on_pushButton_12ms_clicked();
+
+    void on_comboBoxms_currentTextChanged(const QString &arg1);
+
+    void on_pushButton_3ms_clicked();
+
+    void on_pushButton_11ms_clicked();
+
+    void on_pushButton_4ms_clicked();
+
+    void on_upimagems_clicked();
+
+    void on_confirmupms_clicked();
+
+    void on_returnupms_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_comboBoxms_2_currentTextChanged(const QString &arg1);
+
+    void on_hihi_8_clicked();
+
+    void on_gg_2_clicked();
+
+    void on_gg_5_clicked();
+
+    void on_hihi_7_clicked();
+
 private:
     Ui::Dialog *ui;
+    bool isTrieButtonClicked = false;
+    QString type ;
+    QList<QPushButton*> buttonsList;
+    QByteArray valImage;
 };
 
 #endif // DIALOG_H

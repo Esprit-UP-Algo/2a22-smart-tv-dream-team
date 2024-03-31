@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
         {
             qDebug("errrrrror");
         }
-    //w.show();
-        d.show();
+    w.show();
     return a.exec();
 }

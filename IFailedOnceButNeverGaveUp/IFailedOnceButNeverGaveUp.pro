@@ -1,7 +1,11 @@
-QT       += core gui multimedia multimediawidgets
-QT       +=  sql
-
+QT       += core gui multimedia multimediawidgets sql \
+    quick \
+    charts
+QT       +=  sql  printsupport
+QT += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+TARGET = smtp
+TEMPLATE = app
 
 CONFIG += c++11
 CONFIG += console
@@ -20,12 +24,18 @@ SOURCES += \
     dialog.cpp \
     employer.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    media.cpp \
+    movie.cpp \
+    smtp.cpp
 
 HEADERS += \
     dialog.h \
     employer.h \
-    mainwindow.h
+    mainwindow.h \
+    media.h \
+    movie.h \
+    smtp.h
 
 FORMS += \
     dialog.ui \

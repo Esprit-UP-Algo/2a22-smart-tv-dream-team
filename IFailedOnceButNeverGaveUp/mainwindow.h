@@ -1,6 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+
+#include "smtp.h"
+#include <QtWidgets/QMessageBox>
+#include <QFileDialog>
 #include <QMainWindow>
 #include<QString>
 #include<QStackedWidget>
@@ -48,9 +52,15 @@ private slots:
 
     void on_ku_13_clicked();
 
+    bool authenticateUser(const QString &Username, const QString &Password, QString &Role);
 
+    void sendMail();
+    void mailSent(QString);
+
+    void on_ok_16_clicked();
 
 private:
     Ui::MainWindow *ui;
+    QStringList files;
 };
 #endif // MAINWINDOW_H
