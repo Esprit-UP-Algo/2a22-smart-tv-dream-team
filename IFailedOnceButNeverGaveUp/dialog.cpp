@@ -1,5 +1,7 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include "media.h"
+#include <QLoggingCategory>
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -17,22 +19,21 @@ Dialog::Dialog(QWidget *parent) :
 
 ui->stackedWidget->setCurrentIndex(0);
 
+//Media
+    //on_statisticsM_clicked();
     connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
+    //connect(ui->imageButtonM_2, &QPushButton::clicked, this, &Dialog::importImage);
     connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
         type = "Radio";
     });
-
     connect(ui->radioButton_2M, &QRadioButton::clicked, this, [=]() {
         type = "Channel";
     });
-    //connect(ui->addButtonM, &QPushButton::clicked, this, &MainWindow::importImage);
 
     Media media;
-    //ui->tableViewM->setModel(media.afficherMedia());
     connect(ui->exportButtonM, &QPushButton::clicked, [this]() {
       on_exportButtonM_clicked();
     });
-
     ui->imagetestms->setVisible(false);
     ui->imagetestms_2->setVisible(false);
     ui->upidms->lower();
@@ -42,13 +43,83 @@ ui->stackedWidget->setCurrentIndex(0);
     ui->nbrvupms->setValidator(new QIntValidator(0,99999999,this));
     byte="";
     connect(ui->comboBoxM, &QComboBox::currentTextChanged, this, &Dialog::on_listM_clicked);
+    ui->TitleM->setValidator(new QRegExpValidator(QRegExp("[A-Za-z ]+"), this));
+    ui->ProducerM->setValidator(new QRegExpValidator(QRegExp("[A-Za-z ]+"), this));
+    //connect(ui->buttonM1, &QPushButton::clicked, this, &Dialog::on_buttonM_clicked);
+   // connect(ui->buttonM2, &QPushButton::clicked, this, &Dialog::on_buttonM_clicked);
+     //on_statisticsM_clicked();
+    /*bool estTextEditActive = ui->textEdit->isEnabled();
+
+        // Activez QTextEdit s'il n'est pas déjà activé
+        if (!estTextEditActive) {
+            ui->textEdit->setEnabled(true);
+            qDebug() << "Aucun producteur inséré.";
+        }
+
+    textToSpeech = new QTextToSpeech(this);
+    connect(textToSpeech, &QTextToSpeech::stateChanged, this, &Dialog::speechStateChanged);
+    connect(ui->voiceInputButton, &QPushButton::clicked, this, &Dialog::startVoiceInput);
+    QAudioDeviceInfo info(QAudioDeviceInfo::defaultInputDevice());
+    if (info.isFormatSupported(info.preferredFormat())) {
+        qDebug() << "Microphone activé.";
+    } else {
+        qDebug() << "Microphone désactivé ou format audio non pris en charge.";
+    }
+    connect(ui->TitleM, &QLineEdit::textChanged, this, &Dialog::onTextChanged);*/
+
+    /*QLoggingCategory::setFilterRules(QStringLiteral("qt.speech.tts=true \n qt.speech.tts.*=true"));
+
+          // Populate engine selection list
+          ui.engine->addItem("Default", QString("default"));
+          foreach (QString engine, QTextToSpeech::availableEngines())
+              ui.engine->addItem(engine, engine);
+          ui.engine->setCurrentIndex(0);
+          engineSelected(0);
+
+          connect(ui.speakButton, &QPushButton::clicked, this, &Dialog::speak);
+          connect(ui.pitch, &QSlider::valueChanged, this, &Dialog::setPitch);
+          connect(ui.rate, &QSlider::valueChanged, this, &Dialog::setRate);
+          connect(ui.volume, &QSlider::valueChanged, this, &Dialog::setVolume);
+          connect(ui.engine, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &Dialog::engineSelected);*/
+    connect(ui->addButtonM, &QPushButton::clicked, this, &Dialog::addMediaItem);
+    // Connectez le bouton cancelButtonM pour effacer les données saisies
+    connect(ui->cancelButtonM, &QPushButton::clicked, this, &Dialog::clearInputFields);
+    textToSpeech = new QTextToSpeech(this);
+
+    // Initialiser le QTimer typingTimer avec un parent this
+        typingTimer = new QTimer(this);
+
+        // Connecter le signal timeout du QTimer au slot onTypingTimerTimeout
+        connect(typingTimer, &QTimer::timeout, this, &Dialog::onTypingTimerTimeout);
+
+
 }
 
 Dialog::~Dialog()
 {
     delete ui;
+
 }
 
+/*void Dialog::startVoiceInput() {
+    QString spokenText = "Please speak your text.";
+    textToSpeech->say(spokenText);
+    ui->textEdit->append(spokenText);
+}
+void Dialog::speechStateChanged(QTextToSpeech::State state) {
+   if (state == QTextToSpeech::Speaking) {
+        ui->textEdit->append("Listening..."); // Indicate that the application is listening for speech input
+   }
+}
+void Dialog::onSpeechStateChanged(QTextToSpeech::State state)
+{
+    if (state == QTextToSpeech::Ready && !textToSpeechText.isEmpty()) {
+        // Lire le texte à voix haute lorsque le moteur est prêt
+        textToSpeech->say(textToSpeechText);
+        // Réinitialiser le texte à lire à voix haute après lecture
+        textToSpeechText.clear();
+    }
+}*/
 void Dialog::on_hihi_6_clicked()//home
 {
     ui->stackedWidget->setCurrentIndex(0);
@@ -1117,7 +1188,7 @@ void Dialog::on_listM_clicked()
         ligne = query.value(0).toInt();
     }
 
-    QStandardItemModel *model = new QStandardItemModel(ligne, 8);
+    QStandardItemModel *model = new QStandardItemModel(ligne, 9);
     QString Qs;
     if (ui->comboBoxM->currentText() == "A/Z")
     {
@@ -1174,15 +1245,42 @@ void Dialog::on_listM_clicked()
     model->setHeaderData(3, Qt::Horizontal, "Image");
     model->setHeaderData(4, Qt::Horizontal, "Producer");
     model->setHeaderData(5, Qt::Horizontal, "Type");
-    model->setHeaderData(6, Qt::Horizontal, "delete");
-    model->setHeaderData(7, Qt::Horizontal, "update");
+    model->setHeaderData(6, Qt::Horizontal, "QR Code");
+    model->setHeaderData(7, Qt::Horizontal, "delete");
+    model->setHeaderData(8, Qt::Horizontal, "update");
     ui->tableViewM->setModel(model);
     for (int j = 0; j < row; j++)
     {
         QPushButton *butt;
-        butt = new QPushButton(")");
+        butt = new QPushButton("QRCode");
         QString name = QString("buttondel%1").arg(j);
-        QString display = QString(")");
+        QString display = QString("t");
+        butt->setObjectName(name);
+        butt->setText(display);
+
+        connect(butt, &QPushButton::clicked, this, [this, j]() {
+            Media m;
+            QString idm = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString();
+            m.generateQRCode(idm);
+        });
+
+
+        butt->setStyleSheet("color:red;"
+                            "background:transparent;"
+                            "border:none;"
+                            "font-size: 35px;"
+                            " font-weight: bold; "
+                            "border-radius: 10;"
+                            "font-family:DRIPICONS-V2;"
+                            "font: 15pt;");
+
+
+
+
+        ui->tableViewM->setIndexWidget(model->index(j, 6), butt);
+        butt = new QPushButton(")");
+         name = QString("buttondel%1").arg(j);
+         display = QString(")");
         butt->setObjectName(name);
         butt->setText(display);
 
@@ -1190,9 +1288,14 @@ void Dialog::on_listM_clicked()
             Media m;
             if (m.supprimerMedia(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString()))
             {
+                QString ch = "Data Deleted successfully";
+                textToSpeech->say(ch);
                 QMessageBox::information(this, ")", "Data Deleted successfully", QMessageBox::Ok);
+                displayChannelImages();
+                displayRadioImages();
 
                 emit ui->listM->click();
+
             }
             else
             {
@@ -1211,7 +1314,7 @@ void Dialog::on_listM_clicked()
 
 
 
-        ui->tableViewM->setIndexWidget(model->index(j, 6), butt);
+        ui->tableViewM->setIndexWidget(model->index(j, 7), butt);
 
         butt = new QPushButton("*");
         name = QString("buttonup%1").arg(j);
@@ -1220,18 +1323,21 @@ void Dialog::on_listM_clicked()
         butt->setText(display);
 
         connect(butt, &QPushButton::clicked, this, [this, j]() {
-             ui->IDM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString());
-            ui->TitleM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString());
-            ui->textEditM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2)).toString());
-            ui->ProducerM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString());
+             ui->IDM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString());
+            ui->TitleM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString());
+            ui->textEditM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2)).toString());
+            ui->ProducerM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString());
             QPixmap pixmap = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 3), Qt::DecorationRole).value<QPixmap>();
-            ui->labelM->setPixmap(pixmap);
+            ui->labelM_2->setPixmap(pixmap);
             if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Radio")
-                ui->radioButtonM->setChecked(true);
+                ui->radioButtonM_2->setChecked(true);
             if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Channel")
-                ui->radioButton_2M->setChecked(true);
-            ui->stackedWidget->setCurrentIndex(12);
-
+                ui->radioButton_2M_2->setChecked(true);
+            ui->stackedWidget->setCurrentIndex(17);
+            displayChannelImages();
+            displayRadioImages();
+            QString up = "Data was updated successfully";
+                    textToSpeech->say(up);
         });
 
         butt->setStyleSheet("color:green;"
@@ -1242,7 +1348,7 @@ void Dialog::on_listM_clicked()
                             "border-radius: 10;"
                             "font-family:DRIPICONS-V2;"
                             "font: 15pt;");
-        ui->tableViewM->setIndexWidget(model->index(j, 7), butt);
+        ui->tableViewM->setIndexWidget(model->index(j,8), butt);
     }
 
     ui->tableViewM->verticalHeader()->setVisible(false);
@@ -1295,11 +1401,15 @@ QByteArray Dialog::importImage()
 
 void Dialog::on_addButtonM_clicked()
 {
+    QString title = ui->TitleM->text();
+        QString producer = ui->ProducerM->text();
+        QString description = ui->textEditM->toPlainText();
+
     ui->stackedWidget->setCurrentIndex(11);
     Media m;
     QString titre = ui->TitleM->text();
     QString producteur = ui->ProducerM->text();
-    QString description = ui->textEditM->toPlainText();
+    description = ui->textEditM->toPlainText();
 
 
     // Vérifier si le titre existe déjà dans la base de données
@@ -1366,15 +1476,14 @@ void Dialog::on_addButtonM_clicked()
 
 void Dialog::on_updatedButtonM_clicked()
 {
-    //modifierMedia(QString titre);
     Media m;
-    ui->stackedWidget->setCurrentIndex(11);
-    QString titre = ui->TitleM->text();
-    QString producteur = ui->ProducerM->text();
-    QString description = ui->textEditM->toPlainText();
+    ui->stackedWidget->setCurrentIndex(13);
+    QString titre = ui->TitleM_2->text();
+    QString producteur = ui->ProducerM_2->text();
+    QString description = ui->textEditM_2->toPlainText();
 
 
-    const QPixmap *pixmap = ui->labelM->pixmap();
+    const QPixmap *pixmap = ui->labelM_2->pixmap();
 
         // Vérifier si la pixmap est valide
         if (!pixmap) {
@@ -1404,21 +1513,21 @@ void Dialog::on_updatedButtonM_clicked()
                                   QMessageBox::Ok);
             return; // Arrêter l'exécution de la fonction si la description est trop longue
         }
-    m.setTitre(ui->TitleM->text());
-    m.setProducteur(ui->ProducerM->text());
-    m.setDescription(ui->textEditM->toPlainText());
-    if (ui->radioButtonM->isChecked())
+    m.setTitre(ui->TitleM_2->text());
+    m.setProducteur(ui->ProducerM_2->text());
+    m.setDescription(ui->textEditM_2->toPlainText());
+    if (ui->radioButtonM_2->isChecked())
     {
         m.setType("Radio");
     }
-    if (ui->radioButton_2M->isChecked())
+    if (ui->radioButton_2M_2->isChecked())
     {
         m.setType("Channel");
     }
     m.setImage(imageByteArray);
 
     // Ajouter le média si toutes les vérifications sont passées avec succès
-    bool test = m.modifierMedia(ui->IDM->text().toInt());
+    bool test = m.modifierMedia(ui->IDM_2->text().toInt());
     if (!test) {
         QMessageBox::critical(nullptr, QObject::tr("Not OK"),
                               QObject::tr("The addition was not made.\n"
@@ -1430,6 +1539,12 @@ void Dialog::on_updatedButtonM_clicked()
                              QObject::tr("Addition is validated.\n"
                                          "Click OK to exit."),
                              QMessageBox::Ok);
+    ui->TitleM_2->clear();
+    ui->ProducerM_2->clear();
+    ui->textEditM_2->clear();
+    ui->labelM_2->clear();
+    ui->radioButtonM_2->setChecked(false);
+    ui->radioButton_2M_2->setChecked(false);
 
 
     emit ui->listM->click();
@@ -1445,52 +1560,80 @@ void Dialog::on_updatedButtonM_clicked()
 
 
 
-void Dialog::on_exportButtonM_clicked()
-{
-    // Récupérer le modèle de données de la table view
-       QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableViewM->model());
-       if (!model) {
-           QMessageBox::warning(nullptr, "Erreur", "Impossible d'exporter les données : modèle non trouvé.");
-           return;
-       }
+void Dialog::on_exportButtonM_clicked() {
+    // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
+    QString filePath = QFileDialog::getSaveFileName(nullptr, "Export to PDF", "", "PDF files (*.pdf)");
+    if (filePath.isEmpty())
+        return; // Annuler l'exportation si aucun fichier n'a été sélectionné
 
-       // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
-       QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (*.pdf)");
-       if (filePath.isEmpty())
-           return; // Annuler l'exportation si aucun fichier n'a été sélectionné
+    // Créer un objet QPrinter pour générer le fichier PDF
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName(filePath);
 
-       // Créer un objet QPrinter pour générer le fichier PDF
-       QPrinter printer(QPrinter::PrinterResolution);
-       printer.setOutputFormat(QPrinter::PdfFormat);
-       printer.setPaperSize(QPrinter::A4);
-       printer.setOutputFileName(filePath);
+    // Créer un objet QPainter pour dessiner sur le périphérique d'impression
+    QPainter painter;
+    if (!painter.begin(&printer)) {
+        QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
+        return;
+    }
 
-       // Créer un objet QPainter pour dessiner sur le périphérique d'impression
-       QPainter painter;
-       if (!painter.begin(&printer)) {
-           QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
-           return;
-       }
+    // Récupérer les données de la table Media depuis la base de données
+    QSqlQuery query;
+    query.prepare("SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE, DATEM FROM MEDIA");
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Error", "Error retrieving data from database.");
+        return;
+    }
 
-       // Dessiner les en-têtes de colonne
-       for (int col = 0; col < model->columnCount(); ++col) {
-           QString text = model->headerData(col, Qt::Horizontal).toString();
-           painter.drawText(col * 100, 50, text);
-       }
+    // Définir la taille des cellules du tableau
+    int cellWidth = 80;
+    int cellHeight = 50;
+    int row = 0;
 
-       // Dessiner les données de la table
-       for (int row = 0; row < model->rowCount(); ++row) {
-           for (int col = 0; col < model->columnCount(); ++col) {
-               QString text = model->data(model->index(row, col), Qt::DisplayRole).toString();
-               painter.drawText(col * 100, (row + 2) * 50, text);
-           }
-       }
+    QFont titleFont = painter.font();
+    painter.drawText(250, 10, "Media list"); // Dessiner le titre à la position spécifiée
 
-       // Terminer le dessin
-       painter.end();
+    // Dessiner les en-têtes de colonne dans le fichier PDF
+    QStringList headers = {"IDM", "Title", "Description", "Image", "Producer", "Type", "Date of creation"};
+    int colCount = headers.size();
+    QFont font = painter.font(); // Récupérer la police par défaut pour le texte
+    font.setBold(true);
+    painter.setFont(font);
+    for (int col = 0; col < colCount; ++col) {
+        painter.drawText(col * cellWidth, 50, cellWidth, cellHeight, Qt::AlignCenter, headers[col]);
+        painter.drawRect(col * cellWidth, 50, cellWidth, cellHeight);
+    }
 
-       QMessageBox::information(nullptr, "Succès", "Les données ont été exportées avec succès vers " + filePath);
+    // Dessiner les données de la table dans le fichier PDF
+    while (query.next()) {
+        for (int col = 0; col < colCount; ++col) {
+            QString text = query.value(col).toString();
+            if (col == 5) { // Colonne du type
+                painter.drawText(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight, Qt::AlignCenter, text);
+            } else if (col == 3) { // Colonne de l'image
+                QByteArray imageData = query.value(col).toByteArray();
+                QPixmap pixmap;
+                pixmap.loadFromData(imageData);
+                painter.drawPixmap(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight, pixmap);
+            } else {
+                painter.drawText(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight, Qt::AlignCenter, text);
+            }
+            painter.drawRect(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight);
+        }
+        ++row;
+    }
+
+    // Terminer le dessin
+    painter.end();
+
+    QMessageBox::information(nullptr, "success", "Data has been successfully exported to " + filePath);
 }
+
+
+
+
 
 void Dialog::on_pushButton_4_clicked()
 {
@@ -1988,3 +2131,284 @@ void Dialog::on_comboBoxms_2_currentTextChanged(const QString &arg1)
         ui->label_7ms_4->setVisible(false);
     }
 }
+
+void Dialog::on_cancelButtonM_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(13);
+}
+
+
+void Dialog::on_searchLineEditM_textChanged(const QString &arg1)
+{
+            QString searchText = arg1.trimmed();
+            if (searchText.isEmpty()) {
+                // If lineEdit is empty, reset the tableView
+               on_listM_clicked();
+                return;
+            }
+
+            QString queryText;
+
+            if (searchText.length() == 1) {
+                // If only one letter is entered, search for rows starting with that letter
+                queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
+            } else {
+                // Otherwise, search for rows containing the complete text
+                queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
+            }
+
+            QSqlQueryModel *model = new QSqlQueryModel();
+            model->setQuery(queryText);
+
+            ui->tableViewM->setModel(model);
+
+
+
+}
+
+void Dialog::on_cancelButtonM_2_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(13);
+}
+
+
+void Dialog::displayChannelImages()
+{
+
+    QSqlQuery query;
+    query.prepare("SELECT IMAGE FROM MEDIA WHERE TYPE = 'Channel'");
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Error", "Error retrieving channel images from database.");
+        return;
+    }
+
+    int buttonIndex = 1;
+
+    while (query.next()) {
+        QByteArray imageData = query.value(0).toByteArray();
+
+
+        QPixmap pixmap;
+        pixmap.loadFromData(imageData);
+
+        QString buttonName = QString("buttonM%1").arg(buttonIndex);
+        QPushButton* button = findChild<QPushButton*>(buttonName);
+
+        if (button) {
+
+            QSize buttonSize = button->size();
+            QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+
+            button->setIcon(QIcon(scaledPixmap));
+            button->setIconSize(buttonSize);
+        }
+
+        buttonIndex++;
+    }
+}
+void Dialog::displayRadioImages()
+{
+    // Récupérer les images de la table Media avec le type "Channel"
+    QSqlQuery query;
+    query.prepare("SELECT IMAGE FROM MEDIA WHERE TYPE = 'Radio'");
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Error", "Error retrieving Radio images from database.");
+        return;
+    }
+
+    int buttonIndex = 1;
+
+    while (query.next()) {
+        QByteArray imageData = query.value(0).toByteArray(); // Récupérer l'image en tant que QByteArray
+
+        // Convertir le QByteArray en QPixmap pour l'afficher dans le QPushButton correspondant
+        QPixmap pixmap;
+        pixmap.loadFromData(imageData);
+
+        // Trouver le nom du QPushButton correspondant
+        QString buttonName = QString("buttonMR%1").arg(buttonIndex);
+        QPushButton* button = findChild<QPushButton*>(buttonName);
+
+        if (button) {
+            // Redimensionner l'image pour s'adapter au QPushButton si nécessaire
+            QSize buttonSize = button->size();
+            QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+            // Afficher l'image dans le QPushButton
+            button->setIcon(QIcon(scaledPixmap));
+            button->setIconSize(buttonSize);
+        }
+
+        buttonIndex++; // Passer au QPushButton suivant
+    }
+}
+void Dialog::on_buttonM_clicked() {
+    // Récupérer le bouton cliqué
+    QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
+    if (!clickedButton) {
+        return;
+    }
+
+
+    QPixmap buttonImage = clickedButton->icon().pixmap(clickedButton->iconSize());
+
+
+    QSqlQuery query;
+    query.prepare("SELECT DESCRIPTION, IMAGE FROM MEDIA WHERE TYPE = 'Channel'");
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Error", "Error retrieving channel images from database.");
+        return;
+    }
+
+    bool found = false;
+    while (query.next()) {
+
+        QByteArray imageData = query.value(1).toByteArray();
+        QPixmap dbImage;
+        dbImage.loadFromData(imageData);
+
+
+        if (buttonImage.toImage() == dbImage.toImage()) {
+            found = true;
+
+
+            QString description = query.value(0).toString();
+            ui->textEditDescriptionM->setText(description);
+            break;
+        }
+    }
+
+    if (!found) {
+        QMessageBox::warning(this, "Warning", "No description found for this image.");
+    }
+}
+
+void Dialog::on_listM_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(13);
+    on_listM_clicked();
+
+}
+
+void Dialog::on_pushButton_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(18);
+}
+
+void Dialog::on_radioM_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(18);
+}
+
+void Dialog::on_tvM_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(11);
+}
+void Dialog::on_statisticsM_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(19);
+    Media m; // Instance de la classe Media
+
+    // Récupérer les statistiques depuis la classe Media
+    QMap<QString, int> statistiques = m.obtenirStatistique();
+
+    // Créer une série de données pour le graphique
+    QPieSeries *series = new QPieSeries(); // Utilisez un pointeur pour la série
+
+    for (auto it = statistiques.begin(); it != statistiques.end(); ++it) {
+        series->append(it.key(), it.value());
+    }
+
+    QChart *chart = new QChart();
+    chart->addSeries(series); // Utilisez la série avec le pointeur
+
+    chart->setTitle("Statistics by the number of views of each type of media");
+
+    // Créer une vue de graphique pour afficher le graphique
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->resize(400, 300); // Ajustez la taille selon vos besoins
+
+    // Afficher le graphique dans le QFrame statM
+    QVBoxLayout *layout = new QVBoxLayout(ui->statM);
+    layout->addWidget(chartView);
+    ui->statM->setLayout(layout);
+}
+
+void Dialog::on_statisticsM_2_clicked()
+{
+    on_statisticsM_clicked();
+}
+
+void Dialog::addMediaItem() {
+    QString title = ui->TitleM->text();
+    QString producer = ui->ProducerM->text();
+    QString description = ui->textEditM->toPlainText();
+
+    // Utilisez les données (title, producer, description) comme nécessaire
+    // Ajoutez le nouvel élément multimédia à votre base de données ou effectuez d'autres actions
+}
+
+void Dialog::clearInputFields() {
+    ui->TitleM->clear();
+    ui->ProducerM->clear();
+    ui->textEditM->clear();
+}
+
+
+void Dialog::onTypingTimerTimeout()
+{
+    // Arrêter le timer s'il est actif
+    typingTimer->stop();
+
+    // Récupérer le texte depuis le QLineEdit TitleM
+    QString spokenText = ui->TitleM->text();
+
+    // Appeler la fonction say() du QTextToSpeech pour lire le texte
+    textToSpeech->say(spokenText);
+}
+void Dialog::startTimer() {
+    typingTimer->start(3000);  // 1 minute (60000 ms)
+}
+
+// Ajoutez cette fonction pour lire le texte après que le timer expire
+void Dialog::readText() {
+    QString spokenText = ui->TitleM->text();
+    textToSpeech->say(spokenText);
+}
+
+// Modifiez la fonction on_TitleM_textChanged comme suit
+void Dialog::on_TitleM_textChanged(const QString &arg1)
+{
+    // Arrêter le timer s'il est actif
+    typingTimer->stop();
+
+    // Démarrer le timer avec un délai de 1 minute
+    startTimer();
+}
+void Dialog::readTextProducer() {
+    QString spokenText = ui->ProducerM->text();
+    textToSpeech->say(spokenText);
+}
+void Dialog::on_ProducerM_textChanged(const QString &arg1)
+{
+    // Arrêter le timer s'il est actif
+    typingTimer->stop();
+
+    // Démarrer le timer avec un délai de 1 minute
+    startTimer();
+}
+void Dialog::readTextDescrption() {
+    QString spokenText = ui->textEditM->toPlainText();
+    textToSpeech->say(spokenText);
+}
+void Dialog::on_textEditM_textChanged()
+{
+    // Arrêter le timer s'il est actif
+    typingTimer->stop();
+
+    // Démarrer le timer avec un délai de 1 minute
+    startTimer();
+}
+

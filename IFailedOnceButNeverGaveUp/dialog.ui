@@ -383,6 +383,19 @@ color:rgba(0,125,236,255);
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="labelCM1">
+    <property name="geometry">
+     <rect>
+      <x>-70</x>
+      <y>800</y>
+      <width>341</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QGroupBox" name="searchBar">
    <property name="geometry">
@@ -6096,42 +6109,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;Welcome to VWATCH GROUP - the largest and leadind media company in the north of Africa.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3M">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>640</y>
-       <width>1261</width>
-       <height>431</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(166,166,166);
-border-radius: 20px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="button2">
-     <property name="geometry">
-      <rect>
-       <x>580</x>
-       <y>620</y>
-       <width>341</width>
-       <height>281</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">	border-image:url(../images/vactions.png);
-	border: transparent;
-    border-radius: 16px;
-background-color:transparent</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QPushButton" name="radioM">
      <property name="geometry">
       <rect>
@@ -6160,60 +6137,7 @@ border:transparent;}
       <string> Radio</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="returnButtonM">
-     <property name="geometry">
-      <rect>
-       <x>1760</x>
-       <y>640</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-size: 35px; 
-    font-weight: bold; 
-  border-radius: 10;
- font-family:DRIPICONS-V2;
-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));
-</string>
-     </property>
-     <property name="text">
-      <string>9</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="loM">
-     <property name="geometry">
-      <rect>
-       <x>1580</x>
-       <y>90</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">    #loM{color: white;
-    font-family: Ms Shell Dlg;
-    font-size: 20px; 
- 
-    /*text-transform: uppercase; /* Transformation du texte en majuscules */
-	padding-left: 20px;
-background:transparent;
-border:transparent;}
-#loM:hover {
-   text-decoration: underline;
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>Add</string>
-     </property>
-     <property name="icon">
-      <iconset theme="a">
-       <normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</iconset>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="button1">
+    <widget class="QPushButton" name="buttonM1">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -6221,6 +6145,9 @@ border:transparent;}
        <width>341</width>
        <height>281</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
      </property>
      <property name="text">
       <string/>
@@ -6258,34 +6185,50 @@ border:transparent;}
        <normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</iconset>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="formchannel">
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));</string>
-    </property>
-    <widget class="QLabel" name="addChannelM">
+    <widget class="QPushButton" name="buttonM2">
      <property name="geometry">
       <rect>
-       <x>1240</x>
-       <y>150</y>
-       <width>301</width>
-       <height>71</height>
+       <x>670</x>
+       <y>620</y>
+       <width>341</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonM3">
+     <property name="geometry">
+      <rect>
+       <x>1140</x>
+       <y>620</y>
+       <width>341</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditDescriptionM">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>850</y>
+       <width>961</width>
+       <height>341</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">  color: black;
-    font-family: Ms Shell Dlg;
-    font-size: 16px; 
-    font-weight: bold;
-    /*text-transform: uppercase; /* Transformation du texte en majuscules */
-	padding-left: 20px;
-font-size:30px;
-background-color:none;</string>
-     </property>
-     <property name="text">
-      <string>Media</string>
+      <string notr="true">background-color:white;</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QWidget" name="addchannel">
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));</string>
+    </property>
     <widget class="QLineEdit" name="IDM">
      <property name="geometry">
       <rect>
@@ -6299,10 +6242,10 @@ background-color:none;</string>
     <widget class="QLineEdit" name="ProducerM">
      <property name="geometry">
       <rect>
-       <x>1100</x>
-       <y>280</y>
-       <width>391</width>
-       <height>31</height>
+       <x>950</x>
+       <y>290</y>
+       <width>591</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6310,7 +6253,7 @@ background-color:none;</string>
  font-family: Ms Shell Dlg;
 color:black;
 
-                     font-size: 15px; 
+                     font-size: 30px; 
                      font-weight: bold; 
                      
                      background-color: transparent;
@@ -6326,32 +6269,10 @@ border-radius:none;
       <string>Producer</string>
      </property>
     </widget>
-    <widget class="QLabel" name="labelM">
-     <property name="geometry">
-      <rect>
-       <x>1640</x>
-       <y>330</y>
-       <width>281</width>
-       <height>271</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-    font-size: 35px; 
-    font-weight: bold; 
-    background-color: transparent;
-    color: transparent;
-    
-   </string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
     <widget class="QTextEdit" name="textEdit_5M">
      <property name="geometry">
       <rect>
-       <x>550</x>
+       <x>350</x>
        <y>360</y>
        <width>491</width>
        <height>441</height>
@@ -6373,41 +6294,16 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CONSOLA'; font-size:50px; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt;CREAT YOUR &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt;       OWN CHANNEL&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="imageButtonM">
-     <property name="geometry">
-      <rect>
-       <x>1080</x>
-       <y>620</y>
-       <width>101</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-                     font-size: 35px; 
-                     font-weight: bold; 
-                     font-family: DRIPICONS-V2;
-                     background-color: transparent;
-                     color: black;
-                     border: 1px solid black;
-border-radius:20px;
-
-</string>
-     </property>
-     <property name="text">
-      <string>:</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt;       OWN MEDIA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="radioButton_2M">
      <property name="geometry">
       <rect>
-       <x>1400</x>
-       <y>640</y>
-       <width>97</width>
-       <height>20</height>
+       <x>1230</x>
+       <y>820</y>
+       <width>201</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6416,7 +6312,7 @@ border-radius:20px;
 
  font-family: Ms Shell Dlg;
 color:black;
-</string>
+font-size: 34px; </string>
      </property>
      <property name="text">
       <string>Channel</string>
@@ -6425,10 +6321,10 @@ color:black;
     <widget class="QPushButton" name="addButtonM">
      <property name="geometry">
       <rect>
-       <x>1090</x>
-       <y>760</y>
-       <width>221</width>
-       <height>71</height>
+       <x>1290</x>
+       <y>940</y>
+       <width>241</width>
+       <height>81</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6448,16 +6344,16 @@ color:black;
 </string>
      </property>
      <property name="text">
-      <string>Save</string>
+      <string>Add</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="radioButtonM">
      <property name="geometry">
       <rect>
-       <x>1280</x>
-       <y>640</y>
-       <width>97</width>
-       <height>20</height>
+       <x>1060</x>
+       <y>820</y>
+       <width>201</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6466,7 +6362,7 @@ color:black;
 
  font-family: Ms Shell Dlg;
 color:black;
-
+font-size: 34px; 
                     </string>
      </property>
      <property name="text">
@@ -6476,10 +6372,10 @@ color:black;
     <widget class="QLabel" name="formM">
      <property name="geometry">
       <rect>
-       <x>520</x>
-       <y>140</y>
-       <width>511</width>
-       <height>791</height>
+       <x>120</x>
+       <y>130</y>
+       <width>771</width>
+       <height>931</height>
       </rect>
      </property>
      <property name="contextMenuPolicy">
@@ -6502,10 +6398,10 @@ background-color:white; </string>
     <widget class="QTextEdit" name="textEditM">
      <property name="geometry">
       <rect>
-       <x>1110</x>
-       <y>330</y>
-       <width>391</width>
-       <height>261</height>
+       <x>950</x>
+       <y>370</y>
+       <width>591</width>
+       <height>431</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6513,7 +6409,7 @@ background-color:white; </string>
  font-family: Ms Shell Dlg;
 color:black;
 
-                     font-size: 15px; 
+                     font-size: 34px; 
                      font-weight: bold; 
                      
                      background-color: transparent;
@@ -6527,7 +6423,7 @@ border-radius:0;
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ms Shell Dlg'; font-size:15px; font-weight:600; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ms Shell Dlg'; font-size:34px; font-weight:600; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="placeholderText">
@@ -6537,10 +6433,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="TitleM">
      <property name="geometry">
       <rect>
-       <x>1100</x>
-       <y>240</y>
-       <width>391</width>
-       <height>31</height>
+       <x>950</x>
+       <y>210</y>
+       <width>591</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6548,7 +6444,7 @@ p, li { white-space: pre-wrap; }
  font-family: Ms Shell Dlg;
 color:black;
 
-                     font-size: 15px; 
+                     font-size: 30px; 
                      font-weight: bold; 
                      
                      background-color: transparent;
@@ -6566,42 +6462,13 @@ border-radius:none;
       <string>Title</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="updatedButtonM">
-     <property name="geometry">
-      <rect>
-       <x>1370</x>
-       <y>760</y>
-       <width>221</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#updatedButtonM{
-    font-family: &quot;Ms Shell Dlg&quot;;
-    font-size: 35px; 
-    font-weight: bold; 
-    background-color: black;
-    color: white;
-    border: 1px solid black;
-    border-radius: 20px;
-}
-
-#updatedButtonM:hover {
-    background-color: #03224c ;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Update</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_13M">
      <property name="geometry">
       <rect>
-       <x>1010</x>
+       <x>820</x>
        <y>140</y>
-       <width>611</width>
-       <height>781</height>
+       <width>1081</width>
+       <height>921</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6614,29 +6481,108 @@ background-color:white;</string>
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="cancelButtonM">
+     <property name="geometry">
+      <rect>
+       <x>960</x>
+       <y>940</y>
+       <width>251</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#cancelButtonM{
+    font-family: &quot;Ms Shell Dlg&quot;;
+    font-size: 35px; 
+    font-weight: bold; 
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+#cancelButtonM:hover {
+    background-color: #03224c ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelM">
+     <property name="geometry">
+      <rect>
+       <x>1560</x>
+       <y>420</y>
+       <width>331</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+                     font-size: 35px; 
+                     font-weight: bold; 
+                    
+                     background-color: transparent;
+                     color: black;
+                     border: 1px solid black;
+border-radius:20px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="imageButtonM">
+     <property name="geometry">
+      <rect>
+       <x>1560</x>
+       <y>420</y>
+       <width>331</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+                     font-size: 25px; 
+                     font-weight: bold; 
+                    
+                     background-color: transparent;
+                     color: black;
+                     border: 1px solid black;
+border-radius:20px;
+font-family: &quot;Ms Shell Dlg&quot;;
+    
+</string>
+     </property>
+     <property name="text">
+      <string>DROP PHOTO HERE</string>
+     </property>
+    </widget>
     <zorder>label_13M</zorder>
     <zorder>formM</zorder>
-    <zorder>addChannelM</zorder>
     <zorder>IDM</zorder>
     <zorder>ProducerM</zorder>
-    <zorder>labelM</zorder>
-    <zorder>imageButtonM</zorder>
     <zorder>radioButton_2M</zorder>
     <zorder>addButtonM</zorder>
     <zorder>radioButtonM</zorder>
     <zorder>textEditM</zorder>
     <zorder>TitleM</zorder>
-    <zorder>updatedButtonM</zorder>
     <zorder>textEdit_5M</zorder>
+    <zorder>cancelButtonM</zorder>
+    <zorder>labelM</zorder>
+    <zorder>imageButtonM</zorder>
    </widget>
    <widget class="QWidget" name="listechannel">
     <widget class="QTableView" name="tableViewM">
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>320</y>
-       <width>1700</width>
-       <height>700</height>
+       <y>239</y>
+       <width>1761</width>
+       <height>841</height>
       </rect>
      </property>
      <property name="minimumSize">
@@ -6646,17 +6592,38 @@ background-color:white;</string>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QTableView::item
+      <string notr="true">/*QTableView::item
 {
         background-color:rgba(49,28,71,100);
      border : 2px solid white ;
-        font-size : 15px;
+        font-size : 30px;
         min-width : 260;
         min-height : 260;
         max-width : 280;
         max-height : 280;
 	
+	
+}*/
+QTableView#tableViewM{
+	background-color: rgba(200, 200, 200,120);
+border:2px solid rgba(255,255,255,150);
 }
+QTableView#tableViewM::item{
+		 background-color:rgba(49,28,71,100);
+        border : 2px solid white ;
+        font-size : 15px;
+        min-width : 279px;
+        min-height : 279px;
+        max-width : 400;
+        max-height : 400;
+}
+QTableView QScrollBar:vertical {
+				border: 2px solid grey;
+             background: #32CC99;
+             height: 15px;
+             margin: 0px 20px 0 20px;
+             }
+
 </string>
      </property>
      <attribute name="horizontalHeaderCascadingSectionResizes">
@@ -6678,22 +6645,238 @@ background-color:white;</string>
       <bool>true</bool>
      </attribute>
     </widget>
+    <widget class="QPushButton" name="exportButtonM">
+     <property name="geometry">
+      <rect>
+       <x>1650</x>
+       <y>130</y>
+       <width>251</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>1</number>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#exportButtonM{
+	font: 14pt &quot;MS Shell Dlg 2&quot;;
+border-radius:20px;
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
+}
+QPushButton#exportButtonM:hover{
+border-radius:20px;
+color:rgb(255,255,255);
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
+	font: 14pt &quot;MS Shell Dlg 2&quot;;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>            Generate PDF</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="loM">
+     <property name="geometry">
+      <rect>
+       <x>1380</x>
+       <y>130</y>
+       <width>251</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>1</number>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#loM{
+	font: 14pt &quot;MS Shell Dlg 2&quot;;
+border-radius:20px;
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));
+}
+QPushButton#loM:hover{
+border-radius:20px;
+color:rgb(255,255,255);
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));
+	font: 14pt &quot;MS Shell Dlg 2&quot;;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>           Add Media</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="add">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>140</y>
+       <width>61</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>1</number>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#add{
+border-radius:30px;
+	font: 24pt &quot;dripicons-v2&quot;;
+	background-color: rgb(32, 91, 200);
+}</string>
+     </property>
+     <property name="text">
+      <string>,</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="exportM">
+     <property name="geometry">
+      <rect>
+       <x>1660</x>
+       <y>140</y>
+       <width>61</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>1</number>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#exportM{
+border-radius:30px;
+	font: 24pt &quot;dripicons-v2&quot;;
+	background-color: rgb(32, 91, 200);
+}</string>
+     </property>
+     <property name="text">
+      <string>,</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
     <widget class="QComboBox" name="comboBoxM">
      <property name="geometry">
       <rect>
-       <x>1540</x>
-       <y>240</y>
+       <x>1110</x>
+       <y>160</y>
        <width>221</width>
        <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color : black;
-background : white;</string>
+      <string notr="true">/*border:1 px solid #ced4da;
+border-radius:12px;
+padding-left:25px;
+padding-top:5px;
+background:rgba(190,190,190,100);
+color : rgba(255,255,255,200);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+ font-size: 34px; */
+#comboBoxM
+{
+border:1 px solid #ced4da;
+border-radius:12px;
+padding-left:10px;
+background:rgba(190,190,190,100);
+color : rgba(255,255,255,200);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+}
+#comboBoxM::drop-down{
+border:0px;
+}
+#comboBoxM::down-arrow{
+image:url(D:\Untitled_design__5_-removebg-preview.png);
+width:30px;
+height:30px;
+margin-right:18px;
+}
+#comboBoxM QListView{
+border:1 px solid #ced4da;
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+padding:5px;
+outline:0px;
+border-radius:20px;
+selection-background-color: rgba(90,90,90,200);
+background-color:rgba(150,150,150,150);
+}
+#comboBoxM QListView::item{
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+selection-background-color: rgba(90,90,90,200);
+background-color:rgba(150,150,150,150);
+border-radius:12px;
+}
+#comboBoxM QListView::item:hover{
+font-size:12px &quot;MS Shell Dlg 2&quot;;
+selection-background-color:rgba(90,90,90,200);
+background-color:rgba(150,150,150,150);
+border-radius:12px;
+}
+
+</string>
+     </property>
+     <property name="currentText">
+      <string/>
      </property>
      <item>
       <property name="text">
        <string/>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>A/z</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Z/A</string>
       </property>
      </item>
      <item>
@@ -6712,29 +6895,109 @@ background : white;</string>
       </property>
      </item>
     </widget>
-    <widget class="QPushButton" name="exportButtonM">
+    <widget class="QLabel" name="label_37">
      <property name="geometry">
       <rect>
-       <x>1780</x>
-       <y>230</y>
-       <width>71</width>
-       <height>51</height>
+       <x>180</x>
+       <y>110</y>
+       <width>241</width>
+       <height>101</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font-size: 35px; 
-    font-weight: bold; 
-  border-radius: 10;
- font-family:DRIPICONS-V2;
-background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));
-color:white</string>
+      <string notr="true">color: rgba(255,255,255,200);
+font: 42pt &quot;MS Shell Dlg 2&quot;;
+background-color:transparent;</string>
      </property>
      <property name="text">
-      <string>=</string>
+      <string>WATCH</string>
      </property>
-     <property name="icon">
-      <iconset theme="test">
-       <normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</iconset>
+    </widget>
+    <widget class="QLabel" name="label_38">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>110</y>
+       <width>71</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 42pt &quot;MS Shell Dlg 2&quot;;
+background-color:transparent;
+color: rgba(35,125,236,255);</string>
+     </property>
+     <property name="text">
+      <string>VE</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_40">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>190</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgba(255,255,255,200);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color:transparent;</string>
+     </property>
+     <property name="text">
+      <string>Media</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="searchLineEditM">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>150</y>
+       <width>361</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:1 px solid #ced4da;
+border-radius:12px;
+padding-left:25px;
+padding-top:5px;
+background:rgba(190,190,190,100);
+color : rgba(255,255,255,200);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="placeholderText">
+      <string>search</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ggM">
+     <property name="geometry">
+      <rect>
+       <x>910</x>
+       <y>150</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#ggM
+{
+font: 20pt &quot;dripicons-v2&quot;;
+border:none;
+background-color:transparent;
+color:rgba(255,255,255,150);
+}
+QPushButton#ggM:hover
+{
+font: 20pt &quot;dripicons-v2&quot;;
+border:none;
+background-color:transparent;
+color:rgba(255,255,255,255);
+}</string>
+     </property>
+     <property name="text">
+      <string></string>
      </property>
     </widget>
    </widget>
@@ -8631,6 +8894,606 @@ background : white;</string>
        </widget>
       </item>
      </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="updateChannel">
+    <widget class="QLabel" name="formM_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>100</y>
+       <width>771</width>
+       <height>931</height>
+      </rect>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::NoContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:url(&quot;form.png&quot;);
+
+border-radius:50px;
+border-color:white;
+background-color:white; </string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13M_2">
+     <property name="geometry">
+      <rect>
+       <x>820</x>
+       <y>110</y>
+       <width>1081</width>
+       <height>921</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  border: 10px solid white;
+border-radius:50px;
+border-color:white;
+background-color:white;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="updatedButtonM">
+     <property name="geometry">
+      <rect>
+       <x>1240</x>
+       <y>880</y>
+       <width>251</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#updatedButtonM{
+    font-family: &quot;Ms Shell Dlg&quot;;
+    font-size: 35px; 
+    font-weight: bold; 
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+#updatedButtonM:hover {
+    background-color: #03224c ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Update</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancelButtonM_2">
+     <property name="geometry">
+      <rect>
+       <x>900</x>
+       <y>880</y>
+       <width>251</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#cancelButtonM_2{
+    font-family: &quot;Ms Shell Dlg&quot;;
+    font-size: 35px; 
+    font-weight: bold; 
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+#cancelButtonM_2:hover {
+    background-color: #03224c ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditM_2">
+     <property name="geometry">
+      <rect>
+       <x>890</x>
+       <y>310</y>
+       <width>591</width>
+       <height>431</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+ font-family: Ms Shell Dlg;
+color:black;
+
+                     font-size: 34px; 
+                     font-weight: bold; 
+                     
+                     background-color: transparent;
+                     color: black;
+                     border: 1px solid black;
+border-radius:0;
+
+</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ms Shell Dlg'; font-size:34px; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="placeholderText">
+      <string>Description</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="TitleM_2">
+     <property name="geometry">
+      <rect>
+       <x>890</x>
+       <y>150</y>
+       <width>591</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+ font-family: Ms Shell Dlg;
+color:black;
+
+                     font-size: 30px; 
+                     font-weight: bold; 
+                     
+                     background-color: transparent;
+                     
+                     border: 1px solid black;
+border-color:black;
+
+border-radius:none;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Title</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radioButton_2M_2">
+     <property name="geometry">
+      <rect>
+       <x>1170</x>
+       <y>760</y>
+       <width>201</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"> background-color: transparent;
+    border: none;
+
+ font-family: Ms Shell Dlg;
+color:black;
+font-size: 34px; </string>
+     </property>
+     <property name="text">
+      <string>Channel</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ProducerM_2">
+     <property name="geometry">
+      <rect>
+       <x>890</x>
+       <y>230</y>
+       <width>591</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+ font-family: Ms Shell Dlg;
+color:black;
+
+                     font-size: 30px; 
+                     font-weight: bold; 
+                     
+                     background-color: transparent;
+                     color: black;
+                     border: 1px solid black;
+border-radius:none;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Producer</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radioButtonM_2">
+     <property name="geometry">
+      <rect>
+       <x>1000</x>
+       <y>760</y>
+       <width>201</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"> background-color: transparent;
+    border: none;
+
+ font-family: Ms Shell Dlg;
+color:black;
+font-size: 34px; 
+                    </string>
+     </property>
+     <property name="text">
+      <string>Radio</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="IDM_2">
+     <property name="geometry">
+      <rect>
+       <x>1120</x>
+       <y>160</y>
+       <width>0</width>
+       <height>0</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_5M_2">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>300</y>
+       <width>491</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"> background-color: transparent;
+    border: none;
+   font-family: CONSOLA;
+font-size:50px
+ 
+
+</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CONSOLA'; font-size:50px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt;CREAT YOUR &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;&quot;&gt;       OWN MEDIA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelM_2">
+     <property name="geometry">
+      <rect>
+       <x>1510</x>
+       <y>400</y>
+       <width>331</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+                     font-size: 35px; 
+                     font-weight: bold; 
+                    
+                     background-color: transparent;
+                     color: black;
+                     border: 1px solid black;
+border-radius:20px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="imageButtonM_2">
+     <property name="geometry">
+      <rect>
+       <x>1510</x>
+       <y>400</y>
+       <width>331</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+                     font-size: 25px; 
+                     font-weight: bold; 
+                    
+                     background-color: transparent;
+                     color: black;
+                     border: 1px solid black;
+border-radius:20px;
+font-family: &quot;Ms Shell Dlg&quot;;
+    
+</string>
+     </property>
+     <property name="text">
+      <string>DROP PHOTO HERE</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Radio">
+    <widget class="QPushButton" name="statisticsM_2">
+     <property name="geometry">
+      <rect>
+       <x>1790</x>
+       <y>70</y>
+       <width>151</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    #statisticsM_2{color: white;
+    font-family: Ms Shell Dlg;
+    font-size: 20px; 
+ 
+    /*text-transform: uppercase; /* Transformation du texte en majuscules */
+	padding-left: 20px;
+background:transparent;
+border:transparent;}
+#statisticsM_2:hover {
+   text-decoration: underline;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>statistics</string>
+     </property>
+     <property name="icon">
+      <iconset theme="a">
+       <normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonMR3">
+     <property name="geometry">
+      <rect>
+       <x>1140</x>
+       <y>600</y>
+       <width>341</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonMR2">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>600</y>
+       <width>341</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16M_2">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>560</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    color: white;
+    font-family: Ms Shell Dlg;
+    font-size: 20px; 
+ 
+    /*text-transform: uppercase; /* Transformation du texte en majuscules */
+	padding-left: 20px;
+background:transparent;
+border:transparent;
+</string>
+     </property>
+     <property name="text">
+      <string>Brands:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tvM_2">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>90</y>
+       <width>241</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  #tvM_2{color: white;
+    font-family: Ms Shell Dlg;
+    font-size: 20px; 
+ 
+
+	padding-left: 20px;
+background:transparent;
+border:transparent;}
+#tvM_2:hover {
+   text-decoration: underline;
+}</string>
+     </property>
+     <property name="text">
+      <string> Channels TV</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5M_2">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>180</y>
+       <width>1931</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:url(../images/vwatch.png);
+border-radius:20;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>vewatch.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="radioM_2">
+     <property name="geometry">
+      <rect>
+       <x>1040</x>
+       <y>90</y>
+       <width>181</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+   color: blue;
+    font-family: Ms Shell Dlg;
+    font-size: 20px; 
+ 
+    /*text-transform: uppercase; /* Transformation du texte en majuscules */
+	padding-left: 20px;
+background:transparent;
+border:transparent;</string>
+     </property>
+     <property name="text">
+      <string> Radio</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_2M_2">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>220</y>
+       <width>411</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;
+color:white;
+border:transparent;</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;&quot;&gt;We see hope&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;&quot;&gt;         everywhere&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;Welcome to VWATCH GROUP - the largest and leadind media company in the north of Africa.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="listM_2">
+     <property name="geometry">
+      <rect>
+       <x>1690</x>
+       <y>70</y>
+       <width>151</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    #listM_2{color: white;
+    font-family: Ms Shell Dlg;
+    font-size: 20px; 
+ 
+    /*text-transform: uppercase; /* Transformation du texte en majuscules */
+	padding-left: 20px;
+background:transparent;
+border:transparent;}
+#listM_2:hover {
+   text-decoration: underline;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>list</string>
+     </property>
+     <property name="icon">
+      <iconset theme="a">
+       <normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</normaloff>../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test</iconset>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditDescriptionM_2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>830</y>
+       <width>961</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonMR1">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>620</y>
+       <width>341</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="statistique">
+    <widget class="QFrame" name="statM">
+     <property name="geometry">
+      <rect>
+       <x>1190</x>
+       <y>140</y>
+       <width>711</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
     </widget>
    </widget>
   </widget>

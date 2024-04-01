@@ -21,7 +21,29 @@ using namespace std;
 #include <QDate>
 #include <QByteArray>
 
-//class mediaData;
+#include <QSqlQuery>
+#include <QDebug>
+#include <QtCharts>
+
+#include <QUrl>
+#include <QPdfWriter>
+#include <QVector>
+#include <QPair>
+#include <QtCharts/QChart>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QSqlRecord>
+#include <QtMath>
+#include <QGridLayout>
+#include <QOpenGLContext>
+#include <QOpenGLWidget>
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
+#include <QOpenGLBuffer>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLVertexArrayObject>
+#include <QOpenGLTexture>
 
 class Media
 {
@@ -61,6 +83,9 @@ public:
     bool isProducerInserted(QString producteur);
     bool isDescriptionValid(QString description);
     QSqlQueryModel *  trier(const QString &critere, const QString &mode );
+    void generateQRCode(QString id);
+    QMap<QString, int> obtenirStatistique();
+
 
 private:
     //QSharedDataPointer<mediaData> data;
