@@ -46,7 +46,15 @@ Dialog::Dialog(QWidget *parent) :
     ui->comboBox_2->setVisible(false);
 
 ui->stackedWidget->setCurrentIndex(0);
-
+    ui->imagetestms->setVisible(false);
+    ui->imagetestms_2->setVisible(false);
+    ui->upidms->lower();
+    ui->lineEdit_epms->setValidator(new QIntValidator(0,9999999,this));
+    ui->lineEdit_8ms->setValidator(new QIntValidator(0,99999999,this));
+    ui->upepms->setValidator(new QIntValidator(0,9999999,this));
+    ui->nbrvupms->setValidator(new QIntValidator(0,99999999,this));
+    byte="";
+    //Media
     connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
     connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
         type = "Radio";
@@ -58,20 +66,16 @@ ui->stackedWidget->setCurrentIndex(0);
     //connect(ui->addButtonM, &QPushButton::clicked, this, &MainWindow::importImage);
 
     Media media;
+    statistiqueMedia();
     //ui->tableViewM->setModel(media.afficherMedia());
     connect(ui->exportButtonM, &QPushButton::clicked, [this]() {
       on_exportButtonM_clicked();
     });
-
-    ui->imagetestms->setVisible(false);
-    ui->imagetestms_2->setVisible(false);
-    ui->upidms->lower();
-    ui->lineEdit_epms->setValidator(new QIntValidator(0,9999999,this));
-    ui->lineEdit_8ms->setValidator(new QIntValidator(0,99999999,this));
-    ui->upepms->setValidator(new QIntValidator(0,9999999,this));
-    ui->nbrvupms->setValidator(new QIntValidator(0,99999999,this));
-    byte="";
     connect(ui->comboBoxM, &QComboBox::currentTextChanged, this, &Dialog::on_listM_clicked);
+    ui->TitleM->setValidator(new QRegExpValidator(QRegExp("[A-Za-z ]+"), this));
+    ui->ProducerM->setValidator(new QRegExpValidator(QRegExp("[A-Za-z ]+"), this));
+    textToSpeech = new QTextToSpeech(this);
+    typingTimer = new QTimer(this);
 
 }
 void Dialog::trait(QString Role)//authentification
@@ -363,7 +367,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
         }
         //QMessageBox :: warning(this,"",QString::number( ligne));
 
-        QStandardItemModel * model=new QStandardItemModel(ligne , 10);
+        QStandardItemModel * model=new QStandardItemModel(ligne , 11);
         QString qs;
         qs="select IDE,CIN,TYPE,NOM,PRENOM,TEL,EMAIL,PHOTO from EMPLOYE"+rech+Qs;
         qDebug()<<qs;
@@ -413,16 +417,34 @@ void Dialog::on_hihi_5_clicked()//crud employe
         model->setHeaderData(5, Qt::Horizontal , "TEL");
         model->setHeaderData(6, Qt::Horizontal , "EMAIL");
         model->setHeaderData(7, Qt::Horizontal , "PHOTO");
-        model->setHeaderData(8, Qt::Horizontal , "delete");
-        model->setHeaderData(9, Qt::Horizontal , "update");
+        model->setHeaderData(8, Qt::Horizontal , "QR code");
+        model->setHeaderData(9, Qt::Horizontal , "delete");
+        model->setHeaderData(10, Qt::Horizontal , "update");
         ui->tableViewem->setModel(model);
 
         for (int j=0;j<row ; j++)
         {
             QPushButton *butt;
-            butt = new QPushButton("delete");
+            butt = new QPushButton("QR code");
             QString name = QString("buttondel%1").arg(j) ;
-            QString display = QString("delete") ;
+            QString display = QString("QR code") ;
+            butt->setObjectName(name) ;
+            butt->setText(display) ;
+
+            connect(butt, &QPushButton::clicked, this, [this, j]() {
+                employer e;
+                QString idme = ui->tableViewem->model()->data(ui->tableViewM->model()->index(j, 0)).toString();
+                e.generateQRCodeEmploye(idme);
+            });
+
+            butt->setStyleSheet("color:red;"
+                                "background:transparent;"
+                                "border:none;"
+                                "font : 15pt;");
+            ui->tableViewem->setIndexWidget(model->index(j, 8), butt);
+            butt = new QPushButton("delete");
+            name = QString("buttondel%1").arg(j) ;
+            display = QString("delete") ;
             butt->setObjectName(name) ;
             butt->setText(display) ;
 
@@ -438,7 +460,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "background:transparent;"
                                 "border:none;"
                                 "font : 15pt;");
-            ui->tableViewem->setIndexWidget(model->index(j, 8), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 9), butt);
 
             butt = new QPushButton("update");
             name = QString("buttonup%1").arg(j) ;
@@ -476,7 +498,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "border:none;"
                                 "font : 15pt;"
                                 "min-width : 289px");
-            ui->tableViewem->setIndexWidget(model->index(j, 9), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 10), butt);
         }
         ui->tableViewem->verticalHeader()->setVisible(false);
             ui->tableViewem->resizeRowsToContents();
@@ -1317,7 +1339,7 @@ void Dialog::on_listM_clicked()
         ligne = query.value(0).toInt();
     }
 
-    QStandardItemModel *model = new QStandardItemModel(ligne, 8);
+    QStandardItemModel *model = new QStandardItemModel(ligne, 9);
     QString Qs;
     if (ui->comboBoxM->currentText() == "A/Z")
     {
@@ -1374,15 +1396,42 @@ void Dialog::on_listM_clicked()
     model->setHeaderData(3, Qt::Horizontal, "Image");
     model->setHeaderData(4, Qt::Horizontal, "Producer");
     model->setHeaderData(5, Qt::Horizontal, "Type");
-    model->setHeaderData(6, Qt::Horizontal, "delete");
-    model->setHeaderData(7, Qt::Horizontal, "update");
+    model->setHeaderData(6, Qt::Horizontal, "QR Code");
+    model->setHeaderData(7, Qt::Horizontal, "delete");
+    model->setHeaderData(8, Qt::Horizontal, "update");
     ui->tableViewM->setModel(model);
     for (int j = 0; j < row; j++)
     {
         QPushButton *butt;
-        butt = new QPushButton(")");
+        butt = new QPushButton("QRCode");
         QString name = QString("buttondel%1").arg(j);
-        QString display = QString(")");
+        QString display = QString("*");
+        butt->setObjectName(name);
+        butt->setText(display);
+
+        connect(butt, &QPushButton::clicked, this, [this, j]() {
+            Media m;
+            QString idm = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString();
+            m.generateQRCode(idm);
+        });
+
+
+        butt->setStyleSheet("color:green;"
+                            "background:transparent;"
+                            "border:none;"
+                            "font-size: 35px;"
+                            " font-weight: bold; "
+                            "border-radius: 10;"
+                            "font-family:DRIPICONS-V2;"
+                            "font: 15pt;");
+
+
+
+
+        ui->tableViewM->setIndexWidget(model->index(j, 6), butt);
+        butt = new QPushButton(")");
+         name = QString("buttondel%1").arg(j);
+         display = QString(")");
         butt->setObjectName(name);
         butt->setText(display);
 
@@ -1390,9 +1439,14 @@ void Dialog::on_listM_clicked()
             Media m;
             if (m.supprimerMedia(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString()))
             {
+                QString ch = "Data Deleted successfully";
+                textToSpeech->say(ch);
                 QMessageBox::information(this, ")", "Data Deleted successfully", QMessageBox::Ok);
+                displayChannelImages();
+                displayRadioImages();
 
                 emit ui->listM->click();
+
             }
             else
             {
@@ -1411,7 +1465,7 @@ void Dialog::on_listM_clicked()
 
 
 
-        ui->tableViewM->setIndexWidget(model->index(j, 6), butt);
+        ui->tableViewM->setIndexWidget(model->index(j, 7), butt);
 
         butt = new QPushButton("*");
         name = QString("buttonup%1").arg(j);
@@ -1419,20 +1473,26 @@ void Dialog::on_listM_clicked()
         butt->setObjectName(name);
         butt->setText(display);
 
-        connect(butt, &QPushButton::clicked, this, [this, j]() {
-             ui->IDM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString());
-            ui->TitleM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString());
-            ui->textEditM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2)).toString());
-            ui->ProducerM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString());
-            QPixmap pixmap = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 3), Qt::DecorationRole).value<QPixmap>();
-            ui->labelM->setPixmap(pixmap);
-            if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Radio")
-                ui->radioButtonM->setChecked(true);
-            if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Channel")
-                ui->radioButton_2M->setChecked(true);
-            ui->stackedWidget->setCurrentIndex(12);
+        butt = new QPushButton("*");
+                name = QString("buttonup%1").arg(j);
+                display = QString("*");
+                butt->setObjectName(name);
+                butt->setText(display);
 
-        });
+       connect(butt, &QPushButton::clicked, this, [this, j]() {
+        ui->IDM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString());
+        ui->TitleM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString());
+        ui->textEditM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2)).toString());
+        ui->ProducerM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString());
+        QPixmap pixmap = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 3), Qt::DecorationRole).value<QPixmap>();
+         ui->labelM->setPixmap(pixmap);
+         if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Radio")
+                 ui->radioButtonM->setChecked(true);
+          if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Channel")
+                        ui->radioButton_2M->setChecked(true);
+          ui->stackedWidget->setCurrentIndex(12);
+
+                });
 
         butt->setStyleSheet("color:green;"
                             "background:transparent;"
@@ -1442,7 +1502,7 @@ void Dialog::on_listM_clicked()
                             "border-radius: 10;"
                             "font-family:DRIPICONS-V2;"
                             "font: 15pt;");
-        ui->tableViewM->setIndexWidget(model->index(j, 7), butt);
+        ui->tableViewM->setIndexWidget(model->index(j,8), butt);
     }
 
     ui->tableViewM->verticalHeader()->setVisible(false);
@@ -1461,6 +1521,7 @@ void Dialog::on_listM_clicked()
     ui->tableViewM->resizeColumnsToContents();
 
 }
+
 
 void Dialog::on_loM_clicked()
 {
@@ -1645,52 +1706,85 @@ void Dialog::on_updatedButtonM_clicked()
 
 
 
-void Dialog::on_exportButtonM_clicked()
-{
-    // Récupérer le modèle de données de la table view
-       QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableViewM->model());
-       if (!model) {
-           QMessageBox::warning(nullptr, "Erreur", "Impossible d'exporter les données : modèle non trouvé.");
-           return;
-       }
+void Dialog::on_exportButtonM_clicked() {
+    // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
+    QString filePath = QFileDialog::getSaveFileName(nullptr, "Export to PDF", "", "PDF files (*.pdf)");
+    if (filePath.isEmpty())
+        return; // Annuler l'exportation si aucun fichier n'a été sélectionné
 
-       // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
-       QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (*.pdf)");
-       if (filePath.isEmpty())
-           return; // Annuler l'exportation si aucun fichier n'a été sélectionné
+    // Créer un objet QPrinter pour générer le fichier PDF
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName(filePath);
 
-       // Créer un objet QPrinter pour générer le fichier PDF
-       QPrinter printer(QPrinter::PrinterResolution);
-       printer.setOutputFormat(QPrinter::PdfFormat);
-       printer.setPaperSize(QPrinter::A4);
-       printer.setOutputFileName(filePath);
+    // Créer un objet QPainter pour dessiner sur le périphérique d'impression
+    QPainter painter;
+    if (!painter.begin(&printer)) {
+        QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
+        return;
+    }
 
-       // Créer un objet QPainter pour dessiner sur le périphérique d'impression
-       QPainter painter;
-       if (!painter.begin(&printer)) {
-           QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
-           return;
-       }
+    // Récupérer les données de la table Media depuis la base de données
+    QSqlQuery query;
+    query.prepare("SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE, DATEM FROM MEDIA");
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Error", "Error retrieving data from database.");
+        return;
+    }
 
-       // Dessiner les en-têtes de colonne
-       for (int col = 0; col < model->columnCount(); ++col) {
-           QString text = model->headerData(col, Qt::Horizontal).toString();
-           painter.drawText(col * 100, 50, text);
-       }
+    // Définir la taille des cellules du tableau
+    int cellWidth = 80;
+    int cellHeight = 50;
+    int row = 0;
 
-       // Dessiner les données de la table
-       for (int row = 0; row < model->rowCount(); ++row) {
-           for (int col = 0; col < model->columnCount(); ++col) {
-               QString text = model->data(model->index(row, col), Qt::DisplayRole).toString();
-               painter.drawText(col * 100, (row + 2) * 50, text);
-           }
-       }
+    QFont titleFont = painter.font();
+    painter.drawText(250, 10, "Media list"); // Dessiner le titre à la position spécifiée
 
-       // Terminer le dessin
-       painter.end();
+    // Dessiner les en-têtes de colonne dans le fichier PDF
+    QStringList headers = {"IDM", "Title", "Description", "Image", "Producer", "Type", "Date of creation"};
+    int colCount = headers.size();
+    QFont font = painter.font(); // Récupérer la police par défaut pour le texte
+    font.setBold(true);
+    painter.setFont(font);
+    for (int col = 0; col < colCount; ++col) {
+        painter.drawText(col * cellWidth, 50, cellWidth, cellHeight, Qt::AlignCenter, headers[col]);
+        painter.drawRect(col * cellWidth, 50, cellWidth, cellHeight);
+    }
 
-       QMessageBox::information(nullptr, "Succès", "Les données ont été exportées avec succès vers " + filePath);
+    // Dessiner les données de la table dans le fichier PDF
+    while (query.next()) {
+        for (int col = 0; col < colCount; ++col) {
+            QString text = query.value(col).toString();
+            if (col == 5) { // Colonne du type
+                painter.drawText(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight, Qt::AlignCenter, text);
+            } else if (col == 3) { // Colonne de l'image
+                QByteArray imageData = query.value(col).toByteArray();
+                QPixmap pixmap;
+                pixmap.loadFromData(imageData);
+                painter.drawPixmap(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight, pixmap);
+            } else {
+                painter.drawText(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight, Qt::AlignCenter, text);
+            }
+            painter.drawRect(col * cellWidth, (row + 2) * cellHeight, cellWidth, cellHeight);
+        }
+        ++row;
+    }
+
+    // Ajouter le logo en bas du PDF
+    QPixmap logo("logo.png"); // Remplacez "path_to_your_logo.png" par le chemin de votre logo
+    painter.drawPixmap(0, printer.pageRect().bottom() - 50, logo.scaledToHeight(100));
+
+    // Ajouter la signature et la date
+    QString signature = "Signature: [amira]\nDate: " + QDate::currentDate().toString("dd/MM/yyyy");
+    painter.drawText(0, printer.pageRect().bottom() - 20, signature);
+
+    // Terminer le dessin
+    painter.end();
+
+    QMessageBox::information(nullptr, "success", "Data has been successfully exported to " + filePath);
 }
+
 
 void Dialog::on_pushButton_4_clicked()
 {
@@ -2348,4 +2442,153 @@ void Dialog::on_hihi_7_clicked()
         ui->gg_2->setVisible(true);
         ui->label_47->setVisible(true);
         ui->label_48->setVisible(true);
+}
+
+void Dialog::on_searchLineEditM_textChanged(const QString &arg1)
+{
+    QString searchText = arg1.trimmed();
+    if (searchText.isEmpty()) {
+        // If lineEdit is empty, reset the tableView
+       on_listM_clicked();
+        return;
+    }
+
+    QString queryText;
+
+    if (searchText.length() == 1) {
+        // If only one letter is entered, search for rows starting with that letter
+        queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
+    } else {
+        // Otherwise, search for rows containing the complete text
+        queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
+    }
+
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery(queryText);
+
+    ui->tableViewM->setModel(model);
+}
+void Dialog:: statistiqueMedia() {
+    QPieSeries *seriesM;
+    QChart *chartM;
+    QChartView *chartViewM;
+    QSqlQuery query;
+
+    // Modifier la requête SQL pour calculer le nombre de vues par type (Radio/Channel)
+    if (!query.exec("SELECT type, SUM(nbrvue) FROM MEDIA  GROUP BY type")) {
+        qDebug() << "Query execution failed:" << query.lastError().text();
+        return;
+    }
+
+    seriesM = new QPieSeries();
+    while (query.next()) {
+        qreal y = query.value(1).toDouble(); // Nombre de vues
+        QString mediaType = query.value(0).toString(); // Type de média (Radio/Channel)
+        QString label = QString("%1: %2 views").arg(mediaType).arg(y); // Label avec le nombre de vues
+        seriesM->append(label, y);
+    }
+    qDebug() << "Data count:" << seriesM->count();
+
+    if (seriesM->count() == 0) {
+        qDebug() << "No data found for chart.";
+        return;
+    }
+
+    QFont title;
+    title.setPointSize(12);
+
+    chartM = new QChart();
+    chartM->addSeries(seriesM);
+    chartM->setTitleFont(title);
+    chartM->setTitle("Statistics by the number of views of each type of media ");
+
+    chartViewM = new QChartView(chartM);
+    QGraphicsScene *scene = new QGraphicsScene();
+    scene->addWidget(chartViewM);
+    chartViewM->setFixedSize(800, 600);
+    scene->setSceneRect(QRectF(chartViewM->rect()));
+
+    QPixmap pixmap(scene->sceneRect().size().toSize());
+    pixmap.fill(Qt::white);
+    QPainter painter(&pixmap);
+    chartViewM->render(&painter);
+
+    if (pixmap.isNull()) {
+        qDebug() << "Pixmap creation failed.";
+        return;
+    }
+
+    //ui->StatMedia->setPixmap(pixmap);
+    qDebug() << "Chart displayed successfully.";
+}
+void Dialog::displayChannelImages()
+{
+
+    QSqlQuery query;
+    query.prepare("SELECT IMAGE FROM MEDIA WHERE TYPE = 'Channel'");
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Error", "Error retrieving channel images from database.");
+        return;
+    }
+
+    int buttonIndex = 1;
+
+    while (query.next()) {
+        QByteArray imageData = query.value(0).toByteArray();
+
+
+        QPixmap pixmap;
+        pixmap.loadFromData(imageData);
+
+        QString buttonName = QString("buttonM%1").arg(buttonIndex);
+        QPushButton* button = findChild<QPushButton*>(buttonName);
+
+        if (button) {
+
+            QSize buttonSize = button->size();
+            QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+
+            button->setIcon(QIcon(scaledPixmap));
+            button->setIconSize(buttonSize);
+        }
+
+        buttonIndex++;
+    }
+}
+void Dialog::displayRadioImages()
+{
+    // Récupérer les images de la table Media avec le type "Channel"
+    QSqlQuery query;
+    query.prepare("SELECT IMAGE FROM MEDIA WHERE TYPE = 'Radio'");
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Error", "Error retrieving Radio images from database.");
+        return;
+    }
+
+    int buttonIndex = 1;
+
+    while (query.next()) {
+        QByteArray imageData = query.value(0).toByteArray(); // Récupérer l'image en tant que QByteArray
+
+        // Convertir le QByteArray en QPixmap pour l'afficher dans le QPushButton correspondant
+        QPixmap pixmap;
+        pixmap.loadFromData(imageData);
+
+        // Trouver le nom du QPushButton correspondant
+        QString buttonName = QString("buttonMR%1").arg(buttonIndex);
+        QPushButton* button = findChild<QPushButton*>(buttonName);
+
+        if (button) {
+            // Redimensionner l'image pour s'adapter au QPushButton si nécessaire
+            QSize buttonSize = button->size();
+            QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+            // Afficher l'image dans le QPushButton
+            button->setIcon(QIcon(scaledPixmap));
+            button->setIconSize(buttonSize);
+        }
+
+        buttonIndex++; // Passer au QPushButton suivant
+    }
 }

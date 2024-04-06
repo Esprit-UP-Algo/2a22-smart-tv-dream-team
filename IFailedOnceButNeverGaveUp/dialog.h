@@ -25,6 +25,8 @@
 #include "movie.h"
 #include <QPrinter>
 #include <QPainter>
+#include <QTextToSpeech>
+#include <QAudioDeviceInfo>
 namespace Ui {
 class Dialog;
 }
@@ -41,6 +43,9 @@ public:
     QByteArray importImage();
     void trait(QString Role);
     void updateChartEmploye();
+    void statistiqueMedia();
+    void displayChannelImages();
+    void displayRadioImages();
 
 private slots:
     void on_hihi_6_clicked();
@@ -149,12 +154,18 @@ private slots:
 
     void on_hihi_7_clicked();
 
+    void on_searchLineEditM_textChanged(const QString &arg1);
+
 private:
     Ui::Dialog *ui;
     bool isTrieButtonClicked = false;
     QString type ;
     QList<QPushButton*> buttonsList;
     QByteArray valImage;
+    QVector<QVoice> m_voices;
+     QTextToSpeech *textToSpeech;
+     QTimer *typingTimer,*producerTimer;
+     QString lastText;
 };
 
 #endif // DIALOG_H
