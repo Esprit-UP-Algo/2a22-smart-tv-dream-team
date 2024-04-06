@@ -12,12 +12,15 @@ public:
     employer();
     QString get_user();
     QString get_password();
+    void  generateQRCodeEmploye(QString id);
 
 
 
 
 private:
     QString user,password;
+    QByteArray image;
+
 };
 
 

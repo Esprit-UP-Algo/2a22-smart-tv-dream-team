@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../2a22-smart-tv-dream-team-employe/IFailedOnceButNeverGaveUp/mainwindow.h"
+#include "../mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -128,9 +128,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->on_ok_15_clicked(); break;
         case 8: _t->on_ok_14_clicked(); break;
         case 9: _t->on_ku_13_clicked(); break;
-
-
-
+        case 10: { bool _r = _t->authenticateUser((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 11: _t->sendMail(); break;
+        case 12: _t->mailSent((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 13: _t->on_ok_16_clicked(); break;
         default: ;
         }
     }

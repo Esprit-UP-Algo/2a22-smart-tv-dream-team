@@ -1,7 +1,30 @@
 #include "dialog.h"
 #include "ui_dialog.h"
-#include "media.h"
-#include <QLoggingCategory>
+#include <regex>
+#include <string>
+#include <iostream>
+#include <QStandardItemModel>
+#include <QPrinter>
+#include <QPainter>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QMessageBox>
+#include <QApplication>
+#include <QString>
+#include <QFileDialog>
+#include <QDesktopServices>
+#include <QDebug>
+#include <QtCharts/QLineSeries>
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsView>
+#include <QtSql>
+#include <QStandardItemModel>
+#include <QTableView>
+using namespace QtCharts;
+QPieSeries *seriesE;
+QChart *chartE;
+QChartView *chartViewE;
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -9,31 +32,20 @@ Dialog::Dialog(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    updateChartEmploye();
     setWindowFlags(Qt::FramelessWindowHint| Qt::WindowSystemMenuHint);
+    (ui->comboBox_2)->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
+    (ui->comboBox_2)->view()->window()->setAttribute(Qt::WA_TranslucentBackground);
     (ui->comboBox)->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
     (ui->comboBox)->view()->window()->setAttribute(Qt::WA_TranslucentBackground);
     ui->lineEdit_3A_2->setValidator(new QIntValidator(0,99999999,this));
     ui->lineEdit_3A_9->setValidator(new QIntValidator(0,9999999,this));
     ui->lineEdit_3A_8->setValidator(new QIntValidator(0,9999999,this));
     ui->lineEdit_3A_6->setValidator(new QIntValidator(0,9999999,this));
+    ui->lineEdit_3A_13->setValidator(new QIntValidator(0,99999999,this));
+    ui->comboBox_2->setVisible(false);
 
 ui->stackedWidget->setCurrentIndex(0);
-
-//Media
-    //on_statisticsM_clicked();
-    connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
-    //connect(ui->imageButtonM_2, &QPushButton::clicked, this, &Dialog::importImage);
-    connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
-        type = "Radio";
-    });
-    connect(ui->radioButton_2M, &QRadioButton::clicked, this, [=]() {
-        type = "Channel";
-    });
-
-    Media media;
-    connect(ui->exportButtonM, &QPushButton::clicked, [this]() {
-      on_exportButtonM_clicked();
-    });
     ui->imagetestms->setVisible(false);
     ui->imagetestms_2->setVisible(false);
     ui->upidms->lower();
@@ -42,84 +54,116 @@ ui->stackedWidget->setCurrentIndex(0);
     ui->upepms->setValidator(new QIntValidator(0,9999999,this));
     ui->nbrvupms->setValidator(new QIntValidator(0,99999999,this));
     byte="";
+    //Media
+    connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
+    connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
+        type = "Radio";
+    });
+
+    connect(ui->radioButton_2M, &QRadioButton::clicked, this, [=]() {
+        type = "Channel";
+    });
+    //connect(ui->addButtonM, &QPushButton::clicked, this, &MainWindow::importImage);
+
+    Media media;
+    statistiqueMedia();
+    //ui->tableViewM->setModel(media.afficherMedia());
+    connect(ui->exportButtonM, &QPushButton::clicked, [this]() {
+      on_exportButtonM_clicked();
+    });
     connect(ui->comboBoxM, &QComboBox::currentTextChanged, this, &Dialog::on_listM_clicked);
     ui->TitleM->setValidator(new QRegExpValidator(QRegExp("[A-Za-z ]+"), this));
     ui->ProducerM->setValidator(new QRegExpValidator(QRegExp("[A-Za-z ]+"), this));
-    //connect(ui->buttonM1, &QPushButton::clicked, this, &Dialog::on_buttonM_clicked);
-   // connect(ui->buttonM2, &QPushButton::clicked, this, &Dialog::on_buttonM_clicked);
-     //on_statisticsM_clicked();
-    /*bool estTextEditActive = ui->textEdit->isEnabled();
-
-        // Activez QTextEdit s'il n'est pas déjà activé
-        if (!estTextEditActive) {
-            ui->textEdit->setEnabled(true);
-            qDebug() << "Aucun producteur inséré.";
-        }
-
     textToSpeech = new QTextToSpeech(this);
-    connect(textToSpeech, &QTextToSpeech::stateChanged, this, &Dialog::speechStateChanged);
-    connect(ui->voiceInputButton, &QPushButton::clicked, this, &Dialog::startVoiceInput);
-    QAudioDeviceInfo info(QAudioDeviceInfo::defaultInputDevice());
-    if (info.isFormatSupported(info.preferredFormat())) {
-        qDebug() << "Microphone activé.";
-    } else {
-        qDebug() << "Microphone désactivé ou format audio non pris en charge.";
-    }
-    connect(ui->TitleM, &QLineEdit::textChanged, this, &Dialog::onTextChanged);*/
+    typingTimer = new QTimer(this);
 
-    /*QLoggingCategory::setFilterRules(QStringLiteral("qt.speech.tts=true \n qt.speech.tts.*=true"));
+}
+void Dialog::trait(QString Role)//authentification
+{
+    if (Role == "HR")
+            {
+                ui->hihi_15->setVisible(false);
+                ui->hihi_20->setVisible(false);
+                ui->hihi_17->setVisible(false);
+                ui->label_12->setVisible(false);
+                ui->label_6->setVisible(false);
+            }
+            else if (Role == "Financier")
+            {
+        ui->hihi_5->setVisible(false);
+        ui->hihi_20->setVisible(false);
+        ui->hihi_17->setVisible(false);
+        ui->label_12->setVisible(false);
+        ui->hihi_15->setGeometry(20,280,41,41);
+        ui->label_6->setVisible(false);
+            }
+            else if (Role == "Media Manager")
+            {
+        ui->hihi_15->setVisible(false);
+        ui->hihi_5->setVisible(false);
+        ui->label_12->setVisible(false);
+        ui->hihi_20->setGeometry(20,280,41,41);
+        ui->hihi_17->setGeometry(20,340,41,41);
+        ui->label_6->setVisible(false);
 
-          // Populate engine selection list
-          ui.engine->addItem("Default", QString("default"));
-          foreach (QString engine, QTextToSpeech::availableEngines())
-              ui.engine->addItem(engine, engine);
-          ui.engine->setCurrentIndex(0);
-          engineSelected(0);
-
-          connect(ui.speakButton, &QPushButton::clicked, this, &Dialog::speak);
-          connect(ui.pitch, &QSlider::valueChanged, this, &Dialog::setPitch);
-          connect(ui.rate, &QSlider::valueChanged, this, &Dialog::setRate);
-          connect(ui.volume, &QSlider::valueChanged, this, &Dialog::setVolume);
-          connect(ui.engine, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &Dialog::engineSelected);*/
-    connect(ui->addButtonM, &QPushButton::clicked, this, &Dialog::addMediaItem);
-    // Connectez le bouton cancelButtonM pour effacer les données saisies
-    connect(ui->cancelButtonM, &QPushButton::clicked, this, &Dialog::clearInputFields);
-    textToSpeech = new QTextToSpeech(this);
-
-    // Initialiser le QTimer typingTimer avec un parent this
-        typingTimer = new QTimer(this);
-
-        // Connecter le signal timeout du QTimer au slot onTypingTimerTimeout
-        connect(typingTimer, &QTimer::timeout, this, &Dialog::onTypingTimerTimeout);
-
-
+            }
 }
 
 Dialog::~Dialog()
 {
     delete ui;
-
 }
 
-/*void Dialog::startVoiceInput() {
-    QString spokenText = "Please speak your text.";
-    textToSpeech->say(spokenText);
-    ui->textEdit->append(spokenText);
-}
-void Dialog::speechStateChanged(QTextToSpeech::State state) {
-   if (state == QTextToSpeech::Speaking) {
-        ui->textEdit->append("Listening..."); // Indicate that the application is listening for speech input
-   }
-}
-void Dialog::onSpeechStateChanged(QTextToSpeech::State state)
-{
-    if (state == QTextToSpeech::Ready && !textToSpeechText.isEmpty()) {
-        // Lire le texte à voix haute lorsque le moteur est prêt
-        textToSpeech->say(textToSpeechText);
-        // Réinitialiser le texte à lire à voix haute après lecture
-        textToSpeechText.clear();
+void Dialog::updateChartEmploye() {
+    QSqlQuery query;
+    if (!query.exec("SELECT type, COUNT(*) FROM EMPLOYE GROUP BY type")) {
+        qDebug() << "Query execution failed:" << query.lastError().text();
+        return;
     }
-}*/
+
+    seriesE = new QPieSeries();
+    while (query.next()) {
+        qreal y = query.value(1).toDouble();
+        QString Role = query.value(0).toString();
+        QString label = QString("%1: %2").arg(Role).arg(y);
+        seriesE->append(label, y);
+    }
+    qDebug() << "Data count:" << seriesE->count();
+
+    if (seriesE->count() == 0) {
+        qDebug() << "No data found for chart.";
+        return;
+    }
+
+    QFont title;
+    title.setPointSize(12);
+
+    chartE = new QChart();
+    chartE->addSeries(seriesE);
+    chartE->setTitleFont(title);
+    chartE->setTitle("Statistique des Employes");
+
+    chartViewE = new QChartView(chartE);
+    QGraphicsScene *scene = new QGraphicsScene();
+    scene->addWidget(chartViewE);
+    chartViewE->setFixedSize(800, 600);
+    scene->setSceneRect(QRectF(chartViewE->rect()));
+
+    QPixmap pixmap(scene->sceneRect().size().toSize());
+    pixmap.fill(Qt::white);
+    QPainter painter(&pixmap);
+    chartViewE->render(&painter);
+
+    // Check if pixmap is valid
+    if (pixmap.isNull()) {
+        qDebug() << "Pixmap creation failed.";
+        return;
+    }
+
+    ui->StatEmploye->setPixmap(pixmap);
+    qDebug() << "Chart displayed successfully.";
+}
+
 void Dialog::on_hihi_6_clicked()//home
 {
     ui->stackedWidget->setCurrentIndex(0);
@@ -195,6 +239,10 @@ void Dialog::on_hihi_6_clicked()//home
 
 void Dialog::on_hihi_5_clicked()//crud employe
 {
+    int ligne(0);
+            QString rech;
+        int row(0);
+        QSqlQuery query;
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_6->setGeometry(15,305,51,20);
     ui->hihi_5->setStyleSheet("font: 30pt 'dripicons-v2';"
@@ -264,28 +312,73 @@ void Dialog::on_hihi_5_clicked()//crud employe
         ui->gg_2->setVisible(true);
         ui->label_47->setVisible(true);
         ui->label_48->setVisible(true);
-        int ligne(0);
-        int row(0);
-        QSqlQuery query;
-        query.exec("select count(*) from EMPLOYE");
+
+        if (ui->textEdit->toPlainText()!="")
+            {
+                rech=" where CIN LIKE '%"+ui->textEdit->toPlainText()+"%' OR TYPE LIKE '%"+ui->textEdit->toPlainText()+"%' ";
+                bool intyes;
+                ui->textEdit->toPlainText().toInt(&intyes);
+                qDebug()<<intyes;
+                if (intyes)
+                {
+                    rech+=" or ide="+ui->textEdit->toPlainText();
+                }
+            }
+
+        QString Qs;
+
+
+            if (ui->comboBox_2->currentText()== "First Name from A to Z" )
+            {
+                Qs=" order by prenom ASC";
+                qDebug()<<"test";
+            }
+            if (ui->comboBox_2->currentText()== "First Name from Z to A" )
+            {
+                Qs=" order by prenom DESC";
+                qDebug()<<"test";
+            }
+            else if (ui->comboBox_2->currentText()== "Last Name from A to Z" )
+            {
+                Qs=" order by nom ASC";
+                qDebug()<<"test";
+            }
+            if (ui->comboBox_2->currentText()== "Last Name from Z to A" )
+            {
+                Qs=" order by nom DESC";
+                qDebug()<<"test";
+            }
+            else if (ui->comboBox_2->currentText()== "Id Descendant" )
+            {
+                Qs=" order by ide DESC";
+                qDebug()<<"test";
+            }
+            else if (ui->comboBox_2->currentText()== "Id Ascendant" )
+            {
+                Qs=" order by ide ASC";
+                qDebug()<<"test";
+            }
+
+        query.exec("select count(*) from employe"+rech+Qs);
+
         while(query.next() )
         {
             ligne=query.value(0).toInt();
         }
         //QMessageBox :: warning(this,"",QString::number( ligne));
 
-        QStandardItemModel * model=new QStandardItemModel(ligne , 8);
+        QStandardItemModel * model=new QStandardItemModel(ligne , 11);
         QString qs;
-        qs="select IDE,CIN,TYPE,PHOTO,NOM,PRENOM from EMPLOYE";
+        qs="select IDE,CIN,TYPE,NOM,PRENOM,TEL,EMAIL,PHOTO from EMPLOYE"+rech+Qs;
         qDebug()<<qs;
         query.exec(qs);
         while(query.next())
         {
-            for (int j=0;j<6;j++)
+            for (int j=0;j<8;j++)
             {
 
                 QStandardItem *item;
-                if ( j==3)
+                if (j==7)
                             {
                                 QByteArray array;
                                 //qDebug()<<"Initial Array Size"<<array.size();
@@ -321,17 +414,37 @@ void Dialog::on_hihi_5_clicked()//crud employe
         model->setHeaderData(2, Qt::Horizontal , "PRENOM");
         model->setHeaderData(3, Qt::Horizontal , "NOM");
         model->setHeaderData(4, Qt::Horizontal , "TYPE");
-        model->setHeaderData(5, Qt::Horizontal , "PHOTO");
-        model->setHeaderData(6, Qt::Horizontal , "delete");
-        model->setHeaderData(7, Qt::Horizontal , "update");
+        model->setHeaderData(5, Qt::Horizontal , "TEL");
+        model->setHeaderData(6, Qt::Horizontal , "EMAIL");
+        model->setHeaderData(7, Qt::Horizontal , "PHOTO");
+        model->setHeaderData(8, Qt::Horizontal , "QR code");
+        model->setHeaderData(9, Qt::Horizontal , "delete");
+        model->setHeaderData(10, Qt::Horizontal , "update");
         ui->tableViewem->setModel(model);
 
         for (int j=0;j<row ; j++)
         {
             QPushButton *butt;
-            butt = new QPushButton("delete");
+            butt = new QPushButton("QR code");
             QString name = QString("buttondel%1").arg(j) ;
-            QString display = QString("delete") ;
+            QString display = QString("QR code") ;
+            butt->setObjectName(name) ;
+            butt->setText(display) ;
+
+            connect(butt, &QPushButton::clicked, this, [this, j]() {
+                employer e;
+                QString idme = ui->tableViewem->model()->data(ui->tableViewM->model()->index(j, 0)).toString();
+                e.generateQRCodeEmploye(idme);
+            });
+
+            butt->setStyleSheet("color:red;"
+                                "background:transparent;"
+                                "border:none;"
+                                "font : 15pt;");
+            ui->tableViewem->setIndexWidget(model->index(j, 8), butt);
+            butt = new QPushButton("delete");
+            name = QString("buttondel%1").arg(j) ;
+            display = QString("delete") ;
             butt->setObjectName(name) ;
             butt->setText(display) ;
 
@@ -347,7 +460,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "background:transparent;"
                                 "border:none;"
                                 "font : 15pt;");
-            ui->tableViewem->setIndexWidget(model->index(j, 6), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 9), butt);
 
             butt = new QPushButton("update");
             name = QString("buttonup%1").arg(j) ;
@@ -385,7 +498,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "border:none;"
                                 "font : 15pt;"
                                 "min-width : 289px");
-            ui->tableViewem->setIndexWidget(model->index(j, 7), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 10), butt);
         }
         ui->tableViewem->verticalHeader()->setVisible(false);
             ui->tableViewem->resizeRowsToContents();
@@ -993,10 +1106,26 @@ void Dialog::on_pushButton_14A_clicked()//insert employe
         {
              erreur+="\n- Cin is an 8 digit code ";
         }
+        ui->lineEdit_3A_13->setMaxLength(8);
+        if(ui->lineEdit_3A_13->text().length()<8)
+        {
+             erreur+="\n- telephone is an 8 digit code ";
+        }
+
+        QString email = ui->lineEdit_3A_12->text();
+
+        std::regex email_regex(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");
+
+        if (std::regex_match(email.toStdString(), email_regex)) {
+            qDebug() << "Valid email address.";
+        } else {
+            erreur+="\n- wrong email form ";
+        }
+
         if (erreur=="")
         {
             QSqlQuery query;
-                    query.prepare("insert into EMPLOYE (cin , username , password , nom , prenom , type , photo , ids) values (:cin , :username , :password , :nom , :prenom , :type , :photo,:ids)");
+                    query.prepare("insert into EMPLOYE (cin , username , password , nom , prenom , type , photo , ids , tel , email) values (:cin , :username , :password , :nom , :prenom , :type , :photo,:ids, :tel , :email)");
                     query.bindValue(":cin",ui->lineEdit_3A_2->text().toInt());
                     query.bindValue(":type",check1);
                     query.bindValue(":username",ui->lineEdit_3A_4->text());
@@ -1005,6 +1134,8 @@ void Dialog::on_pushButton_14A_clicked()//insert employe
                     query.bindValue(":prenom",ui->lineEdit_3A->text());
                     query.bindValue(":photo",byte);
                     query.bindValue(":ids",7);
+                    query.bindValue(":tel",ui->lineEdit_3A_13->text().toInt());
+                    query.bindValue(":email",ui->lineEdit_3A_12->text());
 
                     if(query.exec())
                     {
@@ -1078,16 +1209,36 @@ void Dialog::on_pushButton_14A_2_clicked()//update button employe
     {
          erreur+="\n- Cin is an 8 digit code ";
     }
+
+    ui->lineEdit_3A_13->setMaxLength(8);
+
+    if(ui->lineEdit_3A_13->text().length()<8)
+    {
+         erreur+="\n- telephone is an 8 digit code ";
+    }
+
+    QString email = ui->lineEdit_3A_12->text();
+
+    std::regex email_regex(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");
+
+    if (std::regex_match(email.toStdString(), email_regex)) {
+        qDebug() << "Valid email address.";
+    } else {
+        erreur+="\n- wrong email form ";
+    }
+
     if (erreur=="")
     {
         QSqlQuery query;
-        query.prepare("UPDATE EMPLOYE set cin=:cin , username=:username , password=:password , nom=:nom , prenom=:prenom , type=:type , photo=:photo where ide=:id");
+        query.prepare("UPDATE EMPLOYE set cin=:cin , username=:username , password=:password , nom=:nom , prenom=:prenom , type=:type , photo=:photo , tel=:tel , email=:email where ide=:id");
         query.bindValue(":cin",ui->lineEdit_3A_2->text().toInt());
         query.bindValue(":type",check1);
         query.bindValue(":username",ui->lineEdit_3A_4->text());
         query.bindValue(":password",ui->lineEdit_3A_5->text());
         query.bindValue(":nom",ui->lineEdit_3A_3->text());
         query.bindValue(":prenom",ui->lineEdit_3A->text());
+        query.bindValue(":tel",ui->lineEdit_3A_13->text().toInt());
+        query.bindValue(":email",ui->lineEdit_3A_12->text());
         query.bindValue(":photo",byte);
         query.bindValue(":id",ui->lineEdit_10->text().toInt());
         if(query.exec())
@@ -1254,7 +1405,7 @@ void Dialog::on_listM_clicked()
         QPushButton *butt;
         butt = new QPushButton("QRCode");
         QString name = QString("buttondel%1").arg(j);
-        QString display = QString("t");
+        QString display = QString("*");
         butt->setObjectName(name);
         butt->setText(display);
 
@@ -1265,7 +1416,7 @@ void Dialog::on_listM_clicked()
         });
 
 
-        butt->setStyleSheet("color:red;"
+        butt->setStyleSheet("color:green;"
                             "background:transparent;"
                             "border:none;"
                             "font-size: 35px;"
@@ -1322,23 +1473,26 @@ void Dialog::on_listM_clicked()
         butt->setObjectName(name);
         butt->setText(display);
 
-        connect(butt, &QPushButton::clicked, this, [this, j]() {
-             ui->IDM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString());
-            ui->TitleM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString());
-            ui->textEditM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2)).toString());
-            ui->ProducerM_2->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString());
-            QPixmap pixmap = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 3), Qt::DecorationRole).value<QPixmap>();
-            ui->labelM_2->setPixmap(pixmap);
-            if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Radio")
-                ui->radioButtonM_2->setChecked(true);
-            if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Channel")
-                ui->radioButton_2M_2->setChecked(true);
-            ui->stackedWidget->setCurrentIndex(17);
-            displayChannelImages();
-            displayRadioImages();
-            QString up = "Data was updated successfully";
-                    textToSpeech->say(up);
-        });
+        butt = new QPushButton("*");
+                name = QString("buttonup%1").arg(j);
+                display = QString("*");
+                butt->setObjectName(name);
+                butt->setText(display);
+
+       connect(butt, &QPushButton::clicked, this, [this, j]() {
+        ui->IDM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toString());
+        ui->TitleM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString());
+        ui->textEditM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 2)).toString());
+        ui->ProducerM->setText(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 4)).toString());
+        QPixmap pixmap = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 3), Qt::DecorationRole).value<QPixmap>();
+         ui->labelM->setPixmap(pixmap);
+         if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Radio")
+                 ui->radioButtonM->setChecked(true);
+          if (ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 5)).toString()=="Channel")
+                        ui->radioButton_2M->setChecked(true);
+          ui->stackedWidget->setCurrentIndex(12);
+
+                });
 
         butt->setStyleSheet("color:green;"
                             "background:transparent;"
@@ -1367,6 +1521,7 @@ void Dialog::on_listM_clicked()
     ui->tableViewM->resizeColumnsToContents();
 
 }
+
 
 void Dialog::on_loM_clicked()
 {
@@ -1401,15 +1556,11 @@ QByteArray Dialog::importImage()
 
 void Dialog::on_addButtonM_clicked()
 {
-    QString title = ui->TitleM->text();
-        QString producer = ui->ProducerM->text();
-        QString description = ui->textEditM->toPlainText();
-
     ui->stackedWidget->setCurrentIndex(11);
     Media m;
     QString titre = ui->TitleM->text();
     QString producteur = ui->ProducerM->text();
-    description = ui->textEditM->toPlainText();
+    QString description = ui->textEditM->toPlainText();
 
 
     // Vérifier si le titre existe déjà dans la base de données
@@ -1476,14 +1627,15 @@ void Dialog::on_addButtonM_clicked()
 
 void Dialog::on_updatedButtonM_clicked()
 {
+    //modifierMedia(QString titre);
     Media m;
-    ui->stackedWidget->setCurrentIndex(13);
-    QString titre = ui->TitleM_2->text();
-    QString producteur = ui->ProducerM_2->text();
-    QString description = ui->textEditM_2->toPlainText();
+    ui->stackedWidget->setCurrentIndex(11);
+    QString titre = ui->TitleM->text();
+    QString producteur = ui->ProducerM->text();
+    QString description = ui->textEditM->toPlainText();
 
 
-    const QPixmap *pixmap = ui->labelM_2->pixmap();
+    const QPixmap *pixmap = ui->labelM->pixmap();
 
         // Vérifier si la pixmap est valide
         if (!pixmap) {
@@ -1513,21 +1665,21 @@ void Dialog::on_updatedButtonM_clicked()
                                   QMessageBox::Ok);
             return; // Arrêter l'exécution de la fonction si la description est trop longue
         }
-    m.setTitre(ui->TitleM_2->text());
-    m.setProducteur(ui->ProducerM_2->text());
-    m.setDescription(ui->textEditM_2->toPlainText());
-    if (ui->radioButtonM_2->isChecked())
+    m.setTitre(ui->TitleM->text());
+    m.setProducteur(ui->ProducerM->text());
+    m.setDescription(ui->textEditM->toPlainText());
+    if (ui->radioButtonM->isChecked())
     {
         m.setType("Radio");
     }
-    if (ui->radioButton_2M_2->isChecked())
+    if (ui->radioButton_2M->isChecked())
     {
         m.setType("Channel");
     }
     m.setImage(imageByteArray);
 
     // Ajouter le média si toutes les vérifications sont passées avec succès
-    bool test = m.modifierMedia(ui->IDM_2->text().toInt());
+    bool test = m.modifierMedia(ui->IDM->text().toInt());
     if (!test) {
         QMessageBox::critical(nullptr, QObject::tr("Not OK"),
                               QObject::tr("The addition was not made.\n"
@@ -1539,12 +1691,6 @@ void Dialog::on_updatedButtonM_clicked()
                              QObject::tr("Addition is validated.\n"
                                          "Click OK to exit."),
                              QMessageBox::Ok);
-    ui->TitleM_2->clear();
-    ui->ProducerM_2->clear();
-    ui->textEditM_2->clear();
-    ui->labelM_2->clear();
-    ui->radioButtonM_2->setChecked(false);
-    ui->radioButton_2M_2->setChecked(false);
 
 
     emit ui->listM->click();
@@ -1625,14 +1771,19 @@ void Dialog::on_exportButtonM_clicked() {
         ++row;
     }
 
+    // Ajouter le logo en bas du PDF
+    QPixmap logo("logo.png"); // Remplacez "path_to_your_logo.png" par le chemin de votre logo
+    painter.drawPixmap(0, printer.pageRect().bottom() - 50, logo.scaledToHeight(100));
+
+    // Ajouter la signature et la date
+    QString signature = "Signature: [amira]\nDate: " + QDate::currentDate().toString("dd/MM/yyyy");
+    painter.drawText(0, printer.pageRect().bottom() - 20, signature);
+
     // Terminer le dessin
     painter.end();
 
     QMessageBox::information(nullptr, "success", "Data has been successfully exported to " + filePath);
 }
-
-
-
 
 
 void Dialog::on_pushButton_4_clicked()
@@ -1652,10 +1803,15 @@ void Dialog::on_pushButton_2ms_clicked()
 
 void Dialog::on_pushButton_12ms_clicked()
 {
-    /*QSqlQueryModel *query = new QSqlQueryModel();
-    query->setQuery("select id , titre ,description , photo from SERIE_FILM");
-    ui->tableView->setModel(query);*/
+    QMovie *GifAnimation=new QMovie("veveveve.gif");
+    ui->label1->setMovie(GifAnimation);
+    GifAnimation->start();
+    for(int i=0;i<300;i++)
+    {
+        QThread::msleep(1);
+        qApp->processEvents(QEventLoop::AllEvents);
 
+    }
     int ligne(0);
     int row(0);
     QString rech;
@@ -2132,46 +2288,239 @@ void Dialog::on_comboBoxms_2_currentTextChanged(const QString &arg1)
     }
 }
 
-void Dialog::on_cancelButtonM_clicked()
+void Dialog::on_hihi_8_clicked() // generate pdf employee
 {
-    ui->stackedWidget->setCurrentIndex(13);
+    QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableViewem->model());
+    if (!model) {
+        QMessageBox::warning(nullptr, "Erreur", "Impossible d'exporter les données : modèle non trouvé.");
+        return;
+    }
+
+    QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (*.pdf)");
+    if (filePath.isEmpty())
+        return;
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A2);
+    printer.setOutputFileName(filePath);
+
+    QPainter painter;
+    if (!painter.begin(&printer)) {
+        QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
+        return;
+    }
+
+    // Set font and text size
+    QFont font = painter.font();
+    font.setPointSize(10); // Adjust as needed
+    painter.setFont(font);
+
+    // Draw header
+    for (int col = 0; col < model->columnCount(); ++col) {
+        QString text = model->headerData(col, Qt::Horizontal).toString();
+        painter.drawText(col * 100, 50, text);
+    }
+
+    // Draw data
+    for (int row = 0; row < model->rowCount(); ++row) {
+        for (int col = 0; col < model->columnCount(); ++col) {
+            QString text = model->data(model->index(row, col), Qt::DisplayRole).toString();
+            painter.drawText(col * 100, (row + 2) * 50, text); // Adjust Y coordinate as needed
+        }
+    }
+
+    painter.end();
 }
 
+void Dialog::on_gg_2_clicked()
+{
+    if (ui->stackedWidget->currentIndex()==1)
+    {
+        emit ui->hihi_5->click();
+    }
+}
+
+void Dialog::on_gg_5_clicked()
+{
+    if (ui->stackedWidget->currentIndex()==1)
+    {
+        emit ui->hihi_5->click();
+        if(ui->comboBox_2->isVisible())
+        {
+            ui->comboBox_2->setVisible(false);
+        }
+        else
+        {
+            ui->comboBox_2->setVisible(true);
+        }
+    }
+}
+
+void Dialog::on_hihi_7_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(17);
+    ui->label_6->setGeometry(15,245,51,20);
+    ui->hihi_7->setStyleSheet("font: 30pt 'dripicons-v2';"
+                                 " border:none;"
+                                  "background-color:transparent;"
+                                  "color:rgba(0,125,236,255);");
+    ui->hihi_6->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
+    ui->hihi_17->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
+        ui->hihi_5->setStyleSheet( "QPushButton"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,150);"
+                                    "}"
+                                    "QPushButton:hover"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,255);"
+                                    "}");
+        ui->hihi_15->setStyleSheet( "QPushButton"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,150);"
+                                    "}"
+                                    "QPushButton:hover"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,255);"
+                                    "}");
+        ui->hihi_20->setStyleSheet( "QPushButton"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,150);"
+                                    "}"
+                                    "QPushButton:hover"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,255);"
+                                    "}");
+        ui->label_15->setVisible(true);
+        ui->comboBox->setVisible(true);
+        ui->textEdit->setVisible(true);
+        ui->gg_5->setVisible(true);
+        ui->gg_2->setVisible(true);
+        ui->label_47->setVisible(true);
+        ui->label_48->setVisible(true);
+}
 
 void Dialog::on_searchLineEditM_textChanged(const QString &arg1)
 {
-            QString searchText = arg1.trimmed();
-            if (searchText.isEmpty()) {
-                // If lineEdit is empty, reset the tableView
-               on_listM_clicked();
-                return;
-            }
+    QString searchText = arg1.trimmed();
+    if (searchText.isEmpty()) {
+        // If lineEdit is empty, reset the tableView
+       on_listM_clicked();
+        return;
+    }
 
-            QString queryText;
+    QString queryText;
 
-            if (searchText.length() == 1) {
-                // If only one letter is entered, search for rows starting with that letter
-                queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
-            } else {
-                // Otherwise, search for rows containing the complete text
-                queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
-            }
+    if (searchText.length() == 1) {
+        // If only one letter is entered, search for rows starting with that letter
+        queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
+    } else {
+        // Otherwise, search for rows containing the complete text
+        queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
+    }
 
-            QSqlQueryModel *model = new QSqlQueryModel();
-            model->setQuery(queryText);
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery(queryText);
 
-            ui->tableViewM->setModel(model);
-
-
-
+    ui->tableViewM->setModel(model);
 }
+void Dialog:: statistiqueMedia() {
+    QPieSeries *seriesM;
+    QChart *chartM;
+    QChartView *chartViewM;
+    QSqlQuery query;
 
-void Dialog::on_cancelButtonM_2_clicked()
-{
-     ui->stackedWidget->setCurrentIndex(13);
+    // Modifier la requête SQL pour calculer le nombre de vues par type (Radio/Channel)
+    if (!query.exec("SELECT type, SUM(nbrvue) FROM MEDIA  GROUP BY type")) {
+        qDebug() << "Query execution failed:" << query.lastError().text();
+        return;
+    }
+
+    seriesM = new QPieSeries();
+    while (query.next()) {
+        qreal y = query.value(1).toDouble(); // Nombre de vues
+        QString mediaType = query.value(0).toString(); // Type de média (Radio/Channel)
+        QString label = QString("%1: %2 views").arg(mediaType).arg(y); // Label avec le nombre de vues
+        seriesM->append(label, y);
+    }
+    qDebug() << "Data count:" << seriesM->count();
+
+    if (seriesM->count() == 0) {
+        qDebug() << "No data found for chart.";
+        return;
+    }
+
+    QFont title;
+    title.setPointSize(12);
+
+    chartM = new QChart();
+    chartM->addSeries(seriesM);
+    chartM->setTitleFont(title);
+    chartM->setTitle("Statistics by the number of views of each type of media ");
+
+    chartViewM = new QChartView(chartM);
+    QGraphicsScene *scene = new QGraphicsScene();
+    scene->addWidget(chartViewM);
+    chartViewM->setFixedSize(800, 600);
+    scene->setSceneRect(QRectF(chartViewM->rect()));
+
+    QPixmap pixmap(scene->sceneRect().size().toSize());
+    pixmap.fill(Qt::white);
+    QPainter painter(&pixmap);
+    chartViewM->render(&painter);
+
+    if (pixmap.isNull()) {
+        qDebug() << "Pixmap creation failed.";
+        return;
+    }
+
+    //ui->StatMedia->setPixmap(pixmap);
+    qDebug() << "Chart displayed successfully.";
 }
-
-
 void Dialog::displayChannelImages()
 {
 
@@ -2243,172 +2592,3 @@ void Dialog::displayRadioImages()
         buttonIndex++; // Passer au QPushButton suivant
     }
 }
-void Dialog::on_buttonM_clicked() {
-    // Récupérer le bouton cliqué
-    QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
-    if (!clickedButton) {
-        return;
-    }
-
-
-    QPixmap buttonImage = clickedButton->icon().pixmap(clickedButton->iconSize());
-
-
-    QSqlQuery query;
-    query.prepare("SELECT DESCRIPTION, IMAGE FROM MEDIA WHERE TYPE = 'Channel'");
-    if (!query.exec()) {
-        QMessageBox::critical(this, "Error", "Error retrieving channel images from database.");
-        return;
-    }
-
-    bool found = false;
-    while (query.next()) {
-
-        QByteArray imageData = query.value(1).toByteArray();
-        QPixmap dbImage;
-        dbImage.loadFromData(imageData);
-
-
-        if (buttonImage.toImage() == dbImage.toImage()) {
-            found = true;
-
-
-            QString description = query.value(0).toString();
-            ui->textEditDescriptionM->setText(description);
-            break;
-        }
-    }
-
-    if (!found) {
-        QMessageBox::warning(this, "Warning", "No description found for this image.");
-    }
-}
-
-void Dialog::on_listM_2_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(13);
-    on_listM_clicked();
-
-}
-
-void Dialog::on_pushButton_3_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(18);
-}
-
-void Dialog::on_radioM_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(18);
-}
-
-void Dialog::on_tvM_2_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(11);
-}
-void Dialog::on_statisticsM_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(19);
-    Media m; // Instance de la classe Media
-
-    // Récupérer les statistiques depuis la classe Media
-    QMap<QString, int> statistiques = m.obtenirStatistique();
-
-    // Créer une série de données pour le graphique
-    QPieSeries *series = new QPieSeries(); // Utilisez un pointeur pour la série
-
-    for (auto it = statistiques.begin(); it != statistiques.end(); ++it) {
-        series->append(it.key(), it.value());
-    }
-
-    QChart *chart = new QChart();
-    chart->addSeries(series); // Utilisez la série avec le pointeur
-
-    chart->setTitle("Statistics by the number of views of each type of media");
-
-    // Créer une vue de graphique pour afficher le graphique
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-    chartView->resize(400, 300); // Ajustez la taille selon vos besoins
-
-    // Afficher le graphique dans le QFrame statM
-    QVBoxLayout *layout = new QVBoxLayout(ui->statM);
-    layout->addWidget(chartView);
-    ui->statM->setLayout(layout);
-}
-
-void Dialog::on_statisticsM_2_clicked()
-{
-    on_statisticsM_clicked();
-}
-
-void Dialog::addMediaItem() {
-    QString title = ui->TitleM->text();
-    QString producer = ui->ProducerM->text();
-    QString description = ui->textEditM->toPlainText();
-
-    // Utilisez les données (title, producer, description) comme nécessaire
-    // Ajoutez le nouvel élément multimédia à votre base de données ou effectuez d'autres actions
-}
-
-void Dialog::clearInputFields() {
-    ui->TitleM->clear();
-    ui->ProducerM->clear();
-    ui->textEditM->clear();
-}
-
-
-void Dialog::onTypingTimerTimeout()
-{
-    // Arrêter le timer s'il est actif
-    typingTimer->stop();
-
-    // Récupérer le texte depuis le QLineEdit TitleM
-    QString spokenText = ui->TitleM->text();
-
-    // Appeler la fonction say() du QTextToSpeech pour lire le texte
-    textToSpeech->say(spokenText);
-}
-void Dialog::startTimer() {
-    typingTimer->start(3000);  // 1 minute (60000 ms)
-}
-
-// Ajoutez cette fonction pour lire le texte après que le timer expire
-void Dialog::readText() {
-    QString spokenText = ui->TitleM->text();
-    textToSpeech->say(spokenText);
-}
-
-// Modifiez la fonction on_TitleM_textChanged comme suit
-void Dialog::on_TitleM_textChanged(const QString &arg1)
-{
-    // Arrêter le timer s'il est actif
-    typingTimer->stop();
-
-    // Démarrer le timer avec un délai de 1 minute
-    startTimer();
-}
-void Dialog::readTextProducer() {
-    QString spokenText = ui->ProducerM->text();
-    textToSpeech->say(spokenText);
-}
-void Dialog::on_ProducerM_textChanged(const QString &arg1)
-{
-    // Arrêter le timer s'il est actif
-    typingTimer->stop();
-
-    // Démarrer le timer avec un délai de 1 minute
-    startTimer();
-}
-void Dialog::readTextDescrption() {
-    QString spokenText = ui->textEditM->toPlainText();
-    textToSpeech->say(spokenText);
-}
-void Dialog::on_textEditM_textChanged()
-{
-    // Arrêter le timer s'il est actif
-    typingTimer->stop();
-
-    // Démarrer le timer avec un délai de 1 minute
-    startTimer();
-}
-

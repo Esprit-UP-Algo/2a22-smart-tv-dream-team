@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QDialog>
@@ -38,7 +37,6 @@ class Ui_Dialog
 {
 public:
     QGroupBox *MenuBar;
-    QLabel *label_9;
     QLabel *label_2;
     QPushButton *hihi_5;
     QLabel *label_12;
@@ -48,7 +46,7 @@ public:
     QPushButton *hihi_15;
     QPushButton *gg;
     QPushButton *hihi_6;
-    QLabel *labelCM1;
+    QPushButton *hihi_7;
     QGroupBox *searchBar;
     QLabel *label_15;
     QComboBox *comboBox;
@@ -94,6 +92,7 @@ public:
     QPushButton *hihi_10;
     QTableView *tableViewem;
     QLabel *label_39;
+    QComboBox *comboBox_2;
     QWidget *transaction;
     QPushButton *hihi_37;
     QPushButton *hihi_39;
@@ -130,6 +129,10 @@ public:
     QRadioButton *radioButton_9;
     QRadioButton *radioButton_10;
     QPushButton *label_omek;
+    QLabel *label_47A_5;
+    QLineEdit *lineEdit_3A_12;
+    QLabel *label_47A_8;
+    QLineEdit *lineEdit_3A_13;
     QLabel *label_46A;
     QLabel *label_44A;
     QLabel *label_45A;
@@ -268,50 +271,43 @@ public:
     QLabel *label_47A_4;
     QLineEdit *lineEdit_3A_7;
     QLabel *label_48A_5;
-    QCheckBox *checkBox_3A;
     QPushButton *pushButton_14A_8;
-    QCheckBox *checkBox_3A_2;
-    QCheckBox *checkBox_3A_3;
     QLineEdit *lineEdit_3A_10;
+    QLabel *label_48A_6;
+    QDateTimeEdit *dateTimeEdit_3;
+    QLineEdit *lineEdit_3A_11;
     QLabel *label_46A_5;
     QWidget *Channel;
     QLabel *label_16M;
     QPushButton *tvM;
     QPushButton *listM;
-    QLabel *label_5M;
-    QTextEdit *textEdit_2M;
+    QLabel *label1;
+    QLabel *label_3M;
+    QPushButton *button2;
     QPushButton *radioM;
-    QPushButton *buttonM1;
+    QPushButton *returnButtonM;
+    QPushButton *loM;
+    QPushButton *button1;
     QPushButton *statisticsM;
-    QPushButton *buttonM2;
-    QPushButton *buttonM3;
-    QTextEdit *textEditDescriptionM;
-    QWidget *addchannel;
+    QWidget *formchannel;
+    QLabel *addChannelM;
     QLineEdit *IDM;
     QLineEdit *ProducerM;
+    QLabel *labelM;
     QTextEdit *textEdit_5M;
+    QPushButton *imageButtonM;
     QRadioButton *radioButton_2M;
     QPushButton *addButtonM;
     QRadioButton *radioButtonM;
     QLabel *formM;
     QTextEdit *textEditM;
     QLineEdit *TitleM;
+    QPushButton *updatedButtonM;
     QLabel *label_13M;
-    QPushButton *cancelButtonM;
-    QLabel *labelM;
-    QPushButton *imageButtonM;
     QWidget *listechannel;
     QTableView *tableViewM;
-    QPushButton *exportButtonM;
-    QPushButton *loM;
-    QPushButton *add;
-    QPushButton *exportM;
     QComboBox *comboBoxM;
-    QLabel *label_37;
-    QLabel *label_38;
-    QLabel *label_40;
-    QLineEdit *searchLineEditM;
-    QPushButton *ggM;
+    QPushButton *exportButtonM;
     QWidget *listemovie;
     QGroupBox *groupBox_7ms;
     QVBoxLayout *verticalLayout;
@@ -402,34 +398,8 @@ public:
     QVBoxLayout *verticalLayout_8;
     QPushButton *returnupms;
     QPushButton *confirmupms;
-    QWidget *updateChannel;
-    QLabel *formM_2;
-    QLabel *label_13M_2;
-    QPushButton *updatedButtonM;
-    QPushButton *cancelButtonM_2;
-    QTextEdit *textEditM_2;
-    QLineEdit *TitleM_2;
-    QRadioButton *radioButton_2M_2;
-    QLineEdit *ProducerM_2;
-    QRadioButton *radioButtonM_2;
-    QLineEdit *IDM_2;
-    QTextEdit *textEdit_5M_2;
-    QLabel *labelM_2;
-    QPushButton *imageButtonM_2;
-    QWidget *Radio;
-    QPushButton *statisticsM_2;
-    QPushButton *buttonMR3;
-    QPushButton *buttonMR2;
-    QLabel *label_16M_2;
-    QPushButton *tvM_2;
-    QLabel *label_5M_2;
-    QPushButton *radioM_2;
-    QTextEdit *textEdit_2M_2;
-    QPushButton *listM_2;
-    QTextEdit *textEditDescriptionM_2;
-    QPushButton *buttonMR1;
-    QWidget *statistique;
-    QFrame *statM;
+    QWidget *page;
+    QLabel *StatEmploye;
 
     void setupUi(QDialog *Dialog)
     {
@@ -447,23 +417,6 @@ public:
         MenuBar->setGeometry(QRect(10, 0, 111, 1081));
         MenuBar->setStyleSheet(QLatin1String("border:none;\n"
 "background:none;"));
-        label_9 = new QLabel(MenuBar);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(20, 210, 51, 41));
-        label_9->setStyleSheet(QLatin1String("QLabel#label_9\n"
-"{\n"
-"font: 30pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,150);\n"
-"}\n"
-"QLabel#label_9:hover\n"
-"{\n"
-"font: 30pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,255);\n"
-"}"));
         label_2 = new QLabel(MenuBar);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(10, 20, 71, 61));
@@ -617,9 +570,27 @@ public:
 "}"));
         hihi_6->setIconSize(QSize(40, 40));
         hihi_6->setFlat(false);
-        labelCM1 = new QLabel(MenuBar);
-        labelCM1->setObjectName(QStringLiteral("labelCM1"));
-        labelCM1->setGeometry(QRect(-70, 800, 341, 281));
+        hihi_7 = new QPushButton(MenuBar);
+        hihi_7->setObjectName(QStringLiteral("hihi_7"));
+        hihi_7->setGeometry(QRect(20, 210, 41, 41));
+        hihi_7->setToolTipDuration(1);
+        hihi_7->setAutoFillBackground(false);
+        hihi_7->setStyleSheet(QLatin1String("QPushButton#hihi_7\n"
+"{\n"
+"font: 30pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,150);\n"
+"}\n"
+"QPushButton#hihi_7:hover\n"
+"{\n"
+"font: 30pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,255);\n"
+"}"));
+        hihi_7->setIconSize(QSize(40, 40));
+        hihi_7->setFlat(false);
         searchBar = new QGroupBox(Dialog);
         searchBar->setObjectName(QStringLiteral("searchBar"));
         searchBar->setGeometry(QRect(110, 0, 1811, 71));
@@ -770,7 +741,7 @@ public:
         hihi->raise();
         stackedWidget = new QStackedWidget(Dialog);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, -10, 1921, 1081));
+        stackedWidget->setGeometry(QRect(0, 0, 1921, 1081));
         home = new QWidget();
         home->setObjectName(QStringLiteral("home"));
         home->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(10, 10, 40, 255));"));
@@ -1138,7 +1109,7 @@ public:
         hihi_10->setFlat(false);
         tableViewem = new QTableView(crud_em);
         tableViewem->setObjectName(QStringLiteral("tableViewem"));
-        tableViewem->setGeometry(QRect(140, 260, 1731, 761));
+        tableViewem->setGeometry(QRect(110, 240, 1781, 811));
         tableViewem->setStyleSheet(QLatin1String("\n"
 "QTableView#tableViewem{\n"
 "	background-color: rgba(200, 200, 200,120);\n"
@@ -1148,10 +1119,10 @@ public:
 "		 background-color:rgba(49,28,71,100);\n"
 "        border : 2px solid white ;\n"
 "        font-size : 15px;\n"
-"        min-width : 178;\n"
-"        min-height : 178;\n"
-"        max-width : 400;\n"
-"        max-height : 400;\n"
+"        min-width : 148;\n"
+"        min-height : 148;\n"
+"        max-width : 370;\n"
+"        max-height : 370;\n"
 "}\n"
 "QTableView QScrollBar:vertical {\n"
 "				border: 2px solid grey;\n"
@@ -1176,10 +1147,57 @@ public:
         tableViewem->verticalHeader()->setStretchLastSection(true);
         label_39 = new QLabel(crud_em);
         label_39->setObjectName(QStringLiteral("label_39"));
-        label_39->setGeometry(QRect(120, 240, 1771, 801));
+        label_39->setGeometry(QRect(100, 230, 1801, 831));
         label_39->setStyleSheet(QLatin1String("background-color:rgba(255,255,255,150);\n"
 "\n"
 ""));
+        comboBox_2 = new QComboBox(crud_em);
+        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+        comboBox_2->setGeometry(QRect(1050, 70, 201, 41));
+        comboBox_2->setMouseTracking(false);
+        comboBox_2->setStyleSheet(QLatin1String("#comboBox_2\n"
+"{\n"
+"border:1 px solid #ced4da;\n"
+"border-radius:12px;\n"
+"padding-left:10px;\n"
+"background:rgba(190,190,190,100);\n"
+"color : rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"#comboBox_2::drop-down{\n"
+"border:0px;\n"
+"}\n"
+"#comboBox_2::down-arrow{\n"
+"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
+"width:30px;\n"
+"height:30px;\n"
+"margin-right:18px;\n"
+"}\n"
+"#comboBox_2 QListView{\n"
+"border:1 px solid #ced4da;\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"padding:5px;\n"
+"outline:0px;\n"
+"border-radius:20px;\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,200);\n"
+"}\n"
+"#comboBox_2 QListView::item{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,200);\n"
+"border-radius:12px;\n"
+"}\n"
+"#comboBox_2 QListView::item:hover{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color:rgba(90,90,90,200);\n"
+"background-color:rgba(150"
+                        ",150,150,200);\n"
+"border-radius:12px;\n"
+"}\n"
+"\n"
+""));
+        comboBox_2->setFrame(true);
         stackedWidget->addWidget(crud_em);
         label_39->raise();
         hihi_33->raise();
@@ -1192,6 +1210,7 @@ public:
         hihi_11->raise();
         hihi_9->raise();
         tableViewem->raise();
+        comboBox_2->raise();
         transaction = new QWidget();
         transaction->setObjectName(QStringLiteral("transaction"));
         transaction->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));\n"
@@ -1473,60 +1492,60 @@ public:
 ""));
         label_41A = new QLabel(groupBox_5A);
         label_41A->setObjectName(QStringLiteral("label_41A"));
-        label_41A->setGeometry(QRect(20, 90, 191, 41));
+        label_41A->setGeometry(QRect(20, 30, 191, 41));
         label_41A->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 24pt \"MS Shell Dlg 2\";"));
         label_47A = new QLabel(groupBox_5A);
         label_47A->setObjectName(QStringLiteral("label_47A"));
-        label_47A->setGeometry(QRect(20, 280, 211, 31));
+        label_47A->setGeometry(QRect(20, 180, 211, 41));
         label_47A->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 24pt \"MS Shell Dlg 2\";"));
         lineEdit_3A = new QLineEdit(groupBox_5A);
         lineEdit_3A->setObjectName(QStringLiteral("lineEdit_3A"));
-        lineEdit_3A->setGeometry(QRect(220, 165, 171, 31));
+        lineEdit_3A->setGeometry(QRect(220, 90, 171, 31));
         lineEdit_3A->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
         label_48A = new QLabel(groupBox_5A);
         label_48A->setObjectName(QStringLiteral("label_48A"));
-        label_48A->setGeometry(QRect(20, 155, 191, 41));
+        label_48A->setGeometry(QRect(20, 80, 191, 41));
         label_48A->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 24pt \"MS Shell Dlg 2\";"));
         lineEdit_3A_2 = new QLineEdit(groupBox_5A);
         lineEdit_3A_2->setObjectName(QStringLiteral("lineEdit_3A_2"));
-        lineEdit_3A_2->setGeometry(QRect(220, 100, 171, 31));
+        lineEdit_3A_2->setGeometry(QRect(220, 40, 171, 31));
         lineEdit_3A_2->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
         label_48A_2 = new QLabel(groupBox_5A);
         label_48A_2->setObjectName(QStringLiteral("label_48A_2"));
-        label_48A_2->setGeometry(QRect(20, 220, 221, 41));
+        label_48A_2->setGeometry(QRect(20, 130, 221, 41));
         label_48A_2->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 24pt \"MS Shell Dlg 2\";"));
         lineEdit_3A_3 = new QLineEdit(groupBox_5A);
         lineEdit_3A_3->setObjectName(QStringLiteral("lineEdit_3A_3"));
-        lineEdit_3A_3->setGeometry(QRect(220, 230, 171, 31));
+        lineEdit_3A_3->setGeometry(QRect(220, 140, 171, 31));
         lineEdit_3A_3->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
         lineEdit_3A_4 = new QLineEdit(groupBox_5A);
         lineEdit_3A_4->setObjectName(QStringLiteral("lineEdit_3A_4"));
-        lineEdit_3A_4->setGeometry(QRect(220, 285, 171, 31));
+        lineEdit_3A_4->setGeometry(QRect(220, 190, 171, 31));
         lineEdit_3A_4->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
         label_47A_2 = new QLabel(groupBox_5A);
         label_47A_2->setObjectName(QStringLiteral("label_47A_2"));
-        label_47A_2->setGeometry(QRect(20, 330, 201, 41));
+        label_47A_2->setGeometry(QRect(20, 230, 201, 41));
         label_47A_2->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 24pt \"MS Shell Dlg 2\";"));
         lineEdit_3A_5 = new QLineEdit(groupBox_5A);
         lineEdit_3A_5->setObjectName(QStringLiteral("lineEdit_3A_5"));
-        lineEdit_3A_5->setGeometry(QRect(220, 340, 171, 31));
+        lineEdit_3A_5->setGeometry(QRect(220, 240, 171, 31));
         lineEdit_3A_5->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
@@ -1657,6 +1676,30 @@ public:
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 ""));
+        label_47A_5 = new QLabel(groupBox_5A);
+        label_47A_5->setObjectName(QStringLiteral("label_47A_5"));
+        label_47A_5->setGeometry(QRect(20, 280, 211, 41));
+        label_47A_5->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
+"font: 75 24pt \"MS Shell Dlg 2\";"));
+        lineEdit_3A_12 = new QLineEdit(groupBox_5A);
+        lineEdit_3A_12->setObjectName(QStringLiteral("lineEdit_3A_12"));
+        lineEdit_3A_12->setGeometry(QRect(220, 340, 171, 31));
+        lineEdit_3A_12->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
+"    font-size: 14px; /* Font size */\n"
+"    font-weight: bold; /* Font weight */\n"
+"    border: 1px solid black;"));
+        label_47A_8 = new QLabel(groupBox_5A);
+        label_47A_8->setObjectName(QStringLiteral("label_47A_8"));
+        label_47A_8->setGeometry(QRect(20, 330, 191, 41));
+        label_47A_8->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
+"font: 75 24pt \"MS Shell Dlg 2\";"));
+        lineEdit_3A_13 = new QLineEdit(groupBox_5A);
+        lineEdit_3A_13->setObjectName(QStringLiteral("lineEdit_3A_13"));
+        lineEdit_3A_13->setGeometry(QRect(220, 290, 171, 31));
+        lineEdit_3A_13->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
+"    font-size: 14px; /* Font size */\n"
+"    font-weight: bold; /* Font weight */\n"
+"    border: 1px solid black;"));
         label_46A = new QLabel(adduser);
         label_46A->setObjectName(QStringLiteral("label_46A"));
         label_46A->setGeometry(QRect(190, 140, 1611, 781));
@@ -3126,53 +3169,26 @@ public:
 ""));
         label_41A_5 = new QLabel(groupBox_5A_4);
         label_41A_5->setObjectName(QStringLiteral("label_41A_5"));
-        label_41A_5->setGeometry(QRect(20, 120, 211, 41));
+        label_41A_5->setGeometry(QRect(20, 50, 211, 41));
         label_41A_5->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 16pt \"MS Shell Dlg 2\";"));
         label_47A_4 = new QLabel(groupBox_5A_4);
         label_47A_4->setObjectName(QStringLiteral("label_47A_4"));
-        label_47A_4->setGeometry(QRect(20, 270, 211, 20));
+        label_47A_4->setGeometry(QRect(20, 260, 211, 20));
         label_47A_4->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 16pt \"MS Shell Dlg 2\";"));
         lineEdit_3A_7 = new QLineEdit(groupBox_5A_4);
         lineEdit_3A_7->setObjectName(QStringLiteral("lineEdit_3A_7"));
-        lineEdit_3A_7->setGeometry(QRect(250, 200, 171, 31));
+        lineEdit_3A_7->setGeometry(QRect(250, 140, 171, 31));
         lineEdit_3A_7->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
         label_48A_5 = new QLabel(groupBox_5A_4);
         label_48A_5->setObjectName(QStringLiteral("label_48A_5"));
-        label_48A_5->setGeometry(QRect(20, 210, 221, 20));
+        label_48A_5->setGeometry(QRect(20, 140, 221, 20));
         label_48A_5->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
 "font: 75 16pt \"MS Shell Dlg 2\";"));
-        checkBox_3A = new QCheckBox(groupBox_5A_4);
-        checkBox_3A->setObjectName(QStringLiteral("checkBox_3A"));
-        checkBox_3A->setGeometry(QRect(240, 260, 71, 41));
-        checkBox_3A->setStyleSheet(QLatin1String("\n"
-"QCheckBox {\n"
-"    color: black; \n"
-"}\n"
-"\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
-"    background-color: white;\n"
-"    border: 2px solid black; \n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    background-color: pink; \n"
-"    border: 2px solid black; \n"
-"}\n"
-"\n"
-"QCheckBox:hover {\n"
-"    color: black; \n"
-"}\n"
-""));
         pushButton_14A_8 = new QPushButton(groupBox_5A_4);
         pushButton_14A_8->setObjectName(QStringLiteral("pushButton_14A_8"));
         pushButton_14A_8->setGeometry(QRect(140, 340, 261, 71));
@@ -3189,64 +3205,30 @@ public:
 "}\n"
 "\n"
 ""));
-        checkBox_3A_2 = new QCheckBox(groupBox_5A_4);
-        checkBox_3A_2->setObjectName(QStringLiteral("checkBox_3A_2"));
-        checkBox_3A_2->setGeometry(QRect(300, 260, 81, 41));
-        checkBox_3A_2->setStyleSheet(QLatin1String("\n"
-"QCheckBox {\n"
-"    color: black; \n"
-"}\n"
-"\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
-"    background-color: white;\n"
-"    border: 2px solid black; \n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    background-color: pink; \n"
-"    border: 2px solid black; \n"
-"}\n"
-"\n"
-"QCheckBox:hover {\n"
-"    color: black; \n"
-"}\n"
-""));
-        checkBox_3A_3 = new QCheckBox(groupBox_5A_4);
-        checkBox_3A_3->setObjectName(QStringLiteral("checkBox_3A_3"));
-        checkBox_3A_3->setGeometry(QRect(390, 260, 81, 41));
-        checkBox_3A_3->setStyleSheet(QLatin1String("\n"
-"QCheckBox {\n"
-"    color: black; \n"
-"}\n"
-"\n"
-"\n"
-"QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
-"    background-color: white;\n"
-"    border: 2px solid black; \n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    background-color: pink; \n"
-"    border: 2px solid black; \n"
-"}\n"
-"\n"
-"QCheckBox:hover {\n"
-"    color: black; \n"
-"}\n"
-""));
         lineEdit_3A_10 = new QLineEdit(groupBox_5A_4);
         lineEdit_3A_10->setObjectName(QStringLiteral("lineEdit_3A_10"));
-        lineEdit_3A_10->setGeometry(QRect(250, 130, 171, 31));
+        lineEdit_3A_10->setGeometry(QRect(250, 60, 171, 31));
         lineEdit_3A_10->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
+"    font-size: 14px; /* Font size */\n"
+"    font-weight: bold; /* Font weight */\n"
+"    border: 1px solid black;"));
+        label_48A_6 = new QLabel(groupBox_5A_4);
+        label_48A_6->setObjectName(QStringLiteral("label_48A_6"));
+        label_48A_6->setGeometry(QRect(20, 200, 221, 20));
+        label_48A_6->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
+"font: 75 16pt \"MS Shell Dlg 2\";"));
+        dateTimeEdit_3 = new QDateTimeEdit(groupBox_5A_4);
+        dateTimeEdit_3->setObjectName(QStringLiteral("dateTimeEdit_3"));
+        dateTimeEdit_3->setGeometry(QRect(250, 200, 171, 31));
+        dateTimeEdit_3->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
+"    font-size: 14px; /* Font size */\n"
+"    font-weight: bold; /* Font weight */\n"
+"    border: 1px solid black;"));
+        dateTimeEdit_3->setCalendarPopup(true);
+        lineEdit_3A_11 = new QLineEdit(groupBox_5A_4);
+        lineEdit_3A_11->setObjectName(QStringLiteral("lineEdit_3A_11"));
+        lineEdit_3A_11->setGeometry(QRect(250, 260, 171, 31));
+        lineEdit_3A_11->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
@@ -3313,20 +3295,25 @@ public:
             icon1.addFile(QStringLiteral("../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test"), QSize(), QIcon::Normal, QIcon::Off);
         }
         listM->setIcon(icon1);
-        label_5M = new QLabel(Channel);
-        label_5M->setObjectName(QStringLiteral("label_5M"));
-        label_5M->setGeometry(QRect(100, 200, 1931, 371));
-        label_5M->setStyleSheet(QLatin1String("background:url(../images/vwatch.png);\n"
-"border-radius:20;"));
-        label_5M->setPixmap(QPixmap(QString::fromUtf8("vewatch.png")));
-        label_5M->setScaledContents(false);
-        label_5M->setWordWrap(false);
-        textEdit_2M = new QTextEdit(Channel);
-        textEdit_2M->setObjectName(QStringLiteral("textEdit_2M"));
-        textEdit_2M->setGeometry(QRect(240, 240, 411, 211));
-        textEdit_2M->setStyleSheet(QLatin1String("background:transparent;\n"
-"color:white;\n"
-"border:transparent;"));
+        label1 = new QLabel(Channel);
+        label1->setObjectName(QStringLiteral("label1"));
+        label1->setGeometry(QRect(100, 200, 1931, 371));
+        label1->setStyleSheet(QStringLiteral(""));
+        label1->setPixmap(QPixmap(QString::fromUtf8("vewatch.png")));
+        label1->setScaledContents(false);
+        label1->setWordWrap(false);
+        label_3M = new QLabel(Channel);
+        label_3M->setObjectName(QStringLiteral("label_3M"));
+        label_3M->setGeometry(QRect(600, 640, 1261, 431));
+        label_3M->setStyleSheet(QLatin1String("background-color:rgb(166,166,166);\n"
+"border-radius: 20px;"));
+        button2 = new QPushButton(Channel);
+        button2->setObjectName(QStringLiteral("button2"));
+        button2->setGeometry(QRect(580, 620, 341, 281));
+        button2->setStyleSheet(QLatin1String("	border-image:url(vactions.png);\n"
+"	border: transparent;\n"
+"    border-radius: 16px;\n"
+"background-color:transparent"));
         radioM = new QPushButton(Channel);
         radioM->setObjectName(QStringLiteral("radioM"));
         radioM->setGeometry(QRect(1040, 110, 181, 51));
@@ -3343,10 +3330,35 @@ public:
 "}\n"
 "\n"
 ""));
-        buttonM1 = new QPushButton(Channel);
-        buttonM1->setObjectName(QStringLiteral("buttonM1"));
-        buttonM1->setGeometry(QRect(170, 640, 341, 281));
-        buttonM1->setStyleSheet(QStringLiteral("background-color:white;"));
+        returnButtonM = new QPushButton(Channel);
+        returnButtonM->setObjectName(QStringLiteral("returnButtonM"));
+        returnButtonM->setGeometry(QRect(1760, 640, 93, 28));
+        returnButtonM->setStyleSheet(QLatin1String("font-size: 35px; \n"
+"    font-weight: bold; \n"
+"  border-radius: 10;\n"
+" font-family:DRIPICONS-V2;\n"
+"color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));\n"
+""));
+        loM = new QPushButton(Channel);
+        loM->setObjectName(QStringLiteral("loM"));
+        loM->setGeometry(QRect(1580, 90, 151, 81));
+        loM->setStyleSheet(QLatin1String("    #loM{color: white;\n"
+"    font-family: Ms Shell Dlg;\n"
+"    font-size: 20px; \n"
+" \n"
+"    /*text-transform: uppercase; /* Transformation du texte en majuscules */\n"
+"	padding-left: 20px;\n"
+"background:transparent;\n"
+"border:transparent;}\n"
+"#loM:hover {\n"
+"   text-decoration: underline;\n"
+"}\n"
+"\n"
+""));
+        loM->setIcon(icon1);
+        button1 = new QPushButton(Channel);
+        button1->setObjectName(QStringLiteral("button1"));
+        button1->setGeometry(QRect(170, 640, 341, 281));
         statisticsM = new QPushButton(Channel);
         statisticsM->setObjectName(QStringLiteral("statisticsM"));
         statisticsM->setGeometry(QRect(1790, 90, 151, 81));
@@ -3364,31 +3376,43 @@ public:
 "\n"
 ""));
         statisticsM->setIcon(icon1);
-        buttonM2 = new QPushButton(Channel);
-        buttonM2->setObjectName(QStringLiteral("buttonM2"));
-        buttonM2->setGeometry(QRect(670, 620, 341, 281));
-        buttonM3 = new QPushButton(Channel);
-        buttonM3->setObjectName(QStringLiteral("buttonM3"));
-        buttonM3->setGeometry(QRect(1140, 620, 341, 281));
-        textEditDescriptionM = new QTextEdit(Channel);
-        textEditDescriptionM->setObjectName(QStringLiteral("textEditDescriptionM"));
-        textEditDescriptionM->setGeometry(QRect(350, 850, 961, 341));
-        textEditDescriptionM->setStyleSheet(QStringLiteral("background-color:white;"));
         stackedWidget->addWidget(Channel);
-        addchannel = new QWidget();
-        addchannel->setObjectName(QStringLiteral("addchannel"));
-        addchannel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));"));
-        IDM = new QLineEdit(addchannel);
+        label_16M->raise();
+        tvM->raise();
+        listM->raise();
+        label1->raise();
+        label_3M->raise();
+        radioM->raise();
+        returnButtonM->raise();
+        loM->raise();
+        button1->raise();
+        statisticsM->raise();
+        button2->raise();
+        formchannel = new QWidget();
+        formchannel->setObjectName(QStringLiteral("formchannel"));
+        formchannel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));"));
+        addChannelM = new QLabel(formchannel);
+        addChannelM->setObjectName(QStringLiteral("addChannelM"));
+        addChannelM->setGeometry(QRect(1240, 150, 301, 71));
+        addChannelM->setStyleSheet(QLatin1String("  color: black;\n"
+"    font-family: Ms Shell Dlg;\n"
+"    font-size: 16px; \n"
+"    font-weight: bold;\n"
+"    /*text-transform: uppercase; /* Transformation du texte en majuscules */\n"
+"	padding-left: 20px;\n"
+"font-size:30px;\n"
+"background-color:none;"));
+        IDM = new QLineEdit(formchannel);
         IDM->setObjectName(QStringLiteral("IDM"));
         IDM->setGeometry(QRect(1180, 220, 0, 0));
-        ProducerM = new QLineEdit(addchannel);
+        ProducerM = new QLineEdit(formchannel);
         ProducerM->setObjectName(QStringLiteral("ProducerM"));
-        ProducerM->setGeometry(QRect(950, 290, 591, 61));
+        ProducerM->setGeometry(QRect(1100, 280, 391, 31));
         ProducerM->setStyleSheet(QLatin1String("\n"
 " font-family: Ms Shell Dlg;\n"
 "color:black;\n"
 "\n"
-"                     font-size: 30px; \n"
+"                     font-size: 15px; \n"
 "                     font-weight: bold; \n"
 "                     \n"
 "                     background-color: transparent;\n"
@@ -3396,9 +3420,19 @@ public:
 "                     border: 1px solid black;\n"
 "border-radius:none;\n"
 ""));
-        textEdit_5M = new QTextEdit(addchannel);
+        labelM = new QLabel(formchannel);
+        labelM->setObjectName(QStringLiteral("labelM"));
+        labelM->setGeometry(QRect(1640, 330, 281, 271));
+        labelM->setStyleSheet(QLatin1String("\n"
+"    font-size: 35px; \n"
+"    font-weight: bold; \n"
+"    background-color: transparent;\n"
+"    color: transparent;\n"
+"    \n"
+"   "));
+        textEdit_5M = new QTextEdit(formchannel);
         textEdit_5M->setObjectName(QStringLiteral("textEdit_5M"));
-        textEdit_5M->setGeometry(QRect(350, 360, 491, 441));
+        textEdit_5M->setGeometry(QRect(550, 360, 491, 441));
         textEdit_5M->setStyleSheet(QLatin1String(" background-color: transparent;\n"
 "    border: none;\n"
 "   font-family: CONSOLA;\n"
@@ -3406,18 +3440,31 @@ public:
 " \n"
 "\n"
 ""));
-        radioButton_2M = new QRadioButton(addchannel);
+        imageButtonM = new QPushButton(formchannel);
+        imageButtonM->setObjectName(QStringLiteral("imageButtonM"));
+        imageButtonM->setGeometry(QRect(1080, 620, 101, 91));
+        imageButtonM->setStyleSheet(QLatin1String("\n"
+"                     font-size: 35px; \n"
+"                     font-weight: bold; \n"
+"                     font-family: DRIPICONS-V2;\n"
+"                     background-color: transparent;\n"
+"                     color: black;\n"
+"                     border: 1px solid black;\n"
+"border-radius:20px;\n"
+"\n"
+""));
+        radioButton_2M = new QRadioButton(formchannel);
         radioButton_2M->setObjectName(QStringLiteral("radioButton_2M"));
-        radioButton_2M->setGeometry(QRect(1230, 820, 201, 71));
+        radioButton_2M->setGeometry(QRect(1400, 640, 97, 20));
         radioButton_2M->setStyleSheet(QLatin1String(" background-color: transparent;\n"
 "    border: none;\n"
 "\n"
 " font-family: Ms Shell Dlg;\n"
 "color:black;\n"
-"font-size: 34px; "));
-        addButtonM = new QPushButton(addchannel);
+""));
+        addButtonM = new QPushButton(formchannel);
         addButtonM->setObjectName(QStringLiteral("addButtonM"));
-        addButtonM->setGeometry(QRect(1290, 940, 241, 81));
+        addButtonM->setGeometry(QRect(1090, 760, 221, 71));
         addButtonM->setStyleSheet(QLatin1String("#addButtonM {\n"
 "    font-family: \"Ms Shell Dlg\";\n"
 "    font-size: 35px; \n"
@@ -3432,19 +3479,19 @@ public:
 "    background-color: #03224c ;\n"
 "}\n"
 ""));
-        radioButtonM = new QRadioButton(addchannel);
+        radioButtonM = new QRadioButton(formchannel);
         radioButtonM->setObjectName(QStringLiteral("radioButtonM"));
-        radioButtonM->setGeometry(QRect(1060, 820, 201, 71));
+        radioButtonM->setGeometry(QRect(1280, 640, 97, 20));
         radioButtonM->setStyleSheet(QLatin1String(" background-color: transparent;\n"
 "    border: none;\n"
 "\n"
 " font-family: Ms Shell Dlg;\n"
 "color:black;\n"
-"font-size: 34px; \n"
+"\n"
 "                    "));
-        formM = new QLabel(addchannel);
+        formM = new QLabel(formchannel);
         formM->setObjectName(QStringLiteral("formM"));
-        formM->setGeometry(QRect(120, 130, 771, 931));
+        formM->setGeometry(QRect(520, 120, 531, 811));
         formM->setContextMenuPolicy(Qt::NoContextMenu);
         formM->setStyleSheet(QLatin1String("background:url(\"form.png\");\n"
 "\n"
@@ -3452,14 +3499,14 @@ public:
 "border-color:white;\n"
 "background-color:white; "));
         formM->setScaledContents(true);
-        textEditM = new QTextEdit(addchannel);
+        textEditM = new QTextEdit(formchannel);
         textEditM->setObjectName(QStringLiteral("textEditM"));
-        textEditM->setGeometry(QRect(950, 370, 591, 431));
+        textEditM->setGeometry(QRect(1110, 330, 391, 261));
         textEditM->setStyleSheet(QLatin1String("\n"
 " font-family: Ms Shell Dlg;\n"
 "color:black;\n"
 "\n"
-"                     font-size: 34px; \n"
+"                     font-size: 15px; \n"
 "                     font-weight: bold; \n"
 "                     \n"
 "                     background-color: transparent;\n"
@@ -3468,14 +3515,14 @@ public:
 "border-radius:0;\n"
 "\n"
 ""));
-        TitleM = new QLineEdit(addchannel);
+        TitleM = new QLineEdit(formchannel);
         TitleM->setObjectName(QStringLiteral("TitleM"));
-        TitleM->setGeometry(QRect(950, 210, 591, 61));
+        TitleM->setGeometry(QRect(1100, 240, 391, 31));
         TitleM->setStyleSheet(QLatin1String("\n"
 " font-family: Ms Shell Dlg;\n"
 "color:black;\n"
 "\n"
-"                     font-size: 30px; \n"
+"                     font-size: 15px; \n"
 "                     font-weight: bold; \n"
 "                     \n"
 "                     background-color: transparent;\n"
@@ -3485,17 +3532,10 @@ public:
 "\n"
 "border-radius:none;\n"
 ""));
-        label_13M = new QLabel(addchannel);
-        label_13M->setObjectName(QStringLiteral("label_13M"));
-        label_13M->setGeometry(QRect(820, 140, 1081, 921));
-        label_13M->setStyleSheet(QLatin1String("  border: 10px solid white;\n"
-"border-radius:50px;\n"
-"border-color:white;\n"
-"background-color:white;"));
-        cancelButtonM = new QPushButton(addchannel);
-        cancelButtonM->setObjectName(QStringLiteral("cancelButtonM"));
-        cancelButtonM->setGeometry(QRect(960, 940, 251, 81));
-        cancelButtonM->setStyleSheet(QLatin1String("#cancelButtonM{\n"
+        updatedButtonM = new QPushButton(formchannel);
+        updatedButtonM->setObjectName(QStringLiteral("updatedButtonM"));
+        updatedButtonM->setGeometry(QRect(1370, 760, 221, 71));
+        updatedButtonM->setStyleSheet(QLatin1String("#updatedButtonM{\n"
 "    font-family: \"Ms Shell Dlg\";\n"
 "    font-size: 35px; \n"
 "    font-weight: bold; \n"
@@ -3505,89 +3545,49 @@ public:
 "    border-radius: 20px;\n"
 "}\n"
 "\n"
-"#cancelButtonM:hover {\n"
+"#updatedButtonM:hover {\n"
 "    background-color: #03224c ;\n"
 "}\n"
 ""));
-        labelM = new QLabel(addchannel);
-        labelM->setObjectName(QStringLiteral("labelM"));
-        labelM->setGeometry(QRect(1560, 420, 331, 301));
-        labelM->setStyleSheet(QLatin1String("\n"
-"                     font-size: 35px; \n"
-"                     font-weight: bold; \n"
-"                    \n"
-"                     background-color: transparent;\n"
-"                     color: black;\n"
-"                     border: 1px solid black;\n"
-"border-radius:20px;\n"
-"\n"
-""));
-        imageButtonM = new QPushButton(addchannel);
-        imageButtonM->setObjectName(QStringLiteral("imageButtonM"));
-        imageButtonM->setGeometry(QRect(1560, 420, 331, 301));
-        imageButtonM->setStyleSheet(QLatin1String("\n"
-"                     font-size: 25px; \n"
-"                     font-weight: bold; \n"
-"                    \n"
-"                     background-color: transparent;\n"
-"                     color: black;\n"
-"                     border: 1px solid black;\n"
-"border-radius:20px;\n"
-"font-family: \"Ms Shell Dlg\";\n"
-"    \n"
-""));
-        stackedWidget->addWidget(addchannel);
+        label_13M = new QLabel(formchannel);
+        label_13M->setObjectName(QStringLiteral("label_13M"));
+        label_13M->setGeometry(QRect(1010, 140, 611, 781));
+        label_13M->setStyleSheet(QLatin1String("  border: 10px solid white;\n"
+"border-radius:50px;\n"
+"border-color:white;\n"
+"background-color:white;"));
+        stackedWidget->addWidget(formchannel);
         label_13M->raise();
         formM->raise();
+        addChannelM->raise();
         IDM->raise();
         ProducerM->raise();
+        labelM->raise();
+        imageButtonM->raise();
         radioButton_2M->raise();
         addButtonM->raise();
         radioButtonM->raise();
         textEditM->raise();
         TitleM->raise();
+        updatedButtonM->raise();
         textEdit_5M->raise();
-        cancelButtonM->raise();
-        labelM->raise();
-        imageButtonM->raise();
         listechannel = new QWidget();
         listechannel->setObjectName(QStringLiteral("listechannel"));
         tableViewM = new QTableView(listechannel);
         tableViewM->setObjectName(QStringLiteral("tableViewM"));
-        tableViewM->setGeometry(QRect(150, 239, 1761, 841));
+        tableViewM->setGeometry(QRect(150, 320, 1700, 700));
         tableViewM->setMinimumSize(QSize(1700, 700));
-        tableViewM->setStyleSheet(QLatin1String("/*QTableView::item\n"
+        tableViewM->setStyleSheet(QLatin1String("QTableView::item\n"
 "{\n"
 "        background-color:rgba(49,28,71,100);\n"
 "     border : 2px solid white ;\n"
-"        font-size : 30px;\n"
+"        font-size : 15px;\n"
 "        min-width : 260;\n"
 "        min-height : 260;\n"
 "        max-width : 280;\n"
 "        max-height : 280;\n"
 "	\n"
-"	\n"
-"}*/\n"
-"QTableView#tableViewM{\n"
-"	background-color: rgba(200, 200, 200,120);\n"
-"border:2px solid rgba(255,255,255,150);\n"
 "}\n"
-"QTableView#tableViewM::item{\n"
-"		 background-color:rgba(49,28,71,100);\n"
-"        border : 2px solid white ;\n"
-"        font-size : 15px;\n"
-"        min-width : 279px;\n"
-"        min-height : 279px;\n"
-"        max-width : 400;\n"
-"        max-height : 400;\n"
-"}\n"
-"QTableView QScrollBar:vertical {\n"
-"				border: 2px solid grey;\n"
-"             background: #32CC99;\n"
-"             height: 15px;\n"
-"             margin: 0px 20px 0 20px;\n"
-"             }\n"
-"\n"
 ""));
         tableViewM->horizontalHeader()->setCascadingSectionResizes(true);
         tableViewM->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
@@ -3595,168 +3595,28 @@ public:
         tableViewM->verticalHeader()->setCascadingSectionResizes(true);
         tableViewM->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableViewM->verticalHeader()->setStretchLastSection(true);
-        exportButtonM = new QPushButton(listechannel);
-        exportButtonM->setObjectName(QStringLiteral("exportButtonM"));
-        exportButtonM->setGeometry(QRect(1650, 130, 251, 81));
-        exportButtonM->setToolTipDuration(1);
-        exportButtonM->setAutoFillBackground(false);
-        exportButtonM->setStyleSheet(QLatin1String("QPushButton#exportButtonM{\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"border-radius:20px;\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
-"}\n"
-"QPushButton#exportButtonM:hover{\n"
-"border-radius:20px;\n"
-"color:rgb(255,255,255);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"\n"
-""));
-        exportButtonM->setIconSize(QSize(40, 40));
-        exportButtonM->setFlat(false);
-        loM = new QPushButton(listechannel);
-        loM->setObjectName(QStringLiteral("loM"));
-        loM->setGeometry(QRect(1380, 130, 251, 81));
-        loM->setToolTipDuration(1);
-        loM->setAutoFillBackground(false);
-        loM->setStyleSheet(QLatin1String("QPushButton#loM{\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"border-radius:20px;\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
-"}\n"
-"QPushButton#loM:hover{\n"
-"border-radius:20px;\n"
-"color:rgb(255,255,255);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"\n"
-""));
-        loM->setIconSize(QSize(40, 40));
-        loM->setFlat(false);
-        add = new QPushButton(listechannel);
-        add->setObjectName(QStringLiteral("add"));
-        add->setGeometry(QRect(1390, 140, 61, 61));
-        add->setToolTipDuration(1);
-        add->setAutoFillBackground(false);
-        add->setStyleSheet(QLatin1String("QPushButton#add{\n"
-"border-radius:30px;\n"
-"	font: 24pt \"dripicons-v2\";\n"
-"	background-color: rgb(32, 91, 200);\n"
-"}"));
-        add->setIconSize(QSize(40, 40));
-        add->setFlat(false);
-        exportM = new QPushButton(listechannel);
-        exportM->setObjectName(QStringLiteral("exportM"));
-        exportM->setGeometry(QRect(1660, 140, 61, 61));
-        exportM->setToolTipDuration(1);
-        exportM->setAutoFillBackground(false);
-        exportM->setStyleSheet(QLatin1String("QPushButton#exportM{\n"
-"border-radius:30px;\n"
-"	font: 24pt \"dripicons-v2\";\n"
-"	background-color: rgb(32, 91, 200);\n"
-"}"));
-        exportM->setIconSize(QSize(40, 40));
-        exportM->setFlat(false);
         comboBoxM = new QComboBox(listechannel);
         comboBoxM->setObjectName(QStringLiteral("comboBoxM"));
-        comboBoxM->setGeometry(QRect(1110, 160, 221, 31));
-        comboBoxM->setStyleSheet(QLatin1String("/*border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:25px;\n"
-"padding-top:5px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 14pt \"MS Shell Dlg 2\";\n"
-" font-size: 34px; */\n"
-"#comboBoxM\n"
-"{\n"
-"border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:10px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"#comboBoxM::drop-down{\n"
-"border:0px;\n"
-"}\n"
-"#comboBoxM::down-arrow{\n"
-"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
-"width:30px;\n"
-"height:30px;\n"
-"margin-right:18px;\n"
-"}\n"
-"#comboBoxM QListView{\n"
-"border:1 px solid #ced4da;\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"padding:5px;\n"
-"outline:0px;\n"
-"border-radius:20px;\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"}\n"
-"#comboBoxM QListView::item{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-""
-                        "background-color:rgba(150,150,150,150);\n"
-"border-radius:12px;\n"
-"}\n"
-"#comboBoxM QListView::item:hover{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color:rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"border-radius:12px;\n"
-"}\n"
-"\n"
-""));
-        label_37 = new QLabel(listechannel);
-        label_37->setObjectName(QStringLiteral("label_37"));
-        label_37->setGeometry(QRect(180, 110, 241, 101));
-        label_37->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
-"font: 42pt \"MS Shell Dlg 2\";\n"
-"background-color:transparent;"));
-        label_38 = new QLabel(listechannel);
-        label_38->setObjectName(QStringLiteral("label_38"));
-        label_38->setGeometry(QRect(110, 110, 71, 101));
-        label_38->setStyleSheet(QLatin1String("font: 42pt \"MS Shell Dlg 2\";\n"
-"background-color:transparent;\n"
-"color: rgba(35,125,236,255);"));
-        label_40 = new QLabel(listechannel);
-        label_40->setObjectName(QStringLiteral("label_40"));
-        label_40->setGeometry(QRect(280, 190, 81, 31));
-        label_40->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"background-color:transparent;"));
-        searchLineEditM = new QLineEdit(listechannel);
-        searchLineEditM->setObjectName(QStringLiteral("searchLineEditM"));
-        searchLineEditM->setGeometry(QRect(590, 150, 361, 41));
-        searchLineEditM->setStyleSheet(QLatin1String("border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:25px;\n"
-"padding-top:5px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 14pt \"MS Shell Dlg 2\";"));
-        ggM = new QPushButton(listechannel);
-        ggM->setObjectName(QStringLiteral("ggM"));
-        ggM->setGeometry(QRect(910, 150, 31, 41));
-        ggM->setStyleSheet(QLatin1String("QPushButton#ggM\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,150);\n"
-"}\n"
-"QPushButton#ggM:hover\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,255);\n"
-"}"));
+        comboBoxM->setGeometry(QRect(1540, 240, 221, 31));
+        comboBoxM->setStyleSheet(QLatin1String("color : black;\n"
+"background : white;"));
+        exportButtonM = new QPushButton(listechannel);
+        exportButtonM->setObjectName(QStringLiteral("exportButtonM"));
+        exportButtonM->setGeometry(QRect(1780, 230, 71, 51));
+        exportButtonM->setStyleSheet(QLatin1String("font-size: 35px; \n"
+"    font-weight: bold; \n"
+"  border-radius: 10;\n"
+" font-family:DRIPICONS-V2;\n"
+"background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 145, 255), stop:1 rgba(16, 30, 41, 200));\n"
+"color:white"));
+        QIcon icon2;
+        iconThemeName = QStringLiteral("test");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon2 = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon2.addFile(QStringLiteral("../../ProjetCpp-Amira/2a22-smart-tv-dream-team/test/test"), QSize(), QIcon::Normal, QIcon::Off);
+        }
+        exportButtonM->setIcon(icon2);
         stackedWidget->addWidget(listechannel);
         listemovie = new QWidget();
         listemovie->setObjectName(QStringLiteral("listemovie"));
@@ -3939,7 +3799,7 @@ public:
 
         groupBoxmsms = new QGroupBox(listemovie);
         groupBoxmsms->setObjectName(QStringLiteral("groupBoxmsms"));
-        groupBoxmsms->setGeometry(QRect(140, 100, 1674, 160));
+        groupBoxmsms->setGeometry(QRect(140, 100, 1034, 160));
         groupBoxmsms->setMinimumSize(QSize(1000, 160));
         groupBoxmsms->setMaximumSize(QSize(2000, 1000));
         horizontalLayout_3 = new QHBoxLayout(groupBoxmsms);
@@ -4192,7 +4052,7 @@ public:
 ""));
         groupBox_6ms = new QGroupBox(ajoutmovie);
         groupBox_6ms->setObjectName(QStringLiteral("groupBox_6ms"));
-        groupBox_6ms->setGeometry(QRect(360, 110, 1571, 961));
+        groupBox_6ms->setGeometry(QRect(360, 110, 828, 720));
         groupBox_6ms->setAlignment(Qt::AlignCenter);
         horizontalLayout_23 = new QHBoxLayout(groupBox_6ms);
         horizontalLayout_23->setObjectName(QStringLiteral("horizontalLayout_23"));
@@ -4396,7 +4256,7 @@ public:
 
         groupBox_8ms = new QGroupBox(ajoutmovie);
         groupBox_8ms->setObjectName(QStringLiteral("groupBox_8ms"));
-        groupBox_8ms->setGeometry(QRect(160, 110, 171, 961));
+        groupBox_8ms->setGeometry(QRect(160, 110, 170, 86));
         groupBox_8ms->setLayoutDirection(Qt::LeftToRight);
         groupBox_8ms->setStyleSheet(QLatin1String("QGroupBox\n"
 "{\n"
@@ -4789,279 +4649,12 @@ public:
         verticalLayout_8->addWidget(confirmupms);
 
         stackedWidget->addWidget(updatemovie);
-        updateChannel = new QWidget();
-        updateChannel->setObjectName(QStringLiteral("updateChannel"));
-        formM_2 = new QLabel(updateChannel);
-        formM_2->setObjectName(QStringLiteral("formM_2"));
-        formM_2->setGeometry(QRect(120, 100, 771, 931));
-        formM_2->setContextMenuPolicy(Qt::NoContextMenu);
-        formM_2->setStyleSheet(QLatin1String("background:url(\"form.png\");\n"
-"\n"
-"border-radius:50px;\n"
-"border-color:white;\n"
-"background-color:white; "));
-        formM_2->setScaledContents(true);
-        label_13M_2 = new QLabel(updateChannel);
-        label_13M_2->setObjectName(QStringLiteral("label_13M_2"));
-        label_13M_2->setGeometry(QRect(820, 110, 1081, 921));
-        label_13M_2->setStyleSheet(QLatin1String("  border: 10px solid white;\n"
-"border-radius:50px;\n"
-"border-color:white;\n"
-"background-color:white;"));
-        updatedButtonM = new QPushButton(updateChannel);
-        updatedButtonM->setObjectName(QStringLiteral("updatedButtonM"));
-        updatedButtonM->setGeometry(QRect(1240, 880, 251, 81));
-        updatedButtonM->setStyleSheet(QLatin1String("#updatedButtonM{\n"
-"    font-family: \"Ms Shell Dlg\";\n"
-"    font-size: 35px; \n"
-"    font-weight: bold; \n"
-"    background-color: black;\n"
-"    color: white;\n"
-"    border: 1px solid black;\n"
-"    border-radius: 20px;\n"
-"}\n"
-"\n"
-"#updatedButtonM:hover {\n"
-"    background-color: #03224c ;\n"
-"}\n"
-""));
-        cancelButtonM_2 = new QPushButton(updateChannel);
-        cancelButtonM_2->setObjectName(QStringLiteral("cancelButtonM_2"));
-        cancelButtonM_2->setGeometry(QRect(900, 880, 251, 81));
-        cancelButtonM_2->setStyleSheet(QLatin1String("#cancelButtonM_2{\n"
-"    font-family: \"Ms Shell Dlg\";\n"
-"    font-size: 35px; \n"
-"    font-weight: bold; \n"
-"    background-color: black;\n"
-"    color: white;\n"
-"    border: 1px solid black;\n"
-"    border-radius: 20px;\n"
-"}\n"
-"\n"
-"#cancelButtonM_2:hover {\n"
-"    background-color: #03224c ;\n"
-"}\n"
-""));
-        textEditM_2 = new QTextEdit(updateChannel);
-        textEditM_2->setObjectName(QStringLiteral("textEditM_2"));
-        textEditM_2->setGeometry(QRect(890, 310, 591, 431));
-        textEditM_2->setStyleSheet(QLatin1String("\n"
-" font-family: Ms Shell Dlg;\n"
-"color:black;\n"
-"\n"
-"                     font-size: 34px; \n"
-"                     font-weight: bold; \n"
-"                     \n"
-"                     background-color: transparent;\n"
-"                     color: black;\n"
-"                     border: 1px solid black;\n"
-"border-radius:0;\n"
-"\n"
-""));
-        TitleM_2 = new QLineEdit(updateChannel);
-        TitleM_2->setObjectName(QStringLiteral("TitleM_2"));
-        TitleM_2->setGeometry(QRect(890, 150, 591, 61));
-        TitleM_2->setStyleSheet(QLatin1String("\n"
-" font-family: Ms Shell Dlg;\n"
-"color:black;\n"
-"\n"
-"                     font-size: 30px; \n"
-"                     font-weight: bold; \n"
-"                     \n"
-"                     background-color: transparent;\n"
-"                     \n"
-"                     border: 1px solid black;\n"
-"border-color:black;\n"
-"\n"
-"border-radius:none;\n"
-""));
-        radioButton_2M_2 = new QRadioButton(updateChannel);
-        radioButton_2M_2->setObjectName(QStringLiteral("radioButton_2M_2"));
-        radioButton_2M_2->setGeometry(QRect(1170, 760, 201, 71));
-        radioButton_2M_2->setStyleSheet(QLatin1String(" background-color: transparent;\n"
-"    border: none;\n"
-"\n"
-" font-family: Ms Shell Dlg;\n"
-"color:black;\n"
-"font-size: 34px; "));
-        ProducerM_2 = new QLineEdit(updateChannel);
-        ProducerM_2->setObjectName(QStringLiteral("ProducerM_2"));
-        ProducerM_2->setGeometry(QRect(890, 230, 591, 61));
-        ProducerM_2->setStyleSheet(QLatin1String("\n"
-" font-family: Ms Shell Dlg;\n"
-"color:black;\n"
-"\n"
-"                     font-size: 30px; \n"
-"                     font-weight: bold; \n"
-"                     \n"
-"                     background-color: transparent;\n"
-"                     color: black;\n"
-"                     border: 1px solid black;\n"
-"border-radius:none;\n"
-""));
-        radioButtonM_2 = new QRadioButton(updateChannel);
-        radioButtonM_2->setObjectName(QStringLiteral("radioButtonM_2"));
-        radioButtonM_2->setGeometry(QRect(1000, 760, 201, 71));
-        radioButtonM_2->setStyleSheet(QLatin1String(" background-color: transparent;\n"
-"    border: none;\n"
-"\n"
-" font-family: Ms Shell Dlg;\n"
-"color:black;\n"
-"font-size: 34px; \n"
-"                    "));
-        IDM_2 = new QLineEdit(updateChannel);
-        IDM_2->setObjectName(QStringLiteral("IDM_2"));
-        IDM_2->setGeometry(QRect(1120, 160, 0, 0));
-        textEdit_5M_2 = new QTextEdit(updateChannel);
-        textEdit_5M_2->setObjectName(QStringLiteral("textEdit_5M_2"));
-        textEdit_5M_2->setGeometry(QRect(290, 300, 491, 441));
-        textEdit_5M_2->setStyleSheet(QLatin1String(" background-color: transparent;\n"
-"    border: none;\n"
-"   font-family: CONSOLA;\n"
-"font-size:50px\n"
-" \n"
-"\n"
-""));
-        labelM_2 = new QLabel(updateChannel);
-        labelM_2->setObjectName(QStringLiteral("labelM_2"));
-        labelM_2->setGeometry(QRect(1510, 400, 331, 301));
-        labelM_2->setStyleSheet(QLatin1String("\n"
-"                     font-size: 35px; \n"
-"                     font-weight: bold; \n"
-"                    \n"
-"                     background-color: transparent;\n"
-"                     color: black;\n"
-"                     border: 1px solid black;\n"
-"border-radius:20px;\n"
-"\n"
-""));
-        imageButtonM_2 = new QPushButton(updateChannel);
-        imageButtonM_2->setObjectName(QStringLiteral("imageButtonM_2"));
-        imageButtonM_2->setGeometry(QRect(1510, 400, 331, 301));
-        imageButtonM_2->setStyleSheet(QLatin1String("\n"
-"                     font-size: 25px; \n"
-"                     font-weight: bold; \n"
-"                    \n"
-"                     background-color: transparent;\n"
-"                     color: black;\n"
-"                     border: 1px solid black;\n"
-"border-radius:20px;\n"
-"font-family: \"Ms Shell Dlg\";\n"
-"    \n"
-""));
-        stackedWidget->addWidget(updateChannel);
-        Radio = new QWidget();
-        Radio->setObjectName(QStringLiteral("Radio"));
-        statisticsM_2 = new QPushButton(Radio);
-        statisticsM_2->setObjectName(QStringLiteral("statisticsM_2"));
-        statisticsM_2->setGeometry(QRect(1790, 70, 151, 81));
-        statisticsM_2->setStyleSheet(QLatin1String("    #statisticsM_2{color: white;\n"
-"    font-family: Ms Shell Dlg;\n"
-"    font-size: 20px; \n"
-" \n"
-"    /*text-transform: uppercase; /* Transformation du texte en majuscules */\n"
-"	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;}\n"
-"#statisticsM_2:hover {\n"
-"   text-decoration: underline;\n"
-"}\n"
-"\n"
-""));
-        statisticsM_2->setIcon(icon1);
-        buttonMR3 = new QPushButton(Radio);
-        buttonMR3->setObjectName(QStringLiteral("buttonMR3"));
-        buttonMR3->setGeometry(QRect(1140, 600, 341, 281));
-        buttonMR2 = new QPushButton(Radio);
-        buttonMR2->setObjectName(QStringLiteral("buttonMR2"));
-        buttonMR2->setGeometry(QRect(670, 600, 341, 281));
-        label_16M_2 = new QLabel(Radio);
-        label_16M_2->setObjectName(QStringLiteral("label_16M_2"));
-        label_16M_2->setGeometry(QRect(110, 560, 171, 51));
-        label_16M_2->setStyleSheet(QLatin1String("    color: white;\n"
-"    font-family: Ms Shell Dlg;\n"
-"    font-size: 20px; \n"
-" \n"
-"    /*text-transform: uppercase; /* Transformation du texte en majuscules */\n"
-"	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;\n"
-""));
-        tvM_2 = new QPushButton(Radio);
-        tvM_2->setObjectName(QStringLiteral("tvM_2"));
-        tvM_2->setGeometry(QRect(830, 90, 241, 51));
-        tvM_2->setStyleSheet(QLatin1String("  #tvM_2{color: white;\n"
-"    font-family: Ms Shell Dlg;\n"
-"    font-size: 20px; \n"
-" \n"
-"\n"
-"	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;}\n"
-"#tvM_2:hover {\n"
-"   text-decoration: underline;\n"
-"}"));
-        label_5M_2 = new QLabel(Radio);
-        label_5M_2->setObjectName(QStringLiteral("label_5M_2"));
-        label_5M_2->setGeometry(QRect(100, 180, 1931, 371));
-        label_5M_2->setStyleSheet(QLatin1String("background:url(../images/vwatch.png);\n"
-"border-radius:20;"));
-        label_5M_2->setPixmap(QPixmap(QString::fromUtf8("vewatch.png")));
-        label_5M_2->setScaledContents(false);
-        label_5M_2->setWordWrap(false);
-        radioM_2 = new QPushButton(Radio);
-        radioM_2->setObjectName(QStringLiteral("radioM_2"));
-        radioM_2->setGeometry(QRect(1040, 90, 181, 51));
-        radioM_2->setStyleSheet(QLatin1String("\n"
-"   color: blue;\n"
-"    font-family: Ms Shell Dlg;\n"
-"    font-size: 20px; \n"
-" \n"
-"    /*text-transform: uppercase; /* Transformation du texte en majuscules */\n"
-"	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;"));
-        textEdit_2M_2 = new QTextEdit(Radio);
-        textEdit_2M_2->setObjectName(QStringLiteral("textEdit_2M_2"));
-        textEdit_2M_2->setGeometry(QRect(240, 220, 411, 211));
-        textEdit_2M_2->setStyleSheet(QLatin1String("background:transparent;\n"
-"color:white;\n"
-"border:transparent;"));
-        listM_2 = new QPushButton(Radio);
-        listM_2->setObjectName(QStringLiteral("listM_2"));
-        listM_2->setGeometry(QRect(1690, 70, 151, 81));
-        listM_2->setStyleSheet(QLatin1String("    #listM_2{color: white;\n"
-"    font-family: Ms Shell Dlg;\n"
-"    font-size: 20px; \n"
-" \n"
-"    /*text-transform: uppercase; /* Transformation du texte en majuscules */\n"
-"	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;}\n"
-"#listM_2:hover {\n"
-"   text-decoration: underline;\n"
-"}\n"
-"\n"
-""));
-        listM_2->setIcon(icon1);
-        textEditDescriptionM_2 = new QTextEdit(Radio);
-        textEditDescriptionM_2->setObjectName(QStringLiteral("textEditDescriptionM_2"));
-        textEditDescriptionM_2->setGeometry(QRect(350, 830, 961, 341));
-        textEditDescriptionM_2->setStyleSheet(QStringLiteral("background-color:white;"));
-        buttonMR1 = new QPushButton(Radio);
-        buttonMR1->setObjectName(QStringLiteral("buttonMR1"));
-        buttonMR1->setGeometry(QRect(170, 620, 341, 281));
-        buttonMR1->setStyleSheet(QStringLiteral("background-color:white;"));
-        stackedWidget->addWidget(Radio);
-        statistique = new QWidget();
-        statistique->setObjectName(QStringLiteral("statistique"));
-        statM = new QFrame(statistique);
-        statM->setObjectName(QStringLiteral("statM"));
-        statM->setGeometry(QRect(1190, 140, 711, 441));
-        statM->setStyleSheet(QStringLiteral("background-color: white;"));
-        statM->setFrameShape(QFrame::StyledPanel);
-        statM->setFrameShadow(QFrame::Raised);
-        stackedWidget->addWidget(statistique);
+        page = new QWidget();
+        page->setObjectName(QStringLiteral("page"));
+        StatEmploye = new QLabel(page);
+        StatEmploye->setObjectName(QStringLiteral("StatEmploye"));
+        StatEmploye->setGeometry(QRect(140, 110, 800, 600));
+        stackedWidget->addWidget(page);
         stackedWidget->raise();
         MenuBar->raise();
         searchBar->raise();
@@ -5078,7 +4671,6 @@ public:
     {
         Dialog->setWindowTitle(QString());
         MenuBar->setTitle(QString());
-        label_9->setText(QApplication::translate("Dialog", "\356\200\202", Q_NULLPTR));
         label_2->setText(QString());
         hihi_5->setText(QApplication::translate("Dialog", "\356\201\230", Q_NULLPTR));
         label_12->setText(QApplication::translate("Dialog", "~", Q_NULLPTR));
@@ -5088,7 +4680,7 @@ public:
         hihi_15->setText(QApplication::translate("Dialog", "\356\201\242", Q_NULLPTR));
         gg->setText(QApplication::translate("Dialog", "\356\200\266", Q_NULLPTR));
         hihi_6->setText(QApplication::translate("Dialog", "\356\200\206", Q_NULLPTR));
-        labelCM1->setText(QApplication::translate("Dialog", "TextLabel", Q_NULLPTR));
+        hihi_7->setText(QApplication::translate("Dialog", "\356\200\202", Q_NULLPTR));
         searchBar->setTitle(QString());
         label_15->setText(QApplication::translate("Dialog", "stats", Q_NULLPTR));
         comboBox->clear();
@@ -5139,6 +4731,17 @@ public:
         hihi_8->setText(QApplication::translate("Dialog", "            Generate PDF", Q_NULLPTR));
         hihi_10->setText(QApplication::translate("Dialog", "            Send Emails", Q_NULLPTR));
         label_39->setText(QString());
+        comboBox_2->clear();
+        comboBox_2->insertItems(0, QStringList()
+         << QApplication::translate("Dialog", "Filter By...", Q_NULLPTR)
+         << QApplication::translate("Dialog", "First Name from A to Z", Q_NULLPTR)
+         << QApplication::translate("Dialog", "First Name from Z to A", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Last Name from A to Z", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Last Name from Z to A", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Id Descendant", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Id Ascendant", Q_NULLPTR)
+        );
+        comboBox_2->setCurrentText(QApplication::translate("Dialog", "Filter By...", Q_NULLPTR));
         hihi_37->setText(QApplication::translate("Dialog", "            Modify Transactions", Q_NULLPTR));
         hihi_39->setText(QApplication::translate("Dialog", "*", Q_NULLPTR));
         hihi_40->setText(QApplication::translate("Dialog", ";", Q_NULLPTR));
@@ -5167,6 +4770,8 @@ public:
         radioButton_9->setText(QApplication::translate("Dialog", "Media Manager", Q_NULLPTR));
         radioButton_10->setText(QApplication::translate("Dialog", "HR", Q_NULLPTR));
         label_omek->setText(QApplication::translate("Dialog", "DROP PHOTO HERE", Q_NULLPTR));
+        label_47A_5->setText(QApplication::translate("Dialog", "Telephone   :", Q_NULLPTR));
+        label_47A_8->setText(QApplication::translate("Dialog", "Email          :", Q_NULLPTR));
         label_46A->setText(QString());
         label_44A->setText(QApplication::translate("Dialog", "Register A New User ", Q_NULLPTR));
         label_45A->setText(QApplication::translate("Dialog", "Or Update Someone's Information", Q_NULLPTR));
@@ -5299,30 +4904,24 @@ public:
         label_41A_5->setText(QApplication::translate("Dialog", "Input Studio Number :", Q_NULLPTR));
         label_47A_4->setText(QApplication::translate("Dialog", "Input Studio State :", Q_NULLPTR));
         label_48A_5->setText(QApplication::translate("Dialog", "Input Studio Capacity :", Q_NULLPTR));
-        checkBox_3A->setText(QApplication::translate("Dialog", "Full", Q_NULLPTR));
         pushButton_14A_8->setText(QApplication::translate("Dialog", "Save", Q_NULLPTR));
-        checkBox_3A_2->setText(QApplication::translate("Dialog", "Reserved", Q_NULLPTR));
-        checkBox_3A_3->setText(QApplication::translate("Dialog", "Empty", Q_NULLPTR));
+        label_48A_6->setText(QApplication::translate("Dialog", "Input Date :", Q_NULLPTR));
         label_46A_5->setText(QString());
         label_16M->setText(QApplication::translate("Dialog", "Brands:", Q_NULLPTR));
         tvM->setText(QApplication::translate("Dialog", " Channels TV", Q_NULLPTR));
         listM->setText(QApplication::translate("Dialog", "list", Q_NULLPTR));
-        label_5M->setText(QString());
-        textEdit_2M->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;\">We see hope</span></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;\">         everywhere</span></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt;\">Welcome to VWATCH GROUP - th"
-                        "e largest and leadind media company in the north of Africa.</span></p></body></html>", Q_NULLPTR));
+        label1->setText(QString());
+        label_3M->setText(QString());
+        button2->setText(QString());
         radioM->setText(QApplication::translate("Dialog", " Radio", Q_NULLPTR));
-        buttonM1->setText(QString());
+        returnButtonM->setText(QApplication::translate("Dialog", "9", Q_NULLPTR));
+        loM->setText(QApplication::translate("Dialog", "Add", Q_NULLPTR));
+        button1->setText(QString());
         statisticsM->setText(QApplication::translate("Dialog", "statistics", Q_NULLPTR));
-        buttonM2->setText(QString());
-        buttonM3->setText(QString());
+        addChannelM->setText(QApplication::translate("Dialog", "Media", Q_NULLPTR));
         ProducerM->setText(QString());
         ProducerM->setPlaceholderText(QApplication::translate("Dialog", "Producer", Q_NULLPTR));
+        labelM->setText(QApplication::translate("Dialog", "TextLabel", Q_NULLPTR));
         textEdit_5M->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -5330,42 +4929,30 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;\">CREAT YOUR </span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;\"> </span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;\""
-                        ">       OWN MEDIA</span></p></body></html>", Q_NULLPTR));
+                        ">       OWN CHANNEL</span></p></body></html>", Q_NULLPTR));
+        imageButtonM->setText(QApplication::translate("Dialog", ":", Q_NULLPTR));
         radioButton_2M->setText(QApplication::translate("Dialog", "Channel", Q_NULLPTR));
-        addButtonM->setText(QApplication::translate("Dialog", "Add", Q_NULLPTR));
+        addButtonM->setText(QApplication::translate("Dialog", "Save", Q_NULLPTR));
         radioButtonM->setText(QApplication::translate("Dialog", "Radio", Q_NULLPTR));
         formM->setText(QString());
         textEditM->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Ms Shell Dlg'; font-size:34px; font-weight:600; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Ms Shell Dlg'; font-size:15px; font-weight:600; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400;\"><br /></p></body></html>", Q_NULLPTR));
         textEditM->setPlaceholderText(QApplication::translate("Dialog", "Description", Q_NULLPTR));
         TitleM->setText(QString());
         TitleM->setPlaceholderText(QApplication::translate("Dialog", "Title", Q_NULLPTR));
+        updatedButtonM->setText(QApplication::translate("Dialog", "Update", Q_NULLPTR));
         label_13M->setText(QString());
-        cancelButtonM->setText(QApplication::translate("Dialog", "Cancel", Q_NULLPTR));
-        labelM->setText(QString());
-        imageButtonM->setText(QApplication::translate("Dialog", "DROP PHOTO HERE", Q_NULLPTR));
-        exportButtonM->setText(QApplication::translate("Dialog", "            Generate PDF", Q_NULLPTR));
-        loM->setText(QApplication::translate("Dialog", "           Add Media", Q_NULLPTR));
-        add->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
-        exportM->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
         comboBoxM->clear();
         comboBoxM->insertItems(0, QStringList()
          << QString()
-         << QApplication::translate("Dialog", "A/z", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Z/A", Q_NULLPTR)
          << QApplication::translate("Dialog", "Channel", Q_NULLPTR)
          << QApplication::translate("Dialog", "Radio", Q_NULLPTR)
          << QApplication::translate("Dialog", "Date of creation", Q_NULLPTR)
         );
-        comboBoxM->setCurrentText(QString());
-        label_37->setText(QApplication::translate("Dialog", "WATCH", Q_NULLPTR));
-        label_38->setText(QApplication::translate("Dialog", "VE", Q_NULLPTR));
-        label_40->setText(QApplication::translate("Dialog", "Media", Q_NULLPTR));
-        searchLineEditM->setPlaceholderText(QApplication::translate("Dialog", "search", Q_NULLPTR));
-        ggM->setText(QApplication::translate("Dialog", "\356\201\201", Q_NULLPTR));
+        exportButtonM->setText(QApplication::translate("Dialog", "=", Q_NULLPTR));
         groupBox_7ms->setTitle(QString());
         groupBoxmsms->setTitle(QString());
         groupBox_13ms->setTitle(QString());
@@ -5425,49 +5012,7 @@ public:
         groupBox_23ms->setTitle(QString());
         returnupms->setText(QApplication::translate("Dialog", "return ", Q_NULLPTR));
         confirmupms->setText(QApplication::translate("Dialog", "update", Q_NULLPTR));
-        formM_2->setText(QString());
-        label_13M_2->setText(QString());
-        updatedButtonM->setText(QApplication::translate("Dialog", "Update", Q_NULLPTR));
-        cancelButtonM_2->setText(QApplication::translate("Dialog", "Cancel", Q_NULLPTR));
-        textEditM_2->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Ms Shell Dlg'; font-size:34px; font-weight:600; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400;\"><br /></p></body></html>", Q_NULLPTR));
-        textEditM_2->setPlaceholderText(QApplication::translate("Dialog", "Description", Q_NULLPTR));
-        TitleM_2->setText(QString());
-        TitleM_2->setPlaceholderText(QApplication::translate("Dialog", "Title", Q_NULLPTR));
-        radioButton_2M_2->setText(QApplication::translate("Dialog", "Channel", Q_NULLPTR));
-        ProducerM_2->setText(QString());
-        ProducerM_2->setPlaceholderText(QApplication::translate("Dialog", "Producer", Q_NULLPTR));
-        radioButtonM_2->setText(QApplication::translate("Dialog", "Radio", Q_NULLPTR));
-        textEdit_5M_2->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CONSOLA'; font-size:50px; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;\">CREAT YOUR </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;\"> </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:26pt; font-weight:600; color:#ffffff;\""
-                        ">       OWN MEDIA</span></p></body></html>", Q_NULLPTR));
-        labelM_2->setText(QString());
-        imageButtonM_2->setText(QApplication::translate("Dialog", "DROP PHOTO HERE", Q_NULLPTR));
-        statisticsM_2->setText(QApplication::translate("Dialog", "statistics", Q_NULLPTR));
-        buttonMR3->setText(QString());
-        buttonMR2->setText(QString());
-        label_16M_2->setText(QApplication::translate("Dialog", "Brands:", Q_NULLPTR));
-        tvM_2->setText(QApplication::translate("Dialog", " Channels TV", Q_NULLPTR));
-        label_5M_2->setText(QString());
-        radioM_2->setText(QApplication::translate("Dialog", " Radio", Q_NULLPTR));
-        textEdit_2M_2->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;\">We see hope</span></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;\">         everywhere</span></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt;\">Welcome to VWATCH GROUP - th"
-                        "e largest and leadind media company in the north of Africa.</span></p></body></html>", Q_NULLPTR));
-        listM_2->setText(QApplication::translate("Dialog", "list", Q_NULLPTR));
-        buttonMR1->setText(QString());
+        StatEmploye->setText(QString());
     } // retranslateUi
 
 };

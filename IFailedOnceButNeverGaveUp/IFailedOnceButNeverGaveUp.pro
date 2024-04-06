@@ -1,14 +1,14 @@
-QT       += core gui multimedia multimediawidgets
+QT       += core gui multimedia multimediawidgets sql \
+    quick \
+    charts
 QT       +=  sql  printsupport
-QT += core gui charts
-QT += charts
-QT += texttospeech
-
+QT += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+TARGET = smtp
+TEMPLATE = app
+QT += texttospeech
 CONFIG += c++11
 CONFIG += console
-
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -26,14 +26,16 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     media.cpp \
-    movie.cpp
+    movie.cpp \
+    smtp.cpp
 
 HEADERS += \
     dialog.h \
     employer.h \
     mainwindow.h \
     media.h \
-    movie.h
+    movie.h \
+    smtp.h
 
 FORMS += \
     dialog.ui \
@@ -46,5 +48,3 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-INCLUDEPATH += "C:\Qt\Qt5.9.9\qzxing-master\examples\QZXingLive\android\src\org\ftylitak"
-

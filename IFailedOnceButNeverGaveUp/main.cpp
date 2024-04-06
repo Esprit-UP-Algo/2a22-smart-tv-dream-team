@@ -1,36 +1,29 @@
-#include <QApplication>
-#include <QDebug>
-#include <QSqlDatabase>
+#include <QSqlQuery>
 #include "mainwindow.h"
-#include "dialog.h"
-
-#include <QTextToSpeech>
-
-
-
+#include <QApplication>
+#include<QMediaPlayer>
+#include"dialog.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-    db.setDatabaseName("Source_Projet2A");
-    db.setUserName("yahya");
-    db.setPassword("123");
-    if (!db.open()) {
-        qDebug() << "Error: Unable to open database";
-        return 1;
-    }
-
     MainWindow w;
     Dialog d;
-    QTextToSpeech *textToSpeech = new QTextToSpeech();
+    QSqlDatabase db ;
+    db = QSqlDatabase::addDatabase("QODBC");
+        db.setDatabaseName("Source_Projet2A"); //projet2a
+        db.setUserName("yahya"); //sora
+        db.setPassword("123");//oogabooga
+        db.open();
 
-        // Dire le texte souhaité
-        textToSpeech->say("Welcome Amira! Have a great working day");
-    d.displayChannelImages(); // Call the function here
-    d.displayRadioImages();
-    d.show();
-
+        if (db.isOpen())
+        {
+            qDebug("clear");
+        }
+        else
+        {
+            qDebug("errrrrror");
+        }
+    w.show();
     return a.exec();
 }
-

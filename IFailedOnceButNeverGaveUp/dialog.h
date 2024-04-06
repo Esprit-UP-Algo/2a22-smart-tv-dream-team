@@ -25,27 +25,8 @@
 #include "movie.h"
 #include <QPrinter>
 #include <QPainter>
-
-#include <QVBoxLayout>
-#include <QtCharts/QBarCategoryAxis>
-#include <QtCharts/QBarSet>
-#include <QtCharts/QBarSeries>
-#include <QtCharts/QChart>
-#include <QtCharts/QChartView>
-#include <QtCharts/QValueAxis>
-#include <string>
 #include <QTextToSpeech>
 #include <QAudioDeviceInfo>
-#include <iostream>
-using namespace std;
-#include "string.h"
-#include <QTimer>
-#include <QtWidgets/qmainwindow.h>
-
-#include "ui_dialog.h"
-
-
-
 namespace Ui {
 class Dialog;
 }
@@ -55,35 +36,17 @@ class Dialog : public QDialog
     Q_OBJECT
 
 public:
+    QString Role;
     explicit Dialog(QWidget *parent = nullptr);
     QByteArray byte;
     ~Dialog();
     QByteArray importImage();
+    void trait(QString Role);
+    void updateChartEmploye();
+    void statistiqueMedia();
     void displayChannelImages();
-    void displayRadioImages();void createPieChartM(const QMap<QString, int>& data);
-   //void onSpeechRecognized(QTextToSpeech::State state);
-    //QTextToSpeech *textToSpeech;
-    //void startVoiceInput();
-   // void speechStateChanged(QTextToSpeech::State state);
-    //speech
-        void onSpeechStateChanged(QTextToSpeech::State state);
+    void displayRadioImages();
 
-        void speak();
-              void stop();
-
-              void setRate(int);
-              void setPitch(int);
-              void setVolume(int volume);
-
-              void stateChanged(QTextToSpeech::State state);
-              void engineSelected(int index);
-              void languageSelected(int language);
-              void voiceSelected(int index);
-
-              void localeChanged(const QLocale &locale);
-
-              void addMediaItem();
-              void clearInputFields();
 private slots:
     void on_hihi_6_clicked();
 
@@ -137,7 +100,7 @@ private slots:
 
     void on_label_omek_clicked();
 
-    //void on_pushButton_4A_2_clicked();
+    void on_pushButton_4A_2_clicked();
 
     void on_pushButtonA_clicked();
 
@@ -154,7 +117,6 @@ private slots:
     void on_updatedButtonM_clicked();
 
     void on_exportButtonM_clicked();
-
 
     void on_pushButton_4_clicked();
 
@@ -184,42 +146,15 @@ private slots:
 
     void on_comboBoxms_2_currentTextChanged(const QString &arg1);
 
-    void on_cancelButtonM_clicked();
+    void on_hihi_8_clicked();
+
+    void on_gg_2_clicked();
+
+    void on_gg_5_clicked();
+
+    void on_hihi_7_clicked();
 
     void on_searchLineEditM_textChanged(const QString &arg1);
-
-    void on_cancelButtonM_2_clicked();
-
-    void generateStatisticsChart();
-    void on_buttonM_clicked();
-
-    void on_listM_2_clicked();
-
-    void on_pushButton_3_clicked();
-
-    void on_radioM_clicked();
-
-    void on_tvM_2_clicked();
-
-
-    void on_statisticsM_clicked();
-
-    void on_statisticsM_2_clicked();
-   // void onTextChanged(const QString &text);
-
-
-   string on_TitleM_textChanged();
-    void onTypingTimerTimeout();
-    void readText();
-   void on_TitleM_textChanged(const QString &arg1);
-    void startTimer();
-    void readTextProducer();
-    void on_ProducerM_textChanged(const QString &arg1);
-
-    void on_textEditM_textChanged();
-    void readTextDescrption();
-    void initializeTextToSpeech() ;
-    void startProducerTimer();
 
 private:
     Ui::Dialog *ui;
@@ -227,14 +162,10 @@ private:
     QString type ;
     QList<QPushButton*> buttonsList;
     QByteArray valImage;
-    QTextToSpeech *speechRecognizer;
-     QString textToSpeechText;
-
-     //QTextToSpeech *m_speech;
-     QVector<QVoice> m_voices;
-      QTextToSpeech *textToSpeech;
-      QTimer *typingTimer,*producerTimer;
-      QString lastText;
+    QVector<QVoice> m_voices;
+     QTextToSpeech *textToSpeech;
+     QTimer *typingTimer,*producerTimer;
+     QString lastText;
 };
 
 #endif // DIALOG_H

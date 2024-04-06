@@ -1,4 +1,5 @@
 #include "media.h"
+#include "dialog.h"
 #include <iostream>
 #include <QCoreApplication>
 #include <QApplication>
@@ -11,15 +12,6 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QObject>
-#include <QImage>
-#include <QByteArray>
-#include <QBuffer>
-#include <QMessageBox>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QDebug>
-//#include <QZXing>
-
 #include "qr.h"
 #include"qr.cpp"
 #include <QMessageBox>
@@ -142,18 +134,6 @@ model->setQuery("select * from EMPLOYEE order by "+critere+" "+mode+"");
 
     return model;
 }
-QSqlQueryModel *Media::afficherMedia()
-{
-    QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM Media");
-    if (model->lastError().isValid()) {
-        qDebug() << "Erreur SQL:" << model->lastError().text();
-        delete model;
-        return nullptr;
-    }
-    return model;
-}
-
 void Media::generateQRCode(QString id)
 {
     QSqlQuery query;
@@ -213,18 +193,3 @@ void Media::generateQRCode(QString id)
         QMessageBox::warning(nullptr, "Error", "Media with ID " + id + " not found in the database.");
     }
 }
-QMap<QString, int> Media::obtenirStatistique()
-{
-    QMap<QString, int> statistiques;
-
-    QSqlQuery query;
-    query.exec("SELECT TYPE, SUM(NBRVUE) AS nombre_vues FROM MEDIA GROUP BY TYPE");
-    while (query.next()) {
-        QString type = query.value("TYPE").toString();
-        int nombre_vues = query.value("nombre_vues").toInt();
-        statistiques[type] = nombre_vues;
-    }
-
-    return statistiques;
-}
-
