@@ -172,6 +172,7 @@ public:
     QTextEdit *textEdit_2;
     QPushButton *pushButton_2;
     QPushButton *pushButton_5;
+    QLineEdit *lineEdit;
     QWidget *page_7;
     QGroupBox *groupBox_2;
     QPushButton *pushButton_4;
@@ -1100,7 +1101,7 @@ public:
         page_6->setObjectName(QStringLiteral("page_6"));
         pushButton = new QPushButton(page_6);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(860, 880, 93, 28));
+        pushButton->setGeometry(QRect(860, 880, 93, 30));
         textEdit = new QTextEdit(page_6);
         textEdit->setObjectName(QStringLiteral("textEdit"));
         textEdit->setGeometry(QRect(180, 880, 661, 31));
@@ -1108,12 +1109,16 @@ public:
         textEdit_2->setObjectName(QStringLiteral("textEdit_2"));
         textEdit_2->setGeometry(QRect(180, 50, 721, 811));
         textEdit_2->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
+        textEdit_2->setReadOnly(true);
         pushButton_2 = new QPushButton(page_6);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(20, 20, 150, 30));
         pushButton_5 = new QPushButton(page_6);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(1110, 80, 150, 30));
+        lineEdit = new QLineEdit(page_6);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(1020, 500, 113, 22));
         stackedWidget->addWidget(page_6);
         page_7 = new QWidget();
         page_7->setObjectName(QStringLiteral("page_7"));
@@ -1142,8 +1147,8 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         groupBox_12ms->setTitle(QApplication::translate("MainWindow", "GroupBox", Q_NULLPTR));
-        chatterBUTT->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
+        chatterBUTT->setText(QApplication::translate("MainWindow", "chatter Box", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("MainWindow", "staistiques", Q_NULLPTR));
         groupBox_7ms->setTitle(QString());
         pushButtonms->setText(QApplication::translate("MainWindow", "search ", Q_NULLPTR));
         groupBoxmsms->setTitle(QString());
@@ -1260,11 +1265,12 @@ public:
         label_11ms->setText(QApplication::translate("MainWindow", "Title :", Q_NULLPTR));
         label_10ms->setText(QApplication::translate("MainWindow", "Descripton :", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "GroupBox", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
-        pushButton_5->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("MainWindow", "send", Q_NULLPTR));
+        textEdit->setPlaceholderText(QApplication::translate("MainWindow", "type your message", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_5->setText(QApplication::translate("MainWindow", "Print chats", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "GroupBox", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
+        pushButton_4->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
     } // retranslateUi
 
 };

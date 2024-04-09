@@ -203,7 +203,7 @@ color:white;
           </rect>
          </property>
          <property name="text">
-          <string>PushButton</string>
+          <string>chatter Box</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pushButton_3">
@@ -216,7 +216,7 @@ color:white;
           </rect>
          </property>
          <property name="text">
-          <string>PushButton</string>
+          <string>staistiques</string>
          </property>
         </widget>
        </widget>
@@ -2087,11 +2087,11 @@ color:white;
           <x>860</x>
           <y>880</y>
           <width>93</width>
-          <height>28</height>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>send</string>
         </property>
        </widget>
        <widget class="QTextEdit" name="textEdit">
@@ -2102,6 +2102,9 @@ color:white;
           <width>661</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>type your message</string>
         </property>
        </widget>
        <widget class="QTextEdit" name="textEdit_2">
@@ -2116,6 +2119,9 @@ color:white;
         <property name="sizeAdjustPolicy">
          <enum>QAbstractScrollArea::AdjustIgnored</enum>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
        </widget>
        <widget class="QPushButton" name="pushButton_2">
         <property name="geometry">
@@ -2127,7 +2133,7 @@ color:white;
          </rect>
         </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>Back</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_5">
@@ -2140,7 +2146,17 @@ color:white;
          </rect>
         </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>Print chats</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>1020</x>
+          <y>500</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
         </property>
        </widget>
       </widget>
@@ -2168,7 +2184,7 @@ color:white;
          </rect>
         </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>Back</string>
         </property>
        </widget>
       </widget>

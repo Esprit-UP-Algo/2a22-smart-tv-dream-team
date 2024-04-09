@@ -6,6 +6,9 @@
 #include <QMediaPlaylist>
 #include <QVideoWidget>
 #include <qstackedwidget.h>
+
+#include <QTcpSocket>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -18,11 +21,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QByteArray byte;
-    int timerId;
     QString lastup;
+    QTcpSocket *socket;
 
 private slots:
-    void timerEvent(QTimerEvent *event);
 
     void on_pushButton_2ms_clicked();
 
@@ -61,6 +63,9 @@ private slots:
     void on_pushButton_4_clicked();
 
     void on_pushButton_5_clicked();
+
+    void readyRead();
+    void connected();
 
 private:
     Ui::MainWindow *ui;

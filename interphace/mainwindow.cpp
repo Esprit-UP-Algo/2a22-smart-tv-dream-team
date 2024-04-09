@@ -30,10 +30,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_8ms->setValidator(new QIntValidator(0,99999999,this));
     ui->upepms->setValidator(new QIntValidator(0,9999999,this));
     ui->nbrvupms->setValidator(new QIntValidator(0,99999999,this));
-    timerId = startTimer(500);
+    //timerId = startTimer(500);
 
 
     ui->groupBox_2->setLayout(new QHBoxLayout);
+    ui->lineEdit->setText("test");
+    socket = new QTcpSocket(this);
+
     /*auto player = new QMediaPlayer;
 
     QString imageFile = QFileDialog ::getOpenFileName(0,"Select Image","/home/","Image Files (*.mp4)");
@@ -90,51 +93,53 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    killTimer(timerId);
 
     delete ui;
 }
 
-void MainWindow::timerEvent(QTimerEvent *event)
+void MainWindow::readyRead()
 {
-    //qDebug() << "Update...";
+    // We'll loop over every (complete) line of text that the server has sent us:
+    while(socket->canReadLine())
+    {
+        // Here's the line the of text the server sent us (we use UTF-8 so
+        // that non-English speakers can chat in their native language)
+        QString line = QString::fromUtf8(socket->readLine()).trimmed();
+
+        // These two regular expressions describe the kinds of messages
+        // the server can send us:
+
+        //  Normal messges look like this: "username:The message"
+        QRegExp messageRegex("^([^:]+):(.*)$");
+
+        // Any message that starts with "/users:" is the server sending us a
+        // list of users so we can show that list in our GUI:
+        //QRegExp usersRegex("^/users:(.*)$");
+
+        // Is this a users message:
+        if(messageRegex.indexIn(line) != -1)
+        {
+            // If so, append this message to our chat box:
+            QString user = messageRegex.cap(1);
+            QString message = messageRegex.cap(2);
+
+            ui->textEdit_2->append("<b>" + user + "</b>: " + message);
+        }
+    }
+}
+
+void MainWindow::connected()
+{
+    // Flip over to the chat page:
+    //stackedWidget->setCurrentWidget(chatPage);
+
+    // And send our username to the chat server.
     QSqlQuery query;
-    if ( ui->textEdit_2->toPlainText().length()==0)
-    {
-        query.exec("SELECT MESSAGE , TIME , USERNAME FROM CHATS JOIN EMPLOYE on IDE = SENDER ORDER by TIME ASC");
-        ui->textEdit_2->setText("");
-        while ( query.next())
-        {
-            //ui->textEdit_2->setText(ui->textEdit_2->toPlainText()+"\n"+query.value(1).toString() + " : " + query.value(0).toString() + "\n" + query.value(2).toString());
-            ui->textEdit_2->append("<font size='5'><b>"+query.value(2).toString() + "</b> : " + query.value(0).toString() + " </font>  <font  size='0.5'>" + query.value(1).toString()+"</font>");
-            lastup=query.value(1).toString();
-        }
-        ui->textEdit_2->verticalScrollBar()->setValue(ui->textEdit_2->verticalScrollBar()->maximum());
-    }
-    else
-    {
-        query.prepare("SELECT  count(*) FROM CHATS WHERE TIME > :time ");
-        query.bindValue(":time",QDateTime::fromString( lastup,"yyyy-MM-ddThh:mm:ss"));
-        query.exec();
-        query.next();
-        if ( query.value(0).toInt()!=0)
-        {
-            QSqlQuery query;
-            query.prepare("SELECT  MESSAGE , TIME , USERNAME  FROM CHATS  JOIN EMPLOYE on IDE = SENDER WHERE TIME > :time ");
-
-            query.bindValue(":time",QDateTime::fromString( lastup,"yyyy-MM-ddThh:mm:ss"));
-            query.exec();
-            qDebug()<< "SELECT MESSAGE , SENDER , TIME FROM CHATS WHERE TIME > "+lastup;
-            while ( query.next())
-            {
-                //ui->textEdit_2->setText(ui->textEdit_2->toPlainText()+"\n"+query.value(1).toString() + " : " + query.value(0).toString() + "\n" + query.value(2).toString());
-                ui->textEdit_2->append("<font size='5'><b>"+query.value(2).toString() + "</b> : " + query.value(0).toString() + " </font>  <font  size='0.5'>" + query.value(1).toString()+"</font>");
-                lastup=query.value(1).toString();
-            }
-            ui->textEdit_2->verticalScrollBar()->setValue(ui->textEdit_2->verticalScrollBar()->maximum());
-        }
-
-    }
+    query.prepare("SELECT USERNAME FROM EMPLOYE WHERE IDE=:ide");
+    query.bindValue(":ide",7);
+    query.exec();
+    query.next();
+    socket->write(QString("/me:" + query.value(0).toString() + "\n").toUtf8());
 }
 
 void MainWindow::on_pushButton_2ms_clicked() //bouton add
@@ -818,21 +823,67 @@ void MainWindow::on_comboBoxms_currentIndexChanged(const QString &arg1)
 
 void MainWindow::on_pushButton_clicked()
 {
-    if ( ui->textEdit->toPlainText().length()>0)
+    /*if ( ui->textEdit->toPlainText().length()>0)
     {
         QSqlQuery query;
         query.prepare("INSERT into CHATS(MESSAGE , SENDER, TIME) values (:message , :sender,:time )");
         query.bindValue(":time" , QTime::currentTime());
         query.bindValue(":message",ui->textEdit->toPlainText());
-        query.bindValue(":sender",1);
+        query.bindValue(":sender",7);
         query.exec();
         ui->textEdit->setText("");
+    }*/
+    QString message = ui->textEdit->toPlainText().trimmed();
+
+    // Only send the text to the chat server if it's not empty:
+    if(!message.isEmpty())
+    {
+        socket->write(QString(message + "\n").toUtf8());
     }
+
+    // Clear out the input box so they can type something else:
+    ui->textEdit->clear();
+
+    // Put the focus back into the input box so they can type again:
+    ui->textEdit->setFocus();
 }
 
 void MainWindow::on_chatterBUTT_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    if(socket->state() == QAbstractSocket::UnconnectedState)
+    {
+        socket->connectToHost("localhost", 4200) ;
+        connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
+        connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+        socket->waitForConnected(2000);
+    }
+    if((socket->state() == QAbstractSocket::ConnectingState)||(socket->state() == QAbstractSocket::ConnectedState))
+    {
+        ui->stackedWidget->setCurrentIndex(5);
+    }
+    else
+    {
+        QMessageBox msgbox;
+        msgbox.setText("!!!! connection a echouée !!!!");
+        msgbox.setInformativeText("erreurs : \n impossible de connecter au server , chatterbox est desactiver");
+        msgbox.setIcon(QMessageBox::Critical);
+        msgbox.setStandardButtons(QMessageBox::Ok);
+        msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                             "QMessageBox QLabel"
+                             "{"
+                             " color : #DDD ;"
+                             "font-size:15px;}"
+                             "QMessageBox QPushButton"
+                             "{"
+                             "background-color:rgba(255,255,255,150);"
+                             "min-width : 100;"
+                             "min-height : 30;"
+                             "border-radius: 15px;"
+                             "}"
+        );
+        msgbox.exec();
+    }
+
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -951,26 +1002,37 @@ void MainWindow::on_pushButton_5_clicked()
         return;
     }
     QSqlQuery query;
-    query.exec("SELECT MESSAGE , TIME , USERNAME FROM CHATS JOIN EMPLOYE on IDE = SENDER ORDER by TIME ASC");
-    ui->textEdit_2->setText("");
-    painter.drawText(100,50, "CHAT LOGS");
-    int row=7;
+    query.exec("SELECT TITRE , MCATE , SCATE , DUREE , NBREP , NBRVUE , IMAGE FROM SERIE_FILM");
+    painter.drawText(100,50, "tableau");
+    int row=0;
     int nb=1;
     while ( query.next())
     {
+        QByteArray array;
+        //qDebug()<<"Initial Array Size"<<array.size();
+        array = query.value(6).toByteArray();
+        //qDebug()<<"ARray Size"<<array.size();
+        QPixmap pixmap;
+        pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
+        QPixmap scaled=  pixmap.scaled(QSize( 170,170));
         //ui->textEdit_2->setText(ui->textEdit_2->toPlainText()+"\n"+query.value(1).toString() + " : " + query.value(0).toString() + "\n" + query.value(2).toString());
         //ui->textEdit_2->append("<font size='5'><b>"+query.value(2).toString() + "</b> : " + query.value(0).toString() + " </font>  <font  size='0.5'>" + query.value(1).toString()+"</font>");
-        painter.drawText(20,row*10," "+query.value(1).toString() + "          " + query.value(2).toString() + "    :    " + query.value(0).toString());
+        painter.drawText(30,row*200+100,"titre : "+query.value(0).toString() );
+        painter.drawText(130,row*200+100, "categorie : " + query.value(1).toString() + "/" + query.value(2).toString() );
+        painter.drawText(30,row*200+120, "durée : " + query.value(3).toString());
+        painter.drawText(130,row*200+120,"nombre d'épisode :"+ query.value(4).toString() );
+        painter.drawText(30,row*200+140,"nombre de vue : " + query.value(5).toString() );
+        painter.drawPixmap(310,row*200-40+100,scaled);
         row++;
         qDebug()<<"check";
         if ( nb==1)
         {
-            if ( row*10+50>850)
+            if ( row*200+100+170>850)
             {
                 qDebug()<<"page added";
                 printer.newPage();
                 nb++;
-                row=3;
+                row=0;
             }
         }
         else

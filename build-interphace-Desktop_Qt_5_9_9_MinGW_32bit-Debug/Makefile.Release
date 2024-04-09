@@ -386,6 +386,9 @@ release/moc_mainwindow.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMa
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QTcpSocket \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/qabstractsocket.h \
 		../interphace/mainwindow.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -701,6 +704,9 @@ release/main.o: ../interphace/main.cpp ../interphace/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QTcpSocket \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/qabstractsocket.h \
 		../interphace/movie.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFileDialog \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qfiledialog.h \
@@ -997,6 +1003,9 @@ release/mainwindow.o: ../interphace/mainwindow.cpp ../interphace/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QTcpSocket \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/qabstractsocket.h \
 		ui_mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qaction.h \
