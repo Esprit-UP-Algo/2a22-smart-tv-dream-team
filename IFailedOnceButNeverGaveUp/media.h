@@ -62,6 +62,9 @@ public:
     bool isProducerInserted(QString producteur);
     bool isDescriptionValid(QString description);
     QSqlQueryModel *  trier(const QString &critere, const QString &mode );
+    void generateQRCode(QString id);
+
+
 
 private:
     //QSharedDataPointer<mediaData> data;

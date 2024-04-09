@@ -18,6 +18,8 @@ public:
 
 private:
     QString user,password;
+    QByteArray image;
+
 };
 
 

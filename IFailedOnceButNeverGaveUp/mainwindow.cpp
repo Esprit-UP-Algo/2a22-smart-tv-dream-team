@@ -150,38 +150,6 @@ void MainWindow::on_ku_13_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
-
-void MainWindow::on_ok_12_clicked()
-{
-    employer e;
-    e.setuser(ui->lineEdit_Username_11->text());
-    e.setpassword(ui->lineEdit_Password_11->text());
-    e.Validateuser();
-    e.Validatepassword();
-    if (e.Validateuser()==true)
-    {
-        if ((e.Validatepassword()))
-        {
-            close();
-            Dialog d;
-            d.exec();
-        }
-        else
-        {
-            QMessageBox messageBox;
-            QMessageBox::critical(this, "Erreur", "your password doesn't match our requirements");
-            messageBox.setFixedSize(400,200);
-        }
-
-    }
-    else
-    {
-        QMessageBox messageBox;
-        QMessageBox::critical(this, "Erreur", "your username must be atleast 4 characters long");
-        messageBox.setFixedSize(400,200);
-    }
-}
-
 void MainWindow::on_ok_16_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
