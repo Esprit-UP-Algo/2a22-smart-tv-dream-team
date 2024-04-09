@@ -59,6 +59,10 @@ ui->stackedWidget->setCurrentIndex(0);
     connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
         type = "Radio";
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> d265fca64f07effaee8f719cf8afeb9a3d75cd6a
     connect(ui->radioButton_2M, &QRadioButton::clicked, this, [=]() {
         type = "Channel";
     });
@@ -390,7 +394,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
         }
         //QMessageBox :: warning(this,"",QString::number( ligne));
 
-        QStandardItemModel * model=new QStandardItemModel(ligne , 10);
+        QStandardItemModel * model=new QStandardItemModel(ligne , 11);
         QString qs;
         qs="select IDE,CIN,TYPE,NOM,PRENOM,TEL,EMAIL,PHOTO from EMPLOYE"+rech+Qs;
         qDebug()<<qs;
@@ -440,16 +444,34 @@ void Dialog::on_hihi_5_clicked()//crud employe
         model->setHeaderData(5, Qt::Horizontal , "TEL");
         model->setHeaderData(6, Qt::Horizontal , "EMAIL");
         model->setHeaderData(7, Qt::Horizontal , "PHOTO");
-        model->setHeaderData(8, Qt::Horizontal , "delete");
-        model->setHeaderData(9, Qt::Horizontal , "update");
+        model->setHeaderData(8, Qt::Horizontal , "QR code");
+        model->setHeaderData(9, Qt::Horizontal , "delete");
+        model->setHeaderData(10, Qt::Horizontal , "update");
         ui->tableViewem->setModel(model);
 
         for (int j=0;j<row ; j++)
         {
             QPushButton *butt;
-            butt = new QPushButton("delete");
+            butt = new QPushButton("QR code");
             QString name = QString("buttondel%1").arg(j) ;
-            QString display = QString("delete") ;
+            QString display = QString("QR code") ;
+            butt->setObjectName(name) ;
+            butt->setText(display) ;
+
+            connect(butt, &QPushButton::clicked, this, [this, j]() {
+                employer e;
+                QString idme = ui->tableViewem->model()->data(ui->tableViewM->model()->index(j, 0)).toString();
+                e.generateQRCodeEmploye(idme);
+            });
+
+            butt->setStyleSheet("color:red;"
+                                "background:transparent;"
+                                "border:none;"
+                                "font : 15pt;");
+            ui->tableViewem->setIndexWidget(model->index(j, 8), butt);
+            butt = new QPushButton("delete");
+            name = QString("buttondel%1").arg(j) ;
+            display = QString("delete") ;
             butt->setObjectName(name) ;
             butt->setText(display) ;
 
@@ -465,7 +487,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "background:transparent;"
                                 "border:none;"
                                 "font : 15pt;");
-            ui->tableViewem->setIndexWidget(model->index(j, 8), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 9), butt);
 
             butt = new QPushButton("update");
             name = QString("buttonup%1").arg(j) ;
@@ -503,7 +525,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "border:none;"
                                 "font : 15pt;"
                                 "min-width : 289px");
-            ui->tableViewem->setIndexWidget(model->index(j, 9), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 10), butt);
         }
         ui->tableViewem->verticalHeader()->setVisible(false);
             ui->tableViewem->resizeRowsToContents();
