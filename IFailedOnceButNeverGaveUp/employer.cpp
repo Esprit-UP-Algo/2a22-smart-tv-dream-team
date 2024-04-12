@@ -50,6 +50,8 @@ bool employer::Validatepassword() {
 
 QString employer::get_user(){return user;}
 QString employer::get_password(){return password;}
+
+
 void employer::generateQRCodeEmploye(QString id)
 {
     QSqlQuery query;

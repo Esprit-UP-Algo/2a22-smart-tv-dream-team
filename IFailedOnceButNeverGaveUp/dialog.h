@@ -47,6 +47,8 @@ public:
     void displayChannelImages();
     void displayRadioImages();
 
+    QTcpSocket *socket;
+
 private slots:
     void on_hihi_6_clicked();
 
@@ -155,6 +157,16 @@ private slots:
     void on_hihi_7_clicked();
 
     void on_searchLineEditM_textChanged(const QString &arg1);
+
+    void on_hihi_18_clicked();
+
+    void on_pushButton_13_clicked();
+
+    void connected();
+
+    void readyRead();
+
+    void on_pushButton_2ms_2_clicked();
 
 private:
     Ui::Dialog *ui;

@@ -44,7 +44,6 @@ Dialog::Dialog(QWidget *parent) :
     ui->lineEdit_3A_6->setValidator(new QIntValidator(0,9999999,this));
     ui->lineEdit_3A_13->setValidator(new QIntValidator(0,99999999,this));
     ui->comboBox_2->setVisible(false);
-
 ui->stackedWidget->setCurrentIndex(0);
     ui->imagetestms->setVisible(false);
     ui->imagetestms_2->setVisible(false);
@@ -54,15 +53,19 @@ ui->stackedWidget->setCurrentIndex(0);
     ui->upepms->setValidator(new QIntValidator(0,9999999,this));
     ui->nbrvupms->setValidator(new QIntValidator(0,99999999,this));
     byte="";
+
+    socket = new QTcpSocket(this);
+
+    ui->groupBox_2->setLayout(new QHBoxLayout);
     //Media
     connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
     connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
         type = "Radio";
     });
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 =======
 
->>>>>>> d265fca64f07effaee8f719cf8afeb9a3d75cd6a
+>>>>>>> d265fca64f07effaee8f719cf8afeb9a3d75cd6a*/
     connect(ui->radioButton_2M, &QRadioButton::clicked, this, [=]() {
         type = "Channel";
     });
@@ -171,6 +174,20 @@ void Dialog::on_hihi_6_clicked()//home
                                  " border:none;"
                                   "background-color:transparent;"
                                   "color:rgba(0,125,236,255);");
+    ui->hihi_18->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
     ui->hihi_7->setStyleSheet( "QPushButton"
                                 "{"
                                 "font: 30pt 'dripicons-v2';"
@@ -262,6 +279,20 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                  " border:none;"
                                   "background-color:transparent;"
                                   "color:rgba(0,125,236,255);");
+    ui->hihi_18->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
     ui->hihi_7->setStyleSheet( "QPushButton"
                                 "{"
                                 "font: 30pt 'dripicons-v2';"
@@ -543,6 +574,20 @@ void Dialog::on_hihi_15_clicked()//crud transaction
                                  " border:none;"
                                   "background-color:transparent;"
                                   "color:rgba(0,125,236,255);");
+    ui->hihi_18->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
     ui->hihi_7->setStyleSheet( "QPushButton"
                                 "{"
                                 "font: 30pt 'dripicons-v2';"
@@ -766,6 +811,20 @@ void Dialog::on_hihi_20_clicked()//tvmoviesidfk
                                  " border:none;"
                                   "background-color:transparent;"
                                   "color:rgba(0,125,236,255);");
+    ui->hihi_18->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
     ui->hihi_7->setStyleSheet( "QPushButton"
                                 "{"
                                 "font: 30pt 'dripicons-v2';"
@@ -1013,6 +1072,20 @@ void Dialog::on_hihi_17_clicked()//reservation
                                  " border:none;"
                                   "background-color:transparent;"
                                   "color:rgba(0,125,236,255);");
+    ui->hihi_18->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
     ui->hihi_7->setStyleSheet( "QPushButton"
                                 "{"
                                 "font: 30pt 'dripicons-v2';"
@@ -1871,15 +1944,6 @@ void Dialog::on_pushButton_2ms_clicked()
 
 void Dialog::on_pushButton_12ms_clicked()
 {
-    QMovie *GifAnimation=new QMovie("veveveve.gif");
-    ui->label1->setMovie(GifAnimation);
-    GifAnimation->start();
-    for(int i=0;i<300;i++)
-    {
-        QThread::msleep(1);
-        qApp->processEvents(QEventLoop::AllEvents);
-
-    }
     int ligne(0);
     int row(0);
     QString rech;
@@ -1893,12 +1957,92 @@ void Dialog::on_pushButton_12ms_clicked()
         {
             rech+=" or id='"+ui->textEdit->toPlainText()+"'";
         }
-
-
-
     }
+    QString categorie;
+    if ((!ui->dramacate->isChecked())&&(!ui->horrorcate->isChecked())&&(!ui->comedycate->isChecked())&&(!ui->romancecate->isChecked())&&(!ui->scificate->isChecked())&&(!ui->actioncate->isChecked())&&(!ui->sportscate->isChecked()))
+    {
+        categorie="";
+    }
+    else
+    {
+        int cc=0;
+        categorie="in (";
+        if ( ui->actioncate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'action'";
+        }
+        if ( ui->horrorcate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'horror'";
+        }
+        if ( ui->comedycate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'comedy'";
+        }
+        if ( ui->romancecate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'romance'";
+        }
+        if ( ui->scificate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'sci-fi'";
+        }
+        if ( ui->dramacate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'drama'";
+        }
+        if ( ui->sportscate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'sports'";
+        }
+        categorie=" MCATE " + categorie+" ) OR SCATE "+categorie +")";
+    }
+    if ((rech=="")&&(categorie!=""))
+    {
+        categorie="where "+categorie;
+    }
+    else if ((rech!="")&&(categorie!=""))
+    {
+        categorie="&& "+categorie;
+    }
+    qDebug()<<categorie;
     QSqlQuery query;
-    query.exec("select count(*) from SERIE_FILM"+rech);
+    query.exec("select count(*) from SERIE_FILM "+rech+categorie);
     while(query.next() )
     {
         ligne=query.value(0).toInt();
@@ -1906,7 +2050,7 @@ void Dialog::on_pushButton_12ms_clicked()
     qDebug()<<ligne;
     //QMessageBox :: warning(this,"",QString::number( ligne));
 
-    QStandardItemModel * model=new QStandardItemModel(ligne , 10);
+    QStandardItemModel * model=new QStandardItemModel(ligne , 12);
     QString Qs;
     if (ui->comboBoxms->currentText()== "recently added" )
     {
@@ -1928,11 +2072,11 @@ void Dialog::on_pushButton_12ms_clicked()
         Qs=" order by id ASC";
         qDebug()<<"test";
     }
-    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue,nbrep from SERIE_FILM"+rech +Qs;
-    query.exec("select id ,type, titre ,description ,duree, image,nbrvue,nbrep from SERIE_FILM"+rech +Qs);
+    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech+categorie +Qs;
+    query.exec("select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech +categorie+Qs);
     while(query.next())
     {
-        for (int j=0;j<8;j++)
+        for (int j=0;j<9;j++)
         {
             QStandardItem *item;
 
@@ -1949,6 +2093,15 @@ void Dialog::on_pushButton_12ms_clicked()
                 item->setData(scaled,Qt::DecorationRole);
 
 
+            }
+            else if (j==8)
+            {
+                QString itemcat=query.value(j).toString();
+                if (query.value(j+1).toString()!="...")
+                {
+                    itemcat+=+","+query.value(j+1).toString();
+                }
+                item = new QStandardItem(itemcat);
             }
             else
             {
@@ -1975,12 +2128,133 @@ void Dialog::on_pushButton_12ms_clicked()
     model->setHeaderData(5, Qt::Horizontal , "photo");
     model->setHeaderData(6, Qt::Horizontal , "nombre de vue");
     model->setHeaderData(7, Qt::Horizontal , "nombre d'episode");
-    model->setHeaderData(8, Qt::Horizontal , "delete");
-    model->setHeaderData(9, Qt::Horizontal , "update");
+    model->setHeaderData(8, Qt::Horizontal , "categorie");
+    model->setHeaderData(9, Qt::Horizontal , "trailer");
+    model->setHeaderData(10, Qt::Horizontal , "delete");
+    model->setHeaderData(11, Qt::Horizontal , "update");
     ui->tableViewms->setModel(model);
     ui->tableViewms->horizontalHeader()->setVisible(true);
+
     for (int j=0;j<row ; j++)
     {
+        QPushButton *buttt;
+        buttt = new QPushButton("View");
+        QString namet = QString("buttonview%1").arg(j) ;
+        QString displayt = QString("View") ;
+        buttt->setObjectName(namet) ;
+        buttt->setText(displayt) ;
+
+        //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
+        connect(buttt, &QPushButton::clicked, this, [this, j]() {
+            qDebug() << "checks0";
+            QSqlQuery query;
+            qDebug() << "checks1";
+            query.prepare("select trailer from SERIE_FILM where id=:id");
+            query.bindValue(":id",ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,0)).toString());
+            qDebug() << "checks2";
+            query.exec();
+            qDebug() << "checks3";
+            query.first();
+            QByteArray array= query.value(0).toByteArray();
+            if (!((array.isEmpty())||(array.isNull())))
+            {
+                qDebug() << "check0";
+                auto player = new QMediaPlayer;
+                qDebug() << "check1";
+                QBuffer *buffer = new QBuffer(player);
+                qDebug() << "check2";
+                buffer->setData(array);
+                qDebug() << "check3";
+                if ( buffer->open(QIODevice::ReadOnly))
+                {
+                    qDebug() << "check4";
+                }
+
+
+
+                player->setMedia( QMediaContent(), buffer);//QUrl::fromLocalFile(imageFile));//"..\\assets\\Right-1684791019526.mp4"));
+                qDebug() << "check5";
+                //playlist->addMedia(QUrl("http://example.com/myclip2.mp4"));
+
+                QVideoWidget * vid = new QVideoWidget;
+
+                qDebug() << "check6";
+                player->setVideoOutput(vid);
+                qDebug() << "check7";
+                //vid->show();
+                //vid->setStyleSheet("border : 5px gray;");
+                //playlist->setCurrentIndex(1);
+
+                auto boxl = new QVBoxLayout();
+
+                qDebug() << "check8";
+
+                QPushButton *buttr;
+                buttr = new QPushButton("return");
+                connect(buttr, &QPushButton::clicked, this, [this,buffer,array,vid,boxl,player,buttr]() {
+                    player->stop();
+                    boxl->removeWidget(vid);
+                    ui->stackedWidget->setCurrentIndex(14);
+
+                    delete boxl;
+                    qDebug() << "checkd0";
+
+                    delete buffer;
+                    qDebug() << "checkd1";
+                    delete player;
+                    qDebug() << "checkd2";
+
+
+                    delete buttr;
+                });
+
+                qDebug() << "check9";
+                boxl->addWidget(buttr);
+
+                qDebug() << "check10";
+                boxl->addWidget(vid);
+
+                qDebug() << "check11";
+               ui->groupBox->setLayout(boxl);
+
+               qDebug() << "check12";
+
+               ui->stackedWidget->setCurrentIndex(18);
+               player->setVolume(80);
+               player->setMuted(false);
+               player->play();
+               qDebug()<<player->isVideoAvailable();
+            }
+            else
+            {
+                QMessageBox msgbox;
+                msgbox.setText("!!!! ERREUR  !!!!");
+                msgbox.setInformativeText(" Trailer inexistant  \n");
+                msgbox.setIcon(QMessageBox::Critical);
+                msgbox.setStandardButtons(QMessageBox::Ok);
+                msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                                     "QMessageBox QLabel"
+                                     "{"
+                                     " color : #DDD ;"
+                                     "font-size:15px;}"
+                                     "QMessageBox QPushButton"
+                                     "{"
+                                     "background-color:rgba(255,255,255,150);"
+                                     "min-width : 100;"
+                                     "min-height : 30;"
+                                     "border-radius: 15px;"
+                                     "}"
+                );
+                msgbox.exec();
+            }
+
+
+        });
+        buttt->setStyleSheet("color:blue;"
+                            "background:transparent;"
+                            "border:none;"
+                            "font : 15pt;");
+        ui->tableViewms->setIndexWidget(model->index(j, 9), buttt);
         QPushButton *butt;
         butt = new QPushButton("delete");
         QString name = QString("buttondel%1").arg(j) ;
@@ -2001,12 +2275,14 @@ void Dialog::on_pushButton_12ms_clicked()
             {
                  QMessageBox :: critical(this,"Error","Couldn't delete data");
             }
+
+
         });
         butt->setStyleSheet("color:red;"
                             "background:transparent;"
                             "border:none;"
                             "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 8), butt);
+        ui->tableViewms->setIndexWidget(model->index(j, 10), butt);
 
         butt = new QPushButton("update");
         name = QString("buttonup%1").arg(j) ;
@@ -2021,20 +2297,19 @@ void Dialog::on_pushButton_12ms_clicked()
             ui->updescriptionms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,3)).toString());
             ui->dureupms->setTime(QTime::fromString(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,4)).toString(),"hh:mm:ss") );
             ui->nbrvupms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,6)).toString());
-            ui->upepms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,7)).toString());
             QPixmap pixmap=ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,5) , Qt::DecorationRole).value<QPixmap>();
             //QMessageBox :: critical(this,"Error",byte);
 
 
             QPixmap scaled=  pixmap.scaled(QSize( 200,200));
             ui->imagetest_2ms->setPixmap(scaled);
-            ui->stackedWidget->setCurrentIndex(16);
+            ui->stackedWidget->setCurrentIndex(2);
         });
         butt->setStyleSheet("color:green;"
                             "background:transparent;"
                             "border:none;"
                             "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 9), butt);
+        ui->tableViewms->setIndexWidget(model->index(j, 11), butt);
 
 
 
@@ -2056,7 +2331,8 @@ void Dialog::on_pushButton_12ms_clicked()
     //ui->tableViewms->resize(ui->tableViewms->rowHeight(0)*row,ui->tableViewms->columnWidth(3)*4);
     ui->tableViewms->resizeRowsToContents();
     ui->tableViewms->resizeColumnsToContents();
-     ui->tableViewms->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui->tableViewms->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
 
 }
 
@@ -2116,6 +2392,8 @@ void Dialog::on_pushButton_11ms_clicked()
     {
         checkuni=queury.value(0).toInt();
     }
+
+    qDebug()<<checkuni;
     if (checkuni!=0)
     {
         erreur+="\n-un titre doit etre unique ( ce titre existe deja )";
@@ -2128,6 +2406,41 @@ void Dialog::on_pushButton_11ms_clicked()
     {
         erreur+="\n-une description de au moins 10 caractére est necessaire";
     }
+    if (ui->comboBox_3->currentIndex()==0)
+    {
+        erreur+="\n-une categorie doit etre selectionné";
+    }
+    if (ui->comboBox_3->currentText()==ui->comboBox_4->currentText())
+    {
+        erreur+="\n-la categorie primaire et secondaire doit etre different";
+    }
+    QString imageFile="";
+    QByteArray byteT;
+    imageFile= QFileDialog ::getOpenFileName(0,"Select your trailer","/home/","Image Files (*.mp4  *.m4v)");
+    if (!imageFile.isEmpty())
+    {
+        QFileInfo fileInfo(imageFile);
+        qint64 maxSizeInBytes = 50 * 1024 * 1024; // 50 MB
+
+        if (fileInfo.size() > maxSizeInBytes) {
+            erreur+="Selected file is larger than 50 MB.";
+            //QMessageBox::warning(nullptr, "File Size Exceeded", "Selected file is larger than 50 MB.");
+            // Handle size limit exceeded (e.g., show an error message)
+        } else {
+            // File size is within the allowed limit; proceed with the selected file
+            qDebug() << "Selected File:" << imageFile;
+            QFile file(imageFile);
+
+            if(file.open(QIODevice::ReadOnly))
+            {
+                byteT = file.readAll();
+                //QMessageBox :: critical(this,"Error",byte);
+                file.close();
+            }
+            // Perform further actions with the selected file
+        }
+    }
+
 
     if (erreur=="")
     {
@@ -2151,6 +2464,7 @@ void Dialog::on_pushButton_11ms_clicked()
 
         MOVIE T;
         int nb;
+
         if (ui->comboBoxms_2->currentText()=="movie")
         {
             nb=1;
@@ -2159,7 +2473,13 @@ void Dialog::on_pushButton_11ms_clicked()
         {
             nb=ui->lineEdit_epms->text().toInt();
         }
-        if(T.ajout(byte,ui->lineEdit_2ms->text(),ui->textEditms->toPlainText(),ui->lineEdit_8ms->text().toInt(),ui->timeEditms->time().toString()/*"2:00:00"*/,ui->comboBoxms_2->currentText(),nb))
+
+
+
+            // Customize the file view to apply size filter
+
+
+        if(T.ajout(byte,ui->lineEdit_2ms->text(),ui->textEditms->toPlainText(),ui->lineEdit_8ms->text().toInt(),ui->timeEditms->time().toString()/*"2:00:00"*/,ui->comboBoxms_2->currentText(),nb,ui->comboBox_3->currentText(),ui->comboBox_4->currentText(),byteT))
         {
              QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
              ui->lineEdit_2ms->setText("");
@@ -2259,13 +2579,21 @@ void Dialog::on_confirmupms_clicked()
     {
         erreur+="\n-une description de au moins 10 caractére est necessaire";
     }
+    if (ui->comboBox->currentIndex()==0)
+    {
+        erreur+="\n-une categorie doit etre selectionné";
+    }
+    if (ui->comboBox->currentText()==ui->comboBox_2->currentText())
+    {
+        erreur+="\n-la categorie primaire et secondaire doit etre different";
+    }
     if (erreur=="")
     {
         if (byte!="")
         {
 
             MOVIE T;
-            if(T.updateimg(ui->upidms->text().toInt(),ui->upepms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),byte,ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
+            if(T.updateimg(ui->upidms->text().toInt(),ui->upepms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),byte,ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString(),ui->comboBox->currentText(),ui->comboBox_2->currentText()))
             {
                  QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
                  ui->lineEdit_2ms->setText("");
@@ -2286,7 +2614,7 @@ void Dialog::on_confirmupms_clicked()
         {
 
             MOVIE T;
-            if(T.updatenoimg(ui->upidms->text().toInt(),ui->upepms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString()))
+            if(T.updatenoimg(ui->upidms->text().toInt(),ui->upepms->text().toInt(),ui->uptitlems->text(),ui->updescriptionms->toPlainText(),ui->nbrvupms->text().toUInt(),ui->dureupms->time().toString(),ui->comboBox->currentText(),ui->comboBox_2->currentText()))
             {
                  QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
                  ui->uptitlems->setText("");
@@ -2335,11 +2663,25 @@ void Dialog::on_returnupms_clicked()
 void Dialog::on_pushButton_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(14);
+    ui->label_15->setVisible(true);
+    ui->comboBox->setVisible(true);
+    ui->textEdit->setVisible(true);
+    ui->gg_5->setVisible(true);
+    ui->gg_2->setVisible(true);
+    ui->label_47->setVisible(true);
+    ui->label_48->setVisible(true);
 }
 
 void Dialog::on_pushButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(14);
+    ui->label_15->setVisible(true);
+    ui->comboBox->setVisible(true);
+    ui->textEdit->setVisible(true);
+    ui->gg_5->setVisible(true);
+    ui->gg_2->setVisible(true);
+    ui->label_47->setVisible(true);
+    ui->label_48->setVisible(true);
 }
 
 void Dialog::on_comboBoxms_2_currentTextChanged(const QString &arg1)
@@ -2464,6 +2806,10 @@ void Dialog::on_gg_2_clicked()
     {
         emit ui->hihi_5->click();
     }
+    else if (ui->stackedWidget->currentIndex()==14)
+    {
+        emit ui->pushButton_12ms->click();
+    }
 }
 
 void Dialog::on_gg_5_clicked()
@@ -2490,6 +2836,20 @@ void Dialog::on_hihi_7_clicked()
                                  " border:none;"
                                   "background-color:transparent;"
                                   "color:rgba(0,125,236,255);");
+    ui->hihi_18->setStyleSheet( "QPushButton"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,150);"
+                                "}"
+                                "QPushButton:hover"
+                                "{"
+                                "font: 30pt 'dripicons-v2';"
+                                "border:none;"
+                                "background-color:transparent;"
+                                "color:rgba(255,255,255,255);"
+                                "}");
     ui->hihi_6->setStyleSheet( "QPushButton"
                                 "{"
                                 "font: 30pt 'dripicons-v2';"
@@ -2716,4 +3076,300 @@ void Dialog::displayRadioImages()
 
         buttonIndex++; // Passer au QPushButton suivant
     }
+}
+
+void Dialog::on_hihi_18_clicked()
+{
+    if(socket->state() == QAbstractSocket::UnconnectedState)
+    {
+        socket->connectToHost("localhost", 4200) ;
+        connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
+        connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+        socket->waitForConnected(2000);
+    }
+    if((socket->state() == QAbstractSocket::ConnectingState)||(socket->state() == QAbstractSocket::ConnectedState))
+    {
+        ui->stackedWidget->setCurrentIndex(19);
+        ui->hihi_18->setStyleSheet("font: 30pt 'dripicons-v2';"
+                                     " border:none;"
+                                      "background-color:transparent;"
+                                      "color:rgba(0,125,236,255);");
+        ui->hihi_15->setStyleSheet( "QPushButton"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,150);"
+                                    "}"
+                                    "QPushButton:hover"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,255);"
+                                    "}");
+        ui->hihi_7->setStyleSheet( "QPushButton"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,150);"
+                                    "}"
+                                    "QPushButton:hover"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,255);"
+                                    "}");
+        ui->hihi_17->setStyleSheet( "QPushButton"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,150);"
+                                    "}"
+                                    "QPushButton:hover"
+                                    "{"
+                                    "font: 30pt 'dripicons-v2';"
+                                    "border:none;"
+                                    "background-color:transparent;"
+                                    "color:rgba(255,255,255,255);"
+                                    "}");
+            ui->hihi_6->setStyleSheet( "QPushButton"
+                                        "{"
+                                        "font: 30pt 'dripicons-v2';"
+                                        "border:none;"
+                                        "background-color:transparent;"
+                                        "color:rgba(255,255,255,150);"
+                                        "}"
+                                        "QPushButton:hover"
+                                        "{"
+                                        "font: 30pt 'dripicons-v2';"
+                                        "border:none;"
+                                        "background-color:transparent;"
+                                        "color:rgba(255,255,255,255);"
+                                        "}");
+            ui->hihi_5->setStyleSheet( "QPushButton"
+                                        "{"
+                                        "font: 30pt 'dripicons-v2';"
+                                        "border:none;"
+                                        "background-color:transparent;"
+                                        "color:rgba(255,255,255,150);"
+                                        "}"
+                                        "QPushButton:hover"
+                                        "{"
+                                        "font: 30pt 'dripicons-v2';"
+                                        "border:none;"
+                                        "background-color:transparent;"
+                                        "color:rgba(255,255,255,255);"
+                                        "}");
+            ui->hihi_20->setStyleSheet( "QPushButton"
+                                        "{"
+                                        "font: 30pt 'dripicons-v2';"
+                                        "border:none;"
+                                        "background-color:transparent;"
+                                        "color:rgba(255,255,255,150);"
+                                        "}"
+                                        "QPushButton:hover"
+                                        "{"
+                                        "font: 30pt 'dripicons-v2';"
+                                        "border:none;"
+                                        "background-color:transparent;"
+                                        "color:rgba(255,255,255,255);"
+                                        "}");
+    }
+    else
+    {
+        QMessageBox msgbox;
+        msgbox.setText("!!!! connection a echouée !!!!");
+        msgbox.setInformativeText("erreurs : \n impossible de connecter au server , chatterbox est desactiver");
+        msgbox.setIcon(QMessageBox::Critical);
+        msgbox.setStandardButtons(QMessageBox::Ok);
+        msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                             "QMessageBox QLabel"
+                             "{"
+                             " color : #DDD ;"
+                             "font-size:15px;}"
+                             "QMessageBox QPushButton"
+                             "{"
+                             "background-color:rgba(255,255,255,150);"
+                             "min-width : 100;"
+                             "min-height : 30;"
+                             "border-radius: 15px;"
+                             "}"
+        );
+        msgbox.exec();
+    }
+}
+
+void Dialog::on_pushButton_13_clicked()
+{
+    QString message = ui->textEdit_3->toPlainText().trimmed();
+
+    // Only send the text to the chat server if it's not empty:
+    if(!message.isEmpty())
+    {
+        socket->write(QString(message + "\n").toUtf8());
+    }
+
+    // Clear out the input box so they can type something else:
+    ui->textEdit_3->clear();
+
+    // Put the focus back into the input box so they can type again:
+    ui->textEdit->setFocus();
+}
+
+
+void Dialog::readyRead()
+{
+    // We'll loop over every (complete) line of text that the server has sent us:
+    while(socket->canReadLine())
+    {
+        // Here's the line the of text the server sent us (we use UTF-8 so
+        // that non-English speakers can chat in their native language)
+        QString line = QString::fromUtf8(socket->readLine()).trimmed();
+
+        // These two regular expressions describe the kinds of messages
+        // the server can send us:
+
+        //  Normal messges look like this: "username:The message"
+        QRegExp messageRegex("^([^:]+):(.*)$");
+
+        // Any message that starts with "/users:" is the server sending us a
+        // list of users so we can show that list in our GUI:
+        //QRegExp usersRegex("^/users:(.*)$");
+
+        // Is this a users message:
+        if(messageRegex.indexIn(line) != -1)
+        {
+            // If so, append this message to our chat box:
+            QString user = messageRegex.cap(1);
+            QString message = messageRegex.cap(2);
+
+            ui->textEdit_2->append("<b>" + user + "</b>: " + message);
+        }
+    }
+}
+
+void Dialog::connected()
+{
+    // Flip over to the chat page:
+    //stackedWidget->setCurrentWidget(chatPage);
+
+    // And send our username to the chat server.
+    QSqlQuery query;
+    query.prepare("SELECT USERNAME FROM EMPLOYE WHERE IDE=:ide");
+    query.bindValue(":ide",7);
+    query.exec();
+    query.next();
+    socket->write(QString("/me:" + query.value(0).toString() + "\n").toUtf8());
+}
+
+void Dialog::on_pushButton_2ms_2_clicked()
+{
+    qDebug() << "test";
+    ui->stackedWidget->setCurrentIndex(20);
+
+    QSqlQuery query;
+
+    query.exec("select count(*) FROM SERIE_FILM");
+    query.next();
+    //*set0 << query.value(0).toInt();
+    int totalSum =query.value(0).toInt();
+
+
+
+    QBarSet *set1= new QBarSet("HORROR");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'horror' OR SCATE = 'horror'");
+    query.next();
+    *set1 << query.value(0).toInt();
+
+
+
+    QBarSet *set2= new QBarSet("sci-fi");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'sci-fi' OR SCATE = 'sci-fi'");
+    query.next();
+    *set2 << query.value(0).toInt();
+
+    QBarSet *set3= new QBarSet("romance");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'romance' OR SCATE = 'romance'");
+    query.next();
+    *set3 << query.value(0).toInt();
+
+    QBarSet *set4= new QBarSet("sports");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'sports' OR SCATE = 'sports'");
+    query.next();
+    *set4 << query.value(0).toInt();
+
+    QBarSet *set5= new QBarSet("action");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'action' OR SCATE = 'action'");
+    query.next();
+    *set5 << query.value(0).toInt();
+
+    QBarSet *set6= new QBarSet("comedy");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'comedy' OR SCATE = 'comedy'");
+    query.next();
+    *set6 << query.value(0).toInt();
+
+    QBarSet *set7= new QBarSet("drama");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'drama' OR SCATE = 'drama'");
+    query.next();
+    *set7 << query.value(0).toInt();
+
+    QBarSeries *series= new QBarSeries();
+    //series->append(set0);
+    series->append(set1);
+    series->append(set2);
+    series->append(set3);
+    series->append(set4);
+    series->append(set5);
+    series->append(set6);
+    series->append(set7);
+    series->setLabelsFormat("@value test");
+    for (QBarSet *barSet : series->barSets()) {
+        for (int i = 0; i < barSet->count(); ++i) {
+            // Calculate percentage
+            float percentage = (barSet->at(i) / totalSum) * 100.0;
+            // Set the percentage value
+            /*for (int j = 0; j < barSet->count(); ++j) {
+            qreal value = barSet->at(j);
+            QString label = QString::number(value);
+            QBarSetItem *barItem = barSet->at(j);
+            QPointF point = barSet-> //barItem->geometry().center();
+            chart->addAxis(axisY, Qt::AlignLeft); // Attach Y-axis to the chart
+            QGraphicsSimpleTextItem *textItem = chart->scene()->addSimpleText(label);
+            textItem->setPos(point.x() - textItem->boundingRect().width() / 2, point.y() - 20); // Position text above the bar
+*/
+            barSet->replace(i,floor( percentage*10)/10);
+            QString label = QString::number(barSet->at(i)); // Assuming values are numeric
+            barSet->setLabel(barSet->label() + " "+label+"%");
+        }
+    }
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("test");
+    chart->setAnimationOptions(QChart::AllAnimations);
+    QStringList categories;
+    categories<<"all    movies";
+    QBarCategoryAxis *axis=new QBarCategoryAxis();
+    axis->append(categories);
+    chart->createDefaultAxes();
+    chart->setAxisX(axis,series);
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    QChartView *view = new QChartView(chart,this);
+
+    view->setRenderHint(QPainter::Antialiasing);
+    ui->groupBox_2->layout()->addWidget(view);
+
+    connect(ui->stackedWidget, &QStackedWidget::currentChanged,this , [this,view]()
+    {
+         ui->groupBox_2->layout()->removeWidget(view);
+    });
+    /*connect(ui->pushButton_4, &QPushButton::clicked, this, [this,view]() {
+        ui->groupBox_2->layout()->removeWidget(view);
+
+
+    });*/
 }

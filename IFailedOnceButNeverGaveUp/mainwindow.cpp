@@ -56,6 +56,7 @@ void MainWindow::sendMail()
             smtp->sendMail(ui->uname->text(), ui->email->text() , ui->subject->text(),pas, files );
         else
             smtp->sendMail(ui->uname->text(), ui->email->text() , ui->subject->text(),pas);
+        delete smtp;
     }
 }
 
@@ -85,6 +86,7 @@ void MainWindow::on_ok_13_clicked()
         }
         ui->label_gif_animation->setVisible(false);
         GifAnimation->stop();
+        delete GifAnimation;
         this->close();
         Dialog *dialog = new Dialog();
         dialog->Role=Role;

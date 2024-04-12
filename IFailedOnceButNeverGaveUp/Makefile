@@ -236,8 +236,8 @@ Makefile: IFailedOnceButNeverGaveUp.pro C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/w
 		IFailedOnceButNeverGaveUp.pro \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5MultimediaWidgets.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Quick.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl \
@@ -422,8 +422,8 @@ C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf:
 IFailedOnceButNeverGaveUp.pro:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5MultimediaWidgets.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl:
-C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl:
+C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Quick.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl:

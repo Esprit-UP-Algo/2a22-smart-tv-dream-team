@@ -1,7 +1,5 @@
-QT       += core gui multimedia multimediawidgets sql \
-    quick \
-    charts
-QT       +=  sql  printsupport
+QT       += core gui multimedia multimediawidgets sql
+QT       +=  sql  printsupport charts  quick
 QT += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = smtp
@@ -26,6 +24,7 @@ SOURCES += \
     mainwindow.cpp \
     media.cpp \
     movie.cpp \
+    employer.cpp \
     smtp.cpp
 
 HEADERS += \
