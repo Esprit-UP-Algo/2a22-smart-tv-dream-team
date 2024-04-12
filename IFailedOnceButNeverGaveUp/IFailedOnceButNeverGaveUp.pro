@@ -25,6 +25,7 @@ SOURCES += \
     media.cpp \
     movie.cpp \
     employer.cpp \
+    sms.cpp \
     smtp.cpp
 
 HEADERS += \
@@ -33,6 +34,7 @@ HEADERS += \
     mainwindow.h \
     media.h \
     movie.h \
+    sms.h \
     smtp.h
 
 FORMS += \

@@ -168,6 +168,14 @@ private slots:
 
     void on_pushButton_2ms_2_clicked();
 
+    void on_hihi_36_clicked();
+
+    void on_hihi_10tr_4_clicked();
+
+    void on_pushButton_12_clicked();
+
+    void on_hihi_10tr_3_clicked();
+
 private:
     Ui::Dialog *ui;
     bool isTrieButtonClicked = false;

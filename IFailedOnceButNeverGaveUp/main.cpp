@@ -11,9 +11,9 @@ int main(int argc, char *argv[])
     Dialog d;
     QSqlDatabase db ;
     db = QSqlDatabase::addDatabase("QODBC");
-        db.setDatabaseName("test"); //projet2a
+        db.setDatabaseName("projet"); //projet2a
         db.setUserName("yahya"); //sora
-        db.setPassword("orro");//oogabooga
+        db.setPassword("apolios");//oogabooga
         db.open();
 
         if (db.isOpen())

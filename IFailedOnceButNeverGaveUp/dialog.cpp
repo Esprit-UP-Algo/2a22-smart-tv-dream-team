@@ -1,5 +1,6 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include"sms.h"
 #include <regex>
 #include <string>
 #include <iostream>
@@ -43,6 +44,7 @@ Dialog::Dialog(QWidget *parent) :
     ui->lineEdit_3A_8->setValidator(new QIntValidator(0,9999999,this));
     ui->lineEdit_3A_6->setValidator(new QIntValidator(0,9999999,this));
     ui->lineEdit_3A_13->setValidator(new QIntValidator(0,99999999,this));
+    ui->comboBox_7->setVisible(false);
     ui->comboBox_2->setVisible(false);
 ui->stackedWidget->setCurrentIndex(0);
     ui->imagetestms->setVisible(false);
@@ -57,6 +59,7 @@ ui->stackedWidget->setCurrentIndex(0);
     socket = new QTcpSocket(this);
 
     ui->groupBox_2->setLayout(new QHBoxLayout);
+    ui->groupBox_3->setLayout(new QHBoxLayout);
     //Media
     connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
     connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
@@ -665,6 +668,11 @@ void Dialog::on_hihi_15_clicked()//crud transaction
         ui->gg_2->setVisible(true);
         ui->label_47->setVisible(true);
         ui->label_48->setVisible(true);
+        ui->comboBox_7->setVisible(true);
+        connect(ui->stackedWidget, &QStackedWidget::currentChanged,this , [this]()
+            {
+                 ui->comboBox_7->setVisible(false);
+            });
         int ligne(0);
         int row(0);
         QSqlQuery query;
@@ -677,7 +685,32 @@ void Dialog::on_hihi_15_clicked()//crud transaction
 
         QStandardItemModel * model=new QStandardItemModel(ligne , 6);
         QString qs;
-        qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION";
+        if(ui->textEdit->toPlainText()!="")
+        {
+
+           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION where IDTRANSACTION="+ui->textEdit->toPlainText() ;
+        }
+
+        else if(ui->comboBox_7->currentText()=="date transaction from newest to oldest")
+        {
+           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET DESC";
+        }
+        else if(ui->comboBox_7->currentText()=="default")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION";
+        }
+        else if(ui->comboBox_7->currentText()=="date transaction from oldest to newest")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET ASC";
+        }
+        else if(ui->comboBox_7->currentText()=="montant from highest to lowest")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT DESC";
+        }
+        else if(ui->comboBox_7->currentText()=="montant from lowest to highest")
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT ASC";
+        }
         qDebug()<<qs;
         query.exec(qs);
         while(query.next())
@@ -720,6 +753,21 @@ void Dialog::on_hihi_15_clicked()//crud transaction
                 query.prepare("delete from TRANSACTION where IDTRANSACTION=:id");
                 query.bindValue(":id",ui->tableviewtr->model()->data(ui->tableviewtr->model()->index(j,0)).toInt());
                 query.exec();
+                QString filePath = "C:/Users/yahya/Downloads/Compressed/project/integration/IFailedOnceButNeverGaveUp/logs.txt";
+
+                    // Ouvrir le fichier en mode écriture
+                    QFile file(filePath);
+                    if (!file.open(QIODevice::Append | QIODevice::Text)) {
+                        qDebug() << "Erreur lors de l'ouverture du fichier d'historique:" << file.errorString();
+                        return;
+                    }
+
+                    QTextStream out(&file);
+                    out << "deleted transactions\n";
+                    out << "ID: " <<ui->tableviewtr->model()->data(ui->tableviewtr->model()->index(j,0)).toInt()<< "\n";
+
+                    // Fermer le fichier
+                    file.close();
                 emit ui->hihi_15->click();
             });
             butt->setStyleSheet("color:red;"
@@ -935,7 +983,7 @@ void Dialog::on_pushButton_14A_4_clicked()//insert transaction
         {
             QSqlQuery query;
                     query.prepare("insert into TRANSACTION (datet , type , montant , ide) values (:date , :type , :montant , :ide)");
-                    query.bindValue(":date",ui->dateTimeEdit->dateTime());
+                    query.bindValue(":date",ui->dateTimeEdit_2->dateTime());
                     query.bindValue(":type",check1);
                     query.bindValue(":montant",ui->lineEdit_3A_6->text().toInt());
                     query.bindValue(":ide",7);
@@ -949,6 +997,32 @@ void Dialog::on_pushButton_14A_4_clicked()//insert transaction
                     {
                          QMessageBox :: critical(this,"Error","Couldn't insert data");
                     }
+                    QString filePath = "C:/Users/yahya/Downloads/Compressed/project/integration/IFailedOnceButNeverGaveUp/logs.txt";
+
+                        // Ouvrir le fichier en mode écriture
+                        QFile file(filePath);
+                        if (!file.open(QIODevice::Append | QIODevice::Text)) {
+                            qDebug() << "Erreur lors de l'ouverture du fichier d'historique:" << file.errorString();
+                            return;
+                        }
+                        QSqlQuery query1;
+                        query1.exec("select max(IDTRANSACTION) from TRANSACTION");
+                        query1.next();
+                        int idt=query1.value(0).toInt();
+                        // Écrire les détails de l'événement ajouté dans le fichier
+                        QTextStream out(&file);
+
+                        out <<"added transactions \n";
+
+
+                        out << "idt: " <<idt << "\n";
+                        out << "IDE: " <<  7 << "\n";
+                        out << "type: " << check1 << "\n";
+                        out << "montant: " << ui->lineEdit_3A_6->text().toInt() << "\n";
+                        out << "Date: " << ui->dateTimeEdit_2->dateTime().toString("yyyy-MM-dd") << "\n\n";
+
+                        // Fermer le fichier
+                        file.close();
         }
 
 
@@ -975,6 +1049,14 @@ void Dialog::on_pushButton_14A_4_clicked()//insert transaction
         );
         msgbox.exec();
     }
+    int id=6;
+    QSqlQuery query;
+    query.prepare("select NUMBERE from EMPLOYE where ide = :id ;");
+    query.bindValue(":id", id);
+    query.exec();
+    query.first();
+    sms s;
+    s.sendSMS(6,query.value(0).toInt());
 }
 
 void Dialog::on_pushButton_14A_6_clicked()//cancel button trans(add trans)
@@ -1022,7 +1104,7 @@ void Dialog::on_pushButton_14A_5_clicked()//update transaction
     {
         QSqlQuery query;
         query.prepare("UPDATE TRANSACTION set DATET=:date , TYPE=:type , MONTANT=:montant where IDTRANSACTION=:id ");
-        query.bindValue(":date",ui->dateTimeEdit_2->dateTime());
+        query.bindValue(":date",ui->dateTimeEdit->dateTime());
         query.bindValue(":type",check1);
         query.bindValue(":montant",ui->lineEdit_3A_8->text().toInt());
         query.bindValue(":id",ui->lineEdit_3A_9->text().toInt());
@@ -1058,6 +1140,25 @@ void Dialog::on_pushButton_14A_5_clicked()//update transaction
             );
             msgbox.exec();
         }
+        QString filePath = "C:/Users/yahya/Downloads/Compressed/project/integration/IFailedOnceButNeverGaveUp/logs.txt";
+
+            // Ouvrir le fichier en mode écriture
+            QFile file(filePath);
+            if (!file.open(QIODevice::Append | QIODevice::Text)) {
+                qDebug() << "Erreur lors de l'ouverture du fichier d'historique:" << file.errorString();
+                return;
+            }
+
+
+            QTextStream out(&file);
+            out << "modified  transaction : "  << "\n";
+            out << " ID: " << ui->lineEdit_3A_9->text().toInt() << "\n";
+            out << "Ancien type: " << check1 << "\n";
+            out << "Ancien montant: " << ui->lineEdit_3A_8->text().toInt() << "\n";
+            out << "Ancienne Date: " << ui->dateTimeEdit->dateTime().toString("yyyy-MM-dd") << "\n\n";
+
+            // Fermer le fichier
+            file.close();
 }
 
 void Dialog::on_pushButton_14A_7_clicked()//another cancel button trans(update trans)
@@ -2810,6 +2911,10 @@ void Dialog::on_gg_2_clicked()
     {
         emit ui->pushButton_12ms->click();
     }
+    else if (ui->stackedWidget->currentIndex()==2)
+    {
+        emit ui->hihi_15->click();
+    }
 }
 
 void Dialog::on_gg_5_clicked()
@@ -3372,4 +3477,155 @@ void Dialog::on_pushButton_2ms_2_clicked()
 
 
     });*/
+}
+
+void Dialog::on_hihi_36_clicked()//pdf transaction
+{
+    QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableviewtr->model());
+           if (!model) {
+               QMessageBox::warning(nullptr, "Erreur", "Impossible d'exporter les données : modèle non trouvé.");
+               return;
+           }
+
+           // Ouvrir une boîte de dialogue pour sélectionner l'emplacement de sauvegarde du fichier PDF
+           QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (&.pdf)");
+           if (filePath.isEmpty())
+               return; // Annuler l'exportation si aucun fichier n'a été sélectionné
+
+           // Créer un objet QPrinter pour générer le fichier PDF
+           QPrinter printer(QPrinter::PrinterResolution);
+           printer.setOutputFormat(QPrinter::PdfFormat);
+           printer.setPaperSize(QPrinter::A4);
+           printer.setOutputFileName(filePath);
+
+           // Créer un objet QPainter pour dessiner sur le périphérique d'impression
+           QPainter painter;
+           if (!painter.begin((&printer))) {
+               QMessageBox::warning(nullptr, "Erreur", "Impossible d'initialiser le périphérique d'impression.");
+               return;
+           }
+
+           // Dessiner les en-têtes de colonne
+           for (int col = 0; col < model->columnCount(); ++col) {
+               QString text = model->headerData(col, Qt::Horizontal).toString();
+               painter.drawText(col * 100, 50, text);
+           }
+
+           // Dessiner les données de la table
+           for (int row = 0; row < model->rowCount(); ++row) {
+               for (int col = 0; col < model->columnCount(); ++col) {
+                   QString text = model->data(model->index(row, col), Qt::DisplayRole).toString();
+                   painter.drawText(col * 100, (row + 2) * 50, text);
+               }
+           }
+
+           // Terminer le dessin
+           painter.end();
+}
+
+
+void Dialog::on_hihi_10tr_4_clicked()//stats trans
+{
+    QSqlQuery query;
+
+        QBarSet *set0= new QBarSet("total transactions");
+        query.exec("select count(*) FROM TRANSACTION");
+        query.next();
+        *set0 << query.value(0).toInt();
+
+        QBarSet*set1= new QBarSet("Checks");
+        query.exec("select count(*) FROM TRANSACTION where TYPE = 'Checks'");
+        query.next();
+        *set1 << query.value(0).toInt();
+
+
+
+        QBarSet*set2= new QBarSet("carte bancaire");
+        query.exec("select count(*) FROM TRANSACTION where TYPE = 'Card/Visa'");
+        query.next();
+        *set2 << query.value(0).toInt();
+
+        QBarSet*set3= new QBarSet("Cash");
+        query.exec("select count(*) FROM TRANSACTION where TYPE = 'Cash'");
+        query.next();
+        *set3 << query.value(0).toInt();
+
+
+        QBarSeries*series= new QBarSeries();
+        series->append(set0);
+        series->append(set1);
+        series->append(set2);
+        series->append(set3);
+        QChart *chart = new QChart();
+        chart->addSeries(series);
+        chart->setTitle("test");
+        chart->setAnimationOptions(QChart::AllAnimations);
+        QStringList categories;
+        categories<<"all transactions";
+        QBarCategoryAxis*axis=new QBarCategoryAxis();
+        axis->append(categories);
+        chart->createDefaultAxes();
+        chart->setAxisX(axis,series);
+        chart->legend()->setVisible(true);
+        chart->legend()->setAlignment(Qt::AlignBottom);
+        QChartView *view = new QChartView(chart,this);
+
+        view->setRenderHint(QPainter::Antialiasing);
+        ui->groupBox_3->layout()->addWidget(view);
+
+        ui->stackedWidget->setCurrentIndex(21);
+        connect(ui->stackedWidget, &QStackedWidget::currentChanged,this , [this,view]()
+            {
+                 ui->groupBox_3->layout()->removeWidget(view);
+            });
+}
+
+
+
+
+void Dialog::on_pushButton_12_clicked()
+{
+    emit ui->hihi_15->click();
+}
+
+void Dialog::on_hihi_10tr_3_clicked()
+{
+    // Spécifiez le chemin complet du fichier
+     QString filePath = "C:/Users/yahya/Downloads/Compressed/project/integration/IFailedOnceButNeverGaveUp/logs.txt";
+
+     QFile file(filePath);
+     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+         // Afficher un message d'erreur si l'ouverture du fichier échoue
+         QMessageBox::critical(this, "Erreur", "Impossible d'ouvrir le fichier historique : " + file.errorString());
+         return;
+     }
+
+     // Lire le contenu du fichier historique
+     QString historique = file.readAll();
+
+     file.close();
+
+     // Créer un widget QTextEdit pour afficher le contenu
+     QTextEdit *textEdit_4 = new QTextEdit(this);
+     textEdit_4->setText(historique);
+
+     // Définir la taille du QTextEdit
+     textEdit_4->setMinimumSize(1200, 800);
+
+     // Afficher le contenu dans une boîte de dialogue
+     QMessageBox messageBox;
+     messageBox.setWindowTitle("transaction logs");
+     messageBox.setIcon(QMessageBox::Information);
+     messageBox.setText("transaction logs");
+     messageBox.setInformativeText("this is the transaction logs");
+     messageBox.setStandardButtons(QMessageBox::Ok);
+     messageBox.setDefaultButton(QMessageBox::Ok);
+     messageBox.setDetailedText(historique);
+     messageBox.setSizeIncrement(1200, 800);
+
+     QVBoxLayout *layout = new QVBoxLayout;
+     layout->addWidget(textEdit_4);
+     messageBox.setLayout(layout);
+
+     messageBox.exec();
 }
