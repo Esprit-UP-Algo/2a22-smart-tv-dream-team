@@ -23,14 +23,29 @@
 #include <QStyledItemDelegate>
 #include "media.h"
 #include "movie.h"
+#include "diffusion.h"
 #include <QPrinter>
 #include <QPainter>
 #include <QTextToSpeech>
 #include <QAudioDeviceInfo>
+#include <QSystemTrayIcon>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QLegend>
+#include <QtCharts/QBarCategoryAxis>
+#include <QChart>
+#include <QVBoxLayout>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QChart>
+#include <QtCharts/QChartView>
+#include <QtCharts/QValueAxis>
 namespace Ui {
 class Dialog;
 }
-
+class QSystemTrayIcon;
 class Dialog : public QDialog
 {
     Q_OBJECT
@@ -46,6 +61,9 @@ public:
     void statistiqueMedia();
     void displayChannelImages();
     void displayRadioImages();
+    void checkReservationDates();
+    void updateChartMedia();
+    void afficherGifDansLabel();
 
     QTcpSocket *socket;
 
@@ -75,20 +93,6 @@ private slots:
     void on_pushButton_14A_7_clicked();
 
     void on_hihi_17_clicked();
-
-    void on_pushButton_10_clicked();
-
-    void on_pushButton_7_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_11_clicked();
-
-    void on_pushButton_9_clicked();
-
-    void on_pushButton_8_clicked();
-
-    void on_pushButton_6_clicked();
 
     void on_pushButton_3A_clicked();
 
@@ -176,16 +180,88 @@ private slots:
 
     void on_hihi_10tr_3_clicked();
 
+    void on_statisticsM_clicked();
+
+    void on_pushButton_14A_8_clicked();
+
+    void on_pushButton_14A_9_clicked();
+
+    void on_searchLineEditM_2_textChanged(const QString &arg1);
+
+    void on_pushButton_14A_10_clicked();
+
+    void on_pushButton_14A_11_clicked();
+
+
+
+    void on_cancelButtonM_clicked();
+
+    void on_cancelButtonM_2_clicked();
+    QByteArray importImage2();
+    void afficherDateActuelle();
+    void afficherHeureActuelle();
+    void calculerNombreSalles();
+
+    void on_pushButton_3A_3_clicked();
+
+    void on_pushButton_5A_3_clicked();
+
+    void on_comboBox_2_currentIndexChanged();
+
+    void on_hihi_42_clicked();
+
+    void on_hihi_10tr_5_clicked();
+    void initializeCalendar();
+    void updateCalendarWithEvents();
+    void refreshCalendar();
+
+    void on_calendarWidget_clicked(const QDate &date);
+
+    void on_pushButton_3_clicked();
+    string on_TitleM_textChanged();
+     void onTypingTimerTimeout();
+     void readText();
+    void on_TitleM_textChanged(const QString &arg1);
+     void startTimer();
+     void readTextProducer();
+     void on_ProducerM_textChanged(const QString &arg1);
+
+     void on_textEditM_textChanged();
+     void readTextDescrption();
+     void initializeTextToSpeech() ;
+     void startProducerTimer();
+
+
+     void on_listM_2_clicked();
+
+     void on_ggM_clicked();
+
 private:
     Ui::Dialog *ui;
     bool isTrieButtonClicked = false;
-    QString type ;
+    QString type,etat ;
     QList<QPushButton*> buttonsList;
     QByteArray valImage;
     QVector<QVoice> m_voices;
      QTextToSpeech *textToSpeech;
      QTimer *typingTimer,*producerTimer;
      QString lastText;
+     QSystemTrayIcon *mSystemTrayIcon;
+     QTimer *timer;
+     QTimer *notificationTimer;
+     QLabel *gifLabel;
+
+        // Fonction pour afficher un GIF animé dans une QLabel
+        void afficherGifDansLabel(const QString &cheminGif, QLabel *label) {
+            // Créer un objet QMovie avec le chemin vers le GIF
+            QMovie *movie = new QMovie(cheminGif);
+
+            // Assigner le QMovie à la QLabel
+            label->setMovie(movie);
+
+            // Démarrer l'animation
+            movie->start();
+        }
 };
 
 #endif // DIALOG_H

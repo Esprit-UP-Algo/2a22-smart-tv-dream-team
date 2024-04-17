@@ -1,12 +1,15 @@
 QT       += core gui multimedia multimediawidgets sql
 QT       +=  sql  printsupport charts  quick
 QT += network
+QT += core gui charts
+QT += charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = smtp
 TEMPLATE = app
 QT += texttospeech
 CONFIG += c++11
 CONFIG += console
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -20,6 +23,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     dialog.cpp \
+    diffusion.cpp \
     main.cpp \
     mainwindow.cpp \
     media.cpp \
@@ -30,6 +34,7 @@ SOURCES += \
 
 HEADERS += \
     dialog.h \
+    diffusion.h \
     employer.h \
     mainwindow.h \
     media.h \
@@ -40,6 +45,7 @@ HEADERS += \
 FORMS += \
     dialog.ui \
     mainwindow.ui
+    RC_ICONS = myappico.ico
 
 TRANSLATIONS += \
     IFailedOnceButNeverGaveUp_en_150.ts
@@ -48,3 +54,6 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
