@@ -1,0 +1,16 @@
+INPUT(
+./release\dialog.o
+./release\diffusion.o
+./release\main.o
+./release\mainwindow.o
+./release\media.o
+./release\movie.o
+./release\employer.o
+./release\sms.o
+./release\smtp.o
+./release\qrc_res.o
+./release\moc_dialog.o
+./release\moc_mainwindow.o
+./release\moc_sms.o
+./release\moc_smtp.o
+);
