@@ -14,6 +14,7 @@
 #include<QtCore>
 #include<QtGui>
 #include<QtWidgets>
+#include"arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,7 @@ public:
 
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
 
 
 private slots:
@@ -62,5 +64,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QStringList files;
+    Arduino AM;
+    QByteArray dataM;
 };
 #endif // MAINWINDOW_H

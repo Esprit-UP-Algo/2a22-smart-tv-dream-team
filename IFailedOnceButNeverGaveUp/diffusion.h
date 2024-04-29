@@ -53,6 +53,7 @@ public:
           QString etat;
           QDate dateRes;
 
+
   };
 
 

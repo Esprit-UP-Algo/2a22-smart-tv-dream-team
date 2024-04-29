@@ -25,6 +25,7 @@
 #include <QTableView>
 #include <QSystemTrayIcon>
 
+
 using namespace QtCharts;
 QPieSeries *seriesE;
 QChart *chartE;
@@ -95,6 +96,7 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     //updateChartMedia();
     displayChannelImages();
     displayRadioImages();
+
     //Diffusion
     ui->lineEdit_3A_10->setValidator(new QIntValidator(0,99999999,this));
     ui->lineEdit_3A_7->setValidator(new QIntValidator(0,99999999,this));
@@ -122,6 +124,15 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Dialog::refreshCalendar);
     timer->start(10000);
+    //Media
+    int ret= AM.connect_arduino();
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<<AM.getarduino_port_name();
+        break;
+    case(1):qDebug()<< "arduino is available but not connected to : "<<AM.getarduino_port_name();
+        break;
+    case(-1):qDebug()<< "arduino is not available "<<AM.getarduino_port_name();
+        break;}
 }
 void Dialog::trait(QString Role)//authentification
 {
@@ -3922,28 +3933,38 @@ void Dialog::on_pushButton_14A_9_clicked()
 void Dialog::on_searchLineEditM_2_textChanged(const QString &arg1)
 {
     QString searchText = arg1.trimmed();
-            if (searchText.isEmpty()) {
-                // If lineEdit is empty, reset the tableView
-                on_pushButton_2A_clicked();
-                return;
-            }
+    if (searchText.isEmpty()) {
+        // Si lineEdit est vide, réinitialiser le tableView
+        on_pushButton_2A_clicked();
+        return;
+    }
 
-            QString queryText;
+    QString queryText;
 
-            if (searchText.length() == 1) {
-                // If only one letter is entered, search for rows starting with that letter
-                queryText = "SELECT NUMSALLE, CAPACITE, ETAT, DATERES FROM SALLE WHERE NUMSALLE LIKE '" + searchText + "%'";
-            } else {
-                // Otherwise, search for rows containing the complete text
-                queryText = "SELECT NUMSALLE, CAPACITE, ETAT, DATERES FROM SALLE WHERE NUMSALLE LIKE '%" + searchText + "%'";
-            }
+    if (searchText.length() == 1) {
+        // Si une seule lettre est entrée, rechercher les lignes commençant par cette lettre
+        queryText = "SELECT NUMSALLE, CAPACITE, ETAT, DATERES FROM SALLE WHERE NUMSALLE LIKE '" + searchText + "%'";
+    } else {
+        // Sinon, rechercher les lignes contenant le texte complet
+        queryText = "SELECT NUMSALLE, CAPACITE, ETAT, DATERES FROM SALLE WHERE NUMSALLE LIKE '%" + searchText + "%'";
+    }
 
-            QSqlQueryModel *model = new QSqlQueryModel();
-            model->setQuery(queryText);
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery(queryText);
 
-            ui->tableviewrr->setModel(model);
-
+    ui->tableviewrr->setModel(model);
+    // Vérifier si des résultats de recherche sont trouvés
+    if (model->rowCount() > 0) {
+        // Résultats de recherche trouvés, envoyer un message à Arduino
+        QByteArray command = "P2"; // Commande pour jouer le premier fichier audio sur la carte SD
+        AM.write_to_arduino(command); // Envoie la commande à Arduino
+    } else {
+        // Aucun résultat de recherche trouvé, envoyer un message à Arduino
+        QByteArray command = "P1"; // Commande pour jouer le deuxième fichier audio sur la carte SD
+        AM.write_to_arduino(command); // Envoie la commande à Arduino
+    }
 }
+
 
 void Dialog::on_pushButton_14A_10_clicked()
 {

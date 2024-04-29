@@ -42,6 +42,7 @@
 #include <QtCharts/QChart>
 #include <QtCharts/QChartView>
 #include <QtCharts/QValueAxis>
+#include "arduino.h"
 namespace Ui {
 class Dialog;
 }
@@ -262,6 +263,8 @@ private:
             // Démarrer l'animation
             movie->start();
         }
+     Arduino AM;
+     QByteArray dataM;
 };
 
 #endif // DIALOG_H

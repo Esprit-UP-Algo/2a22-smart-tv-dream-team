@@ -3,6 +3,7 @@ QT       +=  sql  printsupport charts  quick
 QT += network
 QT += core gui charts
 QT += charts
+QT += serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = smtp
 TEMPLATE = app

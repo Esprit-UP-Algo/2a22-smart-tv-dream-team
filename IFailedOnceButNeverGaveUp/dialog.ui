@@ -745,57 +745,6 @@ border-image:url(&quot;plink.gif&quot;);
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="searchLineEditM">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>20</y>
-      <width>481</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border:1 px solid #ced4da;
-border-radius:12px;
-padding-left:25px;
-padding-top:5px;
-background:rgba(190,190,190,100);
-color : rgba(255,255,255,200);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="placeholderText">
-     <string>Search by title</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="ggM">
-    <property name="geometry">
-     <rect>
-      <x>1080</x>
-      <y>20</y>
-      <width>31</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#ggM
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,150);
-}
-QPushButton#ggM:hover
-{
-font: 20pt &quot;dripicons-v2&quot;;
-border:none;
-background-color:transparent;
-color:rgba(255,255,255,255);
-}</string>
-    </property>
-    <property name="text">
-     <string></string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_5A_3">
     <property name="geometry">
      <rect>
@@ -990,8 +939,6 @@ border-radius:12px;
    <zorder>gg_5</zorder>
    <zorder>label_47</zorder>
    <zorder>hihi</zorder>
-   <zorder>searchLineEditM</zorder>
-   <zorder>ggM</zorder>
    <zorder>pushButton_5A_3</zorder>
    <zorder>pushButton_3A_3</zorder>
    <zorder>pushButton_4A_3</zorder>
@@ -7548,6 +7495,57 @@ border-radius:12px;
        <string>Date of creation</string>
       </property>
      </item>
+    </widget>
+    <widget class="QLineEdit" name="searchLineEditM">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>130</y>
+       <width>481</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:1 px solid #ced4da;
+border-radius:12px;
+padding-left:25px;
+padding-top:5px;
+background:rgba(190,190,190,100);
+color : rgba(255,255,255,200);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="placeholderText">
+      <string>Search by title</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ggM">
+     <property name="geometry">
+      <rect>
+       <x>1090</x>
+       <y>130</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#ggM
+{
+font: 20pt &quot;dripicons-v2&quot;;
+border:none;
+background-color:transparent;
+color:rgba(255,255,255,150);
+}
+QPushButton#ggM:hover
+{
+font: 20pt &quot;dripicons-v2&quot;;
+border:none;
+background-color:transparent;
+color:rgba(255,255,255,255);
+}</string>
+     </property>
+     <property name="text">
+      <string></string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="listemovie">

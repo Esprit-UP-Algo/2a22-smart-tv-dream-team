@@ -59,8 +59,6 @@ public:
     QPushButton *gg_5;
     QLabel *label_47;
     QPushButton *hihi;
-    QLineEdit *searchLineEditM;
-    QPushButton *ggM;
     QPushButton *pushButton_5A_3;
     QPushButton *pushButton_3A_3;
     QPushButton *pushButton_4A_3;
@@ -323,6 +321,8 @@ public:
     QPushButton *add;
     QPushButton *exportM;
     QComboBox *comboBoxM;
+    QLineEdit *searchLineEditM;
+    QPushButton *ggM;
     QWidget *listemovie;
     QGroupBox *groupBox_7ms;
     QVBoxLayout *verticalLayout;
@@ -838,33 +838,6 @@ public:
 "}"));
         hihi->setIconSize(QSize(40, 40));
         hihi->setFlat(false);
-        searchLineEditM = new QLineEdit(searchBar);
-        searchLineEditM->setObjectName(QStringLiteral("searchLineEditM"));
-        searchLineEditM->setGeometry(QRect(640, 20, 481, 41));
-        searchLineEditM->setStyleSheet(QLatin1String("border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:25px;\n"
-"padding-top:5px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 14pt \"MS Shell Dlg 2\";"));
-        ggM = new QPushButton(searchBar);
-        ggM->setObjectName(QStringLiteral("ggM"));
-        ggM->setGeometry(QRect(1080, 20, 31, 41));
-        ggM->setStyleSheet(QLatin1String("QPushButton#ggM\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,150);\n"
-"}\n"
-"QPushButton#ggM:hover\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,255);\n"
-"}"));
         pushButton_5A_3 = new QPushButton(searchBar);
         pushButton_5A_3->setObjectName(QStringLiteral("pushButton_5A_3"));
         pushButton_5A_3->setGeometry(QRect(170, 20, 111, 31));
@@ -982,8 +955,6 @@ public:
         gg_5->raise();
         label_47->raise();
         hihi->raise();
-        searchLineEditM->raise();
-        ggM->raise();
         pushButton_5A_3->raise();
         pushButton_3A_3->raise();
         pushButton_4A_3->raise();
@@ -4078,6 +4049,33 @@ public:
 "}\n"
 "\n"
 ""));
+        searchLineEditM = new QLineEdit(listechannel);
+        searchLineEditM->setObjectName(QStringLiteral("searchLineEditM"));
+        searchLineEditM->setGeometry(QRect(650, 130, 481, 41));
+        searchLineEditM->setStyleSheet(QLatin1String("border:1 px solid #ced4da;\n"
+"border-radius:12px;\n"
+"padding-left:25px;\n"
+"padding-top:5px;\n"
+"background:rgba(190,190,190,100);\n"
+"color : rgba(255,255,255,200);\n"
+"font: 14pt \"MS Shell Dlg 2\";"));
+        ggM = new QPushButton(listechannel);
+        ggM->setObjectName(QStringLiteral("ggM"));
+        ggM->setGeometry(QRect(1090, 130, 31, 41));
+        ggM->setStyleSheet(QLatin1String("QPushButton#ggM\n"
+"{\n"
+"font: 20pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,150);\n"
+"}\n"
+"QPushButton#ggM:hover\n"
+"{\n"
+"font: 20pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,255);\n"
+"}"));
         stackedWidget->addWidget(listechannel);
         listemovie = new QWidget();
         listemovie->setObjectName(QStringLiteral("listemovie"));
@@ -5790,8 +5788,6 @@ public:
         gg_5->setText(QApplication::translate("Dialog", "\356\201\200", Q_NULLPTR));
         label_47->setText(QString());
         hihi->setText(QString());
-        searchLineEditM->setPlaceholderText(QApplication::translate("Dialog", "Search by title", Q_NULLPTR));
-        ggM->setText(QApplication::translate("Dialog", "\356\201\201", Q_NULLPTR));
         pushButton_5A_3->setText(QApplication::translate("Dialog", "Statistics", Q_NULLPTR));
         pushButton_3A_3->setText(QApplication::translate("Dialog", "MANAGE", Q_NULLPTR));
         pushButton_4A_3->setText(QApplication::translate("Dialog", "Dashboard", Q_NULLPTR));
@@ -6067,6 +6063,8 @@ public:
          << QApplication::translate("Dialog", "Radio", Q_NULLPTR)
          << QApplication::translate("Dialog", "Date of creation", Q_NULLPTR)
         );
+        searchLineEditM->setPlaceholderText(QApplication::translate("Dialog", "Search by title", Q_NULLPTR));
+        ggM->setText(QApplication::translate("Dialog", "\356\201\201", Q_NULLPTR));
         groupBox_7ms->setTitle(QString());
         groupBoxmsms->setTitle(QString());
         groupBox_13ms->setTitle(QString());
