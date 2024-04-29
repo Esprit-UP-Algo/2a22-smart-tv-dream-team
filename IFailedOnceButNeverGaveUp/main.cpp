@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    Dialog d;
+    //Dialog d;
     QSqlDatabase db ;
     db = QSqlDatabase::addDatabase("QODBC");
         db.setDatabaseName("test"); //projet2a

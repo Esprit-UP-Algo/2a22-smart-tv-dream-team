@@ -5,6 +5,7 @@ INPUT(
 ./debug\media.o
 ./debug\movie.o
 ./debug\employer.o
+./debug\arduino.o
 ./debug\smtp.o
 ./debug\moc_dialog.o
 ./debug\moc_mainwindow.o

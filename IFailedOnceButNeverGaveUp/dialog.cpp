@@ -62,6 +62,7 @@ ui->stackedWidget->setCurrentIndex(0);
     connect(ui->radioButtonM, &QRadioButton::clicked, this, [=]() {
         type = "Radio";
     });
+
 /*<<<<<<< HEAD
 =======
 
@@ -82,8 +83,66 @@ ui->stackedWidget->setCurrentIndex(0);
     ui->ProducerM->setValidator(new QRegExpValidator(QRegExp("[A-Za-z ]+"), this));
     textToSpeech = new QTextToSpeech(this);
     typingTimer = new QTimer(this);
+    vcmode=0;
+
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(vcommand())); // permet de lancer
+        vcmode=1;
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+
 
 }
+
+
+
+void Dialog::vcommand()
+{
+    data=A.read_from_arduino();
+    qDebug()<<data;
+
+
+    if(data=="1")
+    {
+        if (vcmode==1)
+            ui->stackedWidget->setCurrentIndex(1);
+
+    }
+
+        //ui->label_3->setText("ON"); // si les données reçues de arduino via la liaison série sont égales à 1
+    // alors afficher ON
+
+    else if (data=="2")
+     {
+        if (vcmode==1)
+            ui->stackedWidget->setCurrentIndex(2);
+
+     }
+    else if (data=="3")
+    {
+        if (vcmode==1)
+            ui->stackedWidget->setCurrentIndex(6);
+    }
+    else if (data=="4")
+    {
+        if (vcmode==1)
+            ui->stackedWidget->setCurrentIndex(7);
+    }
+    else if (data=="5")
+    {
+        if (vcmode==1)
+            close();
+    }
+
+//        ui->label_3->setText("OFF");   // si les données reçues de arduino via la liaison série sont égales à 0
+     //alors afficher ON
+}
+
 void Dialog::trait(QString Role)//authentification
 {
     if (Role == "HR")
@@ -3372,4 +3431,14 @@ void Dialog::on_pushButton_2ms_2_clicked()
 
 
     });*/
+}
+
+void Dialog::on_stackedWidget_currentChanged(int arg1)
+{
+    qDebug()<<arg1;
+    if (ui->stackedWidget->currentIndex()==1)
+    {
+        qDebug()<<"ok to vc";
+        ui->textEdit->setFocus();
+    }
 }

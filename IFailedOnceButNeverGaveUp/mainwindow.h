@@ -15,6 +15,7 @@
 #include<QtGui>
 #include<QtWidgets>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -30,17 +31,13 @@ public:
 
 
 private slots:
-    void on_ok_clicked();
 
     void on_ok_2_clicked();
 
 
     void on_ok_3_clicked();
 
-    void on_ku_3_clicked();
 
-
-    void on_ok_12_clicked();
 
     void on_ku_2_clicked();
 

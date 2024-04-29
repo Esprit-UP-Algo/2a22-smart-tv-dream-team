@@ -27,6 +27,9 @@
 #include <QPainter>
 #include <QTextToSpeech>
 #include <QAudioDeviceInfo>
+
+
+#include "arduino.h"
 namespace Ui {
 class Dialog;
 }
@@ -102,8 +105,6 @@ private slots:
 
     void on_label_omek_clicked();
 
-    void on_pushButton_4A_2_clicked();
-
     void on_pushButtonA_clicked();
 
     void on_pushButton_2A_clicked();
@@ -168,6 +169,10 @@ private slots:
 
     void on_pushButton_2ms_2_clicked();
 
+    void vcommand();
+
+    void on_stackedWidget_currentChanged(int arg1);
+
 private:
     Ui::Dialog *ui;
     bool isTrieButtonClicked = false;
@@ -178,6 +183,10 @@ private:
      QTextToSpeech *textToSpeech;
      QTimer *typingTimer,*producerTimer;
      QString lastText;
+     QByteArray data; // variable contenant les données reçues
+
+     Arduino A; // objet temporaire
+     int vcmode;
 };
 
 #endif // DIALOG_H

@@ -1,6 +1,6 @@
 QT       += core gui multimedia multimediawidgets sql
 QT       +=  sql  printsupport charts  quick
-QT += network
+QT += network serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = smtp
 TEMPLATE = app
@@ -25,6 +25,7 @@ SOURCES += \
     media.cpp \
     movie.cpp \
     employer.cpp \
+    arduino.cpp \
     smtp.cpp
 
 HEADERS += \
@@ -33,6 +34,7 @@ HEADERS += \
     mainwindow.h \
     media.h \
     movie.h \
+    arduino.h \
     smtp.h
 
 FORMS += \
