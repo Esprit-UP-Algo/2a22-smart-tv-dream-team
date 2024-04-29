@@ -1,0 +1,12 @@
+INPUT(
+./release\arduino.o
+./release\dialog.o
+./release\main.o
+./release\mainwindow.o
+./release\media.o
+./release\movie.o
+./release\smtp.o
+./release\moc_dialog.o
+./release\moc_mainwindow.o
+./release\moc_smtp.o
+);
