@@ -62,6 +62,7 @@ public:
     QComboBox *comboBox_7;
     QComboBox *comboBoxM_2;
     QComboBox *comboBoxM;
+    QComboBox *comboBoxM_3;
     QStackedWidget *stackedWidget;
     QWidget *home;
     QLabel *label_22;
@@ -320,31 +321,26 @@ public:
     QPushButton *loM;
     QPushButton *add;
     QPushButton *exportM;
-    QWidget *listemovie;
-    QGroupBox *groupBox_7ms;
-    QVBoxLayout *verticalLayout;
-    QTableView *tableViewms;
-    QGroupBox *groupBoxmsms;
-    QHBoxLayout *horizontalLayout_3;
-    QGroupBox *groupBox_13ms;
-    QHBoxLayout *horizontalLayout;
-    QLabel *labelms;
-    QComboBox *comboBoxms;
-    QGroupBox *groupBox_3ms;
-    QHBoxLayout *horizontalLayout_6;
-    QPushButton *pushButton_2ms;
-    QPushButton *pushButton_12ms;
-    QGroupBox *groupBox_4ms;
-    QGroupBox *groupBox_2ms;
-    QHBoxLayout *horizontalLayout_2;
-    QPushButton *actioncate;
-    QPushButton *horrorcate;
-    QPushButton *comedycate;
-    QPushButton *romancecate;
-    QPushButton *scificate;
-    QPushButton *dramacate;
-    QPushButton *sportscate;
-    QPushButton *pushButton_2ms_2;
+    QWidget *ddesignomar;
+    QPushButton *loM_2;
+    QPushButton *add_2;
+    QLabel *label_45;
+    QLabel *label_49;
+    QPushButton *exportM_2;
+    QTableView *tableViewM_2;
+    QLabel *label_50;
+    QPushButton *hihi_10tr_6;
+    QPushButton *hihi_14;
+    QPushButton *exportButtonM_2;
+    QGroupBox *groupBox_2ms_2;
+    QHBoxLayout *horizontalLayout_10;
+    QPushButton *actioncate_2;
+    QPushButton *horrorcate_2;
+    QPushButton *comedycate_2;
+    QPushButton *romancecate_2;
+    QPushButton *scificate_2;
+    QPushButton *dramacate_2;
+    QPushButton *sportscate_2;
     QWidget *ajoutmovie;
     QGroupBox *groupBox_8ms;
     QVBoxLayout *verticalLayout_4;
@@ -481,17 +477,6 @@ public:
     QGroupBox *groupBox_5;
     QLabel *label_43;
     QLabel *label_44;
-    QWidget *ddesignomar;
-    QPushButton *loM_2;
-    QPushButton *add_2;
-    QLabel *label_45;
-    QLabel *label_49;
-    QPushButton *exportM_2;
-    QTableView *tableViewM_2;
-    QLabel *label_50;
-    QPushButton *hihi_10tr_6;
-    QPushButton *hihi_14;
-    QPushButton *exportButtonM_2;
 
     void setupUi(QDialog *Dialog)
     {
@@ -966,6 +951,51 @@ public:
 "}\n"
 "\n"
 ""));
+        comboBoxM_3 = new QComboBox(searchBar);
+        comboBoxM_3->setObjectName(QStringLiteral("comboBoxM_3"));
+        comboBoxM_3->setGeometry(QRect(1140, 20, 191, 41));
+        comboBoxM_3->setStyleSheet(QLatin1String("#comboBoxM_3\n"
+"{\n"
+"border:1 px solid #ced4da;\n"
+"border-radius:12px;\n"
+"padding-left:10px;\n"
+"background:rgba(190,190,190,100);\n"
+"color : rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"#comboBoxM_3::drop-down{\n"
+"border:0px;\n"
+"}\n"
+"#comboBoxM_3::down-arrow{\n"
+"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
+"width:30px;\n"
+"height:30px;\n"
+"margin-right:18px;\n"
+"}\n"
+"#comboBoxM_3 QListView{\n"
+"border:1 px solid #ced4da;\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"padding:5px;\n"
+"outline:0px;\n"
+"border-radius:20px;\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"}\n"
+"#comboBoxM_3 QListView::item{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"border-radius:12px;\n"
+"}\n"
+"#comboBoxM_3 QListView::item:hover{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color:rgba(90,90,90,200);\n"
+"background-color:rg"
+                        "ba(150,150,150,150);\n"
+"border-radius:12px;\n"
+"}\n"
+"\n"
+""));
         textEdit->raise();
         label_15->raise();
         label_48->raise();
@@ -977,6 +1007,7 @@ public:
         comboBox_7->raise();
         comboBoxM_2->raise();
         comboBoxM->raise();
+        comboBoxM_3->raise();
         stackedWidget = new QStackedWidget(Dialog);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, -10, 1921, 1081));
@@ -4015,37 +4046,188 @@ public:
         exportM->setIconSize(QSize(40, 40));
         exportM->setFlat(false);
         stackedWidget->addWidget(listechannel);
-        listemovie = new QWidget();
-        listemovie->setObjectName(QStringLiteral("listemovie"));
-        listemovie->setStyleSheet(QLatin1String("QPushButton \n"
+        ddesignomar = new QWidget();
+        ddesignomar->setObjectName(QStringLiteral("ddesignomar"));
+        ddesignomar->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));"));
+        loM_2 = new QPushButton(ddesignomar);
+        loM_2->setObjectName(QStringLiteral("loM_2"));
+        loM_2->setGeometry(QRect(1460, 130, 225, 81));
+        loM_2->setToolTipDuration(1);
+        loM_2->setAutoFillBackground(false);
+        loM_2->setStyleSheet(QLatin1String("QPushButton#loM_2{\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"border-radius:20px;\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
+"}\n"
+"QPushButton#loM_2:hover{\n"
+"border-radius:20px;\n"
+"color:rgb(255,255,255);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"\n"
+""));
+        loM_2->setIconSize(QSize(40, 40));
+        loM_2->setFlat(false);
+        add_2 = new QPushButton(ddesignomar);
+        add_2->setObjectName(QStringLiteral("add_2"));
+        add_2->setGeometry(QRect(1460, 140, 61, 61));
+        add_2->setToolTipDuration(1);
+        add_2->setAutoFillBackground(false);
+        add_2->setStyleSheet(QLatin1String("QPushButton#add_2{\n"
+"border-radius:30px;\n"
+"	font: 24pt \"dripicons-v2\";\n"
+"	background-color: rgb(32, 91, 200);\n"
+"}"));
+        add_2->setIconSize(QSize(40, 40));
+        add_2->setFlat(false);
+        label_45 = new QLabel(ddesignomar);
+        label_45->setObjectName(QStringLiteral("label_45"));
+        label_45->setGeometry(QRect(280, 180, 101, 31));
+        label_45->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"background-color:transparent;"));
+        label_49 = new QLabel(ddesignomar);
+        label_49->setObjectName(QStringLiteral("label_49"));
+        label_49->setGeometry(QRect(180, 100, 241, 101));
+        label_49->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
+"font: 42pt \"MS Shell Dlg 2\";\n"
+"background-color:transparent;"));
+        exportM_2 = new QPushButton(ddesignomar);
+        exportM_2->setObjectName(QStringLiteral("exportM_2"));
+        exportM_2->setGeometry(QRect(1700, 140, 61, 61));
+        exportM_2->setToolTipDuration(1);
+        exportM_2->setAutoFillBackground(false);
+        exportM_2->setStyleSheet(QLatin1String("QPushButton#exportM_2{\n"
+"border-radius:30px;\n"
+"	font: 24pt \"dripicons-v2\";\n"
+"	background-color: rgb(32, 91, 200);\n"
+"}"));
+        exportM_2->setIconSize(QSize(40, 40));
+        exportM_2->setFlat(false);
+        tableViewM_2 = new QTableView(ddesignomar);
+        tableViewM_2->setObjectName(QStringLiteral("tableViewM_2"));
+        tableViewM_2->setGeometry(QRect(110, 240, 1791, 841));
+        tableViewM_2->setMinimumSize(QSize(1700, 700));
+        QFont font4;
+        font4.setFamily(QStringLiteral("Times New Roman"));
+        font4.setPointSize(14);
+        tableViewM_2->setFont(font4);
+        tableViewM_2->setStyleSheet(QLatin1String("QTableView::item\n"
+"{\n"
+"        background-color:rgba(49,28,71,100);\n"
+"     border : 2px solid white ;\n"
+"        font : 25px;\n"
+"color : black;\n"
+"\n"
+"        max-width : 200;\n"
+"        max-height : 200;\n"
+"        min-width : 200;\n"
+"        min-height : 200;\n"
+"	\n"
+"}\n"
+"\n"
+""));
+        tableViewM_2->horizontalHeader()->setCascadingSectionResizes(true);
+        tableViewM_2->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
+        tableViewM_2->horizontalHeader()->setStretchLastSection(true);
+        tableViewM_2->verticalHeader()->setCascadingSectionResizes(true);
+        tableViewM_2->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
+        tableViewM_2->verticalHeader()->setStretchLastSection(true);
+        label_50 = new QLabel(ddesignomar);
+        label_50->setObjectName(QStringLiteral("label_50"));
+        label_50->setGeometry(QRect(110, 100, 71, 101));
+        label_50->setStyleSheet(QLatin1String("font: 42pt \"MS Shell Dlg 2\";\n"
+"background-color:transparent;\n"
+"color: rgba(35,125,236,255);"));
+        hihi_10tr_6 = new QPushButton(ddesignomar);
+        hihi_10tr_6->setObjectName(QStringLiteral("hihi_10tr_6"));
+        hihi_10tr_6->setGeometry(QRect(1250, 130, 200, 81));
+        hihi_10tr_6->setToolTipDuration(1);
+        hihi_10tr_6->setAutoFillBackground(false);
+        hihi_10tr_6->setStyleSheet(QLatin1String("QPushButton#hihi_10tr_6{\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"border-radius:20px;\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
+"}\n"
+"QPushButton#hihi_10tr_6:hover{\n"
+"border-radius:20px;\n"
+"color:rgb(255,255,255);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"\n"
+""));
+        hihi_10tr_6->setIconSize(QSize(40, 40));
+        hihi_10tr_6->setFlat(false);
+        hihi_14 = new QPushButton(ddesignomar);
+        hihi_14->setObjectName(QStringLiteral("hihi_14"));
+        hihi_14->setGeometry(QRect(1260, 150, 41, 41));
+        hihi_14->setToolTipDuration(1);
+        hihi_14->setAutoFillBackground(false);
+        hihi_14->setStyleSheet(QLatin1String("QPushButton#hihi_14\n"
+"{\n"
+"font: 30pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,150);\n"
+"}\n"
+"QPushButton#hihi_14:hover\n"
+"{\n"
+"font: 30pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,255);\n"
+"}"));
+        hihi_14->setIconSize(QSize(40, 40));
+        hihi_14->setFlat(false);
+        exportButtonM_2 = new QPushButton(ddesignomar);
+        exportButtonM_2->setObjectName(QStringLiteral("exportButtonM_2"));
+        exportButtonM_2->setGeometry(QRect(1700, 130, 200, 81));
+        exportButtonM_2->setToolTipDuration(1);
+        exportButtonM_2->setAutoFillBackground(false);
+        exportButtonM_2->setStyleSheet(QLatin1String("QPushButton#exportButtonM_2{\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"border-radius:20px;\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
+"}\n"
+"QPushButton#exportButtonM_2:click{\n"
+"border-radius:20px;\n"
+"color:rgb(255,255,255);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"\n"
+""));
+        exportButtonM_2->setIconSize(QSize(40, 40));
+        exportButtonM_2->setFlat(false);
+        groupBox_2ms_2 = new QGroupBox(ddesignomar);
+        groupBox_2ms_2->setObjectName(QStringLiteral("groupBox_2ms_2"));
+        groupBox_2ms_2->setGeometry(QRect(450, 120, 800, 100));
+        groupBox_2ms_2->setMinimumSize(QSize(800, 100));
+        groupBox_2ms_2->setMaximumSize(QSize(800, 70));
+        QFont font5;
+        font5.setPointSize(12);
+        groupBox_2ms_2->setFont(font5);
+        groupBox_2ms_2->setStyleSheet(QLatin1String("QGroupBox\n"
+"{\n"
+"background-color : transparent;\n"
+"border:none;\n"
+"}\n"
+"\n"
+"QGroupBox:title\n"
+"{\n"
+"color:white;\n"
+"font-size:15px;\n"
+"}\n"
+"\n"
+"QPushButton \n"
 "{\n"
 "		background-color : rgba(125,125,125,0);\n"
 "		color : rgba(200,200,200,255);\n"
 "		border: 2px solid rgba(200,200,200,255);\n"
 "    	border-radius: 15px;\n"
 "}\n"
-"\n"
-"/*QScrollBar {\n"
-"		background: #D3D3D3;\n"
-"		border: none;\n"
-"		margin: 0;\n"
-"		padding: 0;\n"
-"		width: 15px;\n"
-"	}\n"
-"QScrollBar:groove {\n"
-"		border-radius: 5px;\n"
-"		background: gray;\n"
-"		margin: 25px 0;\n"
-"		width: 30px;\n"
-"	}\n"
-"	\n"
-"	QScrollBar:handle {\n"
-"		border: none;\n"
-"		background: #D3D3D3;\n"
-"		margin: 25px 0;\n"
-"		min-height: 30px;\n"
-"		min-width: 30px;\n"
-"	}*/\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
@@ -4067,265 +4249,86 @@ public:
 "\n"
 "QPushButton::pressed\n"
 "{\n"
-"		backgr"
-                        "ound-color : rgba(255,255,255,255);\n"
+"		background-color : rgba(255,255,255,255);\n"
 "		border: 1px solid black;\n"
 "		color : black;\n"
 "    	border-radius: 15px;\n"
 "}\n"
-"QMainWindow ,QWidget#tab,#page,#page_2,#page_4\n"
-"{\n"
-"\n"
-"		background: black;\n"
-"}\n"
-"\n"
-"QLabel\n"
-"{\n"
-"		color: rgba(200,200,200,255);\n"
-"}\n"
-"\n"
-"QLineEdit , QTextEdit\n"
-"{\n"
-"		border-radius:15;\n"
-"}\n"
-"\n"
-"#groupBox_7ms , #groupBox_2ms\n"
-"{\n"
-"	border : none;\n"
-"	background : transparent;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"		background : rgba(200,200,200,50);\n"
-"\n"
-"}\n"
-"\n"
-"QTableView::item\n"
-"{\n"
-"		background-color:rgba(49,28,71,100);\n"
-"		border : 2px solid white ;\n"
-"		font-size : 15px;\n"
-"		max-width : 180px;\n"
-"\n"
-"}\n"
-"\n"
-"              QHeaderView::section {background-color: rgba(255,255,255,120);\n"
-"color:white;}\n"
-"              QHeaderView {background-color: rgba(49,28,71,100);\n"
-"color:white;\n"
-"}\n"
-"              QTableCornerButton::section {background-color: rgba(49,28,71,100);}\n"
-"\n"
-" #groupBox_3ms , #groupBox_4ms , #grou"
-                        "pBox_13ms,#groupBox_22ms\n"
-"{\n"
-"		background : rgba(150,150,150,50);\n"
-"		border:1px solid black;\n"
-"\n"
-"		border-radius : 30%;\n"
-"		\n"
-"\n"
-"}\n"
-"\n"
-"#groupBoxms\n"
-"{\n"
-"		background :  rgba(150,150,150,50);\n"
-"		border:1px solid black;\n"
-"		border-radius : 30%;\n"
-"}\n"
 "\n"
 "\n"
-"#groupBoxmsms ,#groupBox_6ms ,#groupBox_7ms,#groupBox_20ms\n"
-"{\n"
-"		background : qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));;\n"
-"		border:1px solid black;\n"
-"		border-radius : 30%;\n"
-"}\n"
 "\n"
-"#pushButton_3ms ,#upimagems\n"
-"{\n"
-"		background : white;		\n"
-"		border-image : url(\"icon.png\");\n"
-"}\n"
 "\n"
-"#pushButton_3ms , #upimagems::hover\n"
-"{\n"
-"		background : rgba(200,200,200,255);		\n"
-"		border-image : url(\"icon.png\");\n"
-"}\n"
 ""));
-        groupBox_7ms = new QGroupBox(listemovie);
-        groupBox_7ms->setObjectName(QStringLiteral("groupBox_7ms"));
-        groupBox_7ms->setGeometry(QRect(140, 270, 1671, 721));
-        QSizePolicy sizePolicy(QSizePolicy::Ignored, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(groupBox_7ms->sizePolicy().hasHeightForWidth());
-        groupBox_7ms->setSizePolicy(sizePolicy);
-        groupBox_7ms->setMinimumSize(QSize(1, 700));
-        groupBox_7ms->setMaximumSize(QSize(2000, 800));
-        groupBox_7ms->setAlignment(Qt::AlignCenter);
-        verticalLayout = new QVBoxLayout(groupBox_7ms);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        tableViewms = new QTableView(groupBox_7ms);
-        tableViewms->setObjectName(QStringLiteral("tableViewms"));
-        tableViewms->setMinimumSize(QSize(1200, 6));
-        tableViewms->setMaximumSize(QSize(10000007, 100000));
-        QFont font4;
-        font4.setPointSize(15);
-        tableViewms->setFont(font4);
-        tableViewms->setLineWidth(11);
-        tableViewms->setMidLineWidth(10);
-        tableViewms->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        tableViewms->setAutoScrollMargin(5);
-        tableViewms->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        tableViewms->setAlternatingRowColors(true);
-        tableViewms->setSortingEnabled(true);
-        tableViewms->horizontalHeader()->setCascadingSectionResizes(true);
-        tableViewms->horizontalHeader()->setDefaultSectionSize(164);
-        tableViewms->horizontalHeader()->setMinimumSectionSize(160);
-        tableViewms->horizontalHeader()->setStretchLastSection(true);
-        tableViewms->verticalHeader()->setVisible(false);
-        tableViewms->verticalHeader()->setCascadingSectionResizes(true);
-        tableViewms->verticalHeader()->setDefaultSectionSize(300);
-        tableViewms->verticalHeader()->setMinimumSectionSize(200);
-        tableViewms->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
-        tableViewms->verticalHeader()->setStretchLastSection(true);
+        horizontalLayout_10 = new QHBoxLayout(groupBox_2ms_2);
+        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
+        actioncate_2 = new QPushButton(groupBox_2ms_2);
+        actioncate_2->setObjectName(QStringLiteral("actioncate_2"));
+        actioncate_2->setMinimumSize(QSize(90, 30));
+        actioncate_2->setMaximumSize(QSize(100, 30));
+        actioncate_2->setCheckable(true);
 
-        verticalLayout->addWidget(tableViewms);
+        horizontalLayout_10->addWidget(actioncate_2);
 
-        groupBoxmsms = new QGroupBox(listemovie);
-        groupBoxmsms->setObjectName(QStringLiteral("groupBoxmsms"));
-        groupBoxmsms->setGeometry(QRect(140, 100, 1401, 160));
-        groupBoxmsms->setMinimumSize(QSize(1000, 160));
-        groupBoxmsms->setMaximumSize(QSize(2000, 1000));
-        horizontalLayout_3 = new QHBoxLayout(groupBoxmsms);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        groupBox_13ms = new QGroupBox(groupBoxmsms);
-        groupBox_13ms->setObjectName(QStringLiteral("groupBox_13ms"));
-        horizontalLayout = new QHBoxLayout(groupBox_13ms);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        labelms = new QLabel(groupBox_13ms);
-        labelms->setObjectName(QStringLiteral("labelms"));
-        labelms->setMinimumSize(QSize(100, 30));
-        labelms->setMaximumSize(QSize(100, 30));
-        labelms->setStyleSheet(QStringLiteral("background:transparent;"));
+        horrorcate_2 = new QPushButton(groupBox_2ms_2);
+        horrorcate_2->setObjectName(QStringLiteral("horrorcate_2"));
+        horrorcate_2->setMinimumSize(QSize(90, 30));
+        horrorcate_2->setMaximumSize(QSize(100, 30));
+        horrorcate_2->setCheckable(true);
 
-        horizontalLayout->addWidget(labelms);
+        horizontalLayout_10->addWidget(horrorcate_2);
 
-        comboBoxms = new QComboBox(groupBox_13ms);
-        comboBoxms->setObjectName(QStringLiteral("comboBoxms"));
-        comboBoxms->setMinimumSize(QSize(150, 30));
-        comboBoxms->setMaximumSize(QSize(200, 30));
-        comboBoxms->setStyleSheet(QLatin1String("color : black;\n"
-"background : white;"));
+        comedycate_2 = new QPushButton(groupBox_2ms_2);
+        comedycate_2->setObjectName(QStringLiteral("comedycate_2"));
+        comedycate_2->setMinimumSize(QSize(90, 30));
+        comedycate_2->setMaximumSize(QSize(100, 30));
+        comedycate_2->setCheckable(true);
 
-        horizontalLayout->addWidget(comboBoxms);
+        horizontalLayout_10->addWidget(comedycate_2);
 
+        romancecate_2 = new QPushButton(groupBox_2ms_2);
+        romancecate_2->setObjectName(QStringLiteral("romancecate_2"));
+        romancecate_2->setMinimumSize(QSize(90, 30));
+        romancecate_2->setMaximumSize(QSize(100, 30));
+        romancecate_2->setCheckable(true);
 
-        horizontalLayout_3->addWidget(groupBox_13ms);
+        horizontalLayout_10->addWidget(romancecate_2);
 
-        groupBox_3ms = new QGroupBox(groupBoxmsms);
-        groupBox_3ms->setObjectName(QStringLiteral("groupBox_3ms"));
-        horizontalLayout_6 = new QHBoxLayout(groupBox_3ms);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        pushButton_2ms = new QPushButton(groupBox_3ms);
-        pushButton_2ms->setObjectName(QStringLiteral("pushButton_2ms"));
-        pushButton_2ms->setMinimumSize(QSize(90, 30));
-        pushButton_2ms->setMaximumSize(QSize(100, 30));
+        scificate_2 = new QPushButton(groupBox_2ms_2);
+        scificate_2->setObjectName(QStringLiteral("scificate_2"));
+        scificate_2->setMinimumSize(QSize(90, 30));
+        scificate_2->setMaximumSize(QSize(100, 30));
+        scificate_2->setCheckable(true);
 
-        horizontalLayout_6->addWidget(pushButton_2ms);
+        horizontalLayout_10->addWidget(scificate_2);
 
-        pushButton_12ms = new QPushButton(groupBox_3ms);
-        pushButton_12ms->setObjectName(QStringLiteral("pushButton_12ms"));
-        pushButton_12ms->setMinimumSize(QSize(90, 30));
-        pushButton_12ms->setMaximumSize(QSize(100, 30));
-        pushButton_12ms->setCheckable(false);
+        dramacate_2 = new QPushButton(groupBox_2ms_2);
+        dramacate_2->setObjectName(QStringLiteral("dramacate_2"));
+        dramacate_2->setMinimumSize(QSize(90, 30));
+        dramacate_2->setMaximumSize(QSize(100, 30));
+        dramacate_2->setCheckable(true);
 
-        horizontalLayout_6->addWidget(pushButton_12ms);
+        horizontalLayout_10->addWidget(dramacate_2);
 
+        sportscate_2 = new QPushButton(groupBox_2ms_2);
+        sportscate_2->setObjectName(QStringLiteral("sportscate_2"));
+        sportscate_2->setMinimumSize(QSize(90, 30));
+        sportscate_2->setMaximumSize(QSize(100, 30));
+        sportscate_2->setCheckable(true);
 
-        horizontalLayout_3->addWidget(groupBox_3ms);
+        horizontalLayout_10->addWidget(sportscate_2);
 
-        groupBox_4ms = new QGroupBox(groupBoxmsms);
-        groupBox_4ms->setObjectName(QStringLiteral("groupBox_4ms"));
-        groupBox_4ms->setMinimumSize(QSize(800, 0));
-        QFont font5;
-        font5.setPointSize(8);
-        groupBox_4ms->setFont(font5);
-        groupBox_2ms = new QGroupBox(groupBox_4ms);
-        groupBox_2ms->setObjectName(QStringLiteral("groupBox_2ms"));
-        groupBox_2ms->setGeometry(QRect(0, 20, 800, 100));
-        groupBox_2ms->setMinimumSize(QSize(800, 100));
-        groupBox_2ms->setMaximumSize(QSize(800, 70));
-        horizontalLayout_2 = new QHBoxLayout(groupBox_2ms);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        actioncate = new QPushButton(groupBox_2ms);
-        actioncate->setObjectName(QStringLiteral("actioncate"));
-        actioncate->setMinimumSize(QSize(90, 30));
-        actioncate->setMaximumSize(QSize(100, 30));
-        actioncate->setCheckable(true);
-
-        horizontalLayout_2->addWidget(actioncate);
-
-        horrorcate = new QPushButton(groupBox_2ms);
-        horrorcate->setObjectName(QStringLiteral("horrorcate"));
-        horrorcate->setMinimumSize(QSize(90, 30));
-        horrorcate->setMaximumSize(QSize(100, 30));
-        horrorcate->setCheckable(true);
-
-        horizontalLayout_2->addWidget(horrorcate);
-
-        comedycate = new QPushButton(groupBox_2ms);
-        comedycate->setObjectName(QStringLiteral("comedycate"));
-        comedycate->setMinimumSize(QSize(90, 30));
-        comedycate->setMaximumSize(QSize(100, 30));
-        comedycate->setCheckable(true);
-
-        horizontalLayout_2->addWidget(comedycate);
-
-        romancecate = new QPushButton(groupBox_2ms);
-        romancecate->setObjectName(QStringLiteral("romancecate"));
-        romancecate->setMinimumSize(QSize(90, 30));
-        romancecate->setMaximumSize(QSize(100, 30));
-        romancecate->setCheckable(true);
-
-        horizontalLayout_2->addWidget(romancecate);
-
-        scificate = new QPushButton(groupBox_2ms);
-        scificate->setObjectName(QStringLiteral("scificate"));
-        scificate->setMinimumSize(QSize(90, 30));
-        scificate->setMaximumSize(QSize(100, 30));
-        scificate->setCheckable(true);
-
-        horizontalLayout_2->addWidget(scificate);
-
-        dramacate = new QPushButton(groupBox_2ms);
-        dramacate->setObjectName(QStringLiteral("dramacate"));
-        dramacate->setMinimumSize(QSize(90, 30));
-        dramacate->setMaximumSize(QSize(100, 30));
-        dramacate->setCheckable(true);
-
-        horizontalLayout_2->addWidget(dramacate);
-
-        sportscate = new QPushButton(groupBox_2ms);
-        sportscate->setObjectName(QStringLiteral("sportscate"));
-        sportscate->setMinimumSize(QSize(90, 30));
-        sportscate->setMaximumSize(QSize(100, 30));
-        sportscate->setCheckable(true);
-
-        horizontalLayout_2->addWidget(sportscate);
-
-
-        horizontalLayout_3->addWidget(groupBox_4ms);
-
-        pushButton_2ms_2 = new QPushButton(listemovie);
-        pushButton_2ms_2->setObjectName(QStringLiteral("pushButton_2ms_2"));
-        pushButton_2ms_2->setGeometry(QRect(1630, 170, 100, 30));
-        pushButton_2ms_2->setMinimumSize(QSize(90, 30));
-        pushButton_2ms_2->setMaximumSize(QSize(100, 30));
-        stackedWidget->addWidget(listemovie);
+        stackedWidget->addWidget(ddesignomar);
+        loM_2->raise();
+        add_2->raise();
+        label_45->raise();
+        label_49->raise();
+        tableViewM_2->raise();
+        label_50->raise();
+        hihi_10tr_6->raise();
+        hihi_14->raise();
+        exportButtonM_2->raise();
+        exportM_2->raise();
+        groupBox_2ms_2->raise();
         ajoutmovie = new QWidget();
         ajoutmovie->setObjectName(QStringLiteral("ajoutmovie"));
         ajoutmovie->setStyleSheet(QLatin1String("QPushButton \n"
@@ -4507,9 +4510,7 @@ public:
         label_5ms->setObjectName(QStringLiteral("label_5ms"));
         label_5ms->setMinimumSize(QSize(150, 30));
         label_5ms->setMaximumSize(QSize(300, 30));
-        QFont font6;
-        font6.setPointSize(12);
-        label_5ms->setFont(font6);
+        label_5ms->setFont(font5);
         label_5ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_4->addWidget(label_5ms);
@@ -4518,7 +4519,7 @@ public:
         comboBoxms_2->setObjectName(QStringLiteral("comboBoxms_2"));
         comboBoxms_2->setMinimumSize(QSize(150, 30));
         comboBoxms_2->setMaximumSize(QSize(300, 16777215));
-        comboBoxms_2->setFont(font6);
+        comboBoxms_2->setFont(font5);
 
         horizontalLayout_4->addWidget(comboBoxms_2);
 
@@ -4531,7 +4532,7 @@ public:
         label_7ms->setObjectName(QStringLiteral("label_7ms"));
         label_7ms->setMinimumSize(QSize(150, 30));
         label_7ms->setMaximumSize(QSize(300, 30));
-        label_7ms->setFont(font6);
+        label_7ms->setFont(font5);
         label_7ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_8->addWidget(label_7ms);
@@ -4554,7 +4555,7 @@ public:
         label_6ms->setObjectName(QStringLiteral("label_6ms"));
         label_6ms->setMinimumSize(QSize(150, 30));
         label_6ms->setMaximumSize(QSize(300, 30));
-        label_6ms->setFont(font6);
+        label_6ms->setFont(font5);
         label_6ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_7->addWidget(label_6ms);
@@ -4600,9 +4601,9 @@ public:
         label_7ms_4->setObjectName(QStringLiteral("label_7ms_4"));
         label_7ms_4->setMinimumSize(QSize(150, 30));
         label_7ms_4->setMaximumSize(QSize(300, 30));
-        QFont font7;
-        font7.setPointSize(11);
-        label_7ms_4->setFont(font7);
+        QFont font6;
+        font6.setPointSize(11);
+        label_7ms_4->setFont(font6);
         label_7ms_4->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_28->addWidget(label_7ms_4);
@@ -4625,7 +4626,7 @@ public:
         label_7ms_2->setObjectName(QStringLiteral("label_7ms_2"));
         label_7ms_2->setMinimumSize(QSize(150, 30));
         label_7ms_2->setMaximumSize(QSize(300, 30));
-        label_7ms_2->setFont(font6);
+        label_7ms_2->setFont(font5);
         label_7ms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_9->addWidget(label_7ms_2);
@@ -4649,7 +4650,7 @@ public:
         label_7ms_3->setObjectName(QStringLiteral("label_7ms_3"));
         label_7ms_3->setMinimumSize(QSize(150, 30));
         label_7ms_3->setMaximumSize(QSize(300, 30));
-        label_7ms_3->setFont(font7);
+        label_7ms_3->setFont(font6);
         label_7ms_3->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_12->addWidget(label_7ms_3);
@@ -4672,7 +4673,7 @@ public:
         label_8ms->setObjectName(QStringLiteral("label_8ms"));
         label_8ms->setMinimumSize(QSize(150, 30));
         label_8ms->setMaximumSize(QSize(300, 30));
-        label_8ms->setFont(font6);
+        label_8ms->setFont(font5);
         label_8ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_5->addWidget(label_8ms);
@@ -4696,9 +4697,9 @@ public:
         imagetestms_2->setObjectName(QStringLiteral("imagetestms_2"));
         imagetestms_2->setMinimumSize(QSize(300, 100));
         imagetestms_2->setMaximumSize(QSize(300, 200));
-        QFont font8;
-        font8.setPointSize(20);
-        imagetestms_2->setFont(font8);
+        QFont font7;
+        font7.setPointSize(20);
+        imagetestms_2->setFont(font7);
         imagetestms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         verticalLayout_3->addWidget(imagetestms_2);
@@ -4896,7 +4897,7 @@ public:
         ipidlabelms_2->setObjectName(QStringLiteral("ipidlabelms_2"));
         ipidlabelms_2->setMinimumSize(QSize(150, 30));
         ipidlabelms_2->setMaximumSize(QSize(300, 30));
-        ipidlabelms_2->setFont(font6);
+        ipidlabelms_2->setFont(font5);
         ipidlabelms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_27->addWidget(ipidlabelms_2);
@@ -4920,7 +4921,7 @@ public:
         uptitlms->setObjectName(QStringLiteral("uptitlms"));
         uptitlms->setMinimumSize(QSize(150, 30));
         uptitlms->setMaximumSize(QSize(300, 30));
-        uptitlms->setFont(font6);
+        uptitlms->setFont(font5);
         uptitlms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_21->addWidget(uptitlms);
@@ -4943,7 +4944,7 @@ public:
         updescms->setObjectName(QStringLiteral("updescms"));
         updescms->setMinimumSize(QSize(150, 30));
         updescms->setMaximumSize(QSize(300, 30));
-        updescms->setFont(font6);
+        updescms->setFont(font5);
         updescms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_20->addWidget(updescms);
@@ -4966,7 +4967,7 @@ public:
         uptitlms_3->setObjectName(QStringLiteral("uptitlms_3"));
         uptitlms_3->setMinimumSize(QSize(150, 30));
         uptitlms_3->setMaximumSize(QSize(300, 30));
-        uptitlms_3->setFont(font6);
+        uptitlms_3->setFont(font5);
         uptitlms_3->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_26->addWidget(uptitlms_3);
@@ -5008,7 +5009,7 @@ public:
         uptitlms_2->setObjectName(QStringLiteral("uptitlms_2"));
         uptitlms_2->setMinimumSize(QSize(150, 30));
         uptitlms_2->setMaximumSize(QSize(300, 30));
-        uptitlms_2->setFont(font7);
+        uptitlms_2->setFont(font6);
         uptitlms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_25->addWidget(uptitlms_2);
@@ -5031,7 +5032,7 @@ public:
         uptitlms_4->setObjectName(QStringLiteral("uptitlms_4"));
         uptitlms_4->setMinimumSize(QSize(150, 30));
         uptitlms_4->setMaximumSize(QSize(300, 30));
-        uptitlms_4->setFont(font6);
+        uptitlms_4->setFont(font5);
         uptitlms_4->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_29->addWidget(uptitlms_4);
@@ -5054,7 +5055,7 @@ public:
         upimgms->setObjectName(QStringLiteral("upimgms"));
         upimgms->setMinimumSize(QSize(150, 30));
         upimgms->setMaximumSize(QSize(300, 30));
-        upimgms->setFont(font6);
+        upimgms->setFont(font5);
         upimgms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_22->addWidget(upimgms);
@@ -5085,7 +5086,7 @@ public:
         imagetest_1ms->setObjectName(QStringLiteral("imagetest_1ms"));
         imagetest_1ms->setMinimumSize(QSize(300, 100));
         imagetest_1ms->setMaximumSize(QSize(300, 200));
-        imagetest_1ms->setFont(font8);
+        imagetest_1ms->setFont(font7);
         imagetest_1ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         verticalLayout_10->addWidget(imagetest_1ms);
@@ -5695,182 +5696,16 @@ public:
         label_43 = new QLabel(groupBox_5);
         label_43->setObjectName(QStringLiteral("label_43"));
         label_43->setGeometry(QRect(300, 30, 271, 71));
-        label_43->setFont(font8);
+        label_43->setFont(font7);
         label_43->setStyleSheet(QStringLiteral("color:blue;"));
         label_44 = new QLabel(groupBox_5);
         label_44->setObjectName(QStringLiteral("label_44"));
         label_44->setGeometry(QRect(320, 410, 201, 41));
-        QFont font9;
-        font9.setPointSize(18);
-        label_44->setFont(font9);
+        QFont font8;
+        font8.setPointSize(18);
+        label_44->setFont(font8);
         label_44->setStyleSheet(QStringLiteral("color:blue;"));
         stackedWidget->addWidget(cardid);
-        ddesignomar = new QWidget();
-        ddesignomar->setObjectName(QStringLiteral("ddesignomar"));
-        ddesignomar->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));"));
-        loM_2 = new QPushButton(ddesignomar);
-        loM_2->setObjectName(QStringLiteral("loM_2"));
-        loM_2->setGeometry(QRect(1380, 130, 251, 81));
-        loM_2->setToolTipDuration(1);
-        loM_2->setAutoFillBackground(false);
-        loM_2->setStyleSheet(QLatin1String("QPushButton#loM_2{\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"border-radius:20px;\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
-"}\n"
-"QPushButton#loM_2:hover{\n"
-"border-radius:20px;\n"
-"color:rgb(255,255,255);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"\n"
-""));
-        loM_2->setIconSize(QSize(40, 40));
-        loM_2->setFlat(false);
-        add_2 = new QPushButton(ddesignomar);
-        add_2->setObjectName(QStringLiteral("add_2"));
-        add_2->setGeometry(QRect(1400, 140, 61, 61));
-        add_2->setToolTipDuration(1);
-        add_2->setAutoFillBackground(false);
-        add_2->setStyleSheet(QLatin1String("QPushButton#add_2{\n"
-"border-radius:30px;\n"
-"	font: 24pt \"dripicons-v2\";\n"
-"	background-color: rgb(32, 91, 200);\n"
-"}"));
-        add_2->setIconSize(QSize(40, 40));
-        add_2->setFlat(false);
-        label_45 = new QLabel(ddesignomar);
-        label_45->setObjectName(QStringLiteral("label_45"));
-        label_45->setGeometry(QRect(280, 180, 101, 31));
-        label_45->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"background-color:transparent;"));
-        label_49 = new QLabel(ddesignomar);
-        label_49->setObjectName(QStringLiteral("label_49"));
-        label_49->setGeometry(QRect(180, 100, 241, 101));
-        label_49->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
-"font: 42pt \"MS Shell Dlg 2\";\n"
-"background-color:transparent;"));
-        exportM_2 = new QPushButton(ddesignomar);
-        exportM_2->setObjectName(QStringLiteral("exportM_2"));
-        exportM_2->setGeometry(QRect(1670, 140, 61, 61));
-        exportM_2->setToolTipDuration(1);
-        exportM_2->setAutoFillBackground(false);
-        exportM_2->setStyleSheet(QLatin1String("QPushButton#exportM_2{\n"
-"border-radius:30px;\n"
-"	font: 24pt \"dripicons-v2\";\n"
-"	background-color: rgb(32, 91, 200);\n"
-"}"));
-        exportM_2->setIconSize(QSize(40, 40));
-        exportM_2->setFlat(false);
-        tableViewM_2 = new QTableView(ddesignomar);
-        tableViewM_2->setObjectName(QStringLiteral("tableViewM_2"));
-        tableViewM_2->setGeometry(QRect(110, 240, 1791, 841));
-        tableViewM_2->setMinimumSize(QSize(1700, 700));
-        QFont font10;
-        font10.setFamily(QStringLiteral("Times New Roman"));
-        font10.setPointSize(14);
-        tableViewM_2->setFont(font10);
-        tableViewM_2->setStyleSheet(QLatin1String("QTableView::item\n"
-"{\n"
-"        background-color:rgba(49,28,71,100);\n"
-"     border : 2px solid white ;\n"
-"        font : 25px;\n"
-"color : black;\n"
-"\n"
-"        max-width : 200;\n"
-"        max-height : 200;\n"
-"        min-width : 200;\n"
-"        min-height : 200;\n"
-"	\n"
-"}\n"
-"\n"
-""));
-        tableViewM_2->horizontalHeader()->setCascadingSectionResizes(true);
-        tableViewM_2->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
-        tableViewM_2->horizontalHeader()->setStretchLastSection(true);
-        tableViewM_2->verticalHeader()->setCascadingSectionResizes(true);
-        tableViewM_2->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
-        tableViewM_2->verticalHeader()->setStretchLastSection(true);
-        label_50 = new QLabel(ddesignomar);
-        label_50->setObjectName(QStringLiteral("label_50"));
-        label_50->setGeometry(QRect(110, 100, 71, 101));
-        label_50->setStyleSheet(QLatin1String("font: 42pt \"MS Shell Dlg 2\";\n"
-"background-color:transparent;\n"
-"color: rgba(35,125,236,255);"));
-        hihi_10tr_6 = new QPushButton(ddesignomar);
-        hihi_10tr_6->setObjectName(QStringLiteral("hihi_10tr_6"));
-        hihi_10tr_6->setGeometry(QRect(1110, 130, 251, 81));
-        hihi_10tr_6->setToolTipDuration(1);
-        hihi_10tr_6->setAutoFillBackground(false);
-        hihi_10tr_6->setStyleSheet(QLatin1String("QPushButton#hihi_10tr_6{\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"border-radius:20px;\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
-"}\n"
-"QPushButton#hihi_10tr_6:hover{\n"
-"border-radius:20px;\n"
-"color:rgb(255,255,255);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"\n"
-""));
-        hihi_10tr_6->setIconSize(QSize(40, 40));
-        hihi_10tr_6->setFlat(false);
-        hihi_14 = new QPushButton(ddesignomar);
-        hihi_14->setObjectName(QStringLiteral("hihi_14"));
-        hihi_14->setGeometry(QRect(1140, 150, 41, 41));
-        hihi_14->setToolTipDuration(1);
-        hihi_14->setAutoFillBackground(false);
-        hihi_14->setStyleSheet(QLatin1String("QPushButton#hihi_14\n"
-"{\n"
-"font: 30pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,150);\n"
-"}\n"
-"QPushButton#hihi_14:hover\n"
-"{\n"
-"font: 30pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,255);\n"
-"}"));
-        hihi_14->setIconSize(QSize(40, 40));
-        hihi_14->setFlat(false);
-        exportButtonM_2 = new QPushButton(ddesignomar);
-        exportButtonM_2->setObjectName(QStringLiteral("exportButtonM_2"));
-        exportButtonM_2->setGeometry(QRect(1650, 130, 251, 81));
-        exportButtonM_2->setToolTipDuration(1);
-        exportButtonM_2->setAutoFillBackground(false);
-        exportButtonM_2->setStyleSheet(QLatin1String("QPushButton#exportButtonM_2{\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"border-radius:20px;\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
-"}\n"
-"QPushButton#exportButtonM_2:click{\n"
-"border-radius:20px;\n"
-"color:rgb(255,255,255);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"\n"
-""));
-        exportButtonM_2->setIconSize(QSize(40, 40));
-        exportButtonM_2->setFlat(false);
-        stackedWidget->addWidget(ddesignomar);
-        loM_2->raise();
-        add_2->raise();
-        label_45->raise();
-        label_49->raise();
-        tableViewM_2->raise();
-        label_50->raise();
-        hihi_10tr_6->raise();
-        hihi_14->raise();
-        exportButtonM_2->raise();
-        exportM_2->raise();
         stackedWidget->raise();
         MenuBar->raise();
         searchBar->raise();
@@ -5929,6 +5764,13 @@ public:
          << QApplication::translate("Dialog", "Channel", Q_NULLPTR)
          << QApplication::translate("Dialog", "Radio", Q_NULLPTR)
          << QApplication::translate("Dialog", "Date of creation", Q_NULLPTR)
+        );
+        comboBoxM_3->clear();
+        comboBoxM_3->insertItems(0, QStringList()
+         << QApplication::translate("Dialog", "most views", Q_NULLPTR)
+         << QApplication::translate("Dialog", "least views", Q_NULLPTR)
+         << QApplication::translate("Dialog", "recently added", Q_NULLPTR)
+         << QApplication::translate("Dialog", "oldest", Q_NULLPTR)
         );
         label_22->setText(QApplication::translate("Dialog", "WELCOME USER,", Q_NULLPTR));
         label->setText(QString());
@@ -6190,31 +6032,23 @@ public:
         loM->setText(QApplication::translate("Dialog", "           Add Media", Q_NULLPTR));
         add->setText(QApplication::translate("Dialog", ";", Q_NULLPTR));
         exportM->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
-        groupBox_7ms->setTitle(QString());
-        groupBoxmsms->setTitle(QString());
-        groupBox_13ms->setTitle(QString());
-        labelms->setText(QApplication::translate("Dialog", "filter by", Q_NULLPTR));
-        comboBoxms->clear();
-        comboBoxms->insertItems(0, QStringList()
-         << QApplication::translate("Dialog", "most views", Q_NULLPTR)
-         << QApplication::translate("Dialog", "least views", Q_NULLPTR)
-         << QApplication::translate("Dialog", "trending ?", Q_NULLPTR)
-         << QApplication::translate("Dialog", "recently added", Q_NULLPTR)
-         << QApplication::translate("Dialog", "oldest", Q_NULLPTR)
-        );
-        groupBox_3ms->setTitle(QString());
-        pushButton_2ms->setText(QApplication::translate("Dialog", "add", Q_NULLPTR));
-        pushButton_12ms->setText(QApplication::translate("Dialog", "view", Q_NULLPTR));
-        groupBox_4ms->setTitle(QApplication::translate("Dialog", "categories", Q_NULLPTR));
-        groupBox_2ms->setTitle(QString());
-        actioncate->setText(QApplication::translate("Dialog", "action", Q_NULLPTR));
-        horrorcate->setText(QApplication::translate("Dialog", "horror", Q_NULLPTR));
-        comedycate->setText(QApplication::translate("Dialog", "comedy", Q_NULLPTR));
-        romancecate->setText(QApplication::translate("Dialog", "romance", Q_NULLPTR));
-        scificate->setText(QApplication::translate("Dialog", "sci-fi", Q_NULLPTR));
-        dramacate->setText(QApplication::translate("Dialog", "drama ", Q_NULLPTR));
-        sportscate->setText(QApplication::translate("Dialog", "sports", Q_NULLPTR));
-        pushButton_2ms_2->setText(QApplication::translate("Dialog", "stats", Q_NULLPTR));
+        loM_2->setText(QApplication::translate("Dialog", "           Add Movies/Series", Q_NULLPTR));
+        add_2->setText(QApplication::translate("Dialog", ";", Q_NULLPTR));
+        label_45->setText(QApplication::translate("Dialog", "Movies/Series", Q_NULLPTR));
+        label_49->setText(QApplication::translate("Dialog", "WATCH", Q_NULLPTR));
+        exportM_2->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
+        label_50->setText(QApplication::translate("Dialog", "VE", Q_NULLPTR));
+        hihi_10tr_6->setText(QApplication::translate("Dialog", "        statistics", Q_NULLPTR));
+        hihi_14->setText(QApplication::translate("Dialog", "\356\200\202", Q_NULLPTR));
+        exportButtonM_2->setText(QApplication::translate("Dialog", "            Generate PDF", Q_NULLPTR));
+        groupBox_2ms_2->setTitle(QApplication::translate("Dialog", "Categories", Q_NULLPTR));
+        actioncate_2->setText(QApplication::translate("Dialog", "action", Q_NULLPTR));
+        horrorcate_2->setText(QApplication::translate("Dialog", "horror", Q_NULLPTR));
+        comedycate_2->setText(QApplication::translate("Dialog", "comedy", Q_NULLPTR));
+        romancecate_2->setText(QApplication::translate("Dialog", "romance", Q_NULLPTR));
+        scificate_2->setText(QApplication::translate("Dialog", "sci-fi", Q_NULLPTR));
+        dramacate_2->setText(QApplication::translate("Dialog", "drama ", Q_NULLPTR));
+        sportscate_2->setText(QApplication::translate("Dialog", "sports", Q_NULLPTR));
         groupBox_8ms->setTitle(QString());
         pushButton_4ms->setText(QApplication::translate("Dialog", "return ", Q_NULLPTR));
         pushButton_11ms->setText(QApplication::translate("Dialog", "confirm", Q_NULLPTR));
@@ -6357,15 +6191,6 @@ public:
         groupBox_5->setTitle(QString());
         label_43->setText(QApplication::translate("Dialog", "pls scan your card", Q_NULLPTR));
         label_44->setText(QString());
-        loM_2->setText(QApplication::translate("Dialog", "           Add Movies/Series", Q_NULLPTR));
-        add_2->setText(QApplication::translate("Dialog", ";", Q_NULLPTR));
-        label_45->setText(QApplication::translate("Dialog", "Movies/Series", Q_NULLPTR));
-        label_49->setText(QApplication::translate("Dialog", "WATCH", Q_NULLPTR));
-        exportM_2->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
-        label_50->setText(QApplication::translate("Dialog", "VE", Q_NULLPTR));
-        hihi_10tr_6->setText(QApplication::translate("Dialog", "        statistics", Q_NULLPTR));
-        hihi_14->setText(QApplication::translate("Dialog", "\356\200\202", Q_NULLPTR));
-        exportButtonM_2->setText(QApplication::translate("Dialog", "            Generate PDF", Q_NULLPTR));
     } // retranslateUi
 
 };

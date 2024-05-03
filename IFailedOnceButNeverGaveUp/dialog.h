@@ -250,6 +250,8 @@ private slots:
 
      void on_loM_2_clicked();
 
+     void on_hihi_10tr_6_clicked();
+
 private:
     Ui::Dialog *ui;
     bool isTrieButtonClicked = false;
