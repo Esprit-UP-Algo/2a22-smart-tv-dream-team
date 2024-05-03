@@ -14,6 +14,17 @@
 #include<QtCore>
 #include<QtGui>
 #include<QtWidgets>
+#include "employer.h"
+#include "dialog.h"
+#include<QString>
+#include "ui_dialog.h"
+#include <ios>
+#include <QMessageBox>
+#include <cctype>
+#include <QStackedWidget>
+#include<QMovie>
+#include<QThread>
+#include <QtGlobal>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +38,8 @@ public:
 
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    Arduino A; // objet temporaire
 
 
 private slots:
@@ -59,8 +72,13 @@ private slots:
 
     void on_ok_16_clicked();
 
+    void confirm_access();
+
 private:
     Ui::MainWindow *ui;
     QStringList files;
+    QByteArray data; // variable contenant les données reçues
+    QString s;
+
 };
 #endif // MAINWINDOW_H

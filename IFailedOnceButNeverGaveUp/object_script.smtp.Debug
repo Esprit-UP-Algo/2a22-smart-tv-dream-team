@@ -1,4 +1,5 @@
 INPUT(
+./debug\arduino.o
 ./debug\dialog.o
 ./debug\diffusion.o
 ./debug\main.o

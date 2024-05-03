@@ -3,6 +3,7 @@
 #include <QSqlQuery>
 #include <QDialog>
 #include"employer.h"
+#include"arduino.h"
 #include <QtCharts/QChartView>
 #include <QtCharts/QBarSeries>
 #include <QtCharts/QBarSet>
@@ -64,6 +65,12 @@ public:
     void checkReservationDates();
     void updateChartMedia();
     void afficherGifDansLabel();
+    Arduino A; // objet temporaire
+
+    QString s;
+
+    QString i;
+
 
     QTcpSocket *socket;
 
@@ -230,11 +237,13 @@ private slots:
      void readTextDescrption();
      void initializeTextToSpeech() ;
      void startProducerTimer();
-
+     void update_label();
 
      void on_listM_2_clicked();
 
      void on_ggM_clicked();
+
+     void confirm_access();
 
 private:
     Ui::Dialog *ui;
@@ -250,6 +259,10 @@ private:
      QTimer *timer;
      QTimer *notificationTimer;
      QLabel *gifLabel;
+     QByteArray data; // variable contenant les données reçues
+
+
+
 
         // Fonction pour afficher un GIF animé dans une QLabel
         void afficherGifDansLabel(const QString &cheminGif, QLabel *label) {

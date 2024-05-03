@@ -35,7 +35,17 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
 
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lance
     ui->setupUi(this);
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(confirm_access())); // permet de l\\nce
     updateChartEmploye();
     setWindowFlags(Qt::FramelessWindowHint| Qt::WindowSystemMenuHint);
     (ui->comboBox_2)->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
@@ -65,6 +75,7 @@ ui->chartContainer->setLayout(new QHBoxLayout);
 
     ui->groupBox_2->setLayout(new QHBoxLayout);
     ui->groupBox_3->setLayout(new QHBoxLayout);
+    ui->comboBoxM_2->setVisible(false);
     //Media
     connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
     connect(ui->imageButtonM_2, &QPushButton::clicked, this, &Dialog::importImage2);
@@ -299,13 +310,71 @@ void Dialog::on_hihi_6_clicked()//home
                                     "}");
         ui->label_15->setVisible(true);
         ui->comboBox->setVisible(true);
+        ui->comboBoxM_2->setVisible(false);
         ui->textEdit->setVisible(true);
         ui->gg_5->setVisible(true);
         ui->gg_2->setVisible(true);
         ui->label_47->setVisible(true);
         ui->label_48->setVisible(true);
 }
+void Dialog::confirm_access()
+{
 
+
+    // alors afficher ON
+    if(ui->stackedWidget->currentIndex()==26)
+    {
+        data=A.read_from_arduino();
+        if(!data.isEmpty())
+        {
+            s+=data;
+        }
+        qDebug()<<s;
+        if (s>=12)
+        {
+        qDebug()<<s;
+        QSqlQuery query;
+        QString qs;
+        qs="select count(*) from employe where cardid="+s;
+        query.exec(qs);
+        qDebug()<<qs;
+        query.next();
+        if((query.value(0).toInt()>=1))
+        {
+            ui->stackedWidget->setCurrentIndex(2);
+        }
+        else if(query.value(0).toInt()==0)
+        {
+            ui->label_44->setText("wrong id");
+        }
+        if (s.length()>=12)
+        {
+            s="";
+        }
+        }
+    }
+    if(ui->stackedWidget->currentIndex()==3)
+    {
+        data=A.read_from_arduino();
+        qDebug()<<s;
+        if(!data.isEmpty())
+        {
+            s+=data;
+            qDebug()<<s;
+        }
+        ui->label_46->setText(s);
+        qDebug()<<s;
+        qDebug()<<ui->label_46->text();
+
+    }
+    if (s.length()>=12)
+    {
+        s="";
+    }
+
+
+
+}
 void Dialog::on_hihi_5_clicked()//crud employe
 {
     int ligne(0);
@@ -314,6 +383,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
         QSqlQuery query;
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_6->setGeometry(15,305,51,20);
+    ui->comboBoxM_2->setVisible(false);
     ui->hihi_5->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -606,9 +676,18 @@ void Dialog::on_hihi_5_clicked()//crud employe
 
 void Dialog::on_hihi_15_clicked()//crud transaction
 {
+    qDebug()<<s;
+     if((s.isEmpty()))
+     {
 
-    ui->stackedWidget->setCurrentIndex(2);
+         qDebug()<<s;
+         ui->stackedWidget->setCurrentIndex(26);
+     }
+
+     qDebug()<<s;
+     s="";
     ui->label_6->setGeometry(15,370,51,20);
+    ui->comboBoxM_2->setVisible(false);
     ui->hihi_15->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -859,6 +938,7 @@ void Dialog::on_hihi_33_clicked()//adduser
     ui->gg_2->setVisible(false);
     ui->label_47->setVisible(false);
     ui->label_48->setVisible(false);
+    ui->comboBoxM_2->setVisible(false);
 }
 
 void Dialog::on_gg_clicked()
@@ -875,6 +955,8 @@ void Dialog::on_hihi_35_clicked()//addtransaction button
     ui->label_47->setVisible(false);
     ui->label_48->setVisible(false);
 
+    ui->comboBoxM_2->setVisible(false);
+
 }
 
 void Dialog::on_hihi_37_clicked()//modifytransaction button
@@ -885,12 +967,16 @@ void Dialog::on_hihi_37_clicked()//modifytransaction button
     ui->gg_2->setVisible(false);
     ui->label_47->setVisible(false);
     ui->label_48->setVisible(false);
+
+    ui->comboBoxM_2->setVisible(false);
 }
 
 void Dialog::on_hihi_20_clicked()//tvmoviesidfk
 {
     ui->stackedWidget->setCurrentIndex(6);
     ui->label_6->setGeometry(15,430,51,20);
+
+    ui->comboBoxM_2->setVisible(false);
     ui->hihi_20->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -1087,7 +1173,7 @@ void Dialog::on_pushButton_14A_4_clicked()//insert transaction
     }
     int id=6;
     QSqlQuery query;
-    query.prepare("select NUMBERE from EMPLOYE where ide = :id ;");
+    query.prepare("select tel from EMPLOYE where ide = :id ;");
     query.bindValue(":id", id);
     query.exec();
     query.first();
@@ -1205,6 +1291,8 @@ void Dialog::on_pushButton_14A_7_clicked()//another cancel button trans(update t
 void Dialog::on_hihi_17_clicked()//reservation
 {
     ui->label_6->setGeometry(15,490,51,20);
+
+    ui->comboBoxM_2->setVisible(false);
     ui->hihi_17->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -1362,11 +1450,10 @@ void Dialog::on_pushButton_14A_clicked()//insert employe
         } else {
             erreur+="\n- wrong email form ";
         }
-
         if (erreur=="")
         {
             QSqlQuery query;
-                    query.prepare("insert into EMPLOYE (cin , username , password , nom , prenom , type , photo , ids , tel , email) values (:cin , :username , :password , :nom , :prenom , :type , :photo,:ids, :tel , :email)");
+                    query.prepare("insert into EMPLOYE (cin , username , password , nom , prenom , type , photo , ids , tel , email, cardid) values (:cin , :username , :password , :nom , :prenom , :type , :photo,:ids, :tel , :email,:cardid)");
                     query.bindValue(":cin",ui->lineEdit_3A_2->text().toInt());
                     query.bindValue(":type",check1);
                     query.bindValue(":username",ui->lineEdit_3A_4->text());
@@ -1377,7 +1464,9 @@ void Dialog::on_pushButton_14A_clicked()//insert employe
                     query.bindValue(":ids",7);
                     query.bindValue(":tel",ui->lineEdit_3A_13->text().toInt());
                     query.bindValue(":email",ui->lineEdit_3A_12->text());
-
+                    qDebug()<<s;
+                    //ui->label_46->text();
+                    query.bindValue(":cardid",ui->label_46->text());
                     if(query.exec())
                     {
                          QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
@@ -1471,7 +1560,7 @@ void Dialog::on_pushButton_14A_2_clicked()//update button employe
     if (erreur=="")
     {
         QSqlQuery query;
-        query.prepare("UPDATE EMPLOYE set cin=:cin , username=:username , password=:password , nom=:nom , prenom=:prenom , type=:type , photo=:photo , tel=:tel , email=:email where ide=:id");
+        query.prepare("UPDATE EMPLOYE set cin=:cin , username=:username , password=:password , nom=:nom , prenom=:prenom , type=:type , photo=:photo , tel=:tel , email=:email,cardid=:cardid where ide=:id");
         query.bindValue(":cin",ui->lineEdit_3A_2->text().toInt());
         query.bindValue(":type",check1);
         query.bindValue(":username",ui->lineEdit_3A_4->text());
@@ -1482,6 +1571,7 @@ void Dialog::on_pushButton_14A_2_clicked()//update button employe
         query.bindValue(":email",ui->lineEdit_3A_12->text());
         query.bindValue(":photo",byte);
         query.bindValue(":id",ui->lineEdit_10->text().toInt());
+        query.bindValue(":cardid",ui->label_46->text());
         if(query.exec())
         {
              QMessageBox :: information(this,"Save","Data updated successfully", QMessageBox ::Ok);
@@ -1542,6 +1632,8 @@ void Dialog::on_pushButtonA_clicked()//stats reservation
     ui->gg_2->setVisible(true);
     ui->label_47->setVisible(true);
     ui->label_48->setVisible(true);
+
+    ui->comboBoxM_2->setVisible(false);
 }
 
 void Dialog::on_pushButton_2A_clicked() // CRUD reservation
@@ -1557,8 +1649,9 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
     ui->textEdit->setVisible(true);
     ui->gg_5->setVisible(true);
     ui->gg_2->setVisible(true);
-     ui->label_13->setVisible(true);
-     ui->label_41->setVisible(true);
+    ui->label_13->setVisible(true);
+    ui->label_41->setVisible(true);
+    ui->comboBoxM_2->setVisible(true);
 
     int ligne = 0;
     int row = 0;
@@ -1674,6 +1767,8 @@ void Dialog::on_hihi_43_clicked()//add reservation
     ui->gg_2->setVisible(false);
     ui->label_47->setVisible(false);
     ui->label_48->setVisible(false);
+
+    ui->comboBoxM_2->setVisible(false);
     checkReservationDates();
 }
 
@@ -1683,11 +1778,11 @@ void Dialog::on_listM_clicked()
     int ligne(0);
     int row(0);
     QString rech;
-    if (ui->searchLineEditM->text()!="")
+    /*if (ui->searchLineEditM->text()!="")
     {
         rech=" where TITRE LIKE '%"+ui->searchLineEditM->text();
 
-    }
+    }*/
     QSqlQuery query;
     query.exec("SELECT COUNT(*) FROM MEDIA"+rech);
     while(query.next())
@@ -2919,6 +3014,8 @@ void Dialog::on_pushButton_2_clicked()
     ui->gg_2->setVisible(true);
     ui->label_47->setVisible(true);
     ui->label_48->setVisible(true);
+
+    ui->comboBoxM_2->setVisible(false);
 }
 
 void Dialog::on_pushButton_clicked()
@@ -2931,6 +3028,7 @@ void Dialog::on_pushButton_clicked()
     ui->gg_2->setVisible(true);
     ui->label_47->setVisible(true);
     ui->label_48->setVisible(true);
+    ui->comboBoxM_2->setVisible(false);
 }
 
 void Dialog::on_comboBoxms_2_currentTextChanged(const QString &arg1)
@@ -3183,6 +3281,8 @@ void Dialog::on_hihi_7_clicked()
         ui->gg_2->setVisible(true);
         ui->label_47->setVisible(true);
         ui->label_48->setVisible(true);
+
+        ui->comboBoxM_2->setVisible(false);
 }
 
 void Dialog::on_searchLineEditM_textChanged(const QString &arg1)
@@ -3865,6 +3965,7 @@ void Dialog::on_pushButton_14A_9_clicked()
      ui->comboBox->setVisible(false);
      ui->label_13->setVisible(false);
      ui->label_41->setVisible(false);
+     ui->comboBoxM_2->setVisible(false);
     ui->stackedWidget->setCurrentIndex(9);
     //modifierMedia(QString titre);
     diffusion d;

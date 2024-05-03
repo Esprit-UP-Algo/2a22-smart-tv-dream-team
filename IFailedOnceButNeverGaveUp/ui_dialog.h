@@ -52,19 +52,15 @@ public:
     QPushButton *hihi_18;
     QGroupBox *searchBar;
     QLabel *label_15;
-    QComboBox *comboBox;
     QLabel *label_48;
     QTextEdit *textEdit;
     QPushButton *gg_2;
     QPushButton *gg_5;
     QLabel *label_47;
     QPushButton *hihi;
-    QLineEdit *searchLineEditM;
     QPushButton *ggM;
-    QPushButton *pushButton_5A_3;
-    QPushButton *pushButton_3A_3;
-    QPushButton *pushButton_4A_3;
     QComboBox *comboBox_7;
+    QComboBox *comboBoxM_2;
     QStackedWidget *stackedWidget;
     QWidget *home;
     QLabel *label_22;
@@ -146,6 +142,9 @@ public:
     QLineEdit *lineEdit_3A_12;
     QLabel *label_47A_8;
     QLineEdit *lineEdit_3A_13;
+    QLabel *label_42;
+    QLabel *label_46;
+    QLabel *label_47A_4;
     QLabel *label_46A;
     QLabel *label_44A;
     QLabel *label_45A;
@@ -255,9 +254,6 @@ public:
     QPushButton *hihi_44;
     QTableView *tableviewrr;
     QPushButton *hihi_46;
-    QLabel *label_97;
-    QLineEdit *searchLineEditM_2;
-    QPushButton *ggM_2;
     QLabel *label_9;
     QLabel *label_11;
     QLabel *label_13;
@@ -265,9 +261,9 @@ public:
     QLabel *label_24;
     QLabel *label_41;
     QLabel *label_118;
-    QComboBox *comboBoxM_2;
     QPushButton *hihi_10tr_5;
     QPushButton *hihi_13;
+    QComboBox *comboBox;
     QWidget *addreservations;
     QLabel *label_43A;
     QLabel *label_45A_2;
@@ -479,6 +475,11 @@ public:
     QLabel *label_16M_2;
     QPushButton *radioM_2;
     QLabel *gifLabel;
+    QWidget *cardid;
+    QGroupBox *groupBox_4;
+    QGroupBox *groupBox_5;
+    QLabel *label_43;
+    QLabel *label_44;
 
     void setupUi(QDialog *Dialog)
     {
@@ -715,53 +716,6 @@ public:
 "color:rgba(255,255,255,120);\n"
 "}\n"
 ""));
-        comboBox = new QComboBox(searchBar);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(120, 20, 251, 41));
-        comboBox->setMouseTracking(false);
-        comboBox->setStyleSheet(QLatin1String("#comboBox\n"
-"{\n"
-"border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:10px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"#comboBox::drop-down{\n"
-"border:0px;\n"
-"}\n"
-"#comboBox::down-arrow{\n"
-"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
-"width:30px;\n"
-"height:30px;\n"
-"margin-right:18px;\n"
-"}\n"
-"#comboBox QListView{\n"
-"border:1 px solid #ced4da;\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"padding:5px;\n"
-"outline:0px;\n"
-"border-radius:20px;\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"}\n"
-"#comboBox QListView::item{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"border-radius:12px;\n"
-"}\n"
-"#comboBox QListView::item:hover{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color:rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150"
-                        ");\n"
-"border-radius:12px;\n"
-"}\n"
-"\n"
-""));
-        comboBox->setFrame(true);
         label_48 = new QLabel(searchBar);
         label_48->setObjectName(QStringLiteral("label_48"));
         label_48->setGeometry(QRect(1020, 20, 16, 41));
@@ -838,16 +792,6 @@ public:
 "}"));
         hihi->setIconSize(QSize(40, 40));
         hihi->setFlat(false);
-        searchLineEditM = new QLineEdit(searchBar);
-        searchLineEditM->setObjectName(QStringLiteral("searchLineEditM"));
-        searchLineEditM->setGeometry(QRect(640, 20, 481, 41));
-        searchLineEditM->setStyleSheet(QLatin1String("border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:25px;\n"
-"padding-top:5px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 14pt \"MS Shell Dlg 2\";"));
         ggM = new QPushButton(searchBar);
         ggM->setObjectName(QStringLiteral("ggM"));
         ggM->setGeometry(QRect(1080, 20, 31, 41));
@@ -865,60 +809,6 @@ public:
 "background-color:transparent;\n"
 "color:rgba(255,255,255,255);\n"
 "}"));
-        pushButton_5A_3 = new QPushButton(searchBar);
-        pushButton_5A_3->setObjectName(QStringLiteral("pushButton_5A_3"));
-        pushButton_5A_3->setGeometry(QRect(170, 20, 111, 31));
-        pushButton_5A_3->setStyleSheet(QLatin1String("\n"
-"QPushButton#pushButton_5A_3{\n"
-"    border: none; /* Remove default border */\n"
-"    padding: 5px 10px; /* Adjust padding as needed */\n"
-"    background-color: transparent; \n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"color:rgba(255,255,255,200);\n"
-"}\n"
-"QPushButton:hover#pushButton_5A_3{\n"
-"    border: none; /* Remove default border */\n"
-"    padding: 5px 10px; /* Adjust padding as needed */\n"
-"    background-color: transparent; \n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"color:rgba(255,255,255,255);\n"
-"}\n"
-"\n"
-"\n"
-""));
-        pushButton_3A_3 = new QPushButton(searchBar);
-        pushButton_3A_3->setObjectName(QStringLiteral("pushButton_3A_3"));
-        pushButton_3A_3->setGeometry(QRect(270, 20, 141, 28));
-        pushButton_3A_3->setStyleSheet(QLatin1String("\n"
-"QPushButton#pushButton_3A_3 {\n"
-"    border: none; /* Remove default border */\n"
-"    padding: 5px 10px; /* Adjust padding as needed */\n"
-"    background-color: transparent; \n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"color:rgba(255,255,255,200);\n"
-"}\n"
-"\n"
-""));
-        pushButton_4A_3 = new QPushButton(searchBar);
-        pushButton_4A_3->setObjectName(QStringLiteral("pushButton_4A_3"));
-        pushButton_4A_3->setGeometry(QRect(50, 20, 111, 31));
-        pushButton_4A_3->setStyleSheet(QLatin1String("\n"
-"QPushButton#pushButton_4A_3 {\n"
-"    border: none; /* Remove default border */\n"
-"    padding: 5px 10px; /* Adjust padding as needed */\n"
-"    background-color: transparent; \n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"color:rgba(255,255,255,200);\n"
-"}\n"
-"QPushButton:hover#pushButton_4A_3{\n"
-"    border: none; /* Remove default border */\n"
-"    padding: 5px 10px; /* Adjust padding as needed */\n"
-"    background-color: transparent; \n"
-"	font: 14pt \"MS Shell Dlg 2\";\n"
-"color:rgba(255,255,255,255);\n"
-"}\n"
-"\n"
-""));
         comboBox_7 = new QComboBox(searchBar);
         comboBox_7->setObjectName(QStringLiteral("comboBox_7"));
         comboBox_7->setGeometry(QRect(1140, 20, 191, 41));
@@ -974,20 +864,61 @@ public:
         comboBox_7->setEditable(false);
         comboBox_7->setDuplicatesEnabled(false);
         comboBox_7->setFrame(false);
+        comboBoxM_2 = new QComboBox(searchBar);
+        comboBoxM_2->setObjectName(QStringLiteral("comboBoxM_2"));
+        comboBoxM_2->setGeometry(QRect(1140, 20, 191, 41));
+        comboBoxM_2->setStyleSheet(QLatin1String("#comboBoxM_2\n"
+"{\n"
+"border:1 px solid #ced4da;\n"
+"border-radius:12px;\n"
+"padding-left:10px;\n"
+"background:rgba(190,190,190,100);\n"
+"color : rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"#comboBoxM_2::drop-down{\n"
+"border:0px;\n"
+"}\n"
+"#comboBoxM_2::down-arrow{\n"
+"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
+"width:30px;\n"
+"height:30px;\n"
+"margin-right:18px;\n"
+"}\n"
+"#comboBoxM_2 QListView{\n"
+"border:1 px solid #ced4da;\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"padding:5px;\n"
+"outline:0px;\n"
+"border-radius:20px;\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"}\n"
+"#comboBoxM_2 QListView::item{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"border-radius:12px;\n"
+"}\n"
+"#comboBoxM_2 QListView::item:hover{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color:rgba(90,90,90,200);\n"
+"background-color:rg"
+                        "ba(150,150,150,150);\n"
+"border-radius:12px;\n"
+"}\n"
+"\n"
+""));
         textEdit->raise();
-        comboBox->raise();
         label_15->raise();
         label_48->raise();
         gg_2->raise();
         gg_5->raise();
         label_47->raise();
         hihi->raise();
-        searchLineEditM->raise();
         ggM->raise();
-        pushButton_5A_3->raise();
-        pushButton_3A_3->raise();
-        pushButton_4A_3->raise();
         comboBox_7->raise();
+        comboBoxM_2->raise();
         stackedWidget = new QStackedWidget(Dialog);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, -10, 1921, 1081));
@@ -1815,7 +1746,7 @@ public:
         adduser->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(10, 10, 40, 255));"));
         groupBox_5A = new QGroupBox(adduser);
         groupBox_5A->setObjectName(QStringLiteral("groupBox_5A"));
-        groupBox_5A->setGeometry(QRect(970, 200, 811, 501));
+        groupBox_5A->setGeometry(QRect(970, 200, 811, 541));
         groupBox_5A->setStyleSheet(QLatin1String("background-color:white;\n"
 "border-radius:30px;\n"
 ""));
@@ -2029,6 +1960,21 @@ public:
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
+        label_42 = new QLabel(groupBox_5A);
+        label_42->setObjectName(QStringLiteral("label_42"));
+        label_42->setGeometry(QRect(30, 470, 371, 61));
+        label_46 = new QLabel(groupBox_5A);
+        label_46->setObjectName(QStringLiteral("label_46"));
+        label_46->setGeometry(QRect(410, 470, 291, 41));
+        QFont font3;
+        font3.setPointSize(24);
+        label_46->setFont(font3);
+        label_46->setStyleSheet(QStringLiteral("color :black"));
+        label_47A_4 = new QLabel(groupBox_5A);
+        label_47A_4->setObjectName(QStringLiteral("label_47A_4"));
+        label_47A_4->setGeometry(QRect(0, 460, 331, 51));
+        label_47A_4->setStyleSheet(QLatin1String("color: rgb(0, 0, 0);\n"
+"font: 75 24pt \"MS Shell Dlg 2\";"));
         label_46A = new QLabel(adduser);
         label_46A->setObjectName(QStringLiteral("label_46A"));
         label_46A->setGeometry(QRect(190, 140, 1611, 781));
@@ -3223,43 +3169,6 @@ public:
 "}"));
         hihi_46->setIconSize(QSize(40, 40));
         hihi_46->setFlat(false);
-        label_97 = new QLabel(crudreservation);
-        label_97->setObjectName(QStringLiteral("label_97"));
-        label_97->setGeometry(QRect(390, 50, 101, 20));
-        label_97->setStyleSheet(QLatin1String("background-color: rgba(0, 0, 0,0);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"border: 3px solid rgba(0,0,0,0);\n"
-"border-bottom-color:rgba(255,255,255,150);\n"
-"color:rgb(255,255,255);\n"
-"padding-bottom:7px;\n"
-"border-radius:0px;"));
-        searchLineEditM_2 = new QLineEdit(crudreservation);
-        searchLineEditM_2->setObjectName(QStringLiteral("searchLineEditM_2"));
-        searchLineEditM_2->setGeometry(QRect(540, 120, 361, 41));
-        searchLineEditM_2->setStyleSheet(QLatin1String("border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:25px;\n"
-"padding-top:5px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 14pt \"MS Shell Dlg 2\";"));
-        ggM_2 = new QPushButton(crudreservation);
-        ggM_2->setObjectName(QStringLiteral("ggM_2"));
-        ggM_2->setGeometry(QRect(850, 120, 31, 41));
-        ggM_2->setStyleSheet(QLatin1String("QPushButton#ggM_2\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,150);\n"
-"}\n"
-"QPushButton#ggM_2:hover\n"
-"{\n"
-"font: 20pt \"dripicons-v2\";\n"
-"border:none;\n"
-"background-color:transparent;\n"
-"color:rgba(255,255,255,255);\n"
-"}"));
         label_9 = new QLabel(crudreservation);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(148, 270, 291, 41));
@@ -3322,51 +3231,6 @@ public:
         label_118->setStyleSheet(QLatin1String("background-color:rgba(255,255,255,150);\n"
 "\n"
 ""));
-        comboBoxM_2 = new QComboBox(crudreservation);
-        comboBoxM_2->setObjectName(QStringLiteral("comboBoxM_2"));
-        comboBoxM_2->setGeometry(QRect(440, 190, 191, 41));
-        comboBoxM_2->setStyleSheet(QLatin1String("#comboBoxM_2\n"
-"{\n"
-"border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:10px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"#comboBoxM_2::drop-down{\n"
-"border:0px;\n"
-"}\n"
-"#comboBoxM_2::down-arrow{\n"
-"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
-"width:30px;\n"
-"height:30px;\n"
-"margin-right:18px;\n"
-"}\n"
-"#comboBoxM_2 QListView{\n"
-"border:1 px solid #ced4da;\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"padding:5px;\n"
-"outline:0px;\n"
-"border-radius:20px;\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"}\n"
-"#comboBoxM_2 QListView::item{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"border-radius:12px;\n"
-"}\n"
-"#comboBoxM_2 QListView::item:hover{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color:rgba(90,90,90,200);\n"
-"background-color:rg"
-                        "ba(150,150,150,150);\n"
-"border-radius:12px;\n"
-"}\n"
-"\n"
-""));
         hihi_10tr_5 = new QPushButton(crudreservation);
         hihi_10tr_5->setObjectName(QStringLiteral("hihi_10tr_5"));
         hihi_10tr_5->setGeometry(QRect(1070, 130, 251, 81));
@@ -3408,6 +3272,53 @@ public:
 "}"));
         hihi_13->setIconSize(QSize(40, 40));
         hihi_13->setFlat(false);
+        comboBox = new QComboBox(crudreservation);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(260, 80, 251, 41));
+        comboBox->setMouseTracking(false);
+        comboBox->setStyleSheet(QLatin1String("#comboBox\n"
+"{\n"
+"border:1 px solid #ced4da;\n"
+"border-radius:12px;\n"
+"padding-left:10px;\n"
+"background:rgba(190,190,190,100);\n"
+"color : rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"#comboBox::drop-down{\n"
+"border:0px;\n"
+"}\n"
+"#comboBox::down-arrow{\n"
+"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
+"width:30px;\n"
+"height:30px;\n"
+"margin-right:18px;\n"
+"}\n"
+"#comboBox QListView{\n"
+"border:1 px solid #ced4da;\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"padding:5px;\n"
+"outline:0px;\n"
+"border-radius:20px;\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"}\n"
+"#comboBox QListView::item{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"border-radius:12px;\n"
+"}\n"
+"#comboBox QListView::item:hover{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color:rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150"
+                        ");\n"
+"border-radius:12px;\n"
+"}\n"
+"\n"
+""));
+        comboBox->setFrame(true);
         stackedWidget->addWidget(crudreservation);
         label_118->raise();
         label_119->raise();
@@ -3418,18 +3329,15 @@ public:
         hihi_44->raise();
         tableviewrr->raise();
         hihi_46->raise();
-        label_97->raise();
-        searchLineEditM_2->raise();
-        ggM_2->raise();
         label_9->raise();
         label_11->raise();
         label_13->raise();
         label_16->raise();
         label_24->raise();
         label_41->raise();
-        comboBoxM_2->raise();
         hihi_10tr_5->raise();
         hihi_13->raise();
+        comboBox->raise();
         addreservations = new QWidget();
         addreservations->setObjectName(QStringLiteral("addreservations"));
         label_43A = new QLabel(addreservations);
@@ -4236,9 +4144,9 @@ public:
         tableViewms->setObjectName(QStringLiteral("tableViewms"));
         tableViewms->setMinimumSize(QSize(1200, 6));
         tableViewms->setMaximumSize(QSize(10000007, 100000));
-        QFont font3;
-        font3.setPointSize(15);
-        tableViewms->setFont(font3);
+        QFont font4;
+        font4.setPointSize(15);
+        tableViewms->setFont(font4);
         tableViewms->setLineWidth(11);
         tableViewms->setMidLineWidth(10);
         tableViewms->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
@@ -4315,9 +4223,9 @@ public:
         groupBox_4ms = new QGroupBox(groupBoxmsms);
         groupBox_4ms->setObjectName(QStringLiteral("groupBox_4ms"));
         groupBox_4ms->setMinimumSize(QSize(800, 0));
-        QFont font4;
-        font4.setPointSize(8);
-        groupBox_4ms->setFont(font4);
+        QFont font5;
+        font5.setPointSize(8);
+        groupBox_4ms->setFont(font5);
         groupBox_2ms = new QGroupBox(groupBox_4ms);
         groupBox_2ms->setObjectName(QStringLiteral("groupBox_2ms"));
         groupBox_2ms->setGeometry(QRect(0, 20, 800, 100));
@@ -4571,9 +4479,9 @@ public:
         label_5ms->setObjectName(QStringLiteral("label_5ms"));
         label_5ms->setMinimumSize(QSize(150, 30));
         label_5ms->setMaximumSize(QSize(300, 30));
-        QFont font5;
-        font5.setPointSize(12);
-        label_5ms->setFont(font5);
+        QFont font6;
+        font6.setPointSize(12);
+        label_5ms->setFont(font6);
         label_5ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_4->addWidget(label_5ms);
@@ -4582,7 +4490,7 @@ public:
         comboBoxms_2->setObjectName(QStringLiteral("comboBoxms_2"));
         comboBoxms_2->setMinimumSize(QSize(150, 30));
         comboBoxms_2->setMaximumSize(QSize(300, 16777215));
-        comboBoxms_2->setFont(font5);
+        comboBoxms_2->setFont(font6);
 
         horizontalLayout_4->addWidget(comboBoxms_2);
 
@@ -4595,7 +4503,7 @@ public:
         label_7ms->setObjectName(QStringLiteral("label_7ms"));
         label_7ms->setMinimumSize(QSize(150, 30));
         label_7ms->setMaximumSize(QSize(300, 30));
-        label_7ms->setFont(font5);
+        label_7ms->setFont(font6);
         label_7ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_8->addWidget(label_7ms);
@@ -4618,7 +4526,7 @@ public:
         label_6ms->setObjectName(QStringLiteral("label_6ms"));
         label_6ms->setMinimumSize(QSize(150, 30));
         label_6ms->setMaximumSize(QSize(300, 30));
-        label_6ms->setFont(font5);
+        label_6ms->setFont(font6);
         label_6ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_7->addWidget(label_6ms);
@@ -4664,9 +4572,9 @@ public:
         label_7ms_4->setObjectName(QStringLiteral("label_7ms_4"));
         label_7ms_4->setMinimumSize(QSize(150, 30));
         label_7ms_4->setMaximumSize(QSize(300, 30));
-        QFont font6;
-        font6.setPointSize(11);
-        label_7ms_4->setFont(font6);
+        QFont font7;
+        font7.setPointSize(11);
+        label_7ms_4->setFont(font7);
         label_7ms_4->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_28->addWidget(label_7ms_4);
@@ -4689,7 +4597,7 @@ public:
         label_7ms_2->setObjectName(QStringLiteral("label_7ms_2"));
         label_7ms_2->setMinimumSize(QSize(150, 30));
         label_7ms_2->setMaximumSize(QSize(300, 30));
-        label_7ms_2->setFont(font5);
+        label_7ms_2->setFont(font6);
         label_7ms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_9->addWidget(label_7ms_2);
@@ -4713,7 +4621,7 @@ public:
         label_7ms_3->setObjectName(QStringLiteral("label_7ms_3"));
         label_7ms_3->setMinimumSize(QSize(150, 30));
         label_7ms_3->setMaximumSize(QSize(300, 30));
-        label_7ms_3->setFont(font6);
+        label_7ms_3->setFont(font7);
         label_7ms_3->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_12->addWidget(label_7ms_3);
@@ -4736,7 +4644,7 @@ public:
         label_8ms->setObjectName(QStringLiteral("label_8ms"));
         label_8ms->setMinimumSize(QSize(150, 30));
         label_8ms->setMaximumSize(QSize(300, 30));
-        label_8ms->setFont(font5);
+        label_8ms->setFont(font6);
         label_8ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_5->addWidget(label_8ms);
@@ -4760,9 +4668,9 @@ public:
         imagetestms_2->setObjectName(QStringLiteral("imagetestms_2"));
         imagetestms_2->setMinimumSize(QSize(300, 100));
         imagetestms_2->setMaximumSize(QSize(300, 200));
-        QFont font7;
-        font7.setPointSize(20);
-        imagetestms_2->setFont(font7);
+        QFont font8;
+        font8.setPointSize(20);
+        imagetestms_2->setFont(font8);
         imagetestms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         verticalLayout_3->addWidget(imagetestms_2);
@@ -4960,7 +4868,7 @@ public:
         ipidlabelms_2->setObjectName(QStringLiteral("ipidlabelms_2"));
         ipidlabelms_2->setMinimumSize(QSize(150, 30));
         ipidlabelms_2->setMaximumSize(QSize(300, 30));
-        ipidlabelms_2->setFont(font5);
+        ipidlabelms_2->setFont(font6);
         ipidlabelms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_27->addWidget(ipidlabelms_2);
@@ -4984,7 +4892,7 @@ public:
         uptitlms->setObjectName(QStringLiteral("uptitlms"));
         uptitlms->setMinimumSize(QSize(150, 30));
         uptitlms->setMaximumSize(QSize(300, 30));
-        uptitlms->setFont(font5);
+        uptitlms->setFont(font6);
         uptitlms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_21->addWidget(uptitlms);
@@ -5007,7 +4915,7 @@ public:
         updescms->setObjectName(QStringLiteral("updescms"));
         updescms->setMinimumSize(QSize(150, 30));
         updescms->setMaximumSize(QSize(300, 30));
-        updescms->setFont(font5);
+        updescms->setFont(font6);
         updescms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_20->addWidget(updescms);
@@ -5030,7 +4938,7 @@ public:
         uptitlms_3->setObjectName(QStringLiteral("uptitlms_3"));
         uptitlms_3->setMinimumSize(QSize(150, 30));
         uptitlms_3->setMaximumSize(QSize(300, 30));
-        uptitlms_3->setFont(font5);
+        uptitlms_3->setFont(font6);
         uptitlms_3->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_26->addWidget(uptitlms_3);
@@ -5072,7 +4980,7 @@ public:
         uptitlms_2->setObjectName(QStringLiteral("uptitlms_2"));
         uptitlms_2->setMinimumSize(QSize(150, 30));
         uptitlms_2->setMaximumSize(QSize(300, 30));
-        uptitlms_2->setFont(font6);
+        uptitlms_2->setFont(font7);
         uptitlms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_25->addWidget(uptitlms_2);
@@ -5095,7 +5003,7 @@ public:
         uptitlms_4->setObjectName(QStringLiteral("uptitlms_4"));
         uptitlms_4->setMinimumSize(QSize(150, 30));
         uptitlms_4->setMaximumSize(QSize(300, 30));
-        uptitlms_4->setFont(font5);
+        uptitlms_4->setFont(font6);
         uptitlms_4->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_29->addWidget(uptitlms_4);
@@ -5118,7 +5026,7 @@ public:
         upimgms->setObjectName(QStringLiteral("upimgms"));
         upimgms->setMinimumSize(QSize(150, 30));
         upimgms->setMaximumSize(QSize(300, 30));
-        upimgms->setFont(font5);
+        upimgms->setFont(font6);
         upimgms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_22->addWidget(upimgms);
@@ -5149,7 +5057,7 @@ public:
         imagetest_1ms->setObjectName(QStringLiteral("imagetest_1ms"));
         imagetest_1ms->setMinimumSize(QSize(300, 100));
         imagetest_1ms->setMaximumSize(QSize(300, 200));
-        imagetest_1ms->setFont(font7);
+        imagetest_1ms->setFont(font8);
         imagetest_1ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         verticalLayout_10->addWidget(imagetest_1ms);
@@ -5745,6 +5653,30 @@ public:
         gifLabel->setScaledContents(false);
         gifLabel->setWordWrap(false);
         stackedWidget->addWidget(Radio);
+        cardid = new QWidget();
+        cardid->setObjectName(QStringLiteral("cardid"));
+        cardid->setStyleSheet(QStringLiteral(""));
+        groupBox_4 = new QGroupBox(cardid);
+        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
+        groupBox_4->setGeometry(QRect(140, 100, 1781, 991));
+        groupBox_4->setStyleSheet(QStringLiteral("background:url(\"Annotation 2024-04-24 082733m\");"));
+        groupBox_5 = new QGroupBox(groupBox_4);
+        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
+        groupBox_5->setGeometry(QRect(480, 240, 791, 541));
+        groupBox_5->setStyleSheet(QStringLiteral("background:black;"));
+        label_43 = new QLabel(groupBox_5);
+        label_43->setObjectName(QStringLiteral("label_43"));
+        label_43->setGeometry(QRect(300, 30, 271, 71));
+        label_43->setFont(font8);
+        label_43->setStyleSheet(QStringLiteral("color:blue;"));
+        label_44 = new QLabel(groupBox_5);
+        label_44->setObjectName(QStringLiteral("label_44"));
+        label_44->setGeometry(QRect(320, 410, 201, 41));
+        QFont font9;
+        font9.setPointSize(18);
+        label_44->setFont(font9);
+        label_44->setStyleSheet(QStringLiteral("color:blue;"));
+        stackedWidget->addWidget(cardid);
         stackedWidget->raise();
         MenuBar->raise();
         searchBar->raise();
@@ -5774,27 +5706,13 @@ public:
         hihi_18->setText(QApplication::translate("Dialog", "6", Q_NULLPTR));
         searchBar->setTitle(QString());
         label_15->setText(QApplication::translate("Dialog", "stats", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
-         << QApplication::translate("Dialog", "Pick your interest...", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Movie statistics", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Serie statistics", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Broadcast statistics", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Radio statistics", Q_NULLPTR)
-         << QApplication::translate("Dialog", "All production", Q_NULLPTR)
-        );
-        comboBox->setCurrentText(QApplication::translate("Dialog", "Pick your interest...", Q_NULLPTR));
         label_48->setText(QString());
         textEdit->setPlaceholderText(QApplication::translate("Dialog", "Search", Q_NULLPTR));
         gg_2->setText(QApplication::translate("Dialog", "\356\201\201", Q_NULLPTR));
         gg_5->setText(QApplication::translate("Dialog", "\356\201\200", Q_NULLPTR));
         label_47->setText(QString());
         hihi->setText(QString());
-        searchLineEditM->setPlaceholderText(QApplication::translate("Dialog", "Search by title", Q_NULLPTR));
         ggM->setText(QApplication::translate("Dialog", "\356\201\201", Q_NULLPTR));
-        pushButton_5A_3->setText(QApplication::translate("Dialog", "Statistics", Q_NULLPTR));
-        pushButton_3A_3->setText(QApplication::translate("Dialog", "MANAGE", Q_NULLPTR));
-        pushButton_4A_3->setText(QApplication::translate("Dialog", "Dashboard", Q_NULLPTR));
         comboBox_7->clear();
         comboBox_7->insertItems(0, QStringList()
          << QApplication::translate("Dialog", "default", Q_NULLPTR)
@@ -5802,6 +5720,14 @@ public:
          << QApplication::translate("Dialog", "date transaction from oldest to newest", Q_NULLPTR)
          << QApplication::translate("Dialog", "montant from highest to lowest", Q_NULLPTR)
          << QApplication::translate("Dialog", "montant from lowest to highest", Q_NULLPTR)
+        );
+        comboBoxM_2->clear();
+        comboBoxM_2->insertItems(0, QStringList()
+         << QApplication::translate("Dialog", "Default", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Sorting ASC by studio number", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Sorting DESC by studio number", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Sorting ASC by date", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Sorting DESC by date", Q_NULLPTR)
         );
         label_22->setText(QApplication::translate("Dialog", "WELCOME USER,", Q_NULLPTR));
         label->setText(QString());
@@ -5880,6 +5806,9 @@ public:
         label_omek->setText(QApplication::translate("Dialog", "DROP PHOTO HERE", Q_NULLPTR));
         label_47A_5->setText(QApplication::translate("Dialog", "Telephone   :", Q_NULLPTR));
         label_47A_8->setText(QApplication::translate("Dialog", "Email          :", Q_NULLPTR));
+        label_42->setText(QString());
+        label_46->setText(QString());
+        label_47A_4->setText(QApplication::translate("Dialog", " pls scan your card :", Q_NULLPTR));
         label_46A->setText(QString());
         label_44A->setText(QApplication::translate("Dialog", "Register A New User ", Q_NULLPTR));
         label_45A->setText(QApplication::translate("Dialog", "Or Update Someone's Information", Q_NULLPTR));
@@ -5982,9 +5911,6 @@ public:
         label_121->setText(QApplication::translate("Dialog", "Reservations", Q_NULLPTR));
         hihi_44->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
         hihi_46->setText(QApplication::translate("Dialog", ";", Q_NULLPTR));
-        label_97->setText(QString());
-        searchLineEditM_2->setPlaceholderText(QApplication::translate("Dialog", "Search by number or state", Q_NULLPTR));
-        ggM_2->setText(QApplication::translate("Dialog", "\356\201\201", Q_NULLPTR));
         label_9->setText(QApplication::translate("Dialog", "Studio number", Q_NULLPTR));
         label_11->setText(QApplication::translate("Dialog", "State", Q_NULLPTR));
         label_13->setText(QApplication::translate("Dialog", "Update", Q_NULLPTR));
@@ -5992,16 +5918,18 @@ public:
         label_24->setText(QApplication::translate("Dialog", "Date", Q_NULLPTR));
         label_41->setText(QApplication::translate("Dialog", "Delete", Q_NULLPTR));
         label_118->setText(QString());
-        comboBoxM_2->clear();
-        comboBoxM_2->insertItems(0, QStringList()
-         << QApplication::translate("Dialog", "Default", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Sorting ASC by studio number", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Sorting DESC by studio number", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Sorting ASC by date", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Sorting DESC by date", Q_NULLPTR)
-        );
         hihi_10tr_5->setText(QApplication::translate("Dialog", "        statistics", Q_NULLPTR));
         hihi_13->setText(QApplication::translate("Dialog", "\356\200\202", Q_NULLPTR));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("Dialog", "Pick your interest...", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Movie statistics", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Serie statistics", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Broadcast statistics", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Radio statistics", Q_NULLPTR)
+         << QApplication::translate("Dialog", "All production", Q_NULLPTR)
+        );
+        comboBox->setCurrentText(QApplication::translate("Dialog", "Pick your interest...", Q_NULLPTR));
         label_43A->setText(QApplication::translate("Dialog", "Welcome Back", Q_NULLPTR));
         label_45A_2->setText(QApplication::translate("Dialog", "Input necessary informations to expand our VeWatch headquarters", Q_NULLPTR));
         label_46A_4->setText(QString());
@@ -6230,6 +6158,10 @@ public:
         label_16M_2->setText(QApplication::translate("Dialog", "Brands:", Q_NULLPTR));
         radioM_2->setText(QApplication::translate("Dialog", " Radio", Q_NULLPTR));
         gifLabel->setText(QString());
+        groupBox_4->setTitle(QString());
+        groupBox_5->setTitle(QString());
+        label_43->setText(QApplication::translate("Dialog", "pls scan your card", Q_NULLPTR));
+        label_44->setText(QString());
     } // retranslateUi
 
 };

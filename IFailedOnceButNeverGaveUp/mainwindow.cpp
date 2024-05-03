@@ -1,22 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "employer.h"
-#include "dialog.h"
-#include<QString>
-#include "ui_dialog.h"
-#include <ios>
-#include <QMessageBox>
-#include <cctype>
-#include <QStackedWidget>
-#include<QMovie>
-#include<QThread>
-#include <QtGlobal>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     setWindowFlags(Qt::FramelessWindowHint| Qt::WindowSystemMenuHint);
     connect(ui->ok_16, SIGNAL(clicked()),this, SLOT(sendMail()));
     ui->stackedWidget->setCurrentIndex(0);

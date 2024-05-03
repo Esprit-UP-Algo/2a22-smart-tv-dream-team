@@ -1,5 +1,6 @@
 QT       += core gui multimedia multimediawidgets sql
 QT       +=  sql  printsupport charts  quick
+QT += serialport
 QT += network
 QT += core gui charts
 QT += charts

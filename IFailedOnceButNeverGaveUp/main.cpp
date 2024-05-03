@@ -12,12 +12,11 @@ int main(int argc, char *argv[])
     a.setStyle("fusion");
 
     MainWindow w;
-    Dialog d;
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-    db.setDatabaseName("Source_Projet2A"); //projet2a
+    db.setDatabaseName("projet"); //projet2a
     db.setUserName("yahya"); //sora
-    db.setPassword("123"); //oogabooga
+    db.setPassword("apolios"); //oogabooga
     db.open();
 
 
