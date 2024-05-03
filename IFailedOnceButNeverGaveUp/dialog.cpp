@@ -59,6 +59,7 @@ Dialog::Dialog(QWidget *parent) :
     ui->lineEdit_3A_13->setValidator(new QIntValidator(0,99999999,this));
     ui->comboBox_7->setVisible(false);
     ui->comboBox_2->setVisible(false);
+    ui->comboBoxM->setVisible(false);
 ui->stackedWidget->setCurrentIndex(0);
 ui->StatMedia->setLayout(new QHBoxLayout);
 ui->chartContainer->setLayout(new QHBoxLayout);
@@ -129,7 +130,7 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     mSystemTrayIcon->setToolTip("Studio Management Application");
     mSystemTrayIcon->setVisible(true);
     checkReservationDates();
-    initializeCalendar();
+   // initializeCalendar();
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Dialog::refreshCalendar);
     timer->start(10000);
@@ -383,6 +384,8 @@ void Dialog::on_hihi_5_clicked()//crud employe
         QSqlQuery query;
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_6->setGeometry(15,305,51,20);
+
+    ui->comboBoxM->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
     ui->hihi_5->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
@@ -534,7 +537,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
         }
         //QMessageBox :: warning(this,"",QString::number( ligne));
 
-        QStandardItemModel * model=new QStandardItemModel(ligne , 11);
+        QStandardItemModel * model=new QStandardItemModel(ligne , 10);
         QString qs;
         qs="select IDE,CIN,TYPE,NOM,PRENOM,TEL,EMAIL,PHOTO from EMPLOYE"+rech+Qs;
         qDebug()<<qs;
@@ -584,34 +587,16 @@ void Dialog::on_hihi_5_clicked()//crud employe
         model->setHeaderData(5, Qt::Horizontal , "TEL");
         model->setHeaderData(6, Qt::Horizontal , "EMAIL");
         model->setHeaderData(7, Qt::Horizontal , "PHOTO");
-        model->setHeaderData(8, Qt::Horizontal , "QR code");
-        model->setHeaderData(9, Qt::Horizontal , "delete");
-        model->setHeaderData(10, Qt::Horizontal , "update");
+        model->setHeaderData(8, Qt::Horizontal , "delete");
+        model->setHeaderData(9, Qt::Horizontal , "update");
         ui->tableViewem->setModel(model);
 
         for (int j=0;j<row ; j++)
         {
             QPushButton *butt;
-            butt = new QPushButton("QR code");
-            QString name = QString("buttondel%1").arg(j) ;
-            QString display = QString("QR code") ;
-            butt->setObjectName(name) ;
-            butt->setText(display) ;
-
-            connect(butt, &QPushButton::clicked, this, [this, j]() {
-                employer e;
-                QString idme = ui->tableViewem->model()->data(ui->tableViewM->model()->index(j, 0)).toString();
-                e.generateQRCodeEmploye(idme);
-            });
-
-            butt->setStyleSheet("color:red;"
-                                "background:transparent;"
-                                "border:none;"
-                                "font : 15pt;");
-            ui->tableViewem->setIndexWidget(model->index(j, 8), butt);
             butt = new QPushButton("delete");
-            name = QString("buttondel%1").arg(j) ;
-            display = QString("delete") ;
+            QString name = QString("buttondel%1").arg(j) ;
+            QString display = QString("delete") ;
             butt->setObjectName(name) ;
             butt->setText(display) ;
 
@@ -627,7 +612,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "background:transparent;"
                                 "border:none;"
                                 "font : 15pt;");
-            ui->tableViewem->setIndexWidget(model->index(j, 9), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 8), butt);
 
             butt = new QPushButton("update");
             name = QString("buttonup%1").arg(j) ;
@@ -665,7 +650,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
                                 "border:none;"
                                 "font : 15pt;"
                                 "min-width : 289px");
-            ui->tableViewem->setIndexWidget(model->index(j, 10), butt);
+            ui->tableViewem->setIndexWidget(model->index(j, 9), butt);
         }
         ui->tableViewem->verticalHeader()->setVisible(false);
             ui->tableViewem->resizeRowsToContents();
@@ -687,6 +672,7 @@ void Dialog::on_hihi_15_clicked()//crud transaction
      qDebug()<<s;
      s="";
     ui->label_6->setGeometry(15,370,51,20);
+    ui->comboBoxM->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
     ui->hihi_15->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
@@ -939,6 +925,8 @@ void Dialog::on_hihi_33_clicked()//adduser
     ui->label_47->setVisible(false);
     ui->label_48->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
+
+    ui->comboBoxM->setVisible(false);
 }
 
 void Dialog::on_gg_clicked()
@@ -977,6 +965,8 @@ void Dialog::on_hihi_20_clicked()//tvmoviesidfk
     ui->label_6->setGeometry(15,430,51,20);
 
     ui->comboBoxM_2->setVisible(false);
+
+    ui->comboBoxM->setVisible(false);
     ui->hihi_20->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -1293,6 +1283,8 @@ void Dialog::on_hihi_17_clicked()//reservation
     ui->label_6->setGeometry(15,490,51,20);
 
     ui->comboBoxM_2->setVisible(false);
+
+    ui->comboBoxM->setVisible(false);
     ui->hihi_17->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -1506,7 +1498,8 @@ void Dialog::on_pushButton_14A_clicked()//insert employe
 
 void Dialog::on_pushButton_14A_3_clicked()//cancel button employe
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    //ui->stackedWidget->setCurrentIndex(1);
+    emit ui->hihi_5->clicked();
 }
 
 void Dialog::on_pushButton_14A_2_clicked()//update button employe
@@ -1628,6 +1621,7 @@ void Dialog::on_pushButtonA_clicked()//stats reservation
     ui->label_15->setVisible(false);
     ui->comboBox->setVisible(false);
     ui->textEdit->setVisible(true);
+    ui->comboBoxM->setVisible(false);
     ui->gg_5->setVisible(true);
     ui->gg_2->setVisible(true);
     ui->label_47->setVisible(true);
@@ -1643,6 +1637,7 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
     ui->gg_2->setVisible(false);
     ui->comboBox_7->setVisible(false);
     ui->comboBox->setVisible(false);
+     ui->comboBoxM->setVisible(false);
     ui->stackedWidget->setCurrentIndex(9);
     ui->label_15->setVisible(false);
     ui->comboBox->setVisible(false);
@@ -1655,9 +1650,19 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
 
     int ligne = 0;
     int row = 0;
-
+     QString rech ;
+     if (ui->textEdit->toPlainText()!="")
+     {
+         bool intyes;
+         ui->textEdit->toPlainText().toInt(&intyes);
+         qDebug()<<intyes;
+         if (intyes)
+         {
+             rech+=" WHERE NUMSALLE like '%"+ui->textEdit->toPlainText()+"%'";
+         }
+     }
     QSqlQuery query;
-    query.exec("select count(*) from SALLE");
+    query.exec("select count(*) from SALLE"+rech);
     while (query.next())
     {
         ligne = query.value(0).toInt();
@@ -1671,8 +1676,8 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
          qDebug() << "test";
      }
 
-
-     query.exec("SELECT NUMSALLE,ETAT, CAPACITE, DATERES FROM SALLE"+Qs);
+    qDebug()<<"SELECT NUMSALLE,ETAT, CAPACITE, DATERES FROM SALLE"+rech+Qs;
+     query.exec("SELECT NUMSALLE,ETAT, CAPACITE, DATERES FROM SALLE"+rech+Qs);
     while (query.next())
     {
         for (int j = 0; j < 4; j++)
@@ -1761,6 +1766,7 @@ void Dialog::on_hihi_43_clicked()//add reservation
 {
     ui->stackedWidget->setCurrentIndex(10);
     ui->label_15->setVisible(false);
+    ui->comboBoxM->setVisible(false);
     ui->comboBox->setVisible(false);
     ui->textEdit->setVisible(false);
     ui->gg_5->setVisible(false);
@@ -1774,15 +1780,17 @@ void Dialog::on_hihi_43_clicked()//add reservation
 
 void Dialog::on_listM_clicked()
 {
+
+    ui->comboBoxM->setVisible(true);
     ui->stackedWidget->setCurrentIndex(13);
     int ligne(0);
     int row(0);
     QString rech;
-    /*if (ui->searchLineEditM->text()!="")
+    if (ui->textEdit->toPlainText()!="")
     {
-        rech=" where TITRE LIKE '%"+ui->searchLineEditM->text();
+        rech=" where TITRE LIKE '%"+ui->textEdit->toPlainText()+"%'";
 
-    }*/
+    }
     QSqlQuery query;
     query.exec("SELECT COUNT(*) FROM MEDIA"+rech);
     while(query.next())
@@ -2259,6 +2267,10 @@ void Dialog::on_exportButtonM_clicked() {
             printer.newPage();
             rowCount = 0;
             painter.drawPixmap(backgroundRect, background); // Redraw background on new page
+            QPixmap background("backgroundpdf.png");
+            QRect backgroundRect(0, 0, printer.pageRect().width(), printer.pageRect().height());
+            painter.drawPixmap(backgroundRect, background);
+
         }
     }
 
@@ -2274,6 +2286,7 @@ void Dialog::on_exportButtonM_clicked() {
 void Dialog::on_pushButton_4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(11);
+    ui->textEdit->setVisible(true);
 }
 
 void Dialog::on_imageButtonM_clicked()
@@ -2288,394 +2301,7 @@ void Dialog::on_pushButton_2ms_clicked()
 
 void Dialog::on_pushButton_12ms_clicked()
 {
-    int ligne(0);
-    int row(0);
-    QString rech;
-    if (ui->textEdit->toPlainText()!="")
-    {
-        rech=" where TITRE LIKE '%"+ui->textEdit->toPlainText()+"%'";
-        bool intyes;
-        ui->textEdit->toPlainText().toInt(&intyes);
-        qDebug()<<intyes;
-        if (intyes)
-        {
-            rech+=" or id='"+ui->textEdit->toPlainText()+"'";
-        }
-    }
-    QString categorie;
-    if ((!ui->dramacate->isChecked())&&(!ui->horrorcate->isChecked())&&(!ui->comedycate->isChecked())&&(!ui->romancecate->isChecked())&&(!ui->scificate->isChecked())&&(!ui->actioncate->isChecked())&&(!ui->sportscate->isChecked()))
-    {
-        categorie="";
-    }
-    else
-    {
-        int cc=0;
-        categorie="in (";
-        if ( ui->actioncate->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'action'";
-        }
-        if ( ui->horrorcate->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'horror'";
-        }
-        if ( ui->comedycate->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'comedy'";
-        }
-        if ( ui->romancecate->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'romance'";
-        }
-        if ( ui->scificate->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'sci-fi'";
-        }
-        if ( ui->dramacate->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'drama'";
-        }
-        if ( ui->sportscate->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'sports'";
-        }
-        categorie=" MCATE " + categorie+" ) OR SCATE "+categorie +")";
-    }
-    if ((rech=="")&&(categorie!=""))
-    {
-        categorie="where "+categorie;
-    }
-    else if ((rech!="")&&(categorie!=""))
-    {
-        categorie="&& "+categorie;
-    }
-    qDebug()<<categorie;
-    QSqlQuery query;
-    query.exec("select count(*) from SERIE_FILM "+rech+categorie);
-    while(query.next() )
-    {
-        ligne=query.value(0).toInt();
-    }
-    qDebug()<<ligne;
-    //QMessageBox :: warning(this,"",QString::number( ligne));
 
-    QStandardItemModel * model=new QStandardItemModel(ligne , 12);
-    QString Qs;
-    if (ui->comboBoxms->currentText()== "recently added" )
-    {
-        Qs=" order by id DESC";
-        qDebug()<<"test";
-    }
-    else if (ui->comboBoxms->currentText()== "most views" )
-    {
-        Qs=" order by nbrvue DESC";
-        qDebug()<<"test";
-    }
-    else if (ui->comboBoxms->currentText()== "least views" )
-    {
-        Qs=" order by nbrvue ASC";
-        qDebug()<<"test";
-    }
-    else if (ui->comboBoxms->currentText()== "oldest" )
-    {
-        Qs=" order by id ASC";
-        qDebug()<<"test";
-    }
-    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech+categorie +Qs;
-    query.exec("select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech +categorie+Qs);
-    while(query.next())
-    {
-        for (int j=0;j<9;j++)
-        {
-            QStandardItem *item;
-
-            if ( j==5)
-            {
-                QByteArray array;
-                //qDebug()<<"Initial Array Size"<<array.size();
-                array = query.value(j).toByteArray();
-                //qDebug()<<"ARray Size"<<array.size();
-                QPixmap pixmap;
-                pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
-                QPixmap scaled=  pixmap.scaled(QSize( 170,170));
-                item = new QStandardItem();
-                item->setData(scaled,Qt::DecorationRole);
-
-
-            }
-            else if (j==8)
-            {
-                QString itemcat=query.value(j).toString();
-                if (query.value(j+1).toString()!="...")
-                {
-                    itemcat+=+","+query.value(j+1).toString();
-                }
-                item = new QStandardItem(itemcat);
-            }
-            else
-            {
-                item = new QStandardItem(query.value(j).toString());
-            }
-
-
-                item->setTextAlignment(Qt::AlignCenter);
-
-                model->setItem(row,j,item);
-
-
-        }
-        row++;
-    }
-
-
-
-    model->setHeaderData(0, Qt::Horizontal , "id");
-    model->setHeaderData(1, Qt::Horizontal , "type");
-    model->setHeaderData(2, Qt::Horizontal , "titre");
-    model->setHeaderData(3, Qt::Horizontal , "description");
-    model->setHeaderData(4, Qt::Horizontal , "duree");
-    model->setHeaderData(5, Qt::Horizontal , "photo");
-    model->setHeaderData(6, Qt::Horizontal , "nombre de vue");
-    model->setHeaderData(7, Qt::Horizontal , "nombre d'episode");
-    model->setHeaderData(8, Qt::Horizontal , "categorie");
-    model->setHeaderData(9, Qt::Horizontal , "trailer");
-    model->setHeaderData(10, Qt::Horizontal , "delete");
-    model->setHeaderData(11, Qt::Horizontal , "update");
-    ui->tableViewms->setModel(model);
-    ui->tableViewms->horizontalHeader()->setVisible(true);
-
-    for (int j=0;j<row ; j++)
-    {
-        QPushButton *buttt;
-        buttt = new QPushButton("View");
-        QString namet = QString("buttonview%1").arg(j) ;
-        QString displayt = QString("View") ;
-        buttt->setObjectName(namet) ;
-        buttt->setText(displayt) ;
-
-        //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
-        connect(buttt, &QPushButton::clicked, this, [this, j]() {
-            qDebug() << "checks0";
-            QSqlQuery query;
-            qDebug() << "checks1";
-            query.prepare("select trailer from SERIE_FILM where id=:id");
-            query.bindValue(":id",ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,0)).toString());
-            qDebug() << "checks2";
-            query.exec();
-            qDebug() << "checks3";
-            query.first();
-            QByteArray array= query.value(0).toByteArray();
-            if (!((array.isEmpty())||(array.isNull())))
-            {
-                qDebug() << "check0";
-                auto player = new QMediaPlayer;
-                qDebug() << "check1";
-                QBuffer *buffer = new QBuffer(player);
-                qDebug() << "check2";
-                buffer->setData(array);
-                qDebug() << "check3";
-                if ( buffer->open(QIODevice::ReadOnly))
-                {
-                    qDebug() << "check4";
-                }
-
-
-
-                player->setMedia( QMediaContent(), buffer);//QUrl::fromLocalFile(imageFile));//"..\\assets\\Right-1684791019526.mp4"));
-                qDebug() << "check5";
-                //playlist->addMedia(QUrl("http://example.com/myclip2.mp4"));
-
-                QVideoWidget * vid = new QVideoWidget;
-
-                qDebug() << "check6";
-                player->setVideoOutput(vid);
-                qDebug() << "check7";
-                //vid->show();
-                //vid->setStyleSheet("border : 5px gray;");
-                //playlist->setCurrentIndex(1);
-
-                auto boxl = new QVBoxLayout();
-
-                qDebug() << "check8";
-
-                QPushButton *buttr;
-                buttr = new QPushButton("return");
-                connect(buttr, &QPushButton::clicked, this, [this,buffer,array,vid,boxl,player,buttr]() {
-                    player->stop();
-                    boxl->removeWidget(vid);
-                    ui->stackedWidget->setCurrentIndex(14);
-
-                    delete boxl;
-                    qDebug() << "checkd0";
-
-                    delete buffer;
-                    qDebug() << "checkd1";
-                    delete player;
-                    qDebug() << "checkd2";
-
-
-                    delete buttr;
-                });
-
-                qDebug() << "check9";
-                boxl->addWidget(buttr);
-
-                qDebug() << "check10";
-                boxl->addWidget(vid);
-
-                qDebug() << "check11";
-               ui->groupBox->setLayout(boxl);
-
-               qDebug() << "check12";
-
-               ui->stackedWidget->setCurrentIndex(18);
-               player->setVolume(80);
-               player->setMuted(false);
-               player->play();
-               qDebug()<<player->isVideoAvailable();
-            }
-            else
-            {
-                QMessageBox msgbox;
-                msgbox.setText("!!!! ERREUR  !!!!");
-                msgbox.setInformativeText(" Trailer inexistant  \n");
-                msgbox.setIcon(QMessageBox::Critical);
-                msgbox.setStandardButtons(QMessageBox::Ok);
-                msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
-                                     "QMessageBox QLabel"
-                                     "{"
-                                     " color : #DDD ;"
-                                     "font-size:15px;}"
-                                     "QMessageBox QPushButton"
-                                     "{"
-                                     "background-color:rgba(255,255,255,150);"
-                                     "min-width : 100;"
-                                     "min-height : 30;"
-                                     "border-radius: 15px;"
-                                     "}"
-                );
-                msgbox.exec();
-            }
-
-
-        });
-        buttt->setStyleSheet("color:blue;"
-                            "background:transparent;"
-                            "border:none;"
-                            "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 9), buttt);
-        QPushButton *butt;
-        butt = new QPushButton("delete");
-        QString name = QString("buttondel%1").arg(j) ;
-        QString display = QString("delete") ;
-        butt->setObjectName(name) ;
-        butt->setText(display) ;
-
-        //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
-        connect(butt, &QPushButton::clicked, this, [this, j]() {
-            MOVIE T;
-            if(T.supp(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,0)).toInt()))
-            {
-                 QMessageBox :: information(this,"delete","Data Deleted successfully", QMessageBox ::Ok);
-                 emit ui->pushButton_12ms->click();
-
-            }
-            else
-            {
-                 QMessageBox :: critical(this,"Error","Couldn't delete data");
-            }
-
-
-        });
-        butt->setStyleSheet("color:red;"
-                            "background:transparent;"
-                            "border:none;"
-                            "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 10), butt);
-
-        butt = new QPushButton("update");
-        name = QString("buttonup%1").arg(j) ;
-        display = QString("update") ;
-        butt->setObjectName(name) ;
-        butt->setText(display) ;
-
-        connect(butt, &QPushButton::clicked, this, [this, j]() {
-            ui->upidms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,0)).toString()   );
-            ui->typeupms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,1)).toString());
-            ui->uptitlems->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,2)).toString());
-            ui->updescriptionms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,3)).toString());
-            ui->dureupms->setTime(QTime::fromString(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,4)).toString(),"hh:mm:ss") );
-            ui->nbrvupms->setText(ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,6)).toString());
-            QPixmap pixmap=ui->tableViewms->model()->data(ui->tableViewms->model()->index(j,5) , Qt::DecorationRole).value<QPixmap>();
-            //QMessageBox :: critical(this,"Error",byte);
-
-
-            QPixmap scaled=  pixmap.scaled(QSize( 200,200));
-            ui->imagetest_2ms->setPixmap(scaled);
-            ui->stackedWidget->setCurrentIndex(2);
-        });
-        butt->setStyleSheet("color:green;"
-                            "background:transparent;"
-                            "border:none;"
-                            "font : 15pt;");
-        ui->tableViewms->setIndexWidget(model->index(j, 11), butt);
-
-
-
-    }
-
-
-
-    ui->tableViewms->verticalHeader()->setVisible(false);
-    ui->tableViewms->viewport()->setStyleSheet("background: rgb(255, 255, 255);"
-                                             "border: 1px solid white;"
-                                             "border-radius: 10px;"
-                                             "color: black;");
-    QRect rect = ui->tableViewms->viewport()->rect();
-    QPainterPath path;
-    rect.adjust(+1,+1,-1,-1);
-    path.addRoundedRect(rect,25,25);
-    QRegion mask = QRegion(path.toFillPolygon().toPolygon());
-    ui->tableViewms->viewport()->setMask(mask);
-    //ui->tableViewms->resize(ui->tableViewms->rowHeight(0)*row,ui->tableViewms->columnWidth(3)*4);
-    ui->tableViewms->resizeRowsToContents();
-    ui->tableViewms->resizeColumnsToContents();
-    ui->tableViewms->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 
 }
@@ -3006,9 +2632,10 @@ void Dialog::on_returnupms_clicked()
 
 void Dialog::on_pushButton_2_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(14);
+    ui->stackedWidget->setCurrentIndex(27);
     ui->label_15->setVisible(true);
     ui->comboBox->setVisible(true);
+    ui->comboBoxM->setVisible(false);
     ui->textEdit->setVisible(true);
     ui->gg_5->setVisible(true);
     ui->gg_2->setVisible(true);
@@ -3016,6 +2643,397 @@ void Dialog::on_pushButton_2_clicked()
     ui->label_48->setVisible(true);
 
     ui->comboBoxM_2->setVisible(false);
+    int ligne(0);
+    int row(0);
+    QString rech ;
+    if (ui->textEdit->toPlainText()!="")
+    {
+        rech=" where TITRE LIKE '%"+ui->textEdit->toPlainText()+"%'";
+        bool intyes;
+        ui->textEdit->toPlainText().toInt(&intyes);
+        qDebug()<<intyes;
+        if (intyes)
+        {
+            rech+=" or id='"+ui->textEdit->toPlainText()+"'";
+        }
+    }
+    QString categorie;
+    if ((!ui->dramacate->isChecked())&&(!ui->horrorcate->isChecked())&&(!ui->comedycate->isChecked())&&(!ui->romancecate->isChecked())&&(!ui->scificate->isChecked())&&(!ui->actioncate->isChecked())&&(!ui->sportscate->isChecked()))
+    {
+        categorie="";
+    }
+    else
+    {
+        int cc=0;
+        categorie="in (";
+        if ( ui->actioncate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'action'";
+        }
+        if ( ui->horrorcate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'horror'";
+        }
+        if ( ui->comedycate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'comedy'";
+        }
+        if ( ui->romancecate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'romance'";
+        }
+        if ( ui->scificate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'sci-fi'";
+        }
+        if ( ui->dramacate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'drama'";
+        }
+        if ( ui->sportscate->isChecked())
+        {
+            if (cc!=0)
+            {
+                categorie+=",";
+            }
+            cc++;
+            categorie+="'sports'";
+        }
+        categorie=" MCATE " + categorie+" ) OR SCATE "+categorie +")";
+    }
+    if ((rech=="")&&(categorie!=""))
+    {
+        categorie="where "+categorie;
+    }
+    else if ((rech!="")&&(categorie!=""))
+    {
+        categorie="&& "+categorie;
+    }
+    qDebug()<<categorie;
+    QSqlQuery query;
+    query.exec("select count(*) from SERIE_FILM "+rech+categorie);
+    while(query.next() )
+    {
+        ligne=query.value(0).toInt();
+    }
+    qDebug()<<ligne;
+    //QMessageBox :: warning(this,"",QString::number( ligne));
+
+    QStandardItemModel * model=new QStandardItemModel(ligne , 12);
+    QString Qs;
+    if (ui->comboBoxms->currentText()== "recently added" )
+    {
+        Qs=" order by id DESC";
+        qDebug()<<"test";
+    }
+    else if (ui->comboBoxms->currentText()== "most views" )
+    {
+        Qs=" order by nbrvue DESC";
+        qDebug()<<"test";
+    }
+    else if (ui->comboBoxms->currentText()== "least views" )
+    {
+        Qs=" order by nbrvue ASC";
+        qDebug()<<"test";
+    }
+    else if (ui->comboBoxms->currentText()== "oldest" )
+    {
+        Qs=" order by id ASC";
+        qDebug()<<"test";
+    }
+    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech+categorie +Qs;
+    query.exec("select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech +categorie+Qs);
+    while(query.next())
+    {
+        for (int j=0;j<9;j++)
+        {
+            QStandardItem *item;
+
+            if ( j==5)
+            {
+                QByteArray array;
+                //qDebug()<<"Initial Array Size"<<array.size();
+                array = query.value(j).toByteArray();
+                //qDebug()<<"ARray Size"<<array.size();
+                QPixmap pixmap;
+                pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
+                QPixmap scaled=  pixmap.scaled(QSize( 170,170));
+                item = new QStandardItem();
+                item->setData(scaled,Qt::DecorationRole);
+
+
+            }
+            else if (j==8)
+            {
+                QString itemcat=query.value(j).toString();
+                if (query.value(j+1).toString()!="...")
+                {
+                    itemcat+=+","+query.value(j+1).toString();
+                }
+                item = new QStandardItem(itemcat);
+            }
+            else
+            {
+                item = new QStandardItem(query.value(j).toString());
+            }
+
+
+                item->setTextAlignment(Qt::AlignCenter);
+
+                model->setItem(row,j,item);
+
+
+        }
+        row++;
+    }
+
+
+
+    model->setHeaderData(0, Qt::Horizontal , "id");
+    model->setHeaderData(1, Qt::Horizontal , "type");
+    model->setHeaderData(2, Qt::Horizontal , "titre");
+    model->setHeaderData(3, Qt::Horizontal , "description");
+    model->setHeaderData(4, Qt::Horizontal , "duree");
+    model->setHeaderData(5, Qt::Horizontal , "photo");
+    model->setHeaderData(6, Qt::Horizontal , "nombre de vue");
+    model->setHeaderData(7, Qt::Horizontal , "nombre d'episode");
+    model->setHeaderData(8, Qt::Horizontal , "categorie");
+    model->setHeaderData(9, Qt::Horizontal , "trailer");
+    model->setHeaderData(10, Qt::Horizontal , "delete");
+    model->setHeaderData(11, Qt::Horizontal , "update");
+    ui->tableViewM_2->setModel(model);
+    ui->tableViewM_2->horizontalHeader()->setVisible(true);
+
+    for (int j=0;j<row ; j++)
+    {
+        QPushButton *buttt;
+        buttt = new QPushButton("View");
+        QString namet = QString("buttonview%1").arg(j) ;
+        QString displayt = QString("View") ;
+        buttt->setObjectName(namet) ;
+        buttt->setText(displayt) ;
+
+        //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
+        connect(buttt, &QPushButton::clicked, this, [this, j]() {
+            qDebug() << "checks0";
+            QSqlQuery query;
+            qDebug() << "checks1";
+            query.prepare("select trailer from SERIE_FILM where id=:id");
+            query.bindValue(":id",ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,0)).toString());
+            qDebug() << "checks2";
+            query.exec();
+            qDebug() << "checks3";
+            query.first();
+            QByteArray array= query.value(0).toByteArray();
+            if (!((array.isEmpty())||(array.isNull())))
+            {
+                qDebug() << "check0";
+                auto player = new QMediaPlayer;
+                qDebug() << "check1";
+                QBuffer *buffer = new QBuffer(player);
+                qDebug() << "check2";
+                buffer->setData(array);
+                qDebug() << "check3";
+                if ( buffer->open(QIODevice::ReadOnly))
+                {
+                    qDebug() << "check4";
+                }
+
+
+
+                player->setMedia( QMediaContent(), buffer);//QUrl::fromLocalFile(imageFile));//"..\\assets\\Right-1684791019526.mp4"));
+                qDebug() << "check5";
+                //playlist->addMedia(QUrl("http://example.com/myclip2.mp4"));
+
+                QVideoWidget * vid = new QVideoWidget;
+
+                qDebug() << "check6";
+                player->setVideoOutput(vid);
+                qDebug() << "check7";
+                //vid->show();
+                //vid->setStyleSheet("border : 5px gray;");
+                //playlist->setCurrentIndex(1);
+
+                auto boxl = new QVBoxLayout();
+
+                qDebug() << "check8";
+
+                QPushButton *buttr;
+                buttr = new QPushButton("return");
+                connect(buttr, &QPushButton::clicked, this, [this,buffer,array,vid,boxl,player,buttr]() {
+                    player->stop();
+                    boxl->removeWidget(vid);
+                    ui->stackedWidget->setCurrentIndex(14);
+
+                    delete boxl;
+                    qDebug() << "checkd0";
+
+                    delete buffer;
+                    qDebug() << "checkd1";
+                    delete player;
+                    qDebug() << "checkd2";
+
+
+                    delete buttr;
+                });
+
+                qDebug() << "check9";
+                boxl->addWidget(buttr);
+
+                qDebug() << "check10";
+                boxl->addWidget(vid);
+
+                qDebug() << "check11";
+               ui->groupBox->setLayout(boxl);
+
+               qDebug() << "check12";
+
+               ui->stackedWidget->setCurrentIndex(18);
+               player->setVolume(80);
+               player->setMuted(false);
+               player->play();
+               qDebug()<<player->isVideoAvailable();
+            }
+            else
+            {
+                QMessageBox msgbox;
+                msgbox.setText("!!!! ERREUR  !!!!");
+                msgbox.setInformativeText(" Trailer inexistant  \n");
+                msgbox.setIcon(QMessageBox::Critical);
+                msgbox.setStandardButtons(QMessageBox::Ok);
+                msgbox.setStyleSheet("QMessageBox { background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));}"
+                                     "QMessageBox QLabel"
+                                     "{"
+                                     " color : #DDD ;"
+                                     "font-size:15px;}"
+                                     "QMessageBox QPushButton"
+                                     "{"
+                                     "background-color:rgba(255,255,255,150);"
+                                     "min-width : 100;"
+                                     "min-height : 30;"
+                                     "border-radius: 15px;"
+                                     "}"
+                );
+                msgbox.exec();
+            }
+
+
+        });
+        buttt->setStyleSheet("color:blue;"
+                            "background:transparent;"
+                            "border:none;"
+                            "font : 15pt;");
+        ui->tableViewM_2->setIndexWidget(model->index(j, 9), buttt);
+        QPushButton *butt;
+        butt = new QPushButton("delete");
+        QString name = QString("buttondel%1").arg(j) ;
+        QString display = QString("delete") ;
+        butt->setObjectName(name) ;
+        butt->setText(display) ;
+
+        //connect(butt, SIGNAL(clicked()),this,SLOT(deleteftable(const(j))) );
+        connect(butt, &QPushButton::clicked, this, [this, j]() {
+            MOVIE T;
+            if(T.supp(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,0)).toInt()))
+            {
+                 QMessageBox :: information(this,"delete","Data Deleted successfully", QMessageBox ::Ok);
+                 emit ui->pushButton_12ms->click();
+
+            }
+            else
+            {
+                 QMessageBox :: critical(this,"Error","Couldn't delete data");
+            }
+
+
+        });
+        butt->setStyleSheet("color:red;"
+                            "background:transparent;"
+                            "border:none;"
+                            "font : 15pt;");
+        ui->tableViewM_2->setIndexWidget(model->index(j, 10), butt);
+
+        butt = new QPushButton("update");
+        name = QString("buttonup%1").arg(j) ;
+        display = QString("update") ;
+        butt->setObjectName(name) ;
+        butt->setText(display) ;
+
+        connect(butt, &QPushButton::clicked, this, [this, j]() {
+            ui->upidms->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,0)).toString()   );
+            ui->typeupms->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,1)).toString());
+            ui->uptitlems->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,2)).toString());
+            ui->updescriptionms->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,3)).toString());
+            ui->dureupms->setTime(QTime::fromString(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,4)).toString(),"hh:mm:ss") );
+            ui->nbrvupms->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,6)).toString());
+            QPixmap pixmap=ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,5) , Qt::DecorationRole).value<QPixmap>();
+            //QMessageBox :: critical(this,"Error",byte);
+
+
+            QPixmap scaled=  pixmap.scaled(QSize( 200,200));
+            ui->imagetest_2ms->setPixmap(scaled);
+            ui->stackedWidget->setCurrentIndex(2);
+        });
+        butt->setStyleSheet("color:green;"
+                            "background:transparent;"
+                            "border:none;"
+                            "font : 15pt;");
+        ui->tableViewM_2->setIndexWidget(model->index(j, 11), butt);
+
+
+
+    }
+
+
+
+    ui->tableViewM_2->verticalHeader()->setVisible(false);
+    ui->tableViewM_2->viewport()->setStyleSheet("background: rgb(255, 255, 255);"
+                                             "border: 1px solid white;"
+                                             "border-radius: 10px;"
+                                             "color: black;");
+    QRect rect = ui->tableViewM_2->viewport()->rect();
+    QPainterPath path;
+    rect.adjust(+1,+1,-1,-1);
+    path.addRoundedRect(rect,25,25);
+    QRegion mask = QRegion(path.toFillPolygon().toPolygon());
+    ui->tableViewM_2->viewport()->setMask(mask);
+    //ui->tableViewms->resize(ui->tableViewms->rowHeight(0)*row,ui->tableViewms->columnWidth(3)*4);
+    ui->tableViewM_2->resizeRowsToContents();
+    ui->tableViewM_2->resizeColumnsToContents();
+    ui->tableViewM_2->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+
+
 }
 
 void Dialog::on_pushButton_clicked()
@@ -3082,7 +3100,7 @@ void Dialog::on_hihi_8_clicked() // generate pdf employee
         QFont titleFont = painter.font();
         // Set font for the title
         titleFont.setFamily("CENTURY");// Change the font family
-        painter.setPen(Qt::darkRed);
+        painter.setPen(Qt::darkBlue);
         titleFont.setPointSize(24); // Change the font size
         painter.setFont(titleFont);
 
@@ -3134,6 +3152,10 @@ void Dialog::on_hihi_8_clicked() // generate pdf employee
                 qDebug() << "Page added";
                 printer.newPage();
                 rowCount = 0;
+                QPixmap background("backgroundpdf.png");
+                QRect backgroundRect(0, 0, printer.pageRect().width(), printer.pageRect().height());
+                painter.drawPixmap(backgroundRect, background);
+
             }
 
         }
@@ -3963,6 +3985,7 @@ void Dialog::on_pushButton_14A_9_clicked()
      ui->gg_2->setVisible(false);
      ui->comboBox_7->setVisible(false);
      ui->comboBox->setVisible(false);
+     ui->comboBoxM->setVisible(false);
      ui->label_13->setVisible(false);
      ui->label_41->setVisible(false);
      ui->comboBoxM_2->setVisible(false);
@@ -4276,13 +4299,13 @@ void Dialog::on_hihi_10tr_5_clicked()
         ui->chartContainer->layout()->removeWidget(view);
     });
 }
-void Dialog::initializeCalendar() {
+/*void Dialog::initializeCalendar() {
     // Initialize the calendar widget
     ui->calendarWidget->setGridVisible(true); // Show grid lines for better visibility
 
     // Update the calendar with event dates
     updateCalendarWithEvents();
-}
+}*/
 
 void Dialog::updateCalendarWithEvents() {
     diffusion diffusion;
@@ -4384,6 +4407,7 @@ void Dialog::afficherGifDansLabel() {
 void Dialog::on_pushButton_3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(25);
+    ui->textEdit->setVisible(true);
 }
 void Dialog::onTypingTimerTimeout()
 {
@@ -4447,5 +4471,130 @@ void Dialog::on_listM_2_clicked()
 
 void Dialog::on_ggM_clicked()
 {
-    emit ui->listM->clicked();
+    if (ui->stackedWidget->currentIndex()==13)
+        emit ui->listM->clicked();
+    if (ui->stackedWidget->currentIndex()==1)
+        emit ui->hihi_5->clicked();
+    if (ui->stackedWidget->currentIndex()==2)
+        emit ui->hihi_15->clicked();
+    if (ui->stackedWidget->currentIndex()==14)
+        emit ui->pushButton_12ms->clicked();
+    if (ui->stackedWidget->currentIndex()==9)
+        emit ui->pushButton_2A->clicked();
+
+}
+
+
+
+
+void Dialog::on_comboBoxM_2_currentIndexChanged(const QString &arg1)
+{
+    emit ui->pushButton_2A->clicked();
+}
+
+void Dialog::on_exportButtonM_2_clicked()
+{
+    int xStart = 20; // Starting x-coordinate for the table
+    int yStart = 100; // Starting y-coordinate for the table
+    int rowHeight = 200; // Height of each row
+    int colWidth = 280; // Width of each column
+    int rowCount = 0;
+
+    QString filePath = QFileDialog::getSaveFileName(nullptr, "Exporter vers PDF", "", "Fichiers PDF (*.pdf)");
+    if (filePath.isEmpty())
+        return; // Annuler l'exportation si aucun fichier n'a été sélectionné
+
+    // Créer un objet QPrinter pour générer le fichier PDF
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName(filePath);
+
+    // Créer un objet QPainter pour dessiner sur le périphérique d'impression
+    QPainter painter;
+    if (!painter.begin(&printer)) {
+        QMessageBox::warning(nullptr, "Erreur", "Cannot initialize the print device.");
+        return;
+    }
+
+    QPixmap background("backgroundpdf.png");
+    QRect backgroundRect(0, 0, printer.pageRect().width(), printer.pageRect().height());
+    painter.drawPixmap(backgroundRect, background);
+
+    QSqlQuery query;
+    query.exec("SELECT ID,TITRE,TYPE,DESCRIPTION,DUREE, NBREP,NBRVUE,MCATE , SCATE, IMAGE from SERIE_FILM");
+
+    QFont titleFont = painter.font();
+    titleFont.setFamily("CENTURY");
+    painter.setPen(Qt::darkBlue);
+    titleFont.setPointSize(24);
+    painter.setFont(titleFont);
+
+    QString ch = "List Of Movies/Series";
+    painter.drawText(220, 50, ch);
+    ch.resize(500);
+
+    QFont defaultFont = painter.font();
+    defaultFont.setFamily("ARIAL");
+    painter.setPen(Qt::black);
+    defaultFont.setPointSize(12);
+    painter.setFont(defaultFont);
+
+    while (query.next())
+    {
+
+
+        painter.drawLine(xStart, yStart + rowCount * rowHeight, xStart + 2 * colWidth, yStart + rowCount * rowHeight);
+        painter.drawLine(xStart, yStart + (rowCount + 1) * rowHeight, xStart + 2 * colWidth, yStart + (rowCount + 1) * rowHeight);
+        painter.drawLine(xStart + colWidth, yStart + rowCount * rowHeight, xStart + colWidth, yStart + (rowCount + 1) * rowHeight);
+        painter.drawLine(xStart + 2 * colWidth, yStart + rowCount * rowHeight, xStart + 2 * colWidth, yStart + (rowCount + 1) * rowHeight);
+
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 30, "ID: " + query.value(0).toString());
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 50, "Title: " + query.value(1).toString());
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 70, "Type: " + query.value(2).toString());
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 90, "Description:" + query.value(3).toString());
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 110, "Duration : " + query.value(4).toString());
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 130, "Numbre of episodes: " + query.value(5).toString());
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 150, "Number of views: " + query.value(6).toString());
+        painter.drawText(xStart + 10, yStart + rowCount * rowHeight + 170, "Categorie: " + query.value(7).toString() + " " + query.value(8).toString());
+
+        if (!query.value(9).isNull())
+        {
+            QByteArray array;
+            array = query.value(9).toByteArray();
+            QPixmap pixmap;
+            pixmap.loadFromData(array, "JPG && PNG", Qt::AutoColor);
+
+            QPixmap scaled = pixmap.scaled(QSize(180, 180));
+            painter.drawPixmap(xStart + colWidth + 20, yStart + rowCount * rowHeight + 15, scaled);
+        }
+
+
+        rowCount++;
+
+
+        if (rowCount * rowHeight + yStart + 100 + 170 > 850)
+        {
+            qDebug() << "Page added";
+            printer.newPage();
+            rowCount = 0;
+            painter.drawPixmap(backgroundRect, background); // Redraw background on new page
+            QPixmap background("backgroundpdf.png");
+            QRect backgroundRect(0, 0, printer.pageRect().width(), printer.pageRect().height());
+            painter.drawPixmap(backgroundRect, background);
+
+        }
+    }
+
+    QString signature = "Date:" + QDate::currentDate().toString("dd/MM/yyyy");
+    painter.drawText(0, printer.pageRect().bottom() - 20, signature);
+
+    painter.end();
+
+    QMessageBox::information(nullptr, "Successful", "Data has been successfully exported to " + filePath);
+}
+
+void Dialog::on_loM_2_clicked()
+{
+    qDebug()<<"click";
 }

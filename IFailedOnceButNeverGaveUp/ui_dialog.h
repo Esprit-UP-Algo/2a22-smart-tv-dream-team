@@ -61,6 +61,7 @@ public:
     QPushButton *ggM;
     QComboBox *comboBox_7;
     QComboBox *comboBoxM_2;
+    QComboBox *comboBoxM;
     QStackedWidget *stackedWidget;
     QWidget *home;
     QLabel *label_22;
@@ -292,9 +293,10 @@ public:
     QPushButton *button2;
     QPushButton *radioM;
     QPushButton *statisticsM;
-    QPushButton *buttonM3;
-    QPushButton *buttonM1;
-    QPushButton *buttonM2;
+    QLabel *buttonM1;
+    QLabel *buttonM2;
+    QLabel *buttonM3;
+    QLabel *buttonM4;
     QWidget *addchannel;
     QLabel *label_13M;
     QLineEdit *IDM;
@@ -318,7 +320,6 @@ public:
     QPushButton *loM;
     QPushButton *add;
     QPushButton *exportM;
-    QComboBox *comboBoxM;
     QWidget *listemovie;
     QGroupBox *groupBox_7ms;
     QVBoxLayout *verticalLayout;
@@ -480,6 +481,17 @@ public:
     QGroupBox *groupBox_5;
     QLabel *label_43;
     QLabel *label_44;
+    QWidget *ddesignomar;
+    QPushButton *loM_2;
+    QPushButton *add_2;
+    QLabel *label_45;
+    QLabel *label_49;
+    QPushButton *exportM_2;
+    QTableView *tableViewM_2;
+    QLabel *label_50;
+    QPushButton *hihi_10tr_6;
+    QPushButton *hihi_14;
+    QPushButton *exportButtonM_2;
 
     void setupUi(QDialog *Dialog)
     {
@@ -909,6 +921,51 @@ public:
 "}\n"
 "\n"
 ""));
+        comboBoxM = new QComboBox(searchBar);
+        comboBoxM->setObjectName(QStringLiteral("comboBoxM"));
+        comboBoxM->setGeometry(QRect(1140, 20, 191, 41));
+        comboBoxM->setStyleSheet(QLatin1String("#comboBoxM\n"
+"{\n"
+"border:1 px solid #ced4da;\n"
+"border-radius:12px;\n"
+"padding-left:10px;\n"
+"background:rgba(190,190,190,100);\n"
+"color : rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"#comboBoxM::drop-down{\n"
+"border:0px;\n"
+"}\n"
+"#comboBoxM::down-arrow{\n"
+"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
+"width:30px;\n"
+"height:30px;\n"
+"margin-right:18px;\n"
+"}\n"
+"#comboBoxM QListView{\n"
+"border:1 px solid #ced4da;\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"padding:5px;\n"
+"outline:0px;\n"
+"border-radius:20px;\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"}\n"
+"#comboBoxM QListView::item{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color: rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,150,150);\n"
+"border-radius:12px;\n"
+"}\n"
+"#comboBoxM QListView::item:hover{\n"
+"font-size:12px \"MS Shell Dlg 2\";\n"
+"selection-background-color:rgba(90,90,90,200);\n"
+"background-color:rgba(150,150,1"
+                        "50,150);\n"
+"border-radius:12px;\n"
+"}\n"
+"\n"
+""));
         textEdit->raise();
         label_15->raise();
         label_48->raise();
@@ -919,6 +976,7 @@ public:
         ggM->raise();
         comboBox_7->raise();
         comboBoxM_2->raise();
+        comboBoxM->raise();
         stackedWidget = new QStackedWidget(Dialog);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, -10, 1921, 1081));
@@ -3644,24 +3702,38 @@ public:
 "\n"
 ""));
         statisticsM->setIcon(icon1);
-        buttonM3 = new QPushButton(Channel);
-        buttonM3->setObjectName(QStringLiteral("buttonM3"));
-        buttonM3->setGeometry(QRect(1090, 660, 341, 281));
-        buttonM3->setStyleSheet(QLatin1String("	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;"));
-        buttonM1 = new QPushButton(Channel);
+        buttonM1 = new QLabel(Channel);
         buttonM1->setObjectName(QStringLiteral("buttonM1"));
-        buttonM1->setGeometry(QRect(120, 660, 341, 281));
-        buttonM1->setStyleSheet(QLatin1String("	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;"));
-        buttonM2 = new QPushButton(Channel);
+        buttonM1->setGeometry(QRect(110, 630, 341, 331));
+        buttonM1->setStyleSheet(QLatin1String("background-color: #03224c;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM1->setAlignment(Qt::AlignCenter);
+        buttonM2 = new QLabel(Channel);
         buttonM2->setObjectName(QStringLiteral("buttonM2"));
-        buttonM2->setGeometry(QRect(620, 660, 341, 281));
-        buttonM2->setStyleSheet(QLatin1String("	padding-left: 20px;\n"
-"background:transparent;\n"
-"border:transparent;"));
+        buttonM2->setGeometry(QRect(560, 630, 341, 331));
+        buttonM2->setStyleSheet(QLatin1String("\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM2->setAlignment(Qt::AlignCenter);
+        buttonM3 = new QLabel(Channel);
+        buttonM3->setObjectName(QStringLiteral("buttonM3"));
+        buttonM3->setGeometry(QRect(990, 630, 341, 331));
+        buttonM3->setStyleSheet(QLatin1String("\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM3->setAlignment(Qt::AlignCenter);
+        buttonM4 = new QLabel(Channel);
+        buttonM4->setObjectName(QStringLiteral("buttonM4"));
+        buttonM4->setGeometry(QRect(1430, 630, 341, 331));
+        buttonM4->setStyleSheet(QLatin1String("\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4->setAlignment(Qt::AlignCenter);
         stackedWidget->addWidget(Channel);
         label_16M->raise();
         tvM->raise();
@@ -3670,9 +3742,10 @@ public:
         radioM->raise();
         statisticsM->raise();
         button2->raise();
-        buttonM3->raise();
         buttonM1->raise();
         buttonM2->raise();
+        buttonM3->raise();
+        buttonM4->raise();
         addchannel = new QWidget();
         addchannel->setObjectName(QStringLiteral("addchannel"));
         addchannel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));"));
@@ -3941,51 +4014,6 @@ public:
 "}"));
         exportM->setIconSize(QSize(40, 40));
         exportM->setFlat(false);
-        comboBoxM = new QComboBox(listechannel);
-        comboBoxM->setObjectName(QStringLiteral("comboBoxM"));
-        comboBoxM->setGeometry(QRect(1170, 130, 191, 41));
-        comboBoxM->setStyleSheet(QLatin1String("#comboBoxM\n"
-"{\n"
-"border:1 px solid #ced4da;\n"
-"border-radius:12px;\n"
-"padding-left:10px;\n"
-"background:rgba(190,190,190,100);\n"
-"color : rgba(255,255,255,200);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"}\n"
-"#comboBoxM::drop-down{\n"
-"border:0px;\n"
-"}\n"
-"#comboBoxM::down-arrow{\n"
-"image:url(D:\\Untitled_design__5_-removebg-preview.png);\n"
-"width:30px;\n"
-"height:30px;\n"
-"margin-right:18px;\n"
-"}\n"
-"#comboBoxM QListView{\n"
-"border:1 px solid #ced4da;\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"padding:5px;\n"
-"outline:0px;\n"
-"border-radius:20px;\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"}\n"
-"#comboBoxM QListView::item{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color: rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,150,150);\n"
-"border-radius:12px;\n"
-"}\n"
-"#comboBoxM QListView::item:hover{\n"
-"font-size:12px \"MS Shell Dlg 2\";\n"
-"selection-background-color:rgba(90,90,90,200);\n"
-"background-color:rgba(150,150,1"
-                        "50,150);\n"
-"border-radius:12px;\n"
-"}\n"
-"\n"
-""));
         stackedWidget->addWidget(listechannel);
         listemovie = new QWidget();
         listemovie->setObjectName(QStringLiteral("listemovie"));
@@ -5677,6 +5705,172 @@ public:
         label_44->setFont(font9);
         label_44->setStyleSheet(QStringLiteral("color:blue;"));
         stackedWidget->addWidget(cardid);
+        ddesignomar = new QWidget();
+        ddesignomar->setObjectName(QStringLiteral("ddesignomar"));
+        ddesignomar->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));"));
+        loM_2 = new QPushButton(ddesignomar);
+        loM_2->setObjectName(QStringLiteral("loM_2"));
+        loM_2->setGeometry(QRect(1380, 130, 251, 81));
+        loM_2->setToolTipDuration(1);
+        loM_2->setAutoFillBackground(false);
+        loM_2->setStyleSheet(QLatin1String("QPushButton#loM_2{\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"border-radius:20px;\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
+"}\n"
+"QPushButton#loM_2:hover{\n"
+"border-radius:20px;\n"
+"color:rgb(255,255,255);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"\n"
+""));
+        loM_2->setIconSize(QSize(40, 40));
+        loM_2->setFlat(false);
+        add_2 = new QPushButton(ddesignomar);
+        add_2->setObjectName(QStringLiteral("add_2"));
+        add_2->setGeometry(QRect(1400, 140, 61, 61));
+        add_2->setToolTipDuration(1);
+        add_2->setAutoFillBackground(false);
+        add_2->setStyleSheet(QLatin1String("QPushButton#add_2{\n"
+"border-radius:30px;\n"
+"	font: 24pt \"dripicons-v2\";\n"
+"	background-color: rgb(32, 91, 200);\n"
+"}"));
+        add_2->setIconSize(QSize(40, 40));
+        add_2->setFlat(false);
+        label_45 = new QLabel(ddesignomar);
+        label_45->setObjectName(QStringLiteral("label_45"));
+        label_45->setGeometry(QRect(280, 180, 101, 31));
+        label_45->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"background-color:transparent;"));
+        label_49 = new QLabel(ddesignomar);
+        label_49->setObjectName(QStringLiteral("label_49"));
+        label_49->setGeometry(QRect(180, 100, 241, 101));
+        label_49->setStyleSheet(QLatin1String("color: rgba(255,255,255,200);\n"
+"font: 42pt \"MS Shell Dlg 2\";\n"
+"background-color:transparent;"));
+        exportM_2 = new QPushButton(ddesignomar);
+        exportM_2->setObjectName(QStringLiteral("exportM_2"));
+        exportM_2->setGeometry(QRect(1670, 140, 61, 61));
+        exportM_2->setToolTipDuration(1);
+        exportM_2->setAutoFillBackground(false);
+        exportM_2->setStyleSheet(QLatin1String("QPushButton#exportM_2{\n"
+"border-radius:30px;\n"
+"	font: 24pt \"dripicons-v2\";\n"
+"	background-color: rgb(32, 91, 200);\n"
+"}"));
+        exportM_2->setIconSize(QSize(40, 40));
+        exportM_2->setFlat(false);
+        tableViewM_2 = new QTableView(ddesignomar);
+        tableViewM_2->setObjectName(QStringLiteral("tableViewM_2"));
+        tableViewM_2->setGeometry(QRect(110, 240, 1791, 841));
+        tableViewM_2->setMinimumSize(QSize(1700, 700));
+        QFont font10;
+        font10.setFamily(QStringLiteral("Times New Roman"));
+        font10.setPointSize(14);
+        tableViewM_2->setFont(font10);
+        tableViewM_2->setStyleSheet(QLatin1String("QTableView::item\n"
+"{\n"
+"        background-color:rgba(49,28,71,100);\n"
+"     border : 2px solid white ;\n"
+"        font : 25px;\n"
+"color : black;\n"
+"\n"
+"        max-width : 200;\n"
+"        max-height : 200;\n"
+"        min-width : 200;\n"
+"        min-height : 200;\n"
+"	\n"
+"}\n"
+"\n"
+""));
+        tableViewM_2->horizontalHeader()->setCascadingSectionResizes(true);
+        tableViewM_2->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
+        tableViewM_2->horizontalHeader()->setStretchLastSection(true);
+        tableViewM_2->verticalHeader()->setCascadingSectionResizes(true);
+        tableViewM_2->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
+        tableViewM_2->verticalHeader()->setStretchLastSection(true);
+        label_50 = new QLabel(ddesignomar);
+        label_50->setObjectName(QStringLiteral("label_50"));
+        label_50->setGeometry(QRect(110, 100, 71, 101));
+        label_50->setStyleSheet(QLatin1String("font: 42pt \"MS Shell Dlg 2\";\n"
+"background-color:transparent;\n"
+"color: rgba(35,125,236,255);"));
+        hihi_10tr_6 = new QPushButton(ddesignomar);
+        hihi_10tr_6->setObjectName(QStringLiteral("hihi_10tr_6"));
+        hihi_10tr_6->setGeometry(QRect(1110, 130, 251, 81));
+        hihi_10tr_6->setToolTipDuration(1);
+        hihi_10tr_6->setAutoFillBackground(false);
+        hihi_10tr_6->setStyleSheet(QLatin1String("QPushButton#hihi_10tr_6{\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"border-radius:20px;\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
+"}\n"
+"QPushButton#hihi_10tr_6:hover{\n"
+"border-radius:20px;\n"
+"color:rgb(255,255,255);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"\n"
+""));
+        hihi_10tr_6->setIconSize(QSize(40, 40));
+        hihi_10tr_6->setFlat(false);
+        hihi_14 = new QPushButton(ddesignomar);
+        hihi_14->setObjectName(QStringLiteral("hihi_14"));
+        hihi_14->setGeometry(QRect(1140, 150, 41, 41));
+        hihi_14->setToolTipDuration(1);
+        hihi_14->setAutoFillBackground(false);
+        hihi_14->setStyleSheet(QLatin1String("QPushButton#hihi_14\n"
+"{\n"
+"font: 30pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,150);\n"
+"}\n"
+"QPushButton#hihi_14:hover\n"
+"{\n"
+"font: 30pt \"dripicons-v2\";\n"
+"border:none;\n"
+"background-color:transparent;\n"
+"color:rgba(255,255,255,255);\n"
+"}"));
+        hihi_14->setIconSize(QSize(40, 40));
+        hihi_14->setFlat(false);
+        exportButtonM_2 = new QPushButton(ddesignomar);
+        exportButtonM_2->setObjectName(QStringLiteral("exportButtonM_2"));
+        exportButtonM_2->setGeometry(QRect(1650, 130, 251, 81));
+        exportButtonM_2->setToolTipDuration(1);
+        exportButtonM_2->setAutoFillBackground(false);
+        exportButtonM_2->setStyleSheet(QLatin1String("QPushButton#exportButtonM_2{\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"border-radius:20px;\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 120, 255));\n"
+"}\n"
+"QPushButton#exportButtonM_2:click{\n"
+"border-radius:20px;\n"
+"color:rgb(255,255,255);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.386, x2:0.545454, y2:0.665, stop:0 rgba(19, 23, 130, 255), stop:1 rgba(0, 0, 200, 255));\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"\n"
+""));
+        exportButtonM_2->setIconSize(QSize(40, 40));
+        exportButtonM_2->setFlat(false);
+        stackedWidget->addWidget(ddesignomar);
+        loM_2->raise();
+        add_2->raise();
+        label_45->raise();
+        label_49->raise();
+        tableViewM_2->raise();
+        label_50->raise();
+        hihi_10tr_6->raise();
+        hihi_14->raise();
+        exportButtonM_2->raise();
+        exportM_2->raise();
         stackedWidget->raise();
         MenuBar->raise();
         searchBar->raise();
@@ -5728,6 +5922,13 @@ public:
          << QApplication::translate("Dialog", "Sorting DESC by studio number", Q_NULLPTR)
          << QApplication::translate("Dialog", "Sorting ASC by date", Q_NULLPTR)
          << QApplication::translate("Dialog", "Sorting DESC by date", Q_NULLPTR)
+        );
+        comboBoxM->clear();
+        comboBoxM->insertItems(0, QStringList()
+         << QApplication::translate("Dialog", "Default", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Channel", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Radio", Q_NULLPTR)
+         << QApplication::translate("Dialog", "Date of creation", Q_NULLPTR)
         );
         label_22->setText(QApplication::translate("Dialog", "WELCOME USER,", Q_NULLPTR));
         label->setText(QString());
@@ -5952,9 +6153,10 @@ public:
         button2->setText(QString());
         radioM->setText(QApplication::translate("Dialog", " Radio", Q_NULLPTR));
         statisticsM->setText(QApplication::translate("Dialog", "statistics", Q_NULLPTR));
-        buttonM3->setText(QString());
         buttonM1->setText(QString());
         buttonM2->setText(QString());
+        buttonM3->setText(QString());
+        buttonM4->setText(QString());
         label_13M->setText(QString());
         radioButtonM->setText(QApplication::translate("Dialog", "Radio", Q_NULLPTR));
         addButtonM->setText(QApplication::translate("Dialog", "Add", Q_NULLPTR));
@@ -5988,13 +6190,6 @@ public:
         loM->setText(QApplication::translate("Dialog", "           Add Media", Q_NULLPTR));
         add->setText(QApplication::translate("Dialog", ";", Q_NULLPTR));
         exportM->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
-        comboBoxM->clear();
-        comboBoxM->insertItems(0, QStringList()
-         << QApplication::translate("Dialog", "Default", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Channel", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Radio", Q_NULLPTR)
-         << QApplication::translate("Dialog", "Date of creation", Q_NULLPTR)
-        );
         groupBox_7ms->setTitle(QString());
         groupBoxmsms->setTitle(QString());
         groupBox_13ms->setTitle(QString());
@@ -6162,6 +6357,15 @@ public:
         groupBox_5->setTitle(QString());
         label_43->setText(QApplication::translate("Dialog", "pls scan your card", Q_NULLPTR));
         label_44->setText(QString());
+        loM_2->setText(QApplication::translate("Dialog", "           Add Movies/Series", Q_NULLPTR));
+        add_2->setText(QApplication::translate("Dialog", ";", Q_NULLPTR));
+        label_45->setText(QApplication::translate("Dialog", "Movies/Series", Q_NULLPTR));
+        label_49->setText(QApplication::translate("Dialog", "WATCH", Q_NULLPTR));
+        exportM_2->setText(QApplication::translate("Dialog", ",", Q_NULLPTR));
+        label_50->setText(QApplication::translate("Dialog", "VE", Q_NULLPTR));
+        hihi_10tr_6->setText(QApplication::translate("Dialog", "        statistics", Q_NULLPTR));
+        hihi_14->setText(QApplication::translate("Dialog", "\356\200\202", Q_NULLPTR));
+        exportButtonM_2->setText(QApplication::translate("Dialog", "            Generate PDF", Q_NULLPTR));
     } // retranslateUi
 
 };

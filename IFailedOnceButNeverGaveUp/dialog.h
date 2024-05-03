@@ -113,8 +113,6 @@ private slots:
 
     void on_label_omek_clicked();
 
-    void on_pushButton_4A_2_clicked();
-
     void on_pushButtonA_clicked();
 
     void on_pushButton_2A_clicked();
@@ -218,7 +216,7 @@ private slots:
     void on_hihi_42_clicked();
 
     void on_hihi_10tr_5_clicked();
-    void initializeCalendar();
+   // void initializeCalendar();
     void updateCalendarWithEvents();
     void refreshCalendar();
 
@@ -244,6 +242,13 @@ private slots:
      void on_ggM_clicked();
 
      void confirm_access();
+
+
+     void on_comboBoxM_2_currentIndexChanged(const QString &arg1);
+
+     void on_exportButtonM_2_clicked();
+
+     void on_loM_2_clicked();
 
 private:
     Ui::Dialog *ui;
