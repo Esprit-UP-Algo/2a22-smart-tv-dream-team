@@ -19,17 +19,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->msg->setVisible(false);
     ui->label_gif_animation->setVisible(false);
     //Media
-    int ret= AM.connect_arduino();
-    switch(ret){
-    case(0):qDebug()<< "arduino is available and connected to : "<<AM.getarduino_port_name();
-        break;
-    case(1):qDebug()<< "arduino is available but not connected to : "<<AM.getarduino_port_name();
-        break;
-    case(-1):qDebug()<< "arduino is not available "<<AM.getarduino_port_name();
-        break;
+        int ret= AM.connect_arduino();
+        switch(ret){
+        case(0):qDebug()<< "arduino is available and connected to : "<<AM.getarduino_port_name();
+            break;
+        case(1):qDebug()<< "arduino is available but not connected to : "<<AM.getarduino_port_name();
+            break;
+        case(-1):qDebug()<< "arduino is not available "<<AM.getarduino_port_name();
+            break;
 
-    }
-
+        }
 }
 MainWindow::~MainWindow()
 {
@@ -76,13 +75,14 @@ void MainWindow::on_ok_13_clicked()
     QString Role;
     if (authenticateUser(Username, Password, Role))
     {
+        QByteArray command="P3";
+        AM.write_to_arduino(command);
+
         QMovie *GifAnimation=new QMovie("veveveve.gif");
         ui->label_gif_animation->setMovie(GifAnimation);
         ui->label_gif_animation->setVisible(true);
         ui->label_gif_animation->raise();
         GifAnimation->start();
-        QByteArray command = "P3"; // Commande pour jouer le premier fichier audio sur la carte SD
-        AM.write_to_arduino(command); // Envoie la commande à Arduino
         for(int i=0;i<300;i++)
         {
             QThread::msleep(1);
@@ -90,7 +90,7 @@ void MainWindow::on_ok_13_clicked()
 
         }
         ui->label_gif_animation->setVisible(false);
-       // AM.close_arduino();
+        AM.close_arduino();
         GifAnimation->stop();
         delete GifAnimation;
         this->close();

@@ -40,6 +40,7 @@ Dialog::Dialog(QWidget *parent) :
     int ret=A.connect_arduino(); // lancer la connexion à arduino
     switch(ret){
     case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(vcommand())); // permet de lancer
         break;
     case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
        break;
@@ -77,6 +78,7 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     ui->groupBox_2->setLayout(new QHBoxLayout);
     ui->groupBox_3->setLayout(new QHBoxLayout);
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
     //Media
     connect(ui->imageButtonM, &QPushButton::clicked, this, &Dialog::importImage);
     connect(ui->imageButtonM_2, &QPushButton::clicked, this, &Dialog::importImage2);
@@ -107,15 +109,6 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     //updateChartMedia();
     displayChannelImages();
     displayRadioImages();
-    //Media
-    /*int ret= AM.connect_arduino();
-    switch(ret){
-    case(0):qDebug()<< "arduino is available and connected to : "<<AM.getarduino_port_name();
-        break;
-    case(1):qDebug()<< "arduino is available but not connected to : "<<AM.getarduino_port_name();
-        break;
-    case(-1):qDebug()<< "arduino is not available "<<AM.getarduino_port_name();
-        break;}*/
     //Diffusion
     ui->lineEdit_3A_10->setValidator(new QIntValidator(0,99999999,this));
     ui->lineEdit_3A_7->setValidator(new QIntValidator(0,99999999,this));
@@ -131,6 +124,7 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     });
 
     notificationTimer = new QTimer(this);
+    // Connect the timer's timeout signal to your slot
     connect(notificationTimer, &QTimer::timeout, this, &Dialog::checkReservationDates);
     notificationTimer->start(20000);
     mSystemTrayIcon = new QSystemTrayIcon(this);
@@ -143,6 +137,160 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     connect(timer, &QTimer::timeout, this, &Dialog::refreshCalendar);
     timer->start(10000);
 }
+
+
+
+void Dialog::vcommand()
+{
+    data=A.read_from_arduino();
+    qDebug()<<data;
+
+
+    if(data=="1")
+    {
+        switch(ui->stackedWidget->currentIndex())
+        {
+        case 1: case 14: case 2: case 13: case 9:
+            if (ui->textEdit->toPlainText()=="")
+            {
+                ui->textEdit->setFocus();
+            }
+            else
+            {
+                emit ui->gg_2->clicked();
+            }
+            break;
+
+        }
+
+    }
+
+        //ui->label_3->setText("ON"); // si les données reçues de arduino via la liaison série sont égales à 1
+    // alors afficher ON
+
+    else if (data=="2") //add
+     {
+        switch(ui->stackedWidget->currentIndex())
+        {
+        case 1:
+
+            emit ui->hihi_33->clicked();
+            break;
+        case 3:
+
+            emit ui->pushButton_14A->clicked();
+            break;
+        case 2:
+
+            emit ui->hihi_35->clicked();
+            break;
+        case 4:
+
+            emit ui->pushButton_14A_4->clicked();
+            break;
+        case 9:
+
+            emit ui->hihi_43->clicked();
+            break;
+        case 10:
+
+            emit ui->pushButton_14A_8->clicked();
+            break;
+        case 12:
+
+            emit ui->addButtonM->clicked();
+            break;
+        case 13:
+
+            emit ui->loM->clicked();
+            break;
+        case 14:
+
+            emit ui->loM_2->clicked();
+            break;
+        case 15:
+
+            emit ui->pushButton_11ms->clicked();
+            break;
+
+        }
+
+     }
+    else if (data=="3") //return
+    {
+        switch(ui->stackedWidget->currentIndex())
+        {
+        case 1: case 2 : case 26: case 17: case 6: case 7: case 19:
+            emit ui->hihi_6->clicked();
+            break;
+        case 3:
+
+            emit ui->pushButton_14A_3->clicked();
+            break;
+        case 4: case 21:
+            emit ui->pushButton_14A_6->clicked();
+            break;
+        case 5 :
+            emit ui->pushButton_14A_7->clicked();
+            break;
+        case 8 : case 9:
+            emit ui->hihi_17->clicked();
+            break;
+        case 10: case 23:
+            emit ui->pushButton_14A_10->clicked();
+            break;
+        case 11: case 14: case 25:
+            emit ui->hihi_20->clicked();
+            break;
+        case 12: case 24:
+            emit ui->listM->clicked();
+            break;
+        case 13: case 22:
+            emit ui->pushButton_4->clicked();
+            break;
+        case 15: case 16: case 18: case 20:
+            emit ui->pushButton_2->clicked();
+            break;
+
+        }
+    }
+    else if (data=="4")
+    {
+        switch(ui->stackedWidget->currentIndex())
+        {
+        case 3:
+
+            emit ui->pushButton_14A_2->clicked();
+            break;
+        case 5:
+
+            emit ui->pushButton_14A_5->clicked();
+            break;
+        case 16:
+
+            emit ui->confirmupms->clicked();
+            break;
+        case 23:
+
+            emit ui->pushButton_14A_9->clicked();
+            break;
+        case 24:
+
+            emit ui->updatedButtonM->clicked();
+            break;
+        }
+    }
+    else if (data=="5")
+    {
+            //close();
+    }
+
+//        ui->label_3->setText("OFF");   // si les données reçues de arduino via la liaison série sont égales à 0
+     //alors afficher ON
+}
+
+
+
 void Dialog::trait(QString Role)//authentification
 {
     if (Role == "HR")
@@ -320,6 +468,7 @@ void Dialog::on_hihi_6_clicked()//home
         ui->label_15->setVisible(true);
         ui->comboBox->setVisible(true);
         ui->comboBoxM_2->setVisible(false);
+        ui->comboBoxM_3->setVisible(false);
         ui->textEdit->setVisible(true);
         ui->gg_5->setVisible(true);
         ui->gg_2->setVisible(true);
@@ -395,6 +544,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
 
     ui->comboBoxM->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
     ui->hihi_5->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -682,6 +832,7 @@ void Dialog::on_hihi_15_clicked()//crud transaction
     ui->label_6->setGeometry(15,370,51,20);
     ui->comboBoxM->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
     ui->hihi_15->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -933,6 +1084,7 @@ void Dialog::on_hihi_33_clicked()//adduser
     ui->label_47->setVisible(false);
     ui->label_48->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
 
     ui->comboBoxM->setVisible(false);
 }
@@ -952,6 +1104,7 @@ void Dialog::on_hihi_35_clicked()//addtransaction button
     ui->label_48->setVisible(false);
 
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
 
 }
 
@@ -965,6 +1118,7 @@ void Dialog::on_hihi_37_clicked()//modifytransaction button
     ui->label_48->setVisible(false);
 
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
 }
 
 void Dialog::on_hihi_20_clicked()//tvmoviesidfk
@@ -973,6 +1127,7 @@ void Dialog::on_hihi_20_clicked()//tvmoviesidfk
     ui->label_6->setGeometry(15,430,51,20);
 
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
 
     ui->comboBoxM->setVisible(false);
     ui->hihi_20->setStyleSheet("font: 30pt 'dripicons-v2';"
@@ -1291,6 +1446,7 @@ void Dialog::on_hihi_17_clicked()//reservation
     ui->label_6->setGeometry(15,490,51,20);
 
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
 
     ui->comboBoxM->setVisible(false);
     ui->hihi_17->setStyleSheet("font: 30pt 'dripicons-v2';"
@@ -1636,6 +1792,7 @@ void Dialog::on_pushButtonA_clicked()//stats reservation
     ui->label_48->setVisible(true);
 
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
 }
 
 void Dialog::on_pushButton_2A_clicked() // CRUD reservation
@@ -1655,6 +1812,7 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
     ui->label_13->setVisible(true);
     ui->label_41->setVisible(true);
     ui->comboBoxM_2->setVisible(true);
+     ui->comboBoxM_3->setVisible(false);
 
     int ligne = 0;
     int row = 0;
@@ -1783,6 +1941,7 @@ void Dialog::on_hihi_43_clicked()//add reservation
     ui->label_48->setVisible(false);
 
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
     checkReservationDates();
 }
 
@@ -2295,7 +2454,6 @@ void Dialog::on_pushButton_4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(11);
     ui->textEdit->setVisible(true);
-    displayChannelImages();
 }
 
 void Dialog::on_imageButtonM_clicked()
@@ -2320,7 +2478,7 @@ void Dialog::on_pushButton_12ms_clicked()
 
 void Dialog::on_comboBoxms_currentTextChanged(const QString &arg1)
 {
-     emit ui->pushButton_12ms->click();
+     emit ui->pushButton_2->click();
 }
 
 void Dialog::on_pushButton_3ms_clicked()
@@ -2468,7 +2626,7 @@ void Dialog::on_pushButton_11ms_clicked()
              ui->imagetestms->setVisible(false);
              ui->imagetestms_2->setVisible(false);
              ui->stackedWidget->setCurrentIndex(14);
-             emit ui->pushButton_12ms->click();
+             emit ui->pushButton_2->click();
         }
         else
         {
@@ -2581,7 +2739,7 @@ void Dialog::on_confirmupms_clicked()
                  //ui->imagetest->setStyleSheet("border-image : none;");
 
                  ui->stackedWidget->setCurrentIndex(14);
-                 emit ui->pushButton_12ms->click();
+                 emit ui->pushButton_2->click();
 
             }
             else
@@ -2602,7 +2760,7 @@ void Dialog::on_confirmupms_clicked()
                  //ui->imagetest->setStyleSheet("border-image : none;");
 
                  ui->stackedWidget->setCurrentIndex(14);
-                 emit ui->pushButton_12ms->click();
+                 emit ui->pushButton_2->click();
             }
             else
             {
@@ -2641,9 +2799,9 @@ void Dialog::on_returnupms_clicked()
 
 void Dialog::on_pushButton_2_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(27);
+    ui->stackedWidget->setCurrentIndex(14);
     ui->label_15->setVisible(true);
-    ui->comboBox->setVisible(true);
+    //ui->comboBox->setVisible(true);
     ui->comboBoxM->setVisible(false);
     ui->textEdit->setVisible(true);
     ui->gg_5->setVisible(true);
@@ -2652,6 +2810,7 @@ void Dialog::on_pushButton_2_clicked()
     ui->label_48->setVisible(true);
 
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(true);
     int ligne(0);
     int row(0);
     QString rech ;
@@ -2667,7 +2826,7 @@ void Dialog::on_pushButton_2_clicked()
         }
     }
     QString categorie;
-    if ((!ui->dramacate->isChecked())&&(!ui->horrorcate->isChecked())&&(!ui->comedycate->isChecked())&&(!ui->romancecate->isChecked())&&(!ui->scificate->isChecked())&&(!ui->actioncate->isChecked())&&(!ui->sportscate->isChecked()))
+    if ((!ui->dramacate_2->isChecked())&&(!ui->horrorcate_2->isChecked())&&(!ui->comedycate_2->isChecked())&&(!ui->romancecate_2->isChecked())&&(!ui->scificate_2->isChecked())&&(!ui->actioncate_2->isChecked())&&(!ui->sportscate_2->isChecked()))
     {
         categorie="";
     }
@@ -2675,7 +2834,7 @@ void Dialog::on_pushButton_2_clicked()
     {
         int cc=0;
         categorie="in (";
-        if ( ui->actioncate->isChecked())
+        if ( ui->actioncate_2->isChecked())
         {
             if (cc!=0)
             {
@@ -2684,7 +2843,7 @@ void Dialog::on_pushButton_2_clicked()
             cc++;
             categorie+="'action'";
         }
-        if ( ui->horrorcate->isChecked())
+        if ( ui->horrorcate_2->isChecked())
         {
             if (cc!=0)
             {
@@ -2693,7 +2852,7 @@ void Dialog::on_pushButton_2_clicked()
             cc++;
             categorie+="'horror'";
         }
-        if ( ui->comedycate->isChecked())
+        if ( ui->comedycate_2->isChecked())
         {
             if (cc!=0)
             {
@@ -2702,7 +2861,7 @@ void Dialog::on_pushButton_2_clicked()
             cc++;
             categorie+="'comedy'";
         }
-        if ( ui->romancecate->isChecked())
+        if ( ui->romancecate_2->isChecked())
         {
             if (cc!=0)
             {
@@ -2711,7 +2870,7 @@ void Dialog::on_pushButton_2_clicked()
             cc++;
             categorie+="'romance'";
         }
-        if ( ui->scificate->isChecked())
+        if ( ui->scificate_2->isChecked())
         {
             if (cc!=0)
             {
@@ -2720,7 +2879,7 @@ void Dialog::on_pushButton_2_clicked()
             cc++;
             categorie+="'sci-fi'";
         }
-        if ( ui->dramacate->isChecked())
+        if ( ui->dramacate_2->isChecked())
         {
             if (cc!=0)
             {
@@ -2729,7 +2888,7 @@ void Dialog::on_pushButton_2_clicked()
             cc++;
             categorie+="'drama'";
         }
-        if ( ui->sportscate->isChecked())
+        if ( ui->sportscate_2->isChecked())
         {
             if (cc!=0)
             {
@@ -2760,22 +2919,22 @@ void Dialog::on_pushButton_2_clicked()
 
     QStandardItemModel * model=new QStandardItemModel(ligne , 12);
     QString Qs;
-    if (ui->comboBoxms->currentText()== "recently added" )
+    if (ui->comboBoxM_3->currentText()== "recently added" )
     {
         Qs=" order by id DESC";
         qDebug()<<"test";
     }
-    else if (ui->comboBoxms->currentText()== "most views" )
+    else if (ui->comboBoxM_3->currentText()== "most views" )
     {
         Qs=" order by nbrvue DESC";
         qDebug()<<"test";
     }
-    else if (ui->comboBoxms->currentText()== "least views" )
+    else if (ui->comboBoxM_3->currentText()== "least views" )
     {
         Qs=" order by nbrvue ASC";
         qDebug()<<"test";
     }
-    else if (ui->comboBoxms->currentText()== "oldest" )
+    else if (ui->comboBoxM_3->currentText()== "oldest" )
     {
         Qs=" order by id ASC";
         qDebug()<<"test";
@@ -2976,7 +3135,7 @@ void Dialog::on_pushButton_2_clicked()
             if(T.supp(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,0)).toInt()))
             {
                  QMessageBox :: information(this,"delete","Data Deleted successfully", QMessageBox ::Ok);
-                 emit ui->pushButton_12ms->click();
+                 emit ui->pushButton_2->click();
 
             }
             else
@@ -3005,13 +3164,14 @@ void Dialog::on_pushButton_2_clicked()
             ui->updescriptionms->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,3)).toString());
             ui->dureupms->setTime(QTime::fromString(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,4)).toString(),"hh:mm:ss") );
             ui->nbrvupms->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,6)).toString());
+            ui->upepms->setText(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,7)).toString());
             QPixmap pixmap=ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,5) , Qt::DecorationRole).value<QPixmap>();
             //QMessageBox :: critical(this,"Error",byte);
 
 
             QPixmap scaled=  pixmap.scaled(QSize( 200,200));
             ui->imagetest_2ms->setPixmap(scaled);
-            ui->stackedWidget->setCurrentIndex(2);
+            ui->stackedWidget->setCurrentIndex(16);
         });
         butt->setStyleSheet("color:green;"
                             "background:transparent;"
@@ -3056,6 +3216,7 @@ void Dialog::on_pushButton_clicked()
     ui->label_47->setVisible(true);
     ui->label_48->setVisible(true);
     ui->comboBoxM_2->setVisible(false);
+    ui->comboBoxM_3->setVisible(false);
 }
 
 void Dialog::on_comboBoxms_2_currentTextChanged(const QString &arg1)
@@ -3183,17 +3344,23 @@ void Dialog::on_hihi_8_clicked() // generate pdf employee
 
 void Dialog::on_gg_2_clicked()
 {
-    if (ui->stackedWidget->currentIndex()==1)
-    {
+    switch (ui->stackedWidget->currentIndex()) {
+    case 1:
         emit ui->hihi_5->click();
-    }
-    else if (ui->stackedWidget->currentIndex()==14)
-    {
-        emit ui->pushButton_12ms->click();
-    }
-    else if (ui->stackedWidget->currentIndex()==2)
-    {
+        break;
+    case 2:
         emit ui->hihi_15->click();
+        break;
+    case 13:
+        emit ui->listM->clicked();
+        break;
+    case 14:
+        emit ui->pushButton_2->clicked();
+        break;
+    case 9:
+        emit ui->pushButton_2A->clicked();
+        break;
+
     }
 }
 
@@ -3314,6 +3481,7 @@ void Dialog::on_hihi_7_clicked()
         ui->label_48->setVisible(true);
 
         ui->comboBoxM_2->setVisible(false);
+        ui->comboBoxM_3->setVisible(false);
 }
 
 void Dialog::on_searchLineEditM_textChanged(const QString &arg1)
@@ -3918,7 +4086,6 @@ void Dialog::on_statisticsM_clicked()
 
 void Dialog::on_pushButton_14A_8_clicked()
 {
-   ui->stackedWidget->setCurrentIndex(9);
      diffusion d;
     int numSalle = ui->lineEdit_3A_10->text().toInt();
     int capacite = ui->lineEdit_3A_7->text().toInt();
@@ -3950,7 +4117,8 @@ void Dialog::on_pushButton_14A_8_clicked()
                              QObject::tr("Addition is validated.\n"
                                          "Click OK to exit."),
                              QMessageBox::Ok);
-    ui->textEdit->setVisible(true);
+
+    emit ui->pushButton_2A->click();
 }
 void Dialog::checkReservationDates()
 {
@@ -3999,6 +4167,7 @@ void Dialog::on_pushButton_14A_9_clicked()
      ui->label_13->setVisible(false);
      ui->label_41->setVisible(false);
      ui->comboBoxM_2->setVisible(false);
+     ui->comboBoxM_3->setVisible(false);
     ui->stackedWidget->setCurrentIndex(9);
     //modifierMedia(QString titre);
     diffusion d;
@@ -4081,8 +4250,7 @@ void Dialog::on_searchLineEditM_2_textChanged(const QString &arg1)
 
 void Dialog::on_pushButton_14A_10_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(9);
-    ui->textEdit->setVisible(true);
+    emit ui->pushButton_2A->click();
 }
 
 void Dialog::on_pushButton_14A_11_clicked()
@@ -4407,7 +4575,13 @@ void Dialog::updateChartMedia() {
         qDebug() << "Error executing query for total media count.";
     }
 }
+void Dialog::afficherGifDansLabel() {
+    QString cheminGif = "gifM.gif"; // Remplacez par le chemin de votre GIF
+    QLabel *gifLabel = ui->gifLabel; // Supposons que vous ayez une QLabel nommée "gifLabel" dans votre interface utilisateur
 
+    // Appeler la fonction pour afficher le GIF dans la QLabel
+    afficherGifDansLabel(cheminGif, gifLabel);
+}
 
 void Dialog::on_pushButton_3_clicked()
 {
@@ -4474,20 +4648,6 @@ void Dialog::on_listM_2_clicked()
     on_listM_clicked();
 }
 
-void Dialog::on_ggM_clicked()
-{
-    if (ui->stackedWidget->currentIndex()==13)
-        emit ui->listM->clicked();
-    if (ui->stackedWidget->currentIndex()==1)
-        emit ui->hihi_5->clicked();
-    if (ui->stackedWidget->currentIndex()==2)
-        emit ui->hihi_15->clicked();
-    if (ui->stackedWidget->currentIndex()==14)
-        emit ui->pushButton_12ms->clicked();
-    if (ui->stackedWidget->currentIndex()==9)
-        emit ui->pushButton_2A->clicked();
-
-}
 
 
 
@@ -4602,4 +4762,108 @@ void Dialog::on_exportButtonM_2_clicked()
 void Dialog::on_loM_2_clicked()
 {
     qDebug()<<"click";
+    ui->stackedWidget->setCurrentIndex(15);
+}
+
+void Dialog::on_hihi_10tr_6_clicked()
+{
+    qDebug() << "test";
+    ui->stackedWidget->setCurrentIndex(20);
+
+    QSqlQuery query;
+
+    query.exec("select count(*) FROM SERIE_FILM");
+    query.next();
+    //*set0 << query.value(0).toInt();
+    int totalSum =query.value(0).toInt();
+
+
+
+    QBarSet *set1= new QBarSet("HORROR");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'horror' OR SCATE = 'horror'");
+    query.next();
+    *set1 << query.value(0).toInt();
+
+
+
+    QBarSet *set2= new QBarSet("sci-fi");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'sci-fi' OR SCATE = 'sci-fi'");
+    query.next();
+    *set2 << query.value(0).toInt();
+
+    QBarSet *set3= new QBarSet("romance");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'romance' OR SCATE = 'romance'");
+    query.next();
+    *set3 << query.value(0).toInt();
+
+    QBarSet *set4= new QBarSet("sports");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'sports' OR SCATE = 'sports'");
+    query.next();
+    *set4 << query.value(0).toInt();
+
+    QBarSet *set5= new QBarSet("action");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'action' OR SCATE = 'action'");
+    query.next();
+    *set5 << query.value(0).toInt();
+
+    QBarSet *set6= new QBarSet("comedy");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'comedy' OR SCATE = 'comedy'");
+    query.next();
+    *set6 << query.value(0).toInt();
+
+    QBarSet *set7= new QBarSet("drama");
+    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'drama' OR SCATE = 'drama'");
+    query.next();
+    *set7 << query.value(0).toInt();
+
+    QBarSeries *series= new QBarSeries();
+    //series->append(set0);
+    series->append(set1);
+    series->append(set2);
+    series->append(set3);
+    series->append(set4);
+    series->append(set5);
+    series->append(set6);
+    series->append(set7);
+    series->setLabelsFormat("@value test");
+    for (QBarSet *barSet : series->barSets()) {
+        for (int i = 0; i < barSet->count(); ++i) {
+            // Calculate percentage
+            float percentage = (barSet->at(i) / totalSum) * 100.0;
+            // Set the percentage value
+            /*for (int j = 0; j < barSet->count(); ++j) {
+            qreal value = barSet->at(j);
+            QString label = QString::number(value);
+            QBarSetItem *barItem = barSet->at(j);
+            QPointF point = barSet-> //barItem->geometry().center();
+            chart->addAxis(axisY, Qt::AlignLeft); // Attach Y-axis to the chart
+            QGraphicsSimpleTextItem *textItem = chart->scene()->addSimpleText(label);
+            textItem->setPos(point.x() - textItem->boundingRect().width() / 2, point.y() - 20); // Position text above the bar
+*/
+            barSet->replace(i,floor( percentage*10)/10);
+            QString label = QString::number(barSet->at(i)); // Assuming values are numeric
+            barSet->setLabel(barSet->label() + " "+label+"%");
+        }
+    }
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("test");
+    chart->setAnimationOptions(QChart::AllAnimations);
+    QStringList categories;
+    categories<<"all    movies";
+    QBarCategoryAxis *axis=new QBarCategoryAxis();
+    axis->append(categories);
+    chart->createDefaultAxes();
+    chart->setAxisX(axis,series);
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    QChartView *view = new QChartView(chart,this);
+
+    view->setRenderHint(QPainter::Antialiasing);
+    ui->groupBox_2->layout()->addWidget(view);
+
+    connect(ui->stackedWidget, &QStackedWidget::currentChanged,this , [this,view]()
+    {
+         ui->groupBox_2->layout()->removeWidget(view);
+    });
 }

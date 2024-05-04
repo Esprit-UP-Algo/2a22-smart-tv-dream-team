@@ -239,7 +239,6 @@ private slots:
 
      void on_listM_2_clicked();
 
-     void on_ggM_clicked();
 
      void confirm_access();
 
@@ -249,6 +248,10 @@ private slots:
      void on_exportButtonM_2_clicked();
 
      void on_loM_2_clicked();
+
+     void on_hihi_10tr_6_clicked();
+
+     void vcommand();
 
 private:
     Ui::Dialog *ui;
@@ -265,7 +268,21 @@ private:
      QTimer *notificationTimer;
      QLabel *gifLabel;
      QByteArray data; // variable contenant les données reçues
-     Arduino AM;
+
+
+
+
+        // Fonction pour afficher un GIF animé dans une QLabel
+        void afficherGifDansLabel(const QString &cheminGif, QLabel *label) {
+            // Créer un objet QMovie avec le chemin vers le GIF
+            QMovie *movie = new QMovie(cheminGif);
+
+            // Assigner le QMovie à la QLabel
+            label->setMovie(movie);
+
+            // Démarrer l'animation
+            movie->start();
+        }
 };
 
 #endif // DIALOG_H

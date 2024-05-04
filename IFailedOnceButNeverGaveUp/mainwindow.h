@@ -39,7 +39,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    Arduino A; // objet temporaire
+    Arduino A,AM; // objet temporaire
 
 
 private slots:
@@ -79,7 +79,7 @@ private:
     QStringList files;
     QByteArray data; // variable contenant les données reçues
     QString s;
-    Arduino AM;
+
 
 };
 #endif // MAINWINDOW_H
