@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\yahya\\Downloads\\Compressed\\project\\2a22-smart-tv-dream-team-integration (1)\\2a22-smart-tv-dream-team-integration\\IFailedOnceButNeverGaveUp\\myappico.ico"
+IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\ouech\\Desktop\\last hope\\IFailedOnceButNeverGaveUp\\myappico.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0

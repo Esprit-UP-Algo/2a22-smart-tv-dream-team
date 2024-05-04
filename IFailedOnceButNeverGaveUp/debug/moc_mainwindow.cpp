@@ -121,8 +121,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
+
         case 1: _t->on_ok_2_clicked(); break;
         case 2: _t->on_ok_3_clicked(); break;
+
         case 5: _t->on_ku_2_clicked(); break;
         case 6: _t->on_ok_13_clicked(); break;
         case 7: _t->on_ok_15_clicked(); break;
@@ -133,6 +135,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 11: _t->sendMail(); break;
         case 12: _t->mailSent((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 13: _t->on_ok_16_clicked(); break;
+
         default: ;
         }
     }

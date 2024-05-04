@@ -265,21 +265,7 @@ private:
      QTimer *notificationTimer;
      QLabel *gifLabel;
      QByteArray data; // variable contenant les données reçues
-
-
-
-
-        // Fonction pour afficher un GIF animé dans une QLabel
-        void afficherGifDansLabel(const QString &cheminGif, QLabel *label) {
-            // Créer un objet QMovie avec le chemin vers le GIF
-            QMovie *movie = new QMovie(cheminGif);
-
-            // Assigner le QMovie à la QLabel
-            label->setMovie(movie);
-
-            // Démarrer l'animation
-            movie->start();
-        }
+     Arduino AM;
 };
 
 #endif // DIALOG_H

@@ -496,7 +496,6 @@ void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 83: _t->on_textEditM_textChanged(); break;
         case 84: _t->readTextDescrption(); break;
 
-
         case 88: _t->on_listM_2_clicked(); break;
         case 89: _t->on_ggM_clicked(); break;
         case 90: _t->confirm_access(); break;

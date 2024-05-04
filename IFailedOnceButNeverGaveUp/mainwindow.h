@@ -79,6 +79,7 @@ private:
     QStringList files;
     QByteArray data; // variable contenant les données reçues
     QString s;
+    Arduino AM;
 
 };
 #endif // MAINWINDOW_H

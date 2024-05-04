@@ -107,6 +107,15 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     //updateChartMedia();
     displayChannelImages();
     displayRadioImages();
+    //Media
+    /*int ret= AM.connect_arduino();
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<<AM.getarduino_port_name();
+        break;
+    case(1):qDebug()<< "arduino is available but not connected to : "<<AM.getarduino_port_name();
+        break;
+    case(-1):qDebug()<< "arduino is not available "<<AM.getarduino_port_name();
+        break;}*/
     //Diffusion
     ui->lineEdit_3A_10->setValidator(new QIntValidator(0,99999999,this));
     ui->lineEdit_3A_7->setValidator(new QIntValidator(0,99999999,this));
@@ -122,7 +131,6 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     });
 
     notificationTimer = new QTimer(this);
-    // Connect the timer's timeout signal to your slot
     connect(notificationTimer, &QTimer::timeout, this, &Dialog::checkReservationDates);
     notificationTimer->start(20000);
     mSystemTrayIcon = new QSystemTrayIcon(this);
@@ -2287,6 +2295,7 @@ void Dialog::on_pushButton_4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(11);
     ui->textEdit->setVisible(true);
+    displayChannelImages();
 }
 
 void Dialog::on_imageButtonM_clicked()
@@ -3941,6 +3950,7 @@ void Dialog::on_pushButton_14A_8_clicked()
                              QObject::tr("Addition is validated.\n"
                                          "Click OK to exit."),
                              QMessageBox::Ok);
+    ui->textEdit->setVisible(true);
 }
 void Dialog::checkReservationDates()
 {
@@ -4072,6 +4082,7 @@ void Dialog::on_searchLineEditM_2_textChanged(const QString &arg1)
 void Dialog::on_pushButton_14A_10_clicked()
 {
     ui->stackedWidget->setCurrentIndex(9);
+    ui->textEdit->setVisible(true);
 }
 
 void Dialog::on_pushButton_14A_11_clicked()
@@ -4396,13 +4407,7 @@ void Dialog::updateChartMedia() {
         qDebug() << "Error executing query for total media count.";
     }
 }
-void Dialog::afficherGifDansLabel() {
-    QString cheminGif = "gifM.gif"; // Remplacez par le chemin de votre GIF
-    QLabel *gifLabel = ui->gifLabel; // Supposons que vous ayez une QLabel nommée "gifLabel" dans votre interface utilisateur
 
-    // Appeler la fonction pour afficher le GIF dans la QLabel
-    afficherGifDansLabel(cheminGif, gifLabel);
-}
 
 void Dialog::on_pushButton_3_clicked()
 {

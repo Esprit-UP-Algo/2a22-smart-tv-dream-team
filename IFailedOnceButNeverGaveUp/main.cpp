@@ -10,9 +10,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setStyle("fusion");
-
     MainWindow w;
-    //Dialog d;
+
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("Source_Projet2A"); //projet2a
@@ -25,6 +24,7 @@ int main(int argc, char *argv[])
     {
         qDebug("clear");
 
+
     }
     else
     {
@@ -32,10 +32,10 @@ int main(int argc, char *argv[])
     }
     QTextToSpeech *textToSpeech = new QTextToSpeech();
     // Dire le texte souhaité
-    textToSpeech->say("Welcome Amira! Have a great working day");
-   //d.displayChannelImages(); // Call the function here
-    //d.displayRadioImages();
+    //textToSpeech->say("Welcome Amira! Have a great working day");
+
 
     w.show();
     return a.exec();
+
 }
