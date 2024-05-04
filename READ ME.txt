@@ -1,0 +1,7 @@
+HOW TO USE : 
+RUN "CHATTERBOXD" as that is a server app 
+
+INSTALL the "CODEC" for the videos 
+
+
+
