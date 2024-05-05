@@ -540,7 +540,7 @@ void Dialog::on_hihi_5_clicked()//crud employe
         int row(0);
         QSqlQuery query;
     ui->stackedWidget->setCurrentIndex(1);
-    ui->label_6->setGeometry(15,305,51,20);
+    ui->label_6->setGeometry(15,290,51,20);
 
     ui->comboBoxM->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
@@ -829,7 +829,7 @@ void Dialog::on_hihi_15_clicked()//crud transaction
 
      qDebug()<<s;
      s="";
-    ui->label_6->setGeometry(15,370,51,20);
+    ui->label_6->setGeometry(15,350,51,20);
     ui->comboBoxM->setVisible(false);
     ui->comboBoxM_2->setVisible(false);
     ui->comboBoxM_3->setVisible(false);
@@ -1124,7 +1124,7 @@ void Dialog::on_hihi_37_clicked()//modifytransaction button
 void Dialog::on_hihi_20_clicked()//tvmoviesidfk
 {
     ui->stackedWidget->setCurrentIndex(6);
-    ui->label_6->setGeometry(15,430,51,20);
+    ui->label_6->setGeometry(15,410,51,20);
 
     ui->comboBoxM_2->setVisible(false);
     ui->comboBoxM_3->setVisible(false);
@@ -1443,7 +1443,7 @@ void Dialog::on_pushButton_14A_7_clicked()//another cancel button trans(update t
 
 void Dialog::on_hihi_17_clicked()//reservation
 {
-    ui->label_6->setGeometry(15,490,51,20);
+    ui->label_6->setGeometry(15,470,51,20);
 
     ui->comboBoxM_2->setVisible(false);
     ui->comboBoxM_3->setVisible(false);
@@ -3383,7 +3383,7 @@ void Dialog::on_gg_5_clicked()
 void Dialog::on_hihi_7_clicked()
 {
     ui->stackedWidget->setCurrentIndex(17);
-    ui->label_6->setGeometry(15,245,51,20);
+    ui->label_6->setGeometry(15,230,51,20);
     ui->hihi_7->setStyleSheet("font: 30pt 'dripicons-v2';"
                                  " border:none;"
                                   "background-color:transparent;"
@@ -3609,6 +3609,8 @@ void Dialog::on_hihi_18_clicked()
     if((socket->state() == QAbstractSocket::ConnectingState)||(socket->state() == QAbstractSocket::ConnectedState))
     {
         ui->stackedWidget->setCurrentIndex(19);
+
+        ui->label_6->setGeometry(15,590,51,20);
         ui->hihi_18->setStyleSheet("font: 30pt 'dripicons-v2';"
                                      " border:none;"
                                       "background-color:transparent;"

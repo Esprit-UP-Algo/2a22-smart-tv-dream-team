@@ -499,7 +499,7 @@ public:
         label_2->setPixmap(QPixmap(QString::fromUtf8("D:/Untitled design (3).png")));
         hihi_5 = new QPushButton(MenuBar);
         hihi_5->setObjectName(QStringLiteral("hihi_5"));
-        hihi_5->setGeometry(QRect(20, 280, 41, 31));
+        hihi_5->setGeometry(QRect(20, 260, 41, 31));
         hihi_5->setToolTipDuration(1);
         hihi_5->setAutoFillBackground(false);
         hihi_5->setStyleSheet(QLatin1String("QPushButton#hihi_5\n"
@@ -520,7 +520,7 @@ public:
         hihi_5->setFlat(false);
         label_12 = new QLabel(MenuBar);
         label_12->setObjectName(QStringLiteral("label_12"));
-        label_12->setGeometry(QRect(20, 520, 41, 41));
+        label_12->setGeometry(QRect(20, 500, 41, 41));
         label_12->setStyleSheet(QLatin1String("QLabel#label_12\n"
 "{\n"
 "font: 30pt \"dripicons-v2\";\n"
@@ -537,7 +537,7 @@ public:
 "}"));
         hihi_17 = new QPushButton(MenuBar);
         hihi_17->setObjectName(QStringLiteral("hihi_17"));
-        hihi_17->setGeometry(QRect(20, 460, 41, 41));
+        hihi_17->setGeometry(QRect(20, 440, 41, 41));
         hihi_17->setToolTipDuration(1);
         hihi_17->setAutoFillBackground(false);
         hihi_17->setStyleSheet(QLatin1String("QPushButton#hihi_17\n"
@@ -568,7 +568,7 @@ public:
 "border-radius:0px;"));
         hihi_20 = new QPushButton(MenuBar);
         hihi_20->setObjectName(QStringLiteral("hihi_20"));
-        hihi_20->setGeometry(QRect(20, 400, 41, 41));
+        hihi_20->setGeometry(QRect(20, 380, 41, 41));
         hihi_20->setToolTipDuration(1);
         hihi_20->setAutoFillBackground(false);
         hihi_20->setStyleSheet(QLatin1String("QPushButton#hihi_20\n"
@@ -589,7 +589,7 @@ public:
         hihi_20->setFlat(false);
         hihi_15 = new QPushButton(MenuBar);
         hihi_15->setObjectName(QStringLiteral("hihi_15"));
-        hihi_15->setGeometry(QRect(20, 340, 41, 41));
+        hihi_15->setGeometry(QRect(20, 320, 41, 41));
         hihi_15->setToolTipDuration(1);
         hihi_15->setAutoFillBackground(false);
         hihi_15->setStyleSheet(QLatin1String("QPushButton#hihi_15\n"
@@ -627,7 +627,7 @@ public:
 "}"));
         hihi_6 = new QPushButton(MenuBar);
         hihi_6->setObjectName(QStringLiteral("hihi_6"));
-        hihi_6->setGeometry(QRect(20, 130, 41, 41));
+        hihi_6->setGeometry(QRect(20, 140, 41, 41));
         hihi_6->setToolTipDuration(1);
         hihi_6->setAutoFillBackground(false);
         hihi_6->setStyleSheet(QLatin1String("QPushButton#hihi_6\n"
@@ -648,7 +648,7 @@ public:
         hihi_6->setFlat(false);
         hihi_7 = new QPushButton(MenuBar);
         hihi_7->setObjectName(QStringLiteral("hihi_7"));
-        hihi_7->setGeometry(QRect(20, 220, 41, 41));
+        hihi_7->setGeometry(QRect(20, 200, 41, 41));
         hihi_7->setToolTipDuration(1);
         hihi_7->setAutoFillBackground(false);
         hihi_7->setStyleSheet(QLatin1String("QPushButton#hihi_7\n"
@@ -669,7 +669,7 @@ public:
         hihi_7->setFlat(false);
         hihi_18 = new QPushButton(MenuBar);
         hihi_18->setObjectName(QStringLiteral("hihi_18"));
-        hihi_18->setGeometry(QRect(20, 580, 41, 41));
+        hihi_18->setGeometry(QRect(20, 560, 41, 41));
         QFont font;
         font.setFamily(QStringLiteral("dripicons-v2"));
         font.setPointSize(30);
@@ -991,7 +991,7 @@ public:
         comboBoxM_3->raise();
         stackedWidget = new QStackedWidget(Dialog);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(270, -190, 1921, 1081));
+        stackedWidget->setGeometry(QRect(0, 0, 1921, 1081));
         home = new QWidget();
         home->setObjectName(QStringLiteral("home"));
         home->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(10, 10, 40, 255));"));
