@@ -1,0 +1,48 @@
+added transactions 
+idt: 82
+IDE: 7
+type: Cash
+montant: 312312
+Date: 2000-01-05
+
+deleted transactions
+ID: 64
+deleted transactions
+ID: 66
+deleted transactions
+ID: 67
+modified  transaction : 
+ ID: 63
+Ancien type: Checks
+Ancien montant: 11111
+Ancienne Date: 2000-01-01
+
+added transactions 
+idt: 21
+IDE: 7
+type: Checks
+montant: 212
+Date: 2000-01-14
+
+added transactions 
+idt: 21
+IDE: 7
+type: Checks
+montant: 212
+Date: 2000-01-14
+
+added transactions 
+idt: 21
+IDE: 7
+type: Card/Visa
+montant: 121
+Date: 2000-01-18
+
+deleted transactions
+ID: 3
+modified  transaction : 
+ ID: 2
+Ancien type: Checks
+Ancien montant: 121
+Ancienne Date: 2000-01-01
+
