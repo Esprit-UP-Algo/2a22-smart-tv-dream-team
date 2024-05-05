@@ -991,7 +991,7 @@ public:
         comboBoxM_3->raise();
         stackedWidget = new QStackedWidget(Dialog);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, 0, 1921, 1081));
+        stackedWidget->setGeometry(QRect(0, 0, 1920, 1080));
         home = new QWidget();
         home->setObjectName(QStringLiteral("home"));
         home->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(10, 10, 40, 255));"));
@@ -5676,12 +5676,12 @@ public:
         groupBox_5->setStyleSheet(QStringLiteral("background:black;"));
         label_43 = new QLabel(groupBox_5);
         label_43->setObjectName(QStringLiteral("label_43"));
-        label_43->setGeometry(QRect(300, 30, 271, 71));
+        label_43->setGeometry(QRect(280, 30, 271, 71));
         label_43->setFont(font7);
         label_43->setStyleSheet(QStringLiteral("color:blue;"));
         label_44 = new QLabel(groupBox_5);
         label_44->setObjectName(QStringLiteral("label_44"));
-        label_44->setGeometry(QRect(320, 410, 201, 41));
+        label_44->setGeometry(QRect(220, 410, 400, 41));
         QFont font8;
         font8.setPointSize(18);
         label_44->setFont(font8);
@@ -6169,7 +6169,7 @@ public:
         gifLabel->setText(QString());
         groupBox_4->setTitle(QString());
         groupBox_5->setTitle(QString());
-        label_43->setText(QApplication::translate("Dialog", "pls scan your card", Q_NULLPTR));
+        label_43->setText(QApplication::translate("Dialog", "please scan your card", Q_NULLPTR));
         label_44->setText(QString());
     } // retranslateUi
 

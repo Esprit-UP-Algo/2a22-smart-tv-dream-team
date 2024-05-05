@@ -17,3 +17,32 @@ Ancien type: Checks
 Ancien montant: 11111
 Ancienne Date: 2000-01-01
 
+added transactions 
+idt: 21
+IDE: 7
+type: Checks
+montant: 212
+Date: 2000-01-14
+
+added transactions 
+idt: 21
+IDE: 7
+type: Checks
+montant: 212
+Date: 2000-01-14
+
+added transactions 
+idt: 21
+IDE: 7
+type: Card/Visa
+montant: 121
+Date: 2000-01-18
+
+deleted transactions
+ID: 3
+modified  transaction : 
+ ID: 2
+Ancien type: Checks
+Ancien montant: 121
+Ancienne Date: 2000-01-01
+

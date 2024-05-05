@@ -503,7 +503,7 @@ void Dialog::confirm_access()
         }
         else if(query.value(0).toInt()==0)
         {
-            ui->label_44->setText("wrong id");
+            ui->label_44->setText("wrong id ,please swipe again");
         }
         if (s.length()>=12)
         {
@@ -935,8 +935,14 @@ void Dialog::on_hihi_15_clicked()//crud transaction
             });
         int ligne(0);
         int row(0);
+
+        QString rech;
+        if(ui->textEdit->toPlainText()!="")
+        {
+            rech=" where IDTRANSACTION="+ui->textEdit->toPlainText();
+        }
         QSqlQuery query;
-        query.exec("select count(*) from TRANSACTION");
+        query.exec("select count(*) from TRANSACTION"+rech);
         while(query.next() )
         {
             ligne=query.value(0).toInt();
@@ -945,31 +951,31 @@ void Dialog::on_hihi_15_clicked()//crud transaction
 
         QStandardItemModel * model=new QStandardItemModel(ligne , 6);
         QString qs;
-        if(ui->textEdit->toPlainText()!="")
-        {
 
-           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION where IDTRANSACTION="+ui->textEdit->toPlainText() ;
-        }
 
-        else if(ui->comboBox_7->currentText()=="date transaction from newest to oldest")
+        if(ui->comboBox_7->currentText()=="date transaction from newest to oldest")
         {
-           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET DESC";
+           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech+" order by DATET DESC";
         }
         else if(ui->comboBox_7->currentText()=="default")
         {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION";
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech;
         }
         else if(ui->comboBox_7->currentText()=="date transaction from oldest to newest")
         {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by DATET ASC";
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION "+rech+" order by DATET ASC";
         }
         else if(ui->comboBox_7->currentText()=="montant from highest to lowest")
         {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT DESC";
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech+" order by MONTANT DESC";
         }
         else if(ui->comboBox_7->currentText()=="montant from lowest to highest")
         {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION order by MONTANT ASC";
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech+" order by MONTANT ASC";
+        }
+        else
+        {
+            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION "+rech ;
         }
         qDebug()<<qs;
         query.exec(qs);
@@ -1013,7 +1019,7 @@ void Dialog::on_hihi_15_clicked()//crud transaction
                 query.prepare("delete from TRANSACTION where IDTRANSACTION=:id");
                 query.bindValue(":id",ui->tableviewtr->model()->data(ui->tableviewtr->model()->index(j,0)).toInt());
                 query.exec();
-                QString filePath = "C:/Users/yahya/Downloads/Compressed/project/integration/IFailedOnceButNeverGaveUp/logs.txt";
+                QString filePath = "logs.txt";
 
                     // Ouvrir le fichier en mode écriture
                     QFile file(filePath);

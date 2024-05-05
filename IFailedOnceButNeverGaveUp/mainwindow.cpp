@@ -52,20 +52,25 @@ void MainWindow::sendMail()
         pas = query.value(0).toString();
         Smtp* smtp = new Smtp(ui->uname->text(), ui->paswd->text(), ui->server->text(), ui->port->text().toInt());
         qDebug()<<smtp;
-        connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+        connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString,*smtp)));
 
         if( !files.isEmpty() )
             smtp->sendMail(ui->uname->text(), ui->email->text() , ui->subject->text(),pas, files );
         else
             smtp->sendMail(ui->uname->text(), ui->email->text() , ui->subject->text(),pas);
-        delete smtp;
+
+
     }
 }
 
-void MainWindow::mailSent(QString status)
+void MainWindow::mailSent(QString status, Smtp *s)
 {
     if(status == "Message sent")
+    {
+         delete s;
         QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+    }
+
 }
 
 void MainWindow::on_ok_13_clicked()

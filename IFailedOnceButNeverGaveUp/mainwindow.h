@@ -68,7 +68,7 @@ private slots:
     bool authenticateUser(const QString &Username, const QString &Password, QString &Role);
 
     void sendMail();
-    void mailSent(QString);
+    void mailSent(QString status, Smtp *s);
 
     void on_ok_16_clicked();
 
