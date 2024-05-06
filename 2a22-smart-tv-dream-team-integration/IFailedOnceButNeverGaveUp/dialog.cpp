@@ -137,19 +137,25 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Dialog::refreshCalendar);
     timer->start(10000);
+    mSystemTrayIcon->showMessage("Reservation Reminder",
+                                  QString("Reservation for Studio %1 is tomorrow."),
+                                  QSystemTrayIcon::Information,
+                                  5000);
 }
 
 void Dialog::read()
 {
-    char value = '2'; // Use single quotes to denote characters
-    QByteArray gdata;
-    gdata.append(value); // Append the character to the QByteArray
-    A.write_to_arduino(gdata);
-    qDebug() << "Data sent to Arduino:" << gdata;
 
-    QString static s="";
-    if ((ui->stackedWidget->currentIndex() == 3) && !(ui->owo->text()== "Stored!"))
+    if ((ui->stackedWidget->currentIndex() == 3) && !(ui->owo->text()== "Stored!")&&(!ui->pushButton_5->isChecked()))
     {
+        char value = '2'; // Use single quotes to denote characters
+        QByteArray gdata;
+        gdata.append(value); // Append the character to the QByteArray
+        A.write_to_arduino(gdata);
+        qDebug() << "Data sent to Arduino:" << gdata;
+
+        QString static s="";
+
         data = A.read_from_arduino();
         if (data != '\n') {  // Assuming each message ends with a newline character
             s += data;
@@ -199,6 +205,8 @@ void Dialog::read()
 
 void Dialog::vcommand()
 {
+    if (( ui->stackedWidget->currentIndex()!=26)&&( ui->stackedWidget->currentIndex()!=3))
+    {
     data=A.read_from_arduino();
     qDebug()<<data;
 
@@ -344,6 +352,7 @@ void Dialog::vcommand()
 
 //        ui->label_3->setText("OFF");   // si les données reçues de arduino via la liaison série sont égales à 0
      //alors afficher ON
+}
 }
 
 
@@ -568,7 +577,7 @@ void Dialog::confirm_access()
         }
         }
     }
-    if(ui->stackedWidget->currentIndex()==3)
+    if((ui->stackedWidget->currentIndex()==3)&&(ui->pushButton_5->isChecked()))
     {
         data=A.read_from_arduino();
         qDebug()<<s;
@@ -698,99 +707,72 @@ void Dialog::on_hihi_5_clicked()//crud employe
         ui->label_47->setVisible(true);
         ui->label_48->setVisible(true);
 
-        if (ui->textEdit->toPlainText()!="")
-            {
-                rech=" where CIN LIKE '%"+ui->textEdit->toPlainText()+"%' OR TYPE LIKE '%"+ui->textEdit->toPlainText()+"%' ";
-                bool intyes;
-                ui->textEdit->toPlainText().toInt(&intyes);
-                qDebug()<<intyes;
-                if (intyes)
-                {
-                    rech+=" or ide="+ui->textEdit->toPlainText();
-                }
+        QString searchText = ui->textEdit->toPlainText().trimmed();
+        if (!searchText.isEmpty()) {
+            rech = " WHERE CIN LIKE '%" + searchText + "%' OR TYPE LIKE '%" + searchText + "%' ";
+            bool intYes;
+            searchText.toInt(&intYes);
+            if (intYes) {
+                rech += " OR IDE = " + searchText;
             }
+        }
 
         QString Qs;
-
-
-            if (ui->comboBox_2->currentText()== "First Name from A to Z" )
-            {
-                Qs=" order by prenom ASC";
-                qDebug()<<"test";
-            }
-            if (ui->comboBox_2->currentText()== "First Name from Z to A" )
-            {
-                Qs=" order by prenom DESC";
-                qDebug()<<"test";
-            }
-            else if (ui->comboBox_2->currentText()== "Last Name from A to Z" )
-            {
-                Qs=" order by nom ASC";
-                qDebug()<<"test";
-            }
-            if (ui->comboBox_2->currentText()== "Last Name from Z to A" )
-            {
-                Qs=" order by nom DESC";
-                qDebug()<<"test";
-            }
-            else if (ui->comboBox_2->currentText()== "Id Descendant" )
-            {
-                Qs=" order by ide DESC";
-                qDebug()<<"test";
-            }
-            else if (ui->comboBox_2->currentText()== "Id Ascendant" )
-            {
-                Qs=" order by ide ASC";
-                qDebug()<<"test";
-            }
-
-        query.exec("select count(*) from employe"+rech+Qs);
-
-        while(query.next() )
-        {
-            ligne=query.value(0).toInt();
+        if (ui->comboBox_2->currentText() == "First Name from A to Z") {
+            Qs = " ORDER BY prenom ASC";
+            qDebug() << "test";
+        } else if (ui->comboBox_2->currentText() == "First Name from Z to A") {
+            Qs = " ORDER BY prenom DESC";
+            qDebug() << "test";
+        } else if (ui->comboBox_2->currentText() == "Last Name from A to Z") {
+            Qs = " ORDER BY nom ASC";
+            qDebug() << "test";
+        } else if (ui->comboBox_2->currentText() == "Last Name from Z to A") {
+            Qs = " ORDER BY nom DESC";
+            qDebug() << "test";
+        } else if (ui->comboBox_2->currentText() == "Id Descendant") {
+            Qs = " ORDER BY ide DESC";
+            qDebug() << "test";
+        } else if (ui->comboBox_2->currentText() == "Id Ascendant") {
+            Qs = " ORDER BY ide ASC";
+            qDebug() << "test";
         }
-        //QMessageBox :: warning(this,"",QString::number( ligne));
 
-        QStandardItemModel * model=new QStandardItemModel(ligne , 10);
-        QString qs;
-        qs="select IDE,CIN,TYPE,NOM,PRENOM,TEL,EMAIL,PHOTO from EMPLOYE"+rech+Qs;
-        qDebug()<<qs;
+        query.exec("SELECT COUNT(*) FROM employe" + rech + Qs);
+
+        int rowCount = 0;
+        while (query.next()) {
+            rowCount = query.value(0).toInt();
+        }
+
+        QStandardItemModel *model = new QStandardItemModel(rowCount, 10);
+
+        QString qs = "SELECT IDE, CIN, TYPE, NOM, PRENOM, TEL, EMAIL, PHOTO FROM EMPLOYE" + rech + Qs;
+        qDebug() << qs;
         query.exec(qs);
-        while(query.next())
-        {
-            for (int j=0;j<8;j++)
-            {
-
+        while (query.next()) {
+            for (int j = 0; j < 8; j++) {
                 QStandardItem *item;
-                if (j==7)
-                            {
-                                QByteArray array;
-                                //qDebug()<<"Initial Array Size"<<array.size();
-                                array = query.value(j).toByteArray();
-                                //qDebug()<<"ARray Size"<<array.size();
-                                QPixmap pixmap;
-                                pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
-                                QPixmap scaled=  pixmap.scaled(QSize( 170,170));
-                                item = new QStandardItem();
-                                item->setData(scaled,Qt::DecorationRole);
-
-
-                            }
-                            else
-                            {
-                                item = new QStandardItem(query.value(j).toString());
-                            }
-
-
-                                item->setTextAlignment(Qt::AlignCenter);
-
-                                model->setItem(row,j,item);
-
+                if (j == 7) {
+                    QByteArray array;
+                    array = query.value(j).toByteArray();
+                    QPixmap pixmap;
+                    pixmap.loadFromData(array, "JPG && PNG", Qt::AutoColor);
+                    QPixmap scaled = pixmap.scaled(QSize(170, 170));
+                    item = new QStandardItem();
+                    item->setData(scaled, Qt::DecorationRole);
+                } else {
+                    item = new QStandardItem(query.value(j).toString());
+                }
+                item->setTextAlignment(Qt::AlignCenter);
+                model->setItem(row, j, item);
             }
             row++;
         }
 
+        // Send the number of rows found to Arduino
+        QByteArray message = "Number of rows found in employe: " + QByteArray::number(rowCount) + "\n";
+        A.write_to_arduino(message);
 
 
 
@@ -817,9 +799,14 @@ void Dialog::on_hihi_5_clicked()//crud employe
 
             connect(butt, &QPushButton::clicked, this, [this, j]()
             {
+                int deletedID = ui->tableViewem->model()->data(ui->tableViewem->model()->index(j, 0)).toInt();
+
                 QSqlQuery query;
                 query.prepare("delete from EMPLOYE where IDE=:id");
                 query.bindValue(":id",ui->tableViewem->model()->data(ui->tableViewem->model()->index(j,0)).toInt());
+                QString deleteMessage = "Employe deleted with IDE : " + QString::number(deletedID); // Convert the integer ID to a string
+                               QByteArray message = deleteMessage.toUtf8();
+                               A.write_to_arduino(message);
                 query.exec();
                 emit ui->hihi_5->click();
             });
@@ -990,65 +977,53 @@ void Dialog::on_hihi_15_clicked()//crud transaction
             {
                  ui->comboBox_7->setVisible(false);
             });
-        int ligne(0);
-        int row(0);
+        int ligne = 0;
+        int row = 0;
 
         QString rech;
-        if(ui->textEdit->toPlainText()!="")
-        {
-            rech=" where IDTRANSACTION="+ui->textEdit->toPlainText();
+        if (ui->textEdit->toPlainText() != "") {
+            rech = " WHERE IDTRANSACTION = " + ui->textEdit->toPlainText();
         }
-        QSqlQuery query;
-        query.exec("select count(*) from TRANSACTION"+rech);
-        while(query.next() )
-        {
-            ligne=query.value(0).toInt();
-        }
-        //QMessageBox :: warning(this,"",QString::number( ligne));
 
-        QStandardItemModel * model=new QStandardItemModel(ligne , 6);
+        QSqlQuery query;
+        query.exec("SELECT COUNT(*) FROM TRANSACTION" + rech);
+        while (query.next()) {
+            ligne = query.value(0).toInt();
+        }
+
+        QStandardItemModel *model = new QStandardItemModel(ligne, 6);
         QString qs;
 
+        if (ui->comboBox_7->currentText() == "date transaction from newest to oldest") {
+            qs = "SELECT IDTRANSACTION, DATET, TYPE, MONTANT FROM TRANSACTION" + rech + " ORDER BY DATET DESC";
+        } else if (ui->comboBox_7->currentText() == "default") {
+            qs = "SELECT IDTRANSACTION, DATET, TYPE, MONTANT FROM TRANSACTION" + rech;
+        } else if (ui->comboBox_7->currentText() == "date transaction from oldest to newest") {
+            qs = "SELECT IDTRANSACTION, DATET, TYPE, MONTANT FROM TRANSACTION" + rech + " ORDER BY DATET ASC";
+        } else if (ui->comboBox_7->currentText() == "montant from highest to lowest") {
+            qs = "SELECT IDTRANSACTION, DATET, TYPE, MONTANT FROM TRANSACTION" + rech + " ORDER BY MONTANT DESC";
+        } else if (ui->comboBox_7->currentText() == "montant from lowest to highest") {
+            qs = "SELECT IDTRANSACTION, DATET, TYPE, MONTANT FROM TRANSACTION" + rech + " ORDER BY MONTANT ASC";
+        } else {
+            qs = "SELECT IDTRANSACTION, DATET, TYPE, MONTANT FROM TRANSACTION" + rech;
+        }
 
-        if(ui->comboBox_7->currentText()=="date transaction from newest to oldest")
-        {
-           qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech+" order by DATET DESC";
-        }
-        else if(ui->comboBox_7->currentText()=="default")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech;
-        }
-        else if(ui->comboBox_7->currentText()=="date transaction from oldest to newest")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION "+rech+" order by DATET ASC";
-        }
-        else if(ui->comboBox_7->currentText()=="montant from highest to lowest")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech+" order by MONTANT DESC";
-        }
-        else if(ui->comboBox_7->currentText()=="montant from lowest to highest")
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION"+rech+" order by MONTANT ASC";
-        }
-        else
-        {
-            qs="select IDTRANSACTION , DATET ,TYPE , MONTANT from TRANSACTION "+rech ;
-        }
-        qDebug()<<qs;
+        qDebug() << qs;
         query.exec(qs);
-        while(query.next())
-        {
-            for (int j=0;j<4;j++)
-            {
+
+        while (query.next()) {
+            for (int j = 0; j < 4; j++) {
                 QStandardItem *item;
                 item = new QStandardItem(query.value(j).toString());
                 item->setTextAlignment(Qt::AlignCenter);
-                model->setItem(row,j,item);
-
+                model->setItem(row, j, item);
             }
             row++;
         }
 
+        // Send the number of rows found to Arduino
+        QByteArray message = "Number of rows found in TRANSACTION: " + QByteArray::number(ligne) + "\n";
+        A.write_to_arduino(message);
 
 
 
@@ -1075,6 +1050,13 @@ void Dialog::on_hihi_15_clicked()//crud transaction
                 QSqlQuery query;
                 query.prepare("delete from TRANSACTION where IDTRANSACTION=:id");
                 query.bindValue(":id",ui->tableviewtr->model()->data(ui->tableviewtr->model()->index(j,0)).toInt());
+                int deletedID = ui->tableviewtr->model()->data(ui->tableviewtr->model()->index(j, 0)).toInt();
+
+                QString deleteMessage = "Transaction deleted with ID: " + QString::number(deletedID);
+
+                       QByteArray message = deleteMessage.toUtf8();
+
+                       A.write_to_arduino(message);
                 query.exec();
                 QString filePath = "logs.txt";
 
@@ -1876,8 +1858,9 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
     ui->label_41->setVisible(true);
     ui->comboBoxM_2->setVisible(true);
      ui->comboBoxM_3->setVisible(false);
+     QString searchText = ui->textEdit->toPlainText().trimmed();
 
-    int ligne = 0;
+   // int ligne = 0;
     int row = 0;
      QString rech ;
      if (ui->textEdit->toPlainText()!="")
@@ -1887,17 +1870,17 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
          qDebug()<<intyes;
          if (intyes)
          {
-             rech+=" WHERE NUMSALLE like '%"+ui->textEdit->toPlainText()+"%'";
+             rech += " WHERE NUMSALLE LIKE '%" + searchText + "%'";
          }
      }
     QSqlQuery query;
     query.exec("select count(*) from SALLE"+rech);
-    while (query.next())
-    {
-        ligne = query.value(0).toInt();
-    }
+     int rowCount = 0;
+     while (query.next()) {
+         rowCount = query.value(0).toInt();
+     }
 
-     QStandardItemModel *model = new QStandardItemModel(ligne, 6);
+     QStandardItemModel *model = new QStandardItemModel(rowCount, 6);
      QString Qs;
      if (ui->comboBoxM_2->currentText() == "Sorting DESC by studio number")
      {
@@ -1917,7 +1900,10 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
         }
         row++;
     }
+     QByteArray message = "Number of rows found: " + QByteArray::number(rowCount) + "\n";
 
+     // Send message to Arduino
+     A.write_to_arduino(message);
     model->setHeaderData(0, Qt::Horizontal, "Studio number");
     model->setHeaderData(1, Qt::Horizontal, "State");
     model->setHeaderData(2, Qt::Horizontal, "Capacity");
@@ -1935,9 +1921,13 @@ void Dialog::on_pushButton_2A_clicked() // CRUD reservation
         butt->setText(display);
         connect(butt, &QPushButton::clicked, this, [this, j]() {
             diffusion d;
-            if (d.supprimerSalleDiffusion(ui->tableviewrr->model()->data(ui->tableviewrr->model()->index(j, 0)).toInt()))
+            int deletedID = ui->tableviewrr->model()->data(ui->tableviewrr->model()->index(j, 0)).toInt(); // Get the ID of the deleted row
+            if (d.supprimerSalleDiffusion(deletedID))
             {
                 QString ch = "Data Deleted successfully";
+                QString deleteMessage = "Studio deleted with num : " + QByteArray::number(deletedID) + "\n";
+                QByteArray message = deleteMessage.toUtf8();
+                A.write_to_arduino(message);
                 textToSpeech->say(ch);
                 QMessageBox::information(this, ")", "Data Deleted successfully", QMessageBox::Ok);
 
@@ -2013,53 +2003,42 @@ void Dialog::on_listM_clicked()
 
     ui->comboBoxM->setVisible(true);
     ui->stackedWidget->setCurrentIndex(13);
-    int ligne(0);
-    int row(0);
-    QString rech;
-    if (ui->textEdit->toPlainText()!="")
-    {
-        rech=" where TITRE LIKE '%"+ui->textEdit->toPlainText()+"%'";
+    int ligne = 0;
+    int row = 0;
 
+    QString rech;
+    if (ui->textEdit->toPlainText() != "") {
+        rech = " WHERE TITRE LIKE '%" + ui->textEdit->toPlainText() + "%'";
     }
+
     QSqlQuery query;
-    query.exec("SELECT COUNT(*) FROM MEDIA"+rech);
-    while(query.next())
-    {
+    query.exec("SELECT COUNT(*) FROM MEDIA" + rech);
+    while (query.next()) {
         ligne = query.value(0).toInt();
     }
 
     QStandardItemModel *model = new QStandardItemModel(ligne, 9);
     QString Qs;
-    if (ui->comboBoxM->currentText() == "A/Z")
-    {
-        Qs = " ORDER BY titre ASC"; // ASC pour ordre alphabétique croissant
+    if (ui->comboBoxM->currentText() == "A/Z") {
+        Qs = " ORDER BY titre ASC"; // ASC for ascending alphabetical order
         qDebug() << "test";
-    }
-    if (ui->comboBoxM->currentText() == "Z/A")
-    {
-        Qs = " ORDER BY titre DESC"; // DESC pour ordre alphabétique décroissant
+    } else if (ui->comboBoxM->currentText() == "Z/A") {
+        Qs = " ORDER BY titre DESC"; // DESC for descending alphabetical order
         qDebug() << "test";
-    }
-    if (ui->comboBoxM->currentText() == "Channel")
-    {
+    } else if (ui->comboBoxM->currentText() == "Channel") {
         Qs = " ORDER BY CASE WHEN TYPE = 'Channel' THEN 0 ELSE 1 END, titre DESC";
         qDebug() << "test";
-    }
-    if (ui->comboBoxM->currentText() == "Radio")
-    {
+    } else if (ui->comboBoxM->currentText() == "Radio") {
         Qs = " ORDER BY CASE WHEN TYPE = 'Radio' THEN 0 ELSE 1 END, titre DESC";
         qDebug() << "test";
     }
-    qDebug()<<"SELECT IDM,TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA"+rech+Qs;
-    query.exec("SELECT IDM,TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA"+rech+Qs);
-    while(query.next())
-    {
-        for (int j = 0; j < 6; j++)
-        {
-            QStandardItem *item;
 
-            if (j == 3)
-            {
+    qDebug() << "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA" + rech + Qs;
+    query.exec("SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA" + rech + Qs);
+    while (query.next()) {
+        for (int j = 0; j < 6; j++) {
+            QStandardItem *item;
+            if (j == 3) {
                 QByteArray array;
                 array = query.value(j).toByteArray();
                 QPixmap pixmap;
@@ -2067,18 +2046,19 @@ void Dialog::on_listM_clicked()
                 QPixmap scaled = pixmap.scaled(QSize(250, 250));
                 item = new QStandardItem();
                 item->setData(scaled, Qt::DecorationRole);
-            }
-            else
-            {
+            } else {
                 item = new QStandardItem(query.value(j).toString());
             }
-
-                item->setTextAlignment(Qt::AlignCenter);
-                model->setItem(row, j, item);
-
+            item->setTextAlignment(Qt::AlignCenter);
+            model->setItem(row, j, item);
         }
         row++;
     }
+
+    // Send the number of rows found to Arduino
+    QByteArray message = "Number of rows found in MEDIA: " + QByteArray::number(ligne) + "\n";
+    A.write_to_arduino(message);
+
     model->setHeaderData(0, Qt::Horizontal, "IDM");
     model->setHeaderData(1, Qt::Horizontal, "Title");
     model->setHeaderData(2, Qt::Horizontal, "Description");
@@ -2126,9 +2106,12 @@ void Dialog::on_listM_clicked()
 
         connect(butt, &QPushButton::clicked, this, [this, j]() {
             Media m;
-            if (m.supprimerMedia(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString()))
-            {
+            int deletedID = ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 0)).toInt(); // Get the ID of the deleted row as an integer
+            if (m.supprimerMedia(ui->tableViewM->model()->data(ui->tableViewM->model()->index(j, 1)).toString())) {
                 QString ch = "Data Deleted successfully";
+                QString deleteMessage = "Media deleted with ID: " + QString::number(deletedID); // Convert the integer ID to a string
+                QByteArray message = deleteMessage.toUtf8();
+                A.write_to_arduino(message);
                 textToSpeech->say(ch);
                 QMessageBox::information(this, ")", "Data Deleted successfully", QMessageBox::Ok);
                 displayChannelImages();
@@ -2874,179 +2857,145 @@ void Dialog::on_pushButton_2_clicked()
 
     ui->comboBoxM_2->setVisible(false);
     ui->comboBoxM_3->setVisible(true);
-    int ligne(0);
-    int row(0);
-    QString rech ;
-    if (ui->textEdit->toPlainText()!="")
-    {
-        rech=" where TITRE LIKE '%"+ui->textEdit->toPlainText()+"%'";
+    int ligne = 0;
+    int row = 0;
+    QString rech;
+    if (ui->textEdit->toPlainText() != "") {
+        rech = " WHERE TITRE LIKE '%" + ui->textEdit->toPlainText() + "%'";
         bool intyes;
         ui->textEdit->toPlainText().toInt(&intyes);
-        qDebug()<<intyes;
-        if (intyes)
-        {
-            rech+=" or id='"+ui->textEdit->toPlainText()+"'";
+        qDebug() << intyes;
+        if (intyes) {
+            rech += " or id='" + ui->textEdit->toPlainText() + "'";
         }
     }
-    QString categorie;
-    if ((!ui->dramacate_2->isChecked())&&(!ui->horrorcate_2->isChecked())&&(!ui->comedycate_2->isChecked())&&(!ui->romancecate_2->isChecked())&&(!ui->scificate_2->isChecked())&&(!ui->actioncate_2->isChecked())&&(!ui->sportscate_2->isChecked()))
-    {
-        categorie="";
-    }
-    else
-    {
-        int cc=0;
-        categorie="in (";
-        if ( ui->actioncate_2->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'action'";
-        }
-        if ( ui->horrorcate_2->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'horror'";
-        }
-        if ( ui->comedycate_2->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'comedy'";
-        }
-        if ( ui->romancecate_2->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'romance'";
-        }
-        if ( ui->scificate_2->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'sci-fi'";
-        }
-        if ( ui->dramacate_2->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'drama'";
-        }
-        if ( ui->sportscate_2->isChecked())
-        {
-            if (cc!=0)
-            {
-                categorie+=",";
-            }
-            cc++;
-            categorie+="'sports'";
-        }
-        categorie=" MCATE " + categorie+" ) OR SCATE "+categorie +")";
-    }
-    if ((rech=="")&&(categorie!=""))
-    {
-        categorie="where "+categorie;
-    }
-    else if ((rech!="")&&(categorie!=""))
-    {
-        categorie="&& "+categorie;
-    }
-    qDebug()<<categorie;
-    QSqlQuery query;
-    query.exec("select count(*) from SERIE_FILM "+rech+categorie);
-    while(query.next() )
-    {
-        ligne=query.value(0).toInt();
-    }
-    qDebug()<<ligne;
-    //QMessageBox :: warning(this,"",QString::number( ligne));
 
-    QStandardItemModel * model=new QStandardItemModel(ligne , 12);
+    QString categorie;
+    if ((!ui->dramacate_2->isChecked()) && (!ui->horrorcate_2->isChecked()) && (!ui->comedycate_2->isChecked()) &&
+        (!ui->romancecate_2->isChecked()) && (!ui->scificate_2->isChecked()) && (!ui->actioncate_2->isChecked()) &&
+        (!ui->sportscate_2->isChecked())) {
+        categorie = "";
+    } else {
+        int cc = 0;
+        categorie = "IN (";
+        if (ui->actioncate_2->isChecked()) {
+            if (cc != 0) {
+                categorie += ",";
+            }
+            cc++;
+            categorie += "'action'";
+        }
+        if (ui->horrorcate_2->isChecked()) {
+            if (cc != 0) {
+                categorie += ",";
+            }
+            cc++;
+            categorie += "'horror'";
+        }
+        if (ui->comedycate_2->isChecked()) {
+            if (cc != 0) {
+                categorie += ",";
+            }
+            cc++;
+            categorie += "'comedy'";
+        }
+        if (ui->romancecate_2->isChecked()) {
+            if (cc != 0) {
+                categorie += ",";
+            }
+            cc++;
+            categorie += "'romance'";
+        }
+        if (ui->scificate_2->isChecked()) {
+            if (cc != 0) {
+                categorie += ",";
+            }
+            cc++;
+            categorie += "'sci-fi'";
+        }
+        if (ui->dramacate_2->isChecked()) {
+            if (cc != 0) {
+                categorie += ",";
+            }
+            cc++;
+            categorie += "'drama'";
+        }
+        if (ui->sportscate_2->isChecked()) {
+            if (cc != 0) {
+                categorie += ",";
+            }
+            cc++;
+            categorie += "'sports'";
+        }
+        categorie = "MCATE " + categorie + " OR SCATE " + categorie + ")";
+    }
+
+    if ((rech == "") && (categorie != "")) {
+        categorie = "WHERE " + categorie;
+    } else if ((rech != "") && (categorie != "")) {
+        categorie = "AND " + categorie;
+    }
+    qDebug() << categorie;
+
+    QSqlQuery query;
+    query.exec("SELECT COUNT(*) FROM SERIE_FILM " + rech + categorie);
+    while (query.next()) {
+        ligne = query.value(0).toInt();
+    }
+    qDebug() << ligne;
+
+    // Create the model
+    QStandardItemModel *model = new QStandardItemModel(ligne, 12);
+
     QString Qs;
-    if (ui->comboBoxM_3->currentText()== "recently added" )
-    {
-        Qs=" order by id DESC";
-        qDebug()<<"test";
+    if (ui->comboBoxM_3->currentText() == "recently added") {
+        Qs = " ORDER BY id DESC";
+        qDebug() << "test";
+    } else if (ui->comboBoxM_3->currentText() == "most views") {
+        Qs = " ORDER BY nbrvue DESC";
+        qDebug() << "test";
+    } else if (ui->comboBoxM_3->currentText() == "least views") {
+        Qs = " ORDER BY nbrvue ASC";
+        qDebug() << "test";
+    } else if (ui->comboBoxM_3->currentText() == "oldest") {
+        Qs = " ORDER BY id ASC";
+        qDebug() << "test";
     }
-    else if (ui->comboBoxM_3->currentText()== "most views" )
-    {
-        Qs=" order by nbrvue DESC";
-        qDebug()<<"test";
-    }
-    else if (ui->comboBoxM_3->currentText()== "least views" )
-    {
-        Qs=" order by nbrvue ASC";
-        qDebug()<<"test";
-    }
-    else if (ui->comboBoxM_3->currentText()== "oldest" )
-    {
-        Qs=" order by id ASC";
-        qDebug()<<"test";
-    }
-    qDebug()<<"select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech+categorie +Qs;
-    query.exec("select id ,type, titre ,description ,duree, image,nbrvue,nbrep,mcate,scate from SERIE_FILM "+rech +categorie+Qs);
-    while(query.next())
-    {
-        for (int j=0;j<9;j++)
-        {
+    qDebug() << "SELECT id, type, titre, description, duree, image, nbrvue, nbrep, mcate, scate FROM SERIE_FILM " +
+                    rech + categorie + Qs;
+    query.exec("SELECT id, type, titre, description, duree, image, nbrvue, nbrep, mcate, scate FROM SERIE_FILM " +
+                       rech + categorie + Qs);
+    while (query.next()) {
+        for (int j = 0; j < 10; j++) {
             QStandardItem *item;
 
-            if ( j==5)
-            {
+            if (j == 5) {
                 QByteArray array;
-                //qDebug()<<"Initial Array Size"<<array.size();
                 array = query.value(j).toByteArray();
-                //qDebug()<<"ARray Size"<<array.size();
                 QPixmap pixmap;
-                pixmap.loadFromData(array,"JPG && PNG",Qt::AutoColor);
-                QPixmap scaled=  pixmap.scaled(QSize( 170,170));
+                pixmap.loadFromData(array, "JPG && PNG", Qt::AutoColor);
+                QPixmap scaled = pixmap.scaled(QSize(170, 170));
                 item = new QStandardItem();
-                item->setData(scaled,Qt::DecorationRole);
-
-
-            }
-            else if (j==8)
-            {
-                QString itemcat=query.value(j).toString();
-                if (query.value(j+1).toString()!="...")
-                {
-                    itemcat+=+","+query.value(j+1).toString();
+                item->setData(scaled, Qt::DecorationRole);
+            } else if (j == 8) {
+                QString itemcat = query.value(j).toString();
+                if (query.value(j + 1).toString() != "...") {
+                    itemcat += "," + query.value(j + 1).toString();
                 }
                 item = new QStandardItem(itemcat);
-            }
-            else
-            {
+            } else {
                 item = new QStandardItem(query.value(j).toString());
             }
-
-
-                item->setTextAlignment(Qt::AlignCenter);
-
-                model->setItem(row,j,item);
-
-
+            item->setTextAlignment(Qt::AlignCenter);
+            model->setItem(row, j, item);
         }
         row++;
     }
+
+    // Send the number of rows found to Arduino
+    QByteArray message = "Number of rows found in SERIE_FILM: " + QByteArray::number(ligne) + "\n";
+   A.write_to_arduino(message);
+
 
 
 
@@ -3197,6 +3146,10 @@ void Dialog::on_pushButton_2_clicked()
             MOVIE T;
             if(T.supp(ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,0)).toInt()))
             {
+                int deletedID = ui->tableViewM_2->model()->data(ui->tableViewM_2->model()->index(j,0)).toInt();
+                QString deleteMessage = "SERIE deleted with ID: " + QString::number(deletedID); // Convert the integer ID to a string
+                QByteArray message = deleteMessage.toUtf8();
+               A.write_to_arduino(message);
                  QMessageBox :: information(this,"delete","Data Deleted successfully", QMessageBox ::Ok);
                  emit ui->pushButton_2->click();
 
@@ -3215,7 +3168,7 @@ void Dialog::on_pushButton_2_clicked()
         ui->tableViewM_2->setIndexWidget(model->index(j, 10), butt);
 
         butt = new QPushButton("update");
-        name = QString("buttonup%1").arg(j) ;
+        name = QString("buttonup%1").arg(j);
         display = QString("update") ;
         butt->setObjectName(name) ;
         butt->setText(display) ;

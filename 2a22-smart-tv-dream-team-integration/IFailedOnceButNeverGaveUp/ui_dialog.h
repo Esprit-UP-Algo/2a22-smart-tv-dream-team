@@ -153,6 +153,7 @@ public:
     QLineEdit *fpid;
     QLabel *pls_2;
     QLineEdit *label_46;
+    QPushButton *pushButton_5;
     QLineEdit *lineEdit_10;
     QFrame *line_2A;
     QPushButton *pushButton_14A_3;
@@ -2094,7 +2095,7 @@ public:
 "font: 75 24pt \"MS Shell Dlg 2\";"));
         fpid = new QLineEdit(groupBox_5A);
         fpid->setObjectName(QStringLiteral("fpid"));
-        fpid->setGeometry(QRect(220, 470, 171, 31));
+        fpid->setGeometry(QRect(220, 470, 301, 31));
         fpid->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
@@ -2107,12 +2108,22 @@ public:
 "font: 75 24pt \"MS Shell Dlg 2\";"));
         label_46 = new QLineEdit(groupBox_5A);
         label_46->setObjectName(QStringLiteral("label_46"));
-        label_46->setGeometry(QRect(220, 530, 171, 31));
+        label_46->setGeometry(QRect(220, 530, 301, 31));
         label_46->setStyleSheet(QLatin1String(" color: #333333; /* Text color */\n"
 "    font-size: 14px; /* Font size */\n"
 "    font-weight: bold; /* Font weight */\n"
 "    border: 1px solid black;"));
         label_46->setReadOnly(true);
+        pushButton_5 = new QPushButton(groupBox_5A);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        pushButton_5->setGeometry(QRect(650, 540, 75, 23));
+        pushButton_5->setStyleSheet(QLatin1String("color: black;\n"
+"\n"
+"QPushButton::check\n"
+"{\n"
+"		color : red;\n"
+"}"));
+        pushButton_5->setCheckable(true);
         lineEdit_10 = new QLineEdit(adduser);
         lineEdit_10->setObjectName(QStringLiteral("lineEdit_10"));
         lineEdit_10->setGeometry(QRect(1150, 710, 271, 21));
@@ -5855,6 +5866,7 @@ public:
         pls->setText(QApplication::translate("Dialog", "FPID          :", Q_NULLPTR));
         owo->setText(QString());
         pls_2->setText(QApplication::translate("Dialog", "Card ID      :", Q_NULLPTR));
+        pushButton_5->setText(QApplication::translate("Dialog", "check", Q_NULLPTR));
         pushButton_14A_3->setText(QApplication::translate("Dialog", "Cancel", Q_NULLPTR));
         label_46A_2->setText(QString());
         pushButton_14A_6->setText(QApplication::translate("Dialog", "Cancel", Q_NULLPTR));

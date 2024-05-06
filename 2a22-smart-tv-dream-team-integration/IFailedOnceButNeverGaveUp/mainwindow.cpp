@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->subject->setVisible(false);
     ui->msg->setVisible(false);
     ui->label_gif_animation->setVisible(false);
-    //Media
+    /*//Media
         int reta= AM.connect_arduino();
         switch(reta){
         case(0):qDebug()<< "arduino is available and connected to : "<<AM.getarduino_port_name();
@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
         case(-1):qDebug()<< "arduino is not available "<<AM.getarduino_port_name();
             break;
 
-        }
+        }*/
 }
 MainWindow::~MainWindow()
 {
@@ -162,9 +162,27 @@ void MainWindow::on_ok_13_clicked()
     QString Password = ui->lineEdit_Password_11->text();
     QString Role;
     if (authenticateUser(Username, Password, Role))
-    {
+    { QString welcomeMessage = "Good morning ";
+
+        if (Role == "Admin") {
+               welcomeMessage += "Admin";
+           } else if (Role == "Financier") {
+               welcomeMessage += "Financier";
+           } else if (Role == "Media Manager") {
+               welcomeMessage += "Media Manager";
+           } else if (Role == "HR") {
+               welcomeMessage += "HR";
+           } else {
+               welcomeMessage += "User";
+           }
+
+           welcomeMessage += " " + Username + "!";
+
+           // Convert QString to QByteArray
+           QByteArray message = welcomeMessage.toUtf8();
+                      A.write_to_arduino(message);
         QByteArray command="P3";
-        AM.write_to_arduino(command);
+        A.write_to_arduino(command);
 
         QMovie *GifAnimation=new QMovie("veveveve.gif");
         ui->label_gif_animation->setMovie(GifAnimation);
@@ -178,7 +196,7 @@ void MainWindow::on_ok_13_clicked()
 
         }
         ui->label_gif_animation->setVisible(false);
-        AM.close_arduino();
+       A.close_arduino();
         GifAnimation->stop();
         delete GifAnimation;
         this->close();
