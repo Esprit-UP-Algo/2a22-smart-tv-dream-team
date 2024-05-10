@@ -9828,15 +9828,20 @@ QPushButton::pressed
     <widget class="QTextEdit" name="textEdit_2">
      <property name="geometry">
       <rect>
-       <x>390</x>
+       <x>180</x>
        <y>160</y>
-       <width>781</width>
+       <width>1591</width>
        <height>661</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background : white; 
-color : black;</string>
+      <string notr="true">background : rgba(255,255,255,50); 
+color : white;</string>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustIgnored</enum>
@@ -9849,10 +9854,15 @@ color : black;</string>
      <property name="geometry">
       <rect>
        <x>1080</x>
-       <y>870</y>
-       <width>93</width>
-       <height>30</height>
+       <y>880</y>
+       <width>131</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>send</string>
@@ -9861,11 +9871,16 @@ color : black;</string>
     <widget class="QTextEdit" name="textEdit_3">
      <property name="geometry">
       <rect>
-       <x>390</x>
+       <x>210</x>
        <y>870</y>
-       <width>661</width>
-       <height>31</height>
+       <width>841</width>
+       <height>51</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background : white; 

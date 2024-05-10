@@ -73,6 +73,8 @@ public:
 
     QString data;
 
+    int id;
+
     int date;
     QSerialPort serialPort;
     QSerialPort * Serial;

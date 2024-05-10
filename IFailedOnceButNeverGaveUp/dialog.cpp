@@ -3832,7 +3832,19 @@ void Dialog::readyRead()
             QString user = messageRegex.cap(1);
             QString message = messageRegex.cap(2);
 
-            ui->textEdit_2->append("<b>" + user + "</b>: " + message);
+            /*QString color;
+            if (Role == "Admin" ) {
+                color="Red";
+               } else if (Role == "Financier") {
+                color="Green";
+               } else if (Role == "Media Manager") {
+                color="Blue";
+               } else if (Role == "HR") {
+                color="Pink";
+               }*/
+
+
+            ui->textEdit_2->append(" <b>   " + user + "</b>: " + message);
         }
     }
 }
@@ -3845,10 +3857,21 @@ void Dialog::connected()
     // And send our username to the chat server.
     QSqlQuery query;
     query.prepare("SELECT USERNAME FROM EMPLOYE WHERE IDE=:ide");
-    query.bindValue(":ide",7);
+    query.bindValue(":ide",id);
+
+    QString color;
+    if (Role == "Admin" ) {
+        color="Red";
+       } else if (Role == "Financier") {
+        color="Green";
+       } else if (Role == "Media Manager") {
+        color="Blue";
+       } else if (Role == "HR") {
+        color="Pink";
+       }
     query.exec();
     query.next();
-    socket->write(QString("/me:" + query.value(0).toString() + "\n").toUtf8());
+    socket->write(QString("/me: <font color=\""+color+"\"> " + query.value(0).toString() + "</font>\n").toUtf8());
 }
 
 void Dialog::on_pushButton_2ms_2_clicked()

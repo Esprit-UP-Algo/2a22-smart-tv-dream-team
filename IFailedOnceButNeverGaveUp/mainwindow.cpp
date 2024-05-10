@@ -161,7 +161,8 @@ void MainWindow::on_ok_13_clicked()
     QString Username = ui->lineEdit_Username_11->text();
     QString Password = ui->lineEdit_Password_11->text();
     QString Role;
-    if (authenticateUser(Username, Password, Role))
+    int id=authenticateUser(Username, Password, Role);
+    if (id!=-1)
     { QString welcomeMessage = "Good morning ";
 
         if (Role == "Admin") {
@@ -202,6 +203,7 @@ void MainWindow::on_ok_13_clicked()
         this->close();
         Dialog *dialog = new Dialog();
         dialog->Role=Role;
+        dialog->id=id;
         dialog->trait(Role);
         dialog->exec();
     }
@@ -211,10 +213,10 @@ void MainWindow::on_ok_13_clicked()
     }
 }
 
-bool MainWindow::authenticateUser(const QString &Username, const QString &Password, QString &Role)
+int  MainWindow::authenticateUser(const QString &Username, const QString &Password, QString &Role)
 {
     QSqlQuery query;
-    query.prepare("SELECT type FROM EMPLOYE WHERE username = :username AND password = :password");
+    query.prepare("SELECT IDE ,type FROM EMPLOYE WHERE username = :username AND password = :password");
     query.bindValue(":username",Username);
     query.bindValue(":password",Password);
     if (!query.exec())
@@ -225,12 +227,12 @@ bool MainWindow::authenticateUser(const QString &Username, const QString &Passwo
 
     if (query.next())
     {
-        Role = query.value(0).toString();
-        return true;
+        Role = query.value(1).toString();
+        return query.value(0).toInt();
     }
     else
     {
-        return false;
+        return -1;
     }
 }
 

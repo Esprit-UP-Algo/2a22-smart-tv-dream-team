@@ -102,7 +102,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Bool, QMetaType::QString, QMetaType::QString, 0x80000000 | 13,   11,   12,   14,
+    QMetaType::Int, QMetaType::QString, QMetaType::QString, 0x80000000 | 13,   11,   12,   14,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString, 0x80000000 | 18,   17,   19,
     QMetaType::Void,
@@ -124,8 +124,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_ok_15_clicked(); break;
         case 6: _t->on_ok_14_clicked(); break;
         case 7: _t->on_ku_13_clicked(); break;
-        case 8: { bool _r = _t->authenticateUser((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])));
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 8: { int _r = _t->authenticateUser((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 9: _t->sendMail(); break;
         case 10: _t->mailSent((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< Smtp*(*)>(_a[2]))); break;
         case 11: _t->on_ok_16_clicked(); break;

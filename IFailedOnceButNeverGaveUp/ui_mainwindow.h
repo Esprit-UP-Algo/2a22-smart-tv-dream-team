@@ -487,9 +487,9 @@ public:
         label_37->setText(QApplication::translate("MainWindow", "(Note*) You Will Receive A Mail After A Short Period Of Time That Has Your Password", Q_NULLPTR));
         server->setText(QApplication::translate("MainWindow", "smtp.gmail.com", Q_NULLPTR));
         port->setText(QApplication::translate("MainWindow", "465", Q_NULLPTR));
-        uname->setText(QApplication::translate("MainWindow", "riahi.omar@esprit.tn", Q_NULLPTR));
+        uname->setText(QApplication::translate("MainWindow", "souhaib.touaiti@esprit.tn", Q_NULLPTR));
         paswd->setInputMask(QString());
-        paswd->setText(QApplication::translate("MainWindow", "221JMT29499", Q_NULLPTR));
+        paswd->setText(QApplication::translate("MainWindow", "221JMT5189", Q_NULLPTR));
         subject->setText(QString());
         msg->setPlainText(QApplication::translate("MainWindow", "7865", Q_NULLPTR));
     } // retranslateUi

@@ -141,14 +141,14 @@ void Smtp::readyRead()
         state = HandShake;
     }
     //No need, because I'm using socket->startClienEncryption() which makes the SSL handshake for you
-    /*else if (state == Tls && responseLine == "250")
+    else if (state == Tls && responseLine == "250")
     {
         // Trying AUTH
         qDebug() << "STarting Tls";
         *t << "STARTTLS" << "\r\n";
         t->flush();
         state = HandShake;
-    }*/
+    }
     else if (state == HandShake && responseLine == "250")
     {
         socket->startClientEncryption();

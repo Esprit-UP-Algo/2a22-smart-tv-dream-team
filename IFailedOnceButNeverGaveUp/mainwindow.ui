@@ -803,7 +803,7 @@ background-color:transparent;</string>
        </rect>
       </property>
       <property name="text">
-       <string>riahi.omar@esprit.tn</string>
+       <string>souhaib.touaiti@esprit.tn</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="paswd">
@@ -819,7 +819,7 @@ background-color:transparent;</string>
        <string/>
       </property>
       <property name="text">
-       <string>221JMT29499</string>
+       <string>221JMT5189</string>
       </property>
       <property name="echoMode">
        <enum>QLineEdit::Password</enum>

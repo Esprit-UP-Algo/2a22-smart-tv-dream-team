@@ -5177,17 +5177,20 @@ public:
 ""));
         textEdit_2 = new QTextEdit(chatterbox);
         textEdit_2->setObjectName(QStringLiteral("textEdit_2"));
-        textEdit_2->setGeometry(QRect(390, 160, 781, 661));
-        textEdit_2->setStyleSheet(QLatin1String("background : white; \n"
-"color : black;"));
+        textEdit_2->setGeometry(QRect(180, 160, 1591, 661));
+        textEdit_2->setFont(font6);
+        textEdit_2->setStyleSheet(QLatin1String("background : rgba(255,255,255,50); \n"
+"color : white;"));
         textEdit_2->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
         textEdit_2->setReadOnly(true);
         pushButton_13 = new QPushButton(chatterbox);
         pushButton_13->setObjectName(QStringLiteral("pushButton_13"));
-        pushButton_13->setGeometry(QRect(1080, 870, 93, 30));
+        pushButton_13->setGeometry(QRect(1080, 880, 131, 41));
+        pushButton_13->setFont(font6);
         textEdit_3 = new QTextEdit(chatterbox);
         textEdit_3->setObjectName(QStringLiteral("textEdit_3"));
-        textEdit_3->setGeometry(QRect(390, 870, 661, 31));
+        textEdit_3->setGeometry(QRect(210, 870, 841, 51));
+        textEdit_3->setFont(font6);
         textEdit_3->setStyleSheet(QLatin1String("background : white; \n"
 "color : black;"));
         stackedWidget->addWidget(chatterbox);
