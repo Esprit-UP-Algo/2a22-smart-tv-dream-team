@@ -49,16 +49,6 @@ private slots:
 
 
 
-    void on_ok_2_clicked();
-
-
-    void on_ok_3_clicked();
-
-    void on_ku_3_clicked();
-
-
-
-    void on_ku_2_clicked();
 
     void on_ok_13_clicked();
 

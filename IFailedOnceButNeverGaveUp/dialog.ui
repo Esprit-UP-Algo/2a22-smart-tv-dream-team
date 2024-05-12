@@ -2885,7 +2885,6 @@ border-radius:30px;</string>
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -2913,7 +2912,6 @@ border-radius:30px;</string>
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -3535,7 +3533,6 @@ color:black;</string>
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -3611,7 +3608,6 @@ color:black;</string>
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -3639,7 +3635,7 @@ color:black;</string>
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
+
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -4194,7 +4190,6 @@ color: rgb(0, 0, 0);
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -4222,7 +4217,6 @@ color: rgb(0, 0, 0);
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -6416,7 +6410,6 @@ font: 75 16pt &quot;MS Shell Dlg 2&quot;;</string>
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;
@@ -6614,7 +6607,6 @@ font: 75 16pt &quot;MS Shell Dlg 2&quot;;</string>
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
-    align-items: center;
     border: none;
     border-radius: 16px;
 	font: 75 18pt &quot;MS Shell Dlg 2&quot;;

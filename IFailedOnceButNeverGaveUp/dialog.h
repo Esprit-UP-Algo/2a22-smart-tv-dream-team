@@ -14,6 +14,7 @@
 #include<QtCore>
 #include<QtGui>
 #include<QString>
+
 #include<QtWidgets>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -122,7 +123,7 @@ private slots:
 
     void on_label_omek_clicked();
 
-    void on_pushButtonA_clicked();
+    //void on_pushButtonA_clicked();
 
     void on_pushButton_2A_clicked();
 
@@ -142,11 +143,9 @@ private slots:
 
     void on_imageButtonM_clicked();
 
-    void on_pushButton_2ms_clicked();
+    //void on_pushButton_2ms_clicked();
 
-    void on_pushButton_12ms_clicked();
 
-    void on_comboBoxms_currentTextChanged(const QString &arg1);
 
     void on_pushButton_3ms_clicked();
 
@@ -174,7 +173,6 @@ private slots:
 
     void on_hihi_7_clicked();
 
-    void on_searchLineEditM_textChanged(const QString &arg1);
 
     void on_hihi_18_clicked();
 
@@ -184,7 +182,6 @@ private slots:
 
     void readyRead();
 
-    void on_pushButton_2ms_2_clicked();
 
     void on_hihi_36_clicked();
 
@@ -200,7 +197,6 @@ private slots:
 
     void on_pushButton_14A_9_clicked();
 
-    void on_searchLineEditM_2_textChanged(const QString &arg1);
 
     void on_pushButton_14A_10_clicked();
 
@@ -216,11 +212,8 @@ private slots:
     void afficherHeureActuelle();
     void calculerNombreSalles();
 
-    void on_pushButton_3A_3_clicked();
 
-    void on_pushButton_5A_3_clicked();
 
-    void on_comboBox_2_currentIndexChanged();
 
     void on_hihi_42_clicked();
 
@@ -232,19 +225,19 @@ private slots:
     void on_calendarWidget_clicked(const QDate &date);
 
     void on_pushButton_3_clicked();
-    string on_TitleM_textChanged();
+    //string on_TitleM_textChanged();
      void onTypingTimerTimeout();
      void readText();
-    void on_TitleM_textChanged(const QString &arg1);
+   /* void on_TitleM_textChanged(const QString &arg1);
      void startTimer();
      void readTextProducer();
      void on_ProducerM_textChanged(const QString &arg1);
 
      void on_textEditM_textChanged();
      void readTextDescrption();
-     void initializeTextToSpeech() ;
+     //void initializeTextToSpeech() ;
      void startProducerTimer();
-     void update_label();
+     void update_label();*/
 
      void on_listM_2_clicked();
 

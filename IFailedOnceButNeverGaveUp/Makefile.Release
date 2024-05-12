@@ -1526,24 +1526,6 @@ release/moc_mainwindow.cpp: smtp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
 		ui_dialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTextEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMovie \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QThread \
 		mainwindow.h \
@@ -2547,37 +2529,20 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
 		ui_dialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QStackedWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTextEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		sms.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QPieSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qpieseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QPieSlice \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qpieslice.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlineseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dialog.o dialog.cpp
 
 release/diffusion.o: diffusion.cpp diffusion.h \
@@ -3948,26 +3913,9 @@ release/main.o: main.cpp C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery 
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
 		ui_dialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTextEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMovie \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QThread \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QMediaPlayer
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o main.cpp
 
@@ -4659,28 +4607,9 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
 		ui_dialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTextEdit \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMovie \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QThread \
-		ui_mainwindow.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPlainTextEdit
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o mainwindow.cpp
 
 release/media.o: media.cpp media.h \

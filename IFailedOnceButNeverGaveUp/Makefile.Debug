@@ -1525,13 +1525,11 @@ debug/moc_mainwindow.cpp: smtp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		ui_dialog.h \
+		debug/ui_dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
@@ -2546,13 +2544,11 @@ debug/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		ui_dialog.h \
+		debug/ui_dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
@@ -3947,13 +3943,11 @@ debug/main.o: main.cpp C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		ui_dialog.h \
+		debug/ui_dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
@@ -4658,13 +4652,11 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		ui_dialog.h \
+		debug/ui_dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QCalendarWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
@@ -4679,7 +4671,7 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMovie \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QThread \
-		ui_mainwindow.h \
+		debug/ui_mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPlainTextEdit
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o mainwindow.cpp
 

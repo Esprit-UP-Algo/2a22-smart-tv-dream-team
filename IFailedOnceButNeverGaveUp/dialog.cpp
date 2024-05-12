@@ -25,6 +25,7 @@
 #include <QTableView>
 #include <QSystemTrayIcon>
 
+
 using namespace QtCharts;
 QPieSeries *seriesE;
 QChart *chartE;
@@ -35,7 +36,7 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
 
-    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lance
+    //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lance
     ui->setupUi(this);
     int ret=A.connect_arduino(); // lancer la connexion à arduino
     switch(ret){
@@ -603,7 +604,6 @@ void Dialog::confirm_access()
 }
 void Dialog::on_hihi_5_clicked()//crud employe
 {
-    int ligne(0);
             QString rech;
         int row(0);
         QSqlQuery query;
@@ -1848,7 +1848,7 @@ void Dialog::on_label_omek_clicked()
 }
 
 
-void Dialog::on_pushButtonA_clicked()//stats reservation
+/*void Dialog::on_pushButtonA_clicked()//stats reservation
 {
     ui->stackedWidget->setCurrentIndex(8);
     ui->label_15->setVisible(false);
@@ -1862,7 +1862,7 @@ void Dialog::on_pushButtonA_clicked()//stats reservation
 
     ui->comboBoxM_2->setVisible(false);
     ui->comboBoxM_3->setVisible(false);
-}
+}*/
 
 void Dialog::on_pushButton_2A_clicked() // CRUD reservation
 {    checkReservationDates();
@@ -2540,6 +2540,11 @@ void Dialog::on_pushButton_4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(11);
     ui->textEdit->setVisible(true);
+    ui->label_48->setVisible(true);
+    ui->label_47->setVisible(true);
+    ui->gg_2->setVisible(true);
+    ui->gg_5->setVisible(true);
+
 }
 
 void Dialog::on_imageButtonM_clicked()
@@ -2547,25 +2552,14 @@ void Dialog::on_imageButtonM_clicked()
 
 }
 
-void Dialog::on_pushButton_2ms_clicked()
+/*void Dialog::on_pushButton_2ms_clicked()
 {
      ui->stackedWidget->setCurrentIndex(15);
-}
-
-void Dialog::on_pushButton_12ms_clicked()
-{
-
-
-
-}
+}*/
 
 
 
 
-void Dialog::on_comboBoxms_currentTextChanged(const QString &arg1)
-{
-     emit ui->pushButton_2->click();
-}
 
 void Dialog::on_pushButton_3ms_clicked()
 {
@@ -3012,7 +3006,7 @@ void Dialog::on_pushButton_2_clicked()
     query.exec("SELECT id, type, titre, description, duree, image, nbrvue, nbrep, mcate, scate FROM SERIE_FILM " +
                        rech + categorie + Qs);
     while (query.next()) {
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 9; j++) {
             QStandardItem *item;
 
             if (j == 5) {
@@ -3548,47 +3542,6 @@ void Dialog::on_hihi_7_clicked()
         ui->comboBoxM_3->setVisible(false);
 }
 
-void Dialog::on_searchLineEditM_textChanged(const QString &arg1)
-{
-    /*QString searchText = arg1.trimmed();
-    if (searchText.isEmpty()) {
-        // If lineEdit is empty, reset the tableView
-        on_listM_clicked();
-        return;
-    }
-
-    QString queryText;
-
-    if (searchText.length() == 1) {
-        // If only one letter is entered, search for rows starting with that letter
-        queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR FROM MEDIA WHERE TITRE LIKE '" + searchText + "%'";
-    } else {
-        // Otherwise, search for rows containing the complete text
-        queryText = "SELECT IDM, TITRE, DESCRIPTION, IMAGE, PRODUCTEUR, TYPE FROM MEDIA WHERE TITRE LIKE '%" + searchText + "%'";
-    }
-
-    QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery(queryText);
-
-    // Set up the image delegate for column 4
-    QStandardItemModel *imageModel = new QStandardItemModel(model->rowCount(), model->columnCount());
-    for (int row = 0; row < model->rowCount(); ++row) {
-        QModelIndex index = model->index(row, 3); // Assuming IMAGE is in column 4
-        QString imagePath = index.data().toString();
-        QPixmap pixmap(imagePath);
-        if (!pixmap.isNull()) {
-            QStandardItem *item = new QStandardItem(QIcon(pixmap.scaledToHeight(50)), "");
-            imageModel->setItem(row, 3, item);
-        }
-    }
-    ui->tableViewM->setModel(imageModel);
-    ui->tableViewM->setItemDelegateForColumn(3, new QStyledItemDelegate());
-
-    // Set the main model after setting up the image delegate
-    ui->tableViewM->setModel(model);*/
-}
-
-
 void Dialog::displayChannelImages()
 {
 
@@ -3872,114 +3825,6 @@ void Dialog::connected()
     query.exec();
     query.next();
     socket->write(QString("/me: <font color=\""+color+"\"> " + query.value(0).toString() + "</font>\n").toUtf8());
-}
-
-void Dialog::on_pushButton_2ms_2_clicked()
-{
-    qDebug() << "test";
-    ui->stackedWidget->setCurrentIndex(20);
-
-    QSqlQuery query;
-
-    query.exec("select count(*) FROM SERIE_FILM");
-    query.next();
-    //*set0 << query.value(0).toInt();
-    int totalSum =query.value(0).toInt();
-
-
-
-    QBarSet *set1= new QBarSet("HORROR");
-    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'horror' OR SCATE = 'horror'");
-    query.next();
-    *set1 << query.value(0).toInt();
-
-
-
-    QBarSet *set2= new QBarSet("sci-fi");
-    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'sci-fi' OR SCATE = 'sci-fi'");
-    query.next();
-    *set2 << query.value(0).toInt();
-
-    QBarSet *set3= new QBarSet("romance");
-    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'romance' OR SCATE = 'romance'");
-    query.next();
-    *set3 << query.value(0).toInt();
-
-    QBarSet *set4= new QBarSet("sports");
-    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'sports' OR SCATE = 'sports'");
-    query.next();
-    *set4 << query.value(0).toInt();
-
-    QBarSet *set5= new QBarSet("action");
-    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'action' OR SCATE = 'action'");
-    query.next();
-    *set5 << query.value(0).toInt();
-
-    QBarSet *set6= new QBarSet("comedy");
-    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'comedy' OR SCATE = 'comedy'");
-    query.next();
-    *set6 << query.value(0).toInt();
-
-    QBarSet *set7= new QBarSet("drama");
-    query.exec("select count(*) FROM SERIE_FILM where MCATE = 'drama' OR SCATE = 'drama'");
-    query.next();
-    *set7 << query.value(0).toInt();
-
-    QBarSeries *series= new QBarSeries();
-    //series->append(set0);
-    series->append(set1);
-    series->append(set2);
-    series->append(set3);
-    series->append(set4);
-    series->append(set5);
-    series->append(set6);
-    series->append(set7);
-    series->setLabelsFormat("@value test");
-    for (QBarSet *barSet : series->barSets()) {
-        for (int i = 0; i < barSet->count(); ++i) {
-            // Calculate percentage
-            float percentage = (barSet->at(i) / totalSum) * 100.0;
-            // Set the percentage value
-            /*for (int j = 0; j < barSet->count(); ++j) {
-            qreal value = barSet->at(j);
-            QString label = QString::number(value);
-            QBarSetItem *barItem = barSet->at(j);
-            QPointF point = barSet-> //barItem->geometry().center();
-            chart->addAxis(axisY, Qt::AlignLeft); // Attach Y-axis to the chart
-            QGraphicsSimpleTextItem *textItem = chart->scene()->addSimpleText(label);
-            textItem->setPos(point.x() - textItem->boundingRect().width() / 2, point.y() - 20); // Position text above the bar
-*/
-            barSet->replace(i,floor( percentage*10)/10);
-            QString label = QString::number(barSet->at(i)); // Assuming values are numeric
-            barSet->setLabel(barSet->label() + " "+label+"%");
-        }
-    }
-    QChart *chart = new QChart();
-    chart->addSeries(series);
-    chart->setTitle("test");
-    chart->setAnimationOptions(QChart::AllAnimations);
-    QStringList categories;
-    categories<<"all    movies";
-    QBarCategoryAxis *axis=new QBarCategoryAxis();
-    axis->append(categories);
-    chart->createDefaultAxes();
-    chart->setAxisX(axis,series);
-    chart->legend()->setVisible(true);
-    chart->legend()->setAlignment(Qt::AlignBottom);
-    QChartView *view = new QChartView(chart,this);
-
-    view->setRenderHint(QPainter::Antialiasing);
-    ui->groupBox_2->layout()->addWidget(view);
-
-    connect(ui->stackedWidget, &QStackedWidget::currentChanged,this , [this,view]()
-    {
-         ui->groupBox_2->layout()->removeWidget(view);
-    });
-    /*connect(ui->pushButton_4, &QPushButton::clicked, this, [this,view]() {
-        ui->groupBox_2->layout()->removeWidget(view);
-
-
-    });*/
 }
 
 void Dialog::on_hihi_36_clicked()//pdf transaction
@@ -4313,32 +4158,6 @@ void Dialog::on_pushButton_14A_9_clicked()
     emit ui->pushButton_2A->click();
 }
 
-void Dialog::on_searchLineEditM_2_textChanged(const QString &arg1)
-{
-    QString searchText = arg1.trimmed();
-            if (searchText.isEmpty()) {
-                // If lineEdit is empty, reset the tableView
-                on_pushButton_2A_clicked();
-                return;
-            }
-
-            QString queryText;
-
-            if (searchText.length() == 1) {
-                // If only one letter is entered, search for rows starting with that letter
-                queryText = "SELECT NUMSALLE, CAPACITE, ETAT, DATERES FROM SALLE WHERE NUMSALLE LIKE '" + searchText + "%'";
-            } else {
-                // Otherwise, search for rows containing the complete text
-                queryText = "SELECT NUMSALLE, CAPACITE, ETAT, DATERES FROM SALLE WHERE NUMSALLE LIKE '%" + searchText + "%'";
-            }
-
-            QSqlQueryModel *model = new QSqlQueryModel();
-            model->setQuery(queryText);
-
-            ui->tableviewrr->setModel(model);
-
-}
-
 void Dialog::on_pushButton_14A_10_clicked()
 {
     emit ui->pushButton_2A->click();
@@ -4394,40 +4213,6 @@ void Dialog::calculerNombreSalles()
     }
 }
 
-void Dialog::on_pushButton_3A_3_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(10);
-}
-
-void Dialog::on_pushButton_5A_3_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(8);
-}
-
-void Dialog::on_comboBox_2_currentIndexChanged()
-{
-    /*QString sortOption = ui->comboBox_2->currentText();
-        QSqlQueryModel model = new QSqlQueryModel();
-
-        if (sortOption == "Sorting ASC by studio number")
-        {
-            model->setQuery("SELECT FROM SALLE ORDER BY numSalle ASC");
-        }
-        else if (sortOption == "Sorting DESC by studio number")
-        {
-            model->setQuery("SELECT * FROM SALLE ORDER BY numSalle DESC");
-        }
-
-        model->setHeaderData(0, Qt::Horizontal, QObject::tr("numSalle"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("capacite"));
-        model->setHeaderData(2, Qt::Horizontal, QObject::tr("etat"));
-        model->setHeaderData(3, Qt::Horizontal, QObject::tr("dateRes"));
-        model->insertColumn(4);
-        model->setHeaderData(4, Qt::Horizontal, QObject::tr(""));
-
-        ui->tableviewrr->setModel(model);*/
-
-}
 
 void Dialog::on_hihi_42_clicked()
 {
@@ -4690,16 +4475,16 @@ void Dialog::onTypingTimerTimeout()
     // Appeler la fonction say() du QTextToSpeech pour lire le texte
     textToSpeech->say(spokenText);
 }
-void Dialog::startTimer() {
+/*void Dialog::startTimer() {
     typingTimer->start(3000);  // 1 minute (60000 ms)
 }
-
+*/
 // Ajoutez cette fonction pour lire le texte après que le timer expire
 void Dialog::readText() {
     QString spokenText = ui->TitleM->text();
     textToSpeech->say(spokenText);
 }
-
+/*
 // Modifiez la fonction on_TitleM_textChanged comme suit
 void Dialog::on_TitleM_textChanged(const QString &arg1)
 {
@@ -4732,7 +4517,7 @@ void Dialog::on_textEditM_textChanged()
 
     // Démarrer le timer avec un délai de 1 minute
     startTimer();
-}
+}*/
 
 void Dialog::on_listM_2_clicked()
 {

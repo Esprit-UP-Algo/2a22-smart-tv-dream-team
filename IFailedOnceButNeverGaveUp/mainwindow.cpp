@@ -65,6 +65,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         }*/
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -118,6 +119,7 @@ void MainWindow::confirm_accesss()
         QMessageBox::warning(this, "Login Failed", "No fingerprint detected. Please try again.");
     }
 }
+
 void MainWindow::sendMail()
 {
     QSqlQuery query;
@@ -236,21 +238,6 @@ int  MainWindow::authenticateUser(const QString &Username, const QString &Passwo
     }
 }
 
-
-void MainWindow::on_ok_2_clicked()
-{
-    close();
-}
-
-void MainWindow::on_ok_3_clicked()
-{
-    setWindowState(Qt::WindowMinimized);
-}
-
-void MainWindow::on_ku_2_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(1);
-}
 
 void MainWindow::on_ok_15_clicked()
 {
