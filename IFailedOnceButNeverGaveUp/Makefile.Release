@@ -271,45 +271,32 @@ release/moc_dialog.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportinfo.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QStringList \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QStringList \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QtMultimedia \
@@ -487,6 +474,7 @@ release/moc_dialog.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qglyphrun.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrawfont.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontdatabase.h \
@@ -499,6 +487,7 @@ release/moc_dialog.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbackingstore.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QEvent \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurface.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurfaceformat.h \
@@ -560,6 +549,7 @@ release/moc_dialog.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagelayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagesize.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpdfwriter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpicture.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpictureformatplugin.h \
@@ -677,7 +667,9 @@ release/moc_dialog.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qaccessiblewidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qaction.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qactiongroup.h \
@@ -723,9 +715,12 @@ release/moc_dialog.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitemanimation.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslinearlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsproxywidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicstransform.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QVector3D \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qinputdialog.h \
@@ -831,9 +826,24 @@ release/moc_dialog.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qtexttospeech_global.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qvoice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QAudioDeviceInfo \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
+		sms.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlineseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
 		dialog.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -1462,30 +1472,25 @@ release/moc_mainwindow.cpp: smtp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportinfo.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QtSql \
@@ -1522,9 +1527,24 @@ release/moc_mainwindow.cpp: smtp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qtexttospeech_global.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qvoice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QAudioDeviceInfo \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
+		sms.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlineseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
 		ui_dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMovie \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QThread \
@@ -1965,45 +1985,32 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportinfo.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QStringList \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QStringList \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QtMultimedia \
@@ -2181,6 +2188,7 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qglyphrun.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrawfont.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontdatabase.h \
@@ -2193,6 +2201,7 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbackingstore.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QEvent \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurface.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurfaceformat.h \
@@ -2254,6 +2263,7 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagelayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagesize.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpdfwriter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpicture.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpictureformatplugin.h \
@@ -2371,7 +2381,9 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qaccessiblewidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qaction.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qactiongroup.h \
@@ -2417,9 +2429,12 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitemanimation.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslinearlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsproxywidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicstransform.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QVector3D \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qinputdialog.h \
@@ -2525,16 +2540,16 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qtexttospeech_global.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qvoice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QAudioDeviceInfo \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		ui_dialog.h \
 		sms.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QPieSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qpieseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QPieSlice \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qpieslice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
@@ -2542,7 +2557,12 @@ release/dialog.o: dialog.cpp dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		ui_dialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QPieSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qpieseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QPieSlice \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qpieslice.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dialog.o dialog.cpp
 
 release/diffusion.o: diffusion.cpp diffusion.h \
@@ -2818,41 +2838,30 @@ release/diffusion.o: diffusion.cpp diffusion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportinfo.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QtMultimedia \
@@ -2918,6 +2927,7 @@ release/diffusion.o: diffusion.cpp diffusion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qglyphrun.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrawfont.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontdatabase.h \
@@ -2930,6 +2940,7 @@ release/diffusion.o: diffusion.cpp diffusion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbackingstore.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QEvent \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurface.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurfaceformat.h \
@@ -2990,6 +3001,7 @@ release/diffusion.o: diffusion.cpp diffusion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagelayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagesize.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpdfwriter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpicture.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpictureformatplugin.h \
@@ -3139,9 +3151,12 @@ release/diffusion.o: diffusion.cpp diffusion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitemanimation.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslinearlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsproxywidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicstransform.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QVector3D \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qinputdialog.h \
@@ -3220,9 +3235,24 @@ release/diffusion.o: diffusion.cpp diffusion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qtexttospeech_global.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qvoice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QAudioDeviceInfo \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
+		sms.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlineseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\diffusion.o diffusion.cpp
 
 release/main.o: main.cpp C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
@@ -3849,30 +3879,25 @@ release/main.o: main.cpp C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery 
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportinfo.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QtSql \
@@ -3909,13 +3934,27 @@ release/main.o: main.cpp C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery 
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qtexttospeech_global.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qvoice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QAudioDeviceInfo \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
+		sms.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlineseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
 		ui_dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMovie \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QThread \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QMediaPlayer
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o main.cpp
 
@@ -4543,30 +4582,25 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportinfo.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QtSql \
@@ -4603,9 +4637,24 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qtexttospeech_global.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qvoice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QAudioDeviceInfo \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
+		sms.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlineseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
 		ui_dialog.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMovie \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QThread \
@@ -4885,41 +4934,30 @@ release/media.o: media.cpp media.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort/qserialportinfo.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractBarSeries \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractbarseries.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSet \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarset.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QtMultimedia \
@@ -4984,6 +5022,7 @@ release/media.o: media.cpp media.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qglyphrun.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrawfont.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontdatabase.h \
@@ -4996,6 +5035,7 @@ release/media.o: media.cpp media.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbackingstore.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QEvent \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurface.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qsurfaceformat.h \
@@ -5056,6 +5096,7 @@ release/media.o: media.cpp media.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagelayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpagesize.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpdfwriter.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpicture.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpictureformatplugin.h \
@@ -5205,9 +5246,12 @@ release/media.o: media.cpp media.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitemanimation.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslinearlayout.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsproxywidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicstransform.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QVector3D \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qinputdialog.h \
@@ -5287,11 +5331,25 @@ release/media.o: media.cpp media.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qtexttospeech_global.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtTextToSpeech/qvoice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtMultimedia/QAudioDeviceInfo \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QCoreApplication \
+		sms.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork/QNetworkReply \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QDesktopServices \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLineSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlineseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QXYSeries \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qxyseries.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QCoreApplication \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \

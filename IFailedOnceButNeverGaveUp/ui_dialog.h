@@ -70,7 +70,6 @@ public:
     QLabel *label;
     QLabel *label_23;
     QPushButton *hihi_2;
-    QLabel *label_20;
     QLabel *label_18;
     QLabel *label_21;
     QLabel *label_19;
@@ -80,14 +79,14 @@ public:
     QLabel *label_32;
     QPushButton *hihi_4;
     QPushButton *hihi_3;
-    QLabel *label_25;
-    QLabel *label_26;
-    QLabel *label_33;
     QGroupBox *series;
     QLabel *label_31;
     QLabel *label_29;
     QLabel *label_30;
     QLabel *label_28;
+    QTextEdit *textEdit_4;
+    QTextEdit *textEdit_5;
+    QTextEdit *textEdit_6;
     QWidget *crud_em;
     QLabel *label_35;
     QLabel *label_34;
@@ -1066,12 +1065,6 @@ public:
 ""));
         hihi_2->setIconSize(QSize(40, 40));
         hihi_2->setFlat(false);
-        label_20 = new QLabel(home);
-        label_20->setObjectName(QStringLiteral("label_20"));
-        label_20->setGeometry(QRect(670, 380, 631, 261));
-        label_20->setStyleSheet(QLatin1String("background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 110, 255), stop:1 rgba(16, 30, 41, 200));\n"
-"border-radius:40px;"));
-        label_20->setAlignment(Qt::AlignCenter);
         label_18 = new QLabel(home);
         label_18->setObjectName(QStringLiteral("label_18"));
         label_18->setGeometry(QRect(880, 200, 331, 61));
@@ -1174,24 +1167,6 @@ public:
 ""));
         hihi_3->setIconSize(QSize(40, 40));
         hihi_3->setFlat(false);
-        label_25 = new QLabel(home);
-        label_25->setObjectName(QStringLiteral("label_25"));
-        label_25->setGeometry(QRect(1410, 120, 300, 300));
-        label_25->setStyleSheet(QLatin1String("background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 110, 255), stop:1 rgba(16, 30, 41, 200));\n"
-"border-radius:40px;"));
-        label_25->setAlignment(Qt::AlignCenter);
-        label_26 = new QLabel(home);
-        label_26->setObjectName(QStringLiteral("label_26"));
-        label_26->setGeometry(QRect(1730, 170, 171, 181));
-        label_26->setStyleSheet(QLatin1String("background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 110, 255), stop:1 rgba(16, 30, 41, 200));\n"
-"border-radius:85px;"));
-        label_26->setAlignment(Qt::AlignCenter);
-        label_33 = new QLabel(home);
-        label_33->setObjectName(QStringLiteral("label_33"));
-        label_33->setGeometry(QRect(1420, 460, 481, 161));
-        label_33->setStyleSheet(QLatin1String("background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 110, 255), stop:1 rgba(16, 30, 41, 200));\n"
-"border-radius:40px;"));
-        label_33->setAlignment(Qt::AlignCenter);
         series = new QGroupBox(home);
         series->setObjectName(QStringLiteral("series"));
         series->setGeometry(QRect(530, 690, 1441, 361));
@@ -1216,6 +1191,9 @@ public:
         label_30 = new QLabel(series);
         label_30->setObjectName(QStringLiteral("label_30"));
         label_30->setGeometry(QRect(750, 20, 331, 331));
+        QFont font2;
+        font2.setPointSize(30);
+        label_30->setFont(font2);
         label_30->setStyleSheet(QLatin1String("border-image:url(\"xd.jpg\");\n"
 "border-radius:30px;\n"
 "\n"
@@ -1229,6 +1207,30 @@ public:
 "\n"
 ""));
         label_28->setAlignment(Qt::AlignCenter);
+        textEdit_4 = new QTextEdit(home);
+        textEdit_4->setObjectName(QStringLiteral("textEdit_4"));
+        textEdit_4->setGeometry(QRect(670, 380, 630, 260));
+        textEdit_4->setFont(font2);
+        textEdit_4->setAcceptDrops(false);
+        textEdit_4->setStyleSheet(QLatin1String("background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 110, 255), stop:1 rgba(16, 30, 41, 200));\n"
+"border-radius:40px;"));
+        textEdit_4->setReadOnly(true);
+        textEdit_5 = new QTextEdit(home);
+        textEdit_5->setObjectName(QStringLiteral("textEdit_5"));
+        textEdit_5->setGeometry(QRect(1410, 400, 481, 221));
+        textEdit_5->setFont(font2);
+        textEdit_5->setAcceptDrops(false);
+        textEdit_5->setStyleSheet(QLatin1String("background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 110, 255), stop:1 rgba(16, 30, 41, 200));\n"
+"border-radius:40px;"));
+        textEdit_5->setReadOnly(true);
+        textEdit_6 = new QTextEdit(home);
+        textEdit_6->setObjectName(QStringLiteral("textEdit_6"));
+        textEdit_6->setGeometry(QRect(1410, 140, 481, 231));
+        textEdit_6->setFont(font2);
+        textEdit_6->setAcceptDrops(false);
+        textEdit_6->setStyleSheet(QLatin1String("background-color:qlineargradient(spread:pad, x1:0.858, y1:0.375, x2:0, y2:0, stop:0 rgba(0, 1, 110, 255), stop:1 rgba(16, 30, 41, 200));\n"
+"border-radius:40px;"));
+        textEdit_6->setReadOnly(true);
         stackedWidget->addWidget(home);
         label_14->raise();
         label_17->raise();
@@ -1237,17 +1239,16 @@ public:
         label_22->raise();
         label_23->raise();
         hihi_2->raise();
-        label_20->raise();
         label_18->raise();
         label_19->raise();
         label_27->raise();
         label_32->raise();
         hihi_4->raise();
         hihi_3->raise();
-        label_25->raise();
-        label_26->raise();
-        label_33->raise();
         series->raise();
+        textEdit_4->raise();
+        textEdit_5->raise();
+        textEdit_6->raise();
         crud_em = new QWidget();
         crud_em->setObjectName(QStringLiteral("crud_em"));
         crud_em->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));\n"
@@ -1651,9 +1652,9 @@ public:
         tableviewtr = new QTableView(transaction);
         tableviewtr->setObjectName(QStringLiteral("tableviewtr"));
         tableviewtr->setGeometry(QRect(140, 290, 1736, 731));
-        QFont font2;
-        font2.setPointSize(14);
-        tableviewtr->setFont(font2);
+        QFont font3;
+        font3.setPointSize(14);
+        tableviewtr->setFont(font3);
         tableviewtr->setStyleSheet(QLatin1String("\n"
 "QTableView#tableviewtr{\n"
 "	background-color: rgba(200, 200, 200,120);\n"
@@ -4175,10 +4176,10 @@ public:
         tableViewM_2->setObjectName(QStringLiteral("tableViewM_2"));
         tableViewM_2->setGeometry(QRect(110, 240, 1791, 841));
         tableViewM_2->setMinimumSize(QSize(1700, 700));
-        QFont font3;
-        font3.setFamily(QStringLiteral("Times New Roman"));
-        font3.setPointSize(14);
-        tableViewM_2->setFont(font3);
+        QFont font4;
+        font4.setFamily(QStringLiteral("Times New Roman"));
+        font4.setPointSize(14);
+        tableViewM_2->setFont(font4);
         tableViewM_2->setStyleSheet(QLatin1String("QTableView::item\n"
 "{\n"
 "        background-color:rgba(49,28,71,100);\n"
@@ -4272,9 +4273,9 @@ public:
         groupBox_2ms_2->setGeometry(QRect(450, 120, 800, 100));
         groupBox_2ms_2->setMinimumSize(QSize(800, 100));
         groupBox_2ms_2->setMaximumSize(QSize(800, 70));
-        QFont font4;
-        font4.setPointSize(12);
-        groupBox_2ms_2->setFont(font4);
+        QFont font5;
+        font5.setPointSize(12);
+        groupBox_2ms_2->setFont(font5);
         groupBox_2ms_2->setStyleSheet(QLatin1String("QGroupBox\n"
 "{\n"
 "background-color : transparent;\n"
@@ -4576,7 +4577,7 @@ public:
         label_5ms->setObjectName(QStringLiteral("label_5ms"));
         label_5ms->setMinimumSize(QSize(150, 30));
         label_5ms->setMaximumSize(QSize(300, 30));
-        label_5ms->setFont(font4);
+        label_5ms->setFont(font5);
         label_5ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_4->addWidget(label_5ms);
@@ -4585,7 +4586,7 @@ public:
         comboBoxms_2->setObjectName(QStringLiteral("comboBoxms_2"));
         comboBoxms_2->setMinimumSize(QSize(150, 30));
         comboBoxms_2->setMaximumSize(QSize(300, 16777215));
-        comboBoxms_2->setFont(font4);
+        comboBoxms_2->setFont(font5);
 
         horizontalLayout_4->addWidget(comboBoxms_2);
 
@@ -4598,7 +4599,7 @@ public:
         label_7ms->setObjectName(QStringLiteral("label_7ms"));
         label_7ms->setMinimumSize(QSize(150, 30));
         label_7ms->setMaximumSize(QSize(300, 30));
-        label_7ms->setFont(font4);
+        label_7ms->setFont(font5);
         label_7ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_8->addWidget(label_7ms);
@@ -4621,7 +4622,7 @@ public:
         label_6ms->setObjectName(QStringLiteral("label_6ms"));
         label_6ms->setMinimumSize(QSize(150, 30));
         label_6ms->setMaximumSize(QSize(300, 30));
-        label_6ms->setFont(font4);
+        label_6ms->setFont(font5);
         label_6ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_7->addWidget(label_6ms);
@@ -4667,9 +4668,9 @@ public:
         label_7ms_4->setObjectName(QStringLiteral("label_7ms_4"));
         label_7ms_4->setMinimumSize(QSize(150, 30));
         label_7ms_4->setMaximumSize(QSize(300, 30));
-        QFont font5;
-        font5.setPointSize(11);
-        label_7ms_4->setFont(font5);
+        QFont font6;
+        font6.setPointSize(11);
+        label_7ms_4->setFont(font6);
         label_7ms_4->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_28->addWidget(label_7ms_4);
@@ -4692,7 +4693,7 @@ public:
         label_7ms_2->setObjectName(QStringLiteral("label_7ms_2"));
         label_7ms_2->setMinimumSize(QSize(150, 30));
         label_7ms_2->setMaximumSize(QSize(300, 30));
-        label_7ms_2->setFont(font4);
+        label_7ms_2->setFont(font5);
         label_7ms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_9->addWidget(label_7ms_2);
@@ -4716,7 +4717,7 @@ public:
         label_7ms_3->setObjectName(QStringLiteral("label_7ms_3"));
         label_7ms_3->setMinimumSize(QSize(150, 30));
         label_7ms_3->setMaximumSize(QSize(300, 30));
-        label_7ms_3->setFont(font5);
+        label_7ms_3->setFont(font6);
         label_7ms_3->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_12->addWidget(label_7ms_3);
@@ -4739,7 +4740,7 @@ public:
         label_8ms->setObjectName(QStringLiteral("label_8ms"));
         label_8ms->setMinimumSize(QSize(150, 30));
         label_8ms->setMaximumSize(QSize(300, 30));
-        label_8ms->setFont(font4);
+        label_8ms->setFont(font5);
         label_8ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_5->addWidget(label_8ms);
@@ -4763,9 +4764,9 @@ public:
         imagetestms_2->setObjectName(QStringLiteral("imagetestms_2"));
         imagetestms_2->setMinimumSize(QSize(300, 100));
         imagetestms_2->setMaximumSize(QSize(300, 200));
-        QFont font6;
-        font6.setPointSize(20);
-        imagetestms_2->setFont(font6);
+        QFont font7;
+        font7.setPointSize(20);
+        imagetestms_2->setFont(font7);
         imagetestms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         verticalLayout_3->addWidget(imagetestms_2);
@@ -4963,7 +4964,7 @@ public:
         ipidlabelms_2->setObjectName(QStringLiteral("ipidlabelms_2"));
         ipidlabelms_2->setMinimumSize(QSize(150, 30));
         ipidlabelms_2->setMaximumSize(QSize(300, 30));
-        ipidlabelms_2->setFont(font4);
+        ipidlabelms_2->setFont(font5);
         ipidlabelms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_27->addWidget(ipidlabelms_2);
@@ -4987,7 +4988,7 @@ public:
         uptitlms->setObjectName(QStringLiteral("uptitlms"));
         uptitlms->setMinimumSize(QSize(150, 30));
         uptitlms->setMaximumSize(QSize(300, 30));
-        uptitlms->setFont(font4);
+        uptitlms->setFont(font5);
         uptitlms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_21->addWidget(uptitlms);
@@ -5010,7 +5011,7 @@ public:
         updescms->setObjectName(QStringLiteral("updescms"));
         updescms->setMinimumSize(QSize(150, 30));
         updescms->setMaximumSize(QSize(300, 30));
-        updescms->setFont(font4);
+        updescms->setFont(font5);
         updescms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_20->addWidget(updescms);
@@ -5033,7 +5034,7 @@ public:
         uptitlms_3->setObjectName(QStringLiteral("uptitlms_3"));
         uptitlms_3->setMinimumSize(QSize(150, 30));
         uptitlms_3->setMaximumSize(QSize(300, 30));
-        uptitlms_3->setFont(font4);
+        uptitlms_3->setFont(font5);
         uptitlms_3->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_26->addWidget(uptitlms_3);
@@ -5075,7 +5076,7 @@ public:
         uptitlms_2->setObjectName(QStringLiteral("uptitlms_2"));
         uptitlms_2->setMinimumSize(QSize(150, 30));
         uptitlms_2->setMaximumSize(QSize(300, 30));
-        uptitlms_2->setFont(font5);
+        uptitlms_2->setFont(font6);
         uptitlms_2->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_25->addWidget(uptitlms_2);
@@ -5098,7 +5099,7 @@ public:
         uptitlms_4->setObjectName(QStringLiteral("uptitlms_4"));
         uptitlms_4->setMinimumSize(QSize(150, 30));
         uptitlms_4->setMaximumSize(QSize(300, 30));
-        uptitlms_4->setFont(font4);
+        uptitlms_4->setFont(font5);
         uptitlms_4->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_29->addWidget(uptitlms_4);
@@ -5121,7 +5122,7 @@ public:
         upimgms->setObjectName(QStringLiteral("upimgms"));
         upimgms->setMinimumSize(QSize(150, 30));
         upimgms->setMaximumSize(QSize(300, 30));
-        upimgms->setFont(font4);
+        upimgms->setFont(font5);
         upimgms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         horizontalLayout_22->addWidget(upimgms);
@@ -5152,7 +5153,7 @@ public:
         imagetest_1ms->setObjectName(QStringLiteral("imagetest_1ms"));
         imagetest_1ms->setMinimumSize(QSize(300, 100));
         imagetest_1ms->setMaximumSize(QSize(300, 200));
-        imagetest_1ms->setFont(font6);
+        imagetest_1ms->setFont(font7);
         imagetest_1ms->setStyleSheet(QStringLiteral("background : transparent;"));
 
         verticalLayout_10->addWidget(imagetest_1ms);
@@ -5234,7 +5235,7 @@ public:
         textEdit_2 = new QTextEdit(chatterbox);
         textEdit_2->setObjectName(QStringLiteral("textEdit_2"));
         textEdit_2->setGeometry(QRect(180, 160, 1591, 661));
-        textEdit_2->setFont(font6);
+        textEdit_2->setFont(font7);
         textEdit_2->setStyleSheet(QLatin1String("background : rgba(255,255,255,50); \n"
 "color : white;"));
         textEdit_2->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
@@ -5242,11 +5243,11 @@ public:
         pushButton_13 = new QPushButton(chatterbox);
         pushButton_13->setObjectName(QStringLiteral("pushButton_13"));
         pushButton_13->setGeometry(QRect(1080, 880, 131, 41));
-        pushButton_13->setFont(font6);
+        pushButton_13->setFont(font7);
         textEdit_3 = new QTextEdit(chatterbox);
         textEdit_3->setObjectName(QStringLiteral("textEdit_3"));
         textEdit_3->setGeometry(QRect(210, 870, 841, 51));
-        textEdit_3->setFont(font6);
+        textEdit_3->setFont(font7);
         textEdit_3->setStyleSheet(QLatin1String("background : white; \n"
 "color : black;"));
         stackedWidget->addWidget(chatterbox);
@@ -5823,14 +5824,14 @@ public:
         label_43 = new QLabel(groupBox_5);
         label_43->setObjectName(QStringLiteral("label_43"));
         label_43->setGeometry(QRect(280, 30, 271, 71));
-        label_43->setFont(font6);
+        label_43->setFont(font7);
         label_43->setStyleSheet(QStringLiteral("color:blue;"));
         label_44 = new QLabel(groupBox_5);
         label_44->setObjectName(QStringLiteral("label_44"));
         label_44->setGeometry(QRect(220, 410, 400, 41));
-        QFont font7;
-        font7.setPointSize(18);
-        label_44->setFont(font7);
+        QFont font8;
+        font8.setPointSize(18);
+        label_44->setFont(font8);
         label_44->setStyleSheet(QStringLiteral("color:blue;"));
         stackedWidget->addWidget(cardid);
         stackedWidget->raise();
@@ -5904,7 +5905,6 @@ public:
         label->setText(QString());
         label_23->setText(QApplication::translate("Dialog", "Check in details your clock in statistics per week", Q_NULLPTR));
         hihi_2->setText(QApplication::translate("Dialog", "m", Q_NULLPTR));
-        label_20->setText(QApplication::translate("Dialog", "STATS XD", Q_NULLPTR));
         label_18->setText(QApplication::translate("Dialog", "MOST WATCHED", Q_NULLPTR));
         label_21->setText(QApplication::translate("Dialog", "      See Details", Q_NULLPTR));
         label_19->setText(QApplication::translate("Dialog", "Check in details the statistics per month", Q_NULLPTR));
@@ -5914,14 +5914,26 @@ public:
         label_32->setText(QApplication::translate("Dialog", "4", Q_NULLPTR));
         hihi_4->setText(QApplication::translate("Dialog", "l", Q_NULLPTR));
         hihi_3->setText(QApplication::translate("Dialog", "m", Q_NULLPTR));
-        label_25->setText(QApplication::translate("Dialog", "calendar idk", Q_NULLPTR));
-        label_26->setText(QApplication::translate("Dialog", "clock idk", Q_NULLPTR));
-        label_33->setText(QApplication::translate("Dialog", "money per month? idfk", Q_NULLPTR));
         series->setTitle(QString());
         label_31->setText(QString());
         label_29->setText(QString());
         label_30->setText(QString());
         label_28->setText(QString());
+        textEdit_4->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:30pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:10px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';\"><br /></p></body></html>", Q_NULLPTR));
+        textEdit_5->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:30pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:10px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';\"><br /></p></body></html>", Q_NULLPTR));
+        textEdit_6->setHtml(QApplication::translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:30pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:10px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';\"><br /></p></body></html>", Q_NULLPTR));
         label_35->setText(QApplication::translate("Dialog", "VE", Q_NULLPTR));
         label_34->setText(QApplication::translate("Dialog", "WATCH", Q_NULLPTR));
         label_36->setText(QApplication::translate("Dialog", "Employers", Q_NULLPTR));

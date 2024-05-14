@@ -139,6 +139,30 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     connect(timer, &QTimer::timeout, this, &Dialog::refreshCalendar);
     timer->start(10000);
     safe=0;
+    QSqlQuery query;
+    query.exec("select count(*) from employe ");
+   query.next();
+   ui->textEdit_4->append("<p style='margin=5px;'>  Number Of Employees :</p>");
+
+   ui->textEdit_4->setAlignment(Qt::AlignCenter);
+   ui->textEdit_4->append("<b><font size=64>"+query.value(0).toString()+"</font></b>");
+   ui->textEdit_4->setAlignment(Qt::AlignCenter);
+
+   query.exec("select count(*) from TRANSACTION ");
+  query.next();
+  ui->textEdit_5->append("<p style='margin=5px;'>  Number Of transactions :</p>");
+
+  ui->textEdit_5->setAlignment(Qt::AlignCenter);
+  ui->textEdit_5->append("<b><font size=64>"+query.value(0).toString()+"</font></b>");
+  ui->textEdit_5->setAlignment(Qt::AlignCenter);
+
+  query.exec("select count(*) from Salle ");
+ query.next();
+ ui->textEdit_6->append("<p style='margin=5px;'>  Number Of reservations :</p>");
+
+ ui->textEdit_6->setAlignment(Qt::AlignCenter);
+ ui->textEdit_6->append("<b><font size=64>"+query.value(0).toString()+"</font></b>");
+ ui->textEdit_6->setAlignment(Qt::AlignCenter);
 
 }
 
@@ -149,12 +173,13 @@ ui->chartContainer->setLayout(new QHBoxLayout);
 void Dialog::pfp(int id)
 {
     QSqlQuery queury;
-    queury.prepare("SELECT PHOTO FROM EMPLOYE where IDE =:ide");
+    queury.prepare("SELECT USERNAME,PHOTO FROM EMPLOYE where IDE =:ide");
     queury.bindValue(":ide",id);
     queury.exec();
     queury.next();
+    ui->label_22->setText("WELCOME"+queury.value(0).toString());
     QPixmap pixmap;
-    pixmap.loadFromData(queury.value(0).toByteArray());
+    pixmap.loadFromData(queury.value(1).toByteArray());
     QSize buttonSize = ui->hihi->size();
     QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
     ui->hihi->setVisible(false);
@@ -569,6 +594,37 @@ void Dialog::on_hihi_6_clicked()//home
         ui->gg_2->setVisible(true);
         ui->label_47->setVisible(true);
         ui->label_48->setVisible(true);
+        ui->textEdit_4->clear();
+        ui->textEdit_5->clear();
+        ui->textEdit_6->clear();
+        QSqlQuery query;
+        query.exec("select count(*) from employe ");
+       query.next();
+       ui->textEdit_4->append("<p style='margin=5px;'>  Number Of Employees :</p>");
+
+       ui->textEdit_4->setAlignment(Qt::AlignCenter);
+       ui->textEdit_4->append("<b><font size=64>"+query.value(0).toString()+"</font></b>");
+       ui->textEdit_4->setAlignment(Qt::AlignCenter);
+
+       query.exec("select count(*) from TRANSACTION ");
+      query.next();
+      ui->textEdit_5->append("<p style='margin=5px;'>  Number Of transactions :</p>");
+
+      ui->textEdit_5->setAlignment(Qt::AlignCenter);
+      ui->textEdit_5->append("<b><font size=64>"+query.value(0).toString()+"</font></b>");
+      ui->textEdit_5->setAlignment(Qt::AlignCenter);
+
+      query.exec("select count(*) from Salle ");
+     query.next();
+     ui->textEdit_6->append("<p style='margin=5px;'>  Number Of reservations :</p>");
+
+     ui->textEdit_6->setAlignment(Qt::AlignCenter);
+     ui->textEdit_6->append("<b><font size=64>"+query.value(0).toString()+"</font></b>");
+     ui->textEdit_6->setAlignment(Qt::AlignCenter);
+
+
+
+
 }
 void Dialog::confirm_access()
 {
@@ -4072,7 +4128,6 @@ void Dialog::on_hihi_10tr_4_clicked()//stats trans
                  ui->groupBox_3->layout()->removeWidget(view);
             });
 }
-
 
 
 
