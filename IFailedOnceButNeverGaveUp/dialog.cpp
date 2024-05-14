@@ -139,7 +139,34 @@ ui->chartContainer->setLayout(new QHBoxLayout);
     connect(timer, &QTimer::timeout, this, &Dialog::refreshCalendar);
     timer->start(10000);
     safe=0;
-    }
+
+}
+
+
+
+
+
+void Dialog::pfp(int id)
+{
+    QSqlQuery queury;
+    queury.prepare("SELECT PHOTO FROM EMPLOYE where IDE =:ide");
+    queury.bindValue(":ide",id);
+    queury.exec();
+    queury.next();
+    QPixmap pixmap;
+    pixmap.loadFromData(queury.value(0).toByteArray());
+    QSize buttonSize = ui->hihi->size();
+    QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+    ui->hihi->setVisible(false);
+
+
+    ui->label_51->setPixmap(scaledPixmap);
+
+    ui->label_51->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+    ui->label_51->setScaledContents(true);
+
+
+}
 
 void Dialog::read()
 {
@@ -3561,21 +3588,65 @@ void Dialog::displayChannelImages()
         QPixmap pixmap;
         pixmap.loadFromData(imageData);
 
-        QString buttonName = QString("buttonM%1").arg(buttonIndex);
-        QPushButton* button = findChild<QPushButton*>(buttonName);
+        QSize buttonSize;
+        QPixmap scaledPixmap;
+        switch(buttonIndex)
+        {
+        case 1:
+            buttonSize = ui->buttonM1->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
 
-        if (button) {
 
-            QSize buttonSize = button->size();
-            QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+            ui->buttonM1->setPixmap(scaledPixmap);
+
+            ui->buttonM1->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+            ui->buttonM1->setScaledContents(true);
+
+            ui->buttonM1->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+        break;
+        case 2:
+            buttonSize = ui->buttonM2->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
 
 
-            button->setIcon(QIcon(scaledPixmap));
-            button->setIconSize(buttonSize);
+
+            ui->buttonM2->setPixmap(scaledPixmap);
+            ui->buttonM2->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+
+            ui->buttonM2->setScaledContents(true);
+            ui->buttonM2->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+        break;
+        case 3:
+            buttonSize = ui->buttonM3->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+
+            ui->buttonM3->setPixmap(scaledPixmap);
+            ui->buttonM3->setScaledContents(true);
+            ui->buttonM3->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+        break;
+        case 4:
+            buttonSize = ui->buttonM4->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+
+            ui->buttonM4->setPixmap(scaledPixmap);
+            ui->buttonM4->setScaledContents(true);
+            ui->buttonM4->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+        break;
+
         }
-
         buttonIndex++;
     }
+
 }
 void Dialog::displayRadioImages()
 {
@@ -3583,34 +3654,74 @@ void Dialog::displayRadioImages()
     QSqlQuery query;
     query.prepare("SELECT IMAGE FROM MEDIA WHERE TYPE = 'Radio'");
     if (!query.exec()) {
-        QMessageBox::critical(nullptr, "Error", "Error retrieving Radio images from database.");
+        QMessageBox::critical(nullptr, "Error", "Error retrieving channel images from database.");
         return;
     }
 
     int buttonIndex = 1;
 
     while (query.next()) {
-        QByteArray imageData = query.value(0).toByteArray(); // Récupérer l'image en tant que QByteArray
+        QByteArray imageData = query.value(0).toByteArray();
 
-        // Convertir le QByteArray en QPixmap pour l'afficher dans le QPushButton correspondant
+
         QPixmap pixmap;
         pixmap.loadFromData(imageData);
 
-        // Trouver le nom du QPushButton correspondant
-        QString buttonName = QString("buttonMR%1").arg(buttonIndex);
-        QPushButton* button = findChild<QPushButton*>(buttonName);
+        QSize buttonSize;
+        QPixmap scaledPixmap;
+        switch(buttonIndex)
+        {
+        case 1:
+            buttonSize = ui->button1_1->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
 
-        if (button) {
-            // Redimensionner l'image pour s'adapter au QPushButton si nécessaire
-            QSize buttonSize = button->size();
-            QPixmap scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
 
-            // Afficher l'image dans le QPushButton
-            button->setIcon(QIcon(scaledPixmap));
-            button->setIconSize(buttonSize);
+            ui->button1_1->setPixmap(scaledPixmap);
+            ui->button1_1->setScaledContents(true);
+            ui->button1_1->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+
+
+        break;
+        case 2:
+            buttonSize = ui->button1_2->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+
+            ui->button1_2->setPixmap(scaledPixmap);
+
+            ui->button1_2->setScaledContents(true);
+            ui->button1_2->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+        break;
+        case 3:
+            buttonSize = ui->button1_3->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+
+            ui->button1_3->setPixmap(scaledPixmap);
+            ui->button1_3->setScaledContents(true);
+            ui->button1_3->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+        break;
+        case 4:
+            buttonSize = ui->button1_4->size();
+            scaledPixmap = pixmap.scaled(buttonSize, Qt::KeepAspectRatio);
+
+
+            ui->button1_4->setPixmap(scaledPixmap);
+
+            ui->button1_4->setScaledContents(true);
+            ui->button1_4->setStyleSheet("background-color:rgba(100,100,100,100);"
+                                         "border:20px solid black;"
+                                         "border-radius:50px;");
+        break;
+
         }
-
-        buttonIndex++; // Passer au QPushButton suivant
+        buttonIndex++;
     }
 }
 
@@ -4463,6 +4574,10 @@ void Dialog::on_pushButton_3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(25);
     ui->textEdit->setVisible(true);
+    ui->label_48->setVisible(true);
+    ui->label_47->setVisible(true);
+    ui->gg_2->setVisible(true);
+    ui->gg_5->setVisible(true);
 }
 void Dialog::onTypingTimerTimeout()
 {

@@ -51,7 +51,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>D:/JUST ANOTHER W.png</normaloff>D:/JUST ANOTHER W.png</iconset>
+    <normaloff>logo.png</normaloff>logo.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>0.980000000000000</double>

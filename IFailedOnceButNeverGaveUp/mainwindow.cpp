@@ -72,7 +72,6 @@ MainWindow::~MainWindow()
 }
 void MainWindow::confirm_accesss()
 {
-    QString Role;
     QSqlQuery query;
     QString fingerprintData;
     QByteArray data = A.read_from_arduino();
@@ -83,7 +82,7 @@ void MainWindow::confirm_accesss()
         qDebug() << "Fingerprint data received:" << fingerprintData;
     }
 
-    query.prepare("SELECT empreinte FROM EMPLOYE WHERE empreinte = :empreinte");
+    query.prepare("SELECT IDE ,type ,empreinte FROM EMPLOYE WHERE empreinte = :empreinte");
     query.bindValue(":empreinte", fingerprintData);
     query.exec();
 
@@ -109,8 +108,11 @@ void MainWindow::confirm_accesss()
 
         // Assuming Role is determined elsewhere
         Dialog *dialog = new Dialog();
-        dialog->Role= Role;
-        dialog->trait(Role);
+        dialog->Role= query.value(1).toString();
+        dialog->id=query.value(0).toInt();
+
+        dialog->pfp(dialog->id);
+        dialog->trait(dialog->Role);
         dialog->exec();
     }
     else
@@ -206,6 +208,8 @@ void MainWindow::on_ok_13_clicked()
         Dialog *dialog = new Dialog();
         dialog->Role=Role;
         dialog->id=id;
+
+        dialog->pfp(dialog->id);
         dialog->trait(Role);
         dialog->exec();
     }

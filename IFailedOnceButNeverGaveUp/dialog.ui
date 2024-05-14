@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../Downloads/jjjjjj.png</normaloff>../../../Downloads/jjjjjj.png</iconset>
+    <normaloff>logo.png</normaloff>logo.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color:rgba(0,0,0,255);
@@ -636,7 +636,6 @@ border-radius:0px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton#hihi{
-border-radius:30px;
 border-image:url(&quot;plink.gif&quot;);
 }</string>
     </property>
@@ -973,6 +972,41 @@ border-radius:12px;
      </property>
     </item>
    </widget>
+   <widget class="QLabel" name="label_51">
+    <property name="geometry">
+     <rect>
+      <x>1710</x>
+      <y>10</y>
+      <width>60</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_42">
+    <property name="geometry">
+     <rect>
+      <x>1700</x>
+      <y>0</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(100,100,100,0);
+border:10px solid black;
+padding:20px;
+border-radius:35px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>textEdit</zorder>
    <zorder>label_15</zorder>
    <zorder>label_48</zorder>
@@ -984,6 +1018,8 @@ border-radius:12px;
    <zorder>comboBoxM_2</zorder>
    <zorder>comboBoxM</zorder>
    <zorder>comboBoxM_3</zorder>
+   <zorder>label_51</zorder>
+   <zorder>label_42</zorder>
   </widget>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
@@ -6934,6 +6970,98 @@ border-radius:30px;
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QLabel" name="buttonM4_6">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="buttonM4_7">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="buttonM4_8">
+     <property name="geometry">
+      <rect>
+       <x>990</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="buttonM4_9">
+     <property name="geometry">
+      <rect>
+       <x>1430</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
     <zorder>label_16M</zorder>
     <zorder>tvM</zorder>
     <zorder>listM</zorder>
@@ -6945,6 +7073,10 @@ border-radius:30px;
     <zorder>buttonM2</zorder>
     <zorder>buttonM3</zorder>
     <zorder>buttonM4</zorder>
+    <zorder>buttonM4_6</zorder>
+    <zorder>buttonM4_7</zorder>
+    <zorder>buttonM4_8</zorder>
+    <zorder>buttonM4_9</zorder>
    </widget>
    <widget class="QWidget" name="addchannel">
     <property name="styleSheet">
@@ -10809,38 +10941,6 @@ border:transparent;}
       <string> Channels TV</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="button1_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>640</y>
-       <width>341</width>
-       <height>281</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="button2_2">
-     <property name="geometry">
-      <rect>
-       <x>580</x>
-       <y>620</y>
-       <width>341</width>
-       <height>281</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">	border-image:url(vactions.png);
-	border: transparent;
-    border-radius: 16px;
-background-color:transparent</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_16M_2">
      <property name="geometry">
       <rect>
@@ -10907,13 +11007,193 @@ border:transparent;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../ESPRIT/IFailedOnceButNeverGaveUp/vewatch.png</pixmap>
+      <pixmap>vewatch.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>false</bool>
      </property>
      <property name="wordWrap">
       <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="button1_1">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="button1_2">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="button1_3">
+     <property name="geometry">
+      <rect>
+       <x>1020</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="button1_4">
+     <property name="geometry">
+      <rect>
+       <x>1460</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="buttonM4_10">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="buttonM4_11">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="buttonM4_12">
+     <property name="geometry">
+      <rect>
+       <x>1020</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="buttonM4_13">
+     <property name="geometry">
+      <rect>
+       <x>1460</x>
+       <y>630</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(100,100,100,0);
+border:20px solid black;
+border-radius:30px;
+
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>

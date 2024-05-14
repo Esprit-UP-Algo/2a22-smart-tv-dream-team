@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\omarr\\OneDrive\\Desktop\\New folder (7)\\IFailedOnceButNeverGaveUp\\myappico.ico"
+IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\omarr\\OneDrive\\Desktop\\New folder (9)\\IFailedOnceButNeverGaveUp\\myappico.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0

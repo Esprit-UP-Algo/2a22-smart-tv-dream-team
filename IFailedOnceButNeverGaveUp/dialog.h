@@ -66,6 +66,8 @@ public:
     void checkReservationDates();
     void updateChartMedia();
     void afficherGifDansLabel();
+
+    void pfp(int id);
     Arduino A; // objet temporaire
 
     QString s;

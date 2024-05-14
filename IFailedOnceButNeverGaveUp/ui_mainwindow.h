@@ -81,7 +81,7 @@ public:
         MainWindow->setFocusPolicy(Qt::ClickFocus);
         MainWindow->setContextMenuPolicy(Qt::NoContextMenu);
         QIcon icon;
-        icon.addFile(QStringLiteral("D:/JUST ANOTHER W.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         MainWindow->setWindowOpacity(0.98);
         MainWindow->setAutoFillBackground(false);

@@ -62,6 +62,8 @@ public:
     QComboBox *comboBoxM_2;
     QComboBox *comboBoxM;
     QComboBox *comboBoxM_3;
+    QLabel *label_51;
+    QLabel *label_42;
     QStackedWidget *stackedWidget;
     QWidget *home;
     QLabel *label_22;
@@ -300,6 +302,10 @@ public:
     QLabel *buttonM2;
     QLabel *buttonM3;
     QLabel *buttonM4;
+    QLabel *buttonM4_6;
+    QLabel *buttonM4_7;
+    QLabel *buttonM4_8;
+    QLabel *buttonM4_9;
     QWidget *addchannel;
     QLabel *label_13M;
     QLineEdit *IDM;
@@ -469,11 +475,17 @@ public:
     QPushButton *statisticsM_2;
     QPushButton *listM_2;
     QPushButton *tvM_2;
-    QPushButton *button1_2;
-    QPushButton *button2_2;
     QLabel *label_16M_2;
     QPushButton *radioM_2;
     QLabel *gifLabel;
+    QLabel *button1_1;
+    QLabel *button1_2;
+    QLabel *button1_3;
+    QLabel *button1_4;
+    QLabel *buttonM4_10;
+    QLabel *buttonM4_11;
+    QLabel *buttonM4_12;
+    QLabel *buttonM4_13;
     QWidget *cardid;
     QGroupBox *groupBox_4;
     QGroupBox *groupBox_5;
@@ -486,7 +498,7 @@ public:
             Dialog->setObjectName(QStringLiteral("Dialog"));
         Dialog->resize(1920, 1080);
         QIcon icon;
-        icon.addFile(QStringLiteral("../../../Downloads/jjjjjj.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         Dialog->setWindowIcon(icon);
         Dialog->setStyleSheet(QLatin1String("background-color:rgba(0,0,0,255);\n"
 "color:rgba(255,255,255,150);\n"
@@ -786,7 +798,6 @@ public:
         hihi->setToolTipDuration(1);
         hihi->setAutoFillBackground(false);
         hihi->setStyleSheet(QLatin1String("QPushButton#hihi{\n"
-"border-radius:30px;\n"
 "border-image:url(\"plink.gif\");\n"
 "}"));
         hihi->setIconSize(QSize(40, 40));
@@ -981,6 +992,17 @@ public:
 "}\n"
 "\n"
 ""));
+        label_51 = new QLabel(searchBar);
+        label_51->setObjectName(QStringLiteral("label_51"));
+        label_51->setGeometry(QRect(1710, 10, 60, 60));
+        label_51->setStyleSheet(QStringLiteral(""));
+        label_42 = new QLabel(searchBar);
+        label_42->setObjectName(QStringLiteral("label_42"));
+        label_42->setGeometry(QRect(1700, 0, 80, 80));
+        label_42->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:10px solid black;\n"
+"padding:20px;\n"
+"border-radius:35px;"));
         textEdit->raise();
         label_15->raise();
         label_48->raise();
@@ -992,6 +1014,8 @@ public:
         comboBoxM_2->raise();
         comboBoxM->raise();
         comboBoxM_3->raise();
+        label_51->raise();
+        label_42->raise();
         stackedWidget = new QStackedWidget(Dialog);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, 0, 1920, 1080));
@@ -3767,6 +3791,42 @@ public:
 "\n"
 ""));
         buttonM4->setAlignment(Qt::AlignCenter);
+        buttonM4_6 = new QLabel(Channel);
+        buttonM4_6->setObjectName(QStringLiteral("buttonM4_6"));
+        buttonM4_6->setGeometry(QRect(110, 630, 341, 331));
+        buttonM4_6->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_6->setAlignment(Qt::AlignCenter);
+        buttonM4_7 = new QLabel(Channel);
+        buttonM4_7->setObjectName(QStringLiteral("buttonM4_7"));
+        buttonM4_7->setGeometry(QRect(560, 630, 341, 331));
+        buttonM4_7->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_7->setAlignment(Qt::AlignCenter);
+        buttonM4_8 = new QLabel(Channel);
+        buttonM4_8->setObjectName(QStringLiteral("buttonM4_8"));
+        buttonM4_8->setGeometry(QRect(990, 630, 341, 331));
+        buttonM4_8->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_8->setAlignment(Qt::AlignCenter);
+        buttonM4_9 = new QLabel(Channel);
+        buttonM4_9->setObjectName(QStringLiteral("buttonM4_9"));
+        buttonM4_9->setGeometry(QRect(1430, 630, 341, 331));
+        buttonM4_9->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_9->setAlignment(Qt::AlignCenter);
         stackedWidget->addWidget(Channel);
         label_16M->raise();
         tvM->raise();
@@ -3779,6 +3839,10 @@ public:
         buttonM2->raise();
         buttonM3->raise();
         buttonM4->raise();
+        buttonM4_6->raise();
+        buttonM4_7->raise();
+        buttonM4_8->raise();
+        buttonM4_9->raise();
         addchannel = new QWidget();
         addchannel->setObjectName(QStringLiteral("addchannel"));
         addchannel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0.426227, y1:0, x2:0.625, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(49, 21, 78, 255));"));
@@ -5643,16 +5707,6 @@ public:
 "   text-decoration: underline;\n"
 "}\n"
 ""));
-        button1_2 = new QPushButton(Radio);
-        button1_2->setObjectName(QStringLiteral("button1_2"));
-        button1_2->setGeometry(QRect(170, 640, 341, 281));
-        button2_2 = new QPushButton(Radio);
-        button2_2->setObjectName(QStringLiteral("button2_2"));
-        button2_2->setGeometry(QRect(580, 620, 341, 281));
-        button2_2->setStyleSheet(QLatin1String("	border-image:url(vactions.png);\n"
-"	border: transparent;\n"
-"    border-radius: 16px;\n"
-"background-color:transparent"));
         label_16M_2 = new QLabel(Radio);
         label_16M_2->setObjectName(QStringLiteral("label_16M_2"));
         label_16M_2->setGeometry(QRect(110, 580, 171, 51));
@@ -5683,9 +5737,77 @@ public:
         gifLabel->setObjectName(QStringLiteral("gifLabel"));
         gifLabel->setGeometry(QRect(100, 200, 1931, 371));
         gifLabel->setStyleSheet(QStringLiteral(""));
-        gifLabel->setPixmap(QPixmap(QString::fromUtf8("../../ESPRIT/IFailedOnceButNeverGaveUp/vewatch.png")));
+        gifLabel->setPixmap(QPixmap(QString::fromUtf8("vewatch.png")));
         gifLabel->setScaledContents(false);
         gifLabel->setWordWrap(false);
+        button1_1 = new QLabel(Radio);
+        button1_1->setObjectName(QStringLiteral("button1_1"));
+        button1_1->setGeometry(QRect(160, 630, 341, 331));
+        button1_1->setStyleSheet(QLatin1String("background-color: black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        button1_1->setAlignment(Qt::AlignCenter);
+        button1_2 = new QLabel(Radio);
+        button1_2->setObjectName(QStringLiteral("button1_2"));
+        button1_2->setGeometry(QRect(580, 630, 341, 331));
+        button1_2->setStyleSheet(QLatin1String("background-color: black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        button1_2->setAlignment(Qt::AlignCenter);
+        button1_3 = new QLabel(Radio);
+        button1_3->setObjectName(QStringLiteral("button1_3"));
+        button1_3->setGeometry(QRect(1020, 630, 341, 331));
+        button1_3->setStyleSheet(QLatin1String("background-color: black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        button1_3->setAlignment(Qt::AlignCenter);
+        button1_4 = new QLabel(Radio);
+        button1_4->setObjectName(QStringLiteral("button1_4"));
+        button1_4->setGeometry(QRect(1460, 630, 341, 331));
+        button1_4->setStyleSheet(QLatin1String("background-color: black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        button1_4->setAlignment(Qt::AlignCenter);
+        buttonM4_10 = new QLabel(Radio);
+        buttonM4_10->setObjectName(QStringLiteral("buttonM4_10"));
+        buttonM4_10->setGeometry(QRect(160, 630, 341, 331));
+        buttonM4_10->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_10->setAlignment(Qt::AlignCenter);
+        buttonM4_11 = new QLabel(Radio);
+        buttonM4_11->setObjectName(QStringLiteral("buttonM4_11"));
+        buttonM4_11->setGeometry(QRect(580, 630, 341, 331));
+        buttonM4_11->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_11->setAlignment(Qt::AlignCenter);
+        buttonM4_12 = new QLabel(Radio);
+        buttonM4_12->setObjectName(QStringLiteral("buttonM4_12"));
+        buttonM4_12->setGeometry(QRect(1020, 630, 341, 331));
+        buttonM4_12->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_12->setAlignment(Qt::AlignCenter);
+        buttonM4_13 = new QLabel(Radio);
+        buttonM4_13->setObjectName(QStringLiteral("buttonM4_13"));
+        buttonM4_13->setGeometry(QRect(1460, 630, 341, 331));
+        buttonM4_13->setStyleSheet(QLatin1String("background-color:rgba(100,100,100,0);\n"
+"border:20px solid black;\n"
+"border-radius:30px;\n"
+"\n"
+""));
+        buttonM4_13->setAlignment(Qt::AlignCenter);
         stackedWidget->addWidget(Radio);
         cardid = new QWidget();
         cardid->setObjectName(QStringLiteral("cardid"));
@@ -5776,6 +5898,8 @@ public:
          << QApplication::translate("Dialog", "recently added", Q_NULLPTR)
          << QApplication::translate("Dialog", "oldest", Q_NULLPTR)
         );
+        label_51->setText(QString());
+        label_42->setText(QString());
         label_22->setText(QApplication::translate("Dialog", "WELCOME USER,", Q_NULLPTR));
         label->setText(QString());
         label_23->setText(QApplication::translate("Dialog", "Check in details your clock in statistics per week", Q_NULLPTR));
@@ -6004,6 +6128,10 @@ public:
         buttonM2->setText(QString());
         buttonM3->setText(QString());
         buttonM4->setText(QString());
+        buttonM4_6->setText(QString());
+        buttonM4_7->setText(QString());
+        buttonM4_8->setText(QString());
+        buttonM4_9->setText(QString());
         label_13M->setText(QString());
         radioButtonM->setText(QApplication::translate("Dialog", "Radio", Q_NULLPTR));
         addButtonM->setText(QApplication::translate("Dialog", "Add", Q_NULLPTR));
@@ -6187,11 +6315,17 @@ public:
         statisticsM_2->setText(QApplication::translate("Dialog", "statistics", Q_NULLPTR));
         listM_2->setText(QApplication::translate("Dialog", "list", Q_NULLPTR));
         tvM_2->setText(QApplication::translate("Dialog", " Channels TV", Q_NULLPTR));
-        button1_2->setText(QString());
-        button2_2->setText(QString());
         label_16M_2->setText(QApplication::translate("Dialog", "Brands:", Q_NULLPTR));
         radioM_2->setText(QApplication::translate("Dialog", " Radio", Q_NULLPTR));
         gifLabel->setText(QString());
+        button1_1->setText(QString());
+        button1_2->setText(QString());
+        button1_3->setText(QString());
+        button1_4->setText(QString());
+        buttonM4_10->setText(QString());
+        buttonM4_11->setText(QString());
+        buttonM4_12->setText(QString());
+        buttonM4_13->setText(QString());
         groupBox_4->setTitle(QString());
         groupBox_5->setTitle(QString());
         label_43->setText(QApplication::translate("Dialog", "please scan your card", Q_NULLPTR));

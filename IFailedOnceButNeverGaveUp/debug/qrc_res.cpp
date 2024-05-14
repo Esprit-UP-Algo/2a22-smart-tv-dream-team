@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 static const unsigned char qt_resource_data[] = {
-  // C:/Users/omarr/OneDrive/Desktop/New folder (7)/IFailedOnceButNeverGaveUp/myappico.png
+  // C:/Users/omarr/OneDrive/Desktop/New folder (9)/IFailedOnceButNeverGaveUp/myappico.png
   0x0,0x0,0x2e,0x2,
   0x89,
   0x50,0x4e,0x47,0xd,0xa,0x1a,0xa,0x0,0x0,0x0,0xd,0x49,0x48,0x44,0x52,0x0,

@@ -3,8 +3,8 @@
 #include <DFRobotDFPlayerMini.h>
 
 // Utilisez les broches 2 et 3 pour communiquer avec le DFPlayer Mini
-static const uint8_t PIN_MP3_TX = 6; // Connecté au RX du module
-static const uint8_t PIN_MP3_RX = 7; // Connecté au TX du module
+static const uint8_t PIN_MP3_TX = 7; // Connecté au RX du module
+static const uint8_t PIN_MP3_RX = 6; // Connecté au TX du module
 SoftwareSerial softwareSerial(PIN_MP3_RX, PIN_MP3_TX);
 
 // Créez l'objet Player
@@ -37,6 +37,7 @@ mySerial.write(0x22);
 }
 
 void loop() {
+   //player.play(1);
   // Vérifie s'il y a des données disponibles à lire depuis le port série
   if (Serial.available() > 0) {
     // Lit la commande envoyée depuis l'ordinateur
