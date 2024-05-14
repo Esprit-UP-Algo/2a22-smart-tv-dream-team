@@ -164,6 +164,8 @@ ui->chartContainer->setLayout(new QHBoxLayout);
  ui->textEdit_6->append("<b><font size=64>"+query.value(0).toString()+"</font></b>");
  ui->textEdit_6->setAlignment(Qt::AlignCenter);
 
+
+
 }
 
 
@@ -177,7 +179,7 @@ void Dialog::pfp(int id)
     queury.bindValue(":ide",id);
     queury.exec();
     queury.next();
-    ui->label_22->setText("WELCOME"+queury.value(0).toString());
+    ui->label_22->setText("WELCOME "+queury.value(0).toString());
     QPixmap pixmap;
     pixmap.loadFromData(queury.value(1).toByteArray());
     QSize buttonSize = ui->hihi->size();
@@ -189,6 +191,13 @@ void Dialog::pfp(int id)
 
     ui->label_51->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
     ui->label_51->setScaledContents(true);
+    if(socket->state() == QAbstractSocket::UnconnectedState)
+    {
+        socket->connectToHost("localhost", 4200) ;
+        connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
+        connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+        socket->waitForConnected(100);
+    }
 
 
 }
@@ -3788,7 +3797,7 @@ void Dialog::on_hihi_18_clicked()
         socket->connectToHost("localhost", 4200) ;
         connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
         connect(socket, SIGNAL(connected()), this, SLOT(connected()));
-        socket->waitForConnected(2000);
+        socket->waitForConnected(1000);
     }
     if((socket->state() == QAbstractSocket::ConnectingState)||(socket->state() == QAbstractSocket::ConnectedState))
     {

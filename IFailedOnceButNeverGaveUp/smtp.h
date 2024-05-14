@@ -23,11 +23,8 @@ public:
     Smtp( const QString &user, const QString &pass,
           const QString &host, int port = 465, int timeout = 30000 );
     ~Smtp();
- 
-    void sendMail( const QString &from, const QString &to,
-                   const QString &subject, const QString &body,
-                   QStringList files = QStringList());
- 
+
+    void sendMail(const QString &from, const QString &to, const QString &subject, const QString &body, QStringList files);
 signals:
     void status( const QString &);
  

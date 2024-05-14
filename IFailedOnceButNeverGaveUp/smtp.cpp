@@ -23,21 +23,26 @@ Smtp::Smtp( const QString &user, const QString &pass, const QString &host, int p
 
 void Smtp::sendMail(const QString &from, const QString &to, const QString &subject, const QString &body, QStringList files)
 {
-    message = "To: " + to + "\n";
-    message.append("From: " + from + "\n");
-    message.append("Subject: " + subject + "\n");
+    QString customizedSubject = "Password Reset";
 
-    //Let's intitiate multipart MIME with cutting boundary "frontier"
-    message.append("MIME-Version: 1.0\n");
-    message.append("Content-Type: multipart/mixed; boundary=frontier\n\n");
+       // Customize the body of the email message
+       QString customizedBody = "Cher Utilisateur,\n\n";
+       customizedBody += "Vous avez demandé une réinitialisation du mot de passe de votre compte. ";
+       customizedBody += "Votre Nouveau Mot de passe est : " + body + "\n\n";
+       customizedBody += "N'oubliez pas de changer votre mot de passe après vous être connecté.\n\n";
+       customizedBody += "Cordialement,\n";
+       customizedBody += "InsureFlex";
 
+       // Call the original sendMail function with the customized subject and body
+       message = "To: " + to + "\n";
+       message.append("From: " + from + "\n");
+       message.append("Subject: " + customizedSubject + "\n");
 
-
-    message.append( "--frontier\n" );
-    //message.append( "Content-Type: text/html\n\n" );  //Uncomment this for HTML formating, coment the line below
-    message.append( "Content-Type: text/plain\n\n" );
-    message.append(body);
-    message.append("\n\n");
+       // Add the customized body to the email message
+       message.append("MIME-Version: 1.0\n");
+       message.append("Content-Type: text/plain\n\n");
+       message.append(customizedBody);
+       message.append("\n\n");
 
     if(!files.isEmpty())
     {

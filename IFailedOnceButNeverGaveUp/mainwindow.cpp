@@ -141,11 +141,11 @@ void MainWindow::sendMail()
         qDebug()<<smtp;
         connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString,*smtp)));
 
-        if( !files.isEmpty() )
-            smtp->sendMail(ui->uname->text(), ui->email->text() , ui->subject->text(),pas, files );
-        else
+        //if( !files.isEmpty() )
+        smtp->sendMail(ui->uname->text(), ui->email->text() , ui->subject->text(),pas, files );
+        /*else
             smtp->sendMail(ui->uname->text(), ui->email->text() , ui->subject->text(),pas);
-
+*/
 
     }
 }
